@@ -6,7 +6,7 @@ package database;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.*;
+import java.sql.Statement;
 
 /**
  *
@@ -29,7 +29,7 @@ public class MySqlConnector implements Db{
 
             String password = "2065";
 
-            String database = "shop";
+            String database = "database";
 
             Connection connection;
 
@@ -58,7 +58,7 @@ public class MySqlConnector implements Db{
             return null;
 
         }
-
+       
     }
 
     
@@ -117,11 +117,15 @@ public class MySqlConnector implements Db{
 
     }
 
-
-
+    /**
+     *
+     * @param conn
+     * @param query
+     * @return
+     */
     @Override
 
-    public int excecuteUpdate(Connection conn, String query) {
+    public int executeUpdate(Connection conn, String query) {
 
       try{
 
