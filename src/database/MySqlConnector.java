@@ -29,7 +29,7 @@ public class MySqlConnector implements Db{
 
             String password = "2065";
 
-            String database = "database";
+            String database = "PetAdoptionSystem";
 
             Connection connection;
 
