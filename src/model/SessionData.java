@@ -8,6 +8,6 @@ package model;
  *
  * @author Dell
  */
-public class mod {
+public class SessionData {
     
 }
