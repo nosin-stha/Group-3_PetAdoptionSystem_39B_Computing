@@ -4,6 +4,11 @@
  */
 package group3petadoptionsystem;
 
+
+import database.Db;
+import database.MySqlConnector;
+import java.sql.Connection;
+
 /**
  *
  * @author Dell
@@ -15,6 +20,12 @@ public class Group3PetAdoptionSystem {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Db database = new MySqlConnector();
+        Connection result = database.openConnection();
+        if(result == null){
+            System.out.println("Not conenction");
+        }else{
+            System.out.println("connected");
+        }  
     }
-    
 }
