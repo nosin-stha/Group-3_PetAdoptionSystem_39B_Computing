@@ -202,9 +202,9 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="PetBreed" pref="194" max="32767" attributes="0"/>
                           <Component id="PetGender" max="32767" attributes="0"/>
-                          <Component id="PetAge" max="32767" attributes="0"/>
+                          <Component id="PetAge" pref="194" max="32767" attributes="0"/>
+                          <Component id="PetBreed" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
