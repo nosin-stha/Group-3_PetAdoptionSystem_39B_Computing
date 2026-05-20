@@ -6,11 +6,8 @@ package model;
 
 /**
  *
- * @author Dell
+ * @author OMEN
  */
-public class SessionData {
-    public static String username;
-    public static String password;
-    public static String email;
-    public static String role;
+public class PetsData {
+    
 }

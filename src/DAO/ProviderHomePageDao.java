@@ -6,8 +6,8 @@ package DAO;
 
 /**
  *
- * @author Dell
+ * @author OMEN
  */
-public class dao {
+public class ProviderHomePageDao {
     
 }
