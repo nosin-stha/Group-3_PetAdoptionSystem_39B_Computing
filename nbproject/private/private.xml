@@ -3,13 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/AdopterHomePage.java</file>
-            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/ProviderHomePage.java</file>
             <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/Images/imgs.java</file>
-            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/PetPanel.java</file>
-            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/PetDisplay.java</file>
-            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/SignUp.java</file>
-            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/First.java</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/ProviderExtraWindow.java</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/Login.java</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/group3petadoptionsystem/Group3PetAdoptionSystem.java</file>
         </group>
     </open-files>
 </project-private>
