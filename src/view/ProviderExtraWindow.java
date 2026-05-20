@@ -56,7 +56,7 @@ public class ProviderExtraWindow extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 102));
+        jPanel1.setBackground(new java.awt.Color(255, 153, 0));
 
         LblSignUp.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
         LblSignUp.setText("Sign Up");

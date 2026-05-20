@@ -6,13 +6,14 @@
             <file>file:/C:/Users/KCC/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/Login.java</file>
             <file>file:/C:/Users/KCC/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/SignupWindow.java</file>
             <file>file:/C:/Users/KCC/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/OTPWindow.java</file>
-            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/AdopterHomePage.java</file>
-            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/ProviderHomePage.java</file>
-            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/Images/imgs.java</file>
-            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/PetPanel.java</file>
-            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/PetDisplay.java</file>
-            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/SignUp.java</file>
-            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/First.java</file>
+            <file>file:/C:/Users/KCC/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/ProviderExtraWindow.java</file>
+            <file>file:/C:/Users/KCC/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/model/ProviderData.java</file>
+            <file>file:/C:/Users/KCC/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/model/AdopterData.java</file>
+            <file>file:/C:/Users/KCC/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/Images/dogLogin.png</file>
+            <file>file:/C:/Users/KCC/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/Images/catLogin.png</file>
+            <file>file:/C:/Users/KCC/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/Images/pas_circular_logo.png</file>
+            <file>file:/C:/Users/KCC/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/Images/catOtp.png</file>
+            <file>file:/C:/Users/KCC/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/Images/dogOtp.png</file>
         </group>
     </open-files>
 </project-private>
