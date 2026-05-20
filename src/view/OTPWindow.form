@@ -111,7 +111,7 @@
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="73" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -161,7 +161,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\KCC\Downloads\resize__4_-removebg-preview (1).png"/>
+              <Image iconType="3" name="/Images/catOtp.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel1"/>
           </Properties>
@@ -169,7 +169,7 @@
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\KCC\Downloads\resize_Funny_Papillon_Dog_Listening_on_the_Phone_Stock_Illustration_-_Illustration_of_humor__background__391952584-removebg-preview.png"/>
+              <Image iconType="3" name="/Images/dogOtp.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel2"/>
           </Properties>
