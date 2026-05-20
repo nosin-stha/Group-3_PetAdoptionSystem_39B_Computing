@@ -56,10 +56,8 @@ public class OTPWindow extends javax.swing.JFrame {
 
         btnVerifyEmail.setText("Verify Email");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\KCC\\Downloads\\resize__4_-removebg-preview (1).png")); // NOI18N
         jLabel1.setText("jLabel1");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\KCC\\Downloads\\resize_Funny_Papillon_Dog_Listening_on_the_Phone_Stock_Illustration_-_Illustration_of_humor__background__391952584-removebg-preview.png")); // NOI18N
         jLabel2.setText("jLabel2");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -114,7 +112,7 @@ public class OTPWindow extends javax.swing.JFrame {
                         .addComponent(btnVerifyEmail)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)))))
