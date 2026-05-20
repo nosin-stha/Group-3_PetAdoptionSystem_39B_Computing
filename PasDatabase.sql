@@ -1,7 +1,6 @@
 create database PetAdoptionSystem;
 use PetAdoptionSystem;
-drop database PetAdoptionSystem;
-select * from providers;
+
 
 create table Adopters(
 adopterID int auto_increment primary key,
@@ -9,6 +8,8 @@ adpUsername varchar(20) not null,
 adpPassword varchar(50) not null,
 adpEmail varchar(100) not null unique,
 adpStatus enum('Active', 'Disabled') default 'Active');
+
+alter table adopters modify column adpUsername varchar(12) not null unique;
 
 create table Providers(
 providerID int auto_increment primary key,
@@ -33,5 +34,7 @@ create table otp (
     created_time timestamp default current_timestamp
 );
 
+
 select * from adopters;
 select * from providers;
+select * from otp;
