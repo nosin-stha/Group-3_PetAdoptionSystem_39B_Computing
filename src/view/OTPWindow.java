@@ -58,6 +58,10 @@ public class OTPWindow extends javax.swing.JFrame {
 
         jLabel1.setText("jLabel1");
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/catOtp.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/dogOtp.png"))); // NOI18N
         jLabel2.setText("jLabel2");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
