@@ -8,7 +8,7 @@ adpUsername varchar(50) not null,
 adpPassword varchar(50) not null,
 adpEmail varchar(100) not null unique,
 adpStatus enum('Active', 'Disabled') default 'Active');
-
+alter table Adopters add column adpPfp varchar(255);
 
 create table Providers(
 providerID int auto_increment primary key,
@@ -27,13 +27,17 @@ proMissionStatement text,
 proAdoptionPolicy text,
 proStatus enum('Active', 'Disabled', 'Reported') default 'Active');
 
+alter table Providers add column proPfp varchar(255);
+
 create table otp (
     email varchar(100) primary key,
     otp_code varchar(10) not null,
     created_time timestamp default current_timestamp
 );
 
+delete from adopters where adopterID = 6;
 
 select * from adopters;
 select * from providers;
+
 select * from otp;

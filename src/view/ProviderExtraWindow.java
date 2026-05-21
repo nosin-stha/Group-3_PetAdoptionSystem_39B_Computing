@@ -4,6 +4,9 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+
+
 /**
  *
  * @author User
@@ -28,42 +31,44 @@ public class ProviderExtraWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        ProviderExtraSignUpUI = new javax.swing.JPanel();
         LblSignUp = new javax.swing.JLabel();
         LblShelterName = new javax.swing.JLabel();
         txtShelterName = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        txtLincenseID = new javax.swing.JTextField();
+        LblLicenseID = new javax.swing.JLabel();
+        txtLicenseID = new javax.swing.JTextField();
         LblPhoneNumber = new javax.swing.JLabel();
         txtPhoneNumber = new javax.swing.JTextField();
         LblAddress = new javax.swing.JLabel();
         txtAddress = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        txtAreaAP = new javax.swing.JScrollPane();
         txtAdoptionPolicy = new javax.swing.JTextArea();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        txtAreaMS = new javax.swing.JScrollPane();
         txtMissionStatement = new javax.swing.JTextArea();
         LblMissionStatement = new javax.swing.JLabel();
         LblAdoptionPolicy = new javax.swing.JLabel();
         cmbStartDay = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
-        cmbEndDate = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        LblWorKDays = new javax.swing.JLabel();
+        cmbEndDay = new javax.swing.JComboBox<>();
+        to1 = new javax.swing.JLabel();
+        to2 = new javax.swing.JLabel();
         cmbStartHour = new javax.swing.JComboBox<>();
-        jLabel5 = new javax.swing.JLabel();
+        LblWorkHours = new javax.swing.JLabel();
         cmbEndHour = new javax.swing.JComboBox<>();
         btnSaveProvider = new javax.swing.JButton();
+        ProviderSignUpPfp = new javax.swing.JLabel();
+        btnUploadImgProviderExtra = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 0));
+        ProviderExtraSignUpUI.setBackground(new java.awt.Color(255, 153, 0));
 
         LblSignUp.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
         LblSignUp.setText("Sign Up");
 
         LblShelterName.setText("Shelter Name:");
 
-        jLabel1.setText("License ID:");
+        LblLicenseID.setText("License ID:");
 
         LblPhoneNumber.setText("Phone Number:");
 
@@ -71,142 +76,175 @@ public class ProviderExtraWindow extends javax.swing.JFrame {
 
         txtAdoptionPolicy.setColumns(20);
         txtAdoptionPolicy.setRows(5);
-        jScrollPane1.setViewportView(txtAdoptionPolicy);
+        txtAreaAP.setViewportView(txtAdoptionPolicy);
 
         txtMissionStatement.setColumns(20);
         txtMissionStatement.setRows(5);
-        jScrollPane2.setViewportView(txtMissionStatement);
+        txtAreaMS.setViewportView(txtMissionStatement);
 
         LblMissionStatement.setText("Mission Statement:");
 
         LblAdoptionPolicy.setText("Adoption Policy:");
 
-        cmbStartDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbStartDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat" }));
 
-        jLabel2.setText("Working Days:");
+        LblWorKDays.setText("Working Days:");
 
-        cmbEndDate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbEndDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat", " " }));
 
-        jLabel3.setText("to");
+        to1.setText("to");
 
-        jLabel4.setText("to");
+        to2.setText("to");
 
-        cmbStartHour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbStartHour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "12:00 AM", "1:00 AM", "2:00 AM", "3:00 AM", "4:00 AM", "5:00 AM", "6:00 AM", "7:00 AM", "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM", "7:00 PM", "8:00 PM", "9:00 PM", "10:00 PM", "11:00 PM" }));
 
-        jLabel5.setText("Working Hours:");
+        LblWorkHours.setText("Working Hours:");
 
-        cmbEndHour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbEndHour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "12:00 AM", "1:00 AM", "2:00 AM", "3:00 AM", "4:00 AM", "5:00 AM", "6:00 AM", "7:00 AM", "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM", "7:00 PM", "8:00 PM", "9:00 PM", "10:00 PM", "11:00 PM" }));
 
         btnSaveProvider.setText("Save");
+        btnSaveProvider.addActionListener(this::btnSaveProviderActionPerformed);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(142, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtLincenseID, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(LblAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(8, 8, 8)
-                                    .addComponent(LblShelterName))
-                                .addComponent(LblPhoneNumber, javax.swing.GroupLayout.Alignment.TRAILING)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtShelterName))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+        ProviderSignUpPfp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pfp.png"))); // NOI18N
+        ProviderSignUpPfp.setText("pfp");
+        ProviderSignUpPfp.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ProviderSignUpPfp.setMaximumSize(new java.awt.Dimension(20, 20));
+        ProviderSignUpPfp.setMinimumSize(new java.awt.Dimension(20, 20));
+        ProviderSignUpPfp.setPreferredSize(new java.awt.Dimension(20, 20));
+
+        btnUploadImgProviderExtra.setText("Upload Image");
+
+        javax.swing.GroupLayout ProviderExtraSignUpUILayout = new javax.swing.GroupLayout(ProviderExtraSignUpUI);
+        ProviderExtraSignUpUI.setLayout(ProviderExtraSignUpUILayout);
+        ProviderExtraSignUpUILayout.setHorizontalGroup(
+            ProviderExtraSignUpUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ProviderExtraSignUpUILayout.createSequentialGroup()
+                .addGroup(ProviderExtraSignUpUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProviderExtraSignUpUILayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(ProviderExtraSignUpUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProviderExtraSignUpUILayout.createSequentialGroup()
+                                .addGroup(ProviderExtraSignUpUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(ProviderExtraSignUpUILayout.createSequentialGroup()
+                                        .addGap(26, 26, 26)
+                                        .addComponent(LblLicenseID, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtLicenseID, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(ProviderExtraSignUpUILayout.createSequentialGroup()
+                                        .addGroup(ProviderExtraSignUpUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(LblAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(ProviderExtraSignUpUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(ProviderExtraSignUpUILayout.createSequentialGroup()
+                                                    .addGap(8, 8, 8)
+                                                    .addComponent(LblShelterName))
+                                                .addComponent(LblPhoneNumber, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                        .addGroup(ProviderExtraSignUpUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(ProviderExtraSignUpUILayout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(txtShelterName))
+                                            .addGroup(ProviderExtraSignUpUILayout.createSequentialGroup()
+                                                .addGap(12, 12, 12)
+                                                .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(ProviderExtraSignUpUILayout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(88, 88, 88))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProviderExtraSignUpUILayout.createSequentialGroup()
+                                .addComponent(LblSignUp)
+                                .addGap(10, 10, 10))))
+                    .addGroup(ProviderExtraSignUpUILayout.createSequentialGroup()
+                        .addGap(108, 108, 108)
+                        .addGroup(ProviderExtraSignUpUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ProviderExtraSignUpUILayout.createSequentialGroup()
+                                .addComponent(LblWorKDays, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(12, 12, 12)
                                 .addComponent(cmbStartDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel3)
+                                .addComponent(to1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cmbEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnSaveProvider)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(8, 8, 8)
+                                .addComponent(cmbEndDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ProviderExtraSignUpUILayout.createSequentialGroup()
+                                .addComponent(LblWorkHours)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(ProviderExtraSignUpUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(ProviderExtraSignUpUILayout.createSequentialGroup()
+                                        .addGap(43, 43, 43)
+                                        .addComponent(btnSaveProvider))
+                                    .addGroup(ProviderExtraSignUpUILayout.createSequentialGroup()
                                         .addComponent(cmbStartHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel4)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cmbEndHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(88, 88, 88)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LblMissionStatement, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LblAdoptionPolicy, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(LblSignUp)
-                .addGap(457, 457, 457))
+                                        .addComponent(to2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cmbEndHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(ProviderExtraSignUpUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ProviderExtraSignUpUILayout.createSequentialGroup()
+                        .addGroup(ProviderExtraSignUpUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnUploadImgProviderExtra)
+                            .addGroup(ProviderExtraSignUpUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtAreaMS, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtAreaAP, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(LblMissionStatement, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(LblAdoptionPolicy, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(87, 87, 87))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProviderExtraSignUpUILayout.createSequentialGroup()
+                        .addComponent(ProviderSignUpPfp, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(103, 103, 103))))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(LblSignUp)
-                .addGap(51, 51, 51)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtShelterName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LblShelterName))
+        ProviderExtraSignUpUILayout.setVerticalGroup(
+            ProviderExtraSignUpUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ProviderExtraSignUpUILayout.createSequentialGroup()
+                .addGroup(ProviderExtraSignUpUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ProviderExtraSignUpUILayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(ProviderSignUpPfp, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ProviderExtraSignUpUILayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(LblSignUp)))
+                .addGroup(ProviderExtraSignUpUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ProviderExtraSignUpUILayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(ProviderExtraSignUpUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtShelterName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LblShelterName)))
+                    .addGroup(ProviderExtraSignUpUILayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnUploadImgProviderExtra)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(ProviderExtraSignUpUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ProviderExtraSignUpUILayout.createSequentialGroup()
                         .addComponent(LblMissionStatement)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtAreaMS, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(LblAdoptionPolicy)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtLincenseID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
+                        .addComponent(txtAreaAP, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ProviderExtraSignUpUILayout.createSequentialGroup()
+                        .addGroup(ProviderExtraSignUpUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtLicenseID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LblLicenseID))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(ProviderExtraSignUpUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(LblPhoneNumber))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(ProviderExtraSignUpUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(LblAddress))
-                        .addGap(100, 100, 100)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGap(103, 103, 103)
+                        .addGroup(ProviderExtraSignUpUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cmbStartDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(cmbEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(42, 42, 42)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(LblWorKDays)
+                            .addComponent(cmbEndDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(to1))
+                        .addGap(39, 39, 39)
+                        .addGroup(ProviderExtraSignUpUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cmbStartHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)
+                            .addComponent(LblWorkHours)
                             .addComponent(cmbEndHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                            .addComponent(to2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                         .addComponent(btnSaveProvider)))
                 .addGap(34, 34, 34))
         );
@@ -215,17 +253,19 @@ public class ProviderExtraWindow extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(ProviderExtraSignUpUI, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(ProviderExtraSignUpUI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSaveProviderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveProviderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSaveProviderActionPerformed
 
     /**
      * @param args the command line arguments
@@ -251,30 +291,93 @@ public class ProviderExtraWindow extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new ProviderExtraWindow().setVisible(true));
     }
+    
+    // listener for save button of provider extra signup window
+    public void addSaveProviderListener(ActionListener listener) {
+        btnSaveProvider.addActionListener(listener);
+    }
+    
+    
+    // Getting data from UI Text Fields 
+    public javax.swing.JTextField getTxtShelterName() {
+        return txtShelterName;
+    }
 
+    public javax.swing.JTextField getTxtLicenseID() {
+        return txtLicenseID;
+    }
+
+    public javax.swing.JTextField getTxtPhoneNumber() {
+        return txtPhoneNumber;
+    }
+
+    public javax.swing.JTextField getTxtAddress() {
+        return txtAddress;
+    }
+
+    public javax.swing.JTextArea getTxtMissionStatement() {
+        return txtMissionStatement;
+    }
+
+    public javax.swing.JTextArea getTxtAdoptionPolicy() {
+        return txtAdoptionPolicy;
+    }
+    
+    // Getting data from UI ComboBoxes
+    public javax.swing.JComboBox<String> getCmbStartDay() {
+        return cmbStartDay;
+    }
+
+    public javax.swing.JComboBox<String> getCmbEndDay() {
+        return cmbEndDay;
+    }
+
+    public javax.swing.JComboBox<String> getCmbStartHour() {
+        return cmbStartHour;
+    }
+
+    public javax.swing.JComboBox<String> getCmbEndHour() {
+        return cmbEndHour;
+    }
+    
+    
+    // Listener method for Upload Image button action call in provider extra sign up window
+    public void addUploadProviderImageListener(ActionListener listener) {
+        btnUploadImgProviderExtra.addActionListener(listener);
+    } 
+    
+    // returning the uploaded image
+    public javax.swing.JLabel getProviderSignUpPfp() {
+        return ProviderSignUpPfp;
+    }
+    
+ 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LblAddress;
     private javax.swing.JLabel LblAdoptionPolicy;
+    private javax.swing.JLabel LblLicenseID;
     private javax.swing.JLabel LblMissionStatement;
     private javax.swing.JLabel LblPhoneNumber;
     private javax.swing.JLabel LblShelterName;
     private javax.swing.JLabel LblSignUp;
+    private javax.swing.JLabel LblWorKDays;
+    private javax.swing.JLabel LblWorkHours;
+    private javax.swing.JPanel ProviderExtraSignUpUI;
+    private javax.swing.JLabel ProviderSignUpPfp;
     private javax.swing.JButton btnSaveProvider;
-    private javax.swing.JComboBox<String> cmbEndDate;
+    private javax.swing.JButton btnUploadImgProviderExtra;
+    private javax.swing.JComboBox<String> cmbEndDay;
     private javax.swing.JComboBox<String> cmbEndHour;
     private javax.swing.JComboBox<String> cmbStartDay;
     private javax.swing.JComboBox<String> cmbStartHour;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel to1;
+    private javax.swing.JLabel to2;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextArea txtAdoptionPolicy;
-    private javax.swing.JTextField txtLincenseID;
+    private javax.swing.JScrollPane txtAreaAP;
+    private javax.swing.JScrollPane txtAreaMS;
+    private javax.swing.JTextField txtLicenseID;
     private javax.swing.JTextArea txtMissionStatement;
     private javax.swing.JTextField txtPhoneNumber;
     private javax.swing.JTextField txtShelterName;

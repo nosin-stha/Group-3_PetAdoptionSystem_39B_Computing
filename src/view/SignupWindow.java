@@ -4,6 +4,8 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author KCC
@@ -17,6 +19,9 @@ public class SignupWindow extends javax.swing.JFrame {
      */
     public SignupWindow() {
         initComponents();
+        
+        txtPassword.setEchoChar('*');
+        txtConfirmPassword.setEchoChar('*');
     }
 
     /**
@@ -28,168 +33,242 @@ public class SignupWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        MainSignUpPanel = new javax.swing.JPanel();
+        cmbRole = new javax.swing.JComboBox<>();
+        LblSignUp = new javax.swing.JLabel();
+        txtUsername = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
+        LblUsername = new javax.swing.JLabel();
+        LblPassword = new javax.swing.JLabel();
+        LblConfirmPassword = new javax.swing.JLabel();
+        LblEmail = new javax.swing.JLabel();
+        LblRole = new javax.swing.JLabel();
+        btnSignUp = new javax.swing.JButton();
+        PetGroupSignUp = new javax.swing.JLabel();
+        cbShowPassword = new javax.swing.JCheckBox();
+        RabbitSignUp = new javax.swing.JLabel();
+        BirdSignUp = new javax.swing.JLabel();
+        txtPassword = new javax.swing.JPasswordField();
+        txtConfirmPassword = new javax.swing.JPasswordField();
+        pfpMain = new javax.swing.JLabel();
+        btnUploadImgMain = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(255, 153, 51));
+        MainSignUpPanel.setBackground(new java.awt.Color(255, 153, 51));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Adopter", "Provider", " " }));
-        jComboBox1.addActionListener(this::jComboBox1ActionPerformed);
+        cmbRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Adopter", "Provider", " " }));
+        cmbRole.addActionListener(this::cmbRoleActionPerformed);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
-        jLabel1.setText("Sign Up");
+        LblSignUp.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
+        LblSignUp.setText("Sign Up");
 
-        jLabel2.setText("Username:");
+        LblUsername.setText("Username:");
 
-        jLabel3.setText("Password:");
+        LblPassword.setText("Password:");
 
-        jLabel4.setText("Confirm Password:");
+        LblConfirmPassword.setText("Confirm Password:");
 
-        jLabel5.setText("Email:");
+        LblEmail.setText("Email:");
 
-        jLabel6.setText("Role:");
+        LblRole.setText("Role:");
 
-        jButton1.setText("Sign In");
+        btnSignUp.setText("Sign In");
+        btnSignUp.addActionListener(this::btnSignUpActionPerformed);
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/signupPetGroup.png"))); // NOI18N
-        jLabel7.setText("jLabel7");
+        PetGroupSignUp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/signupPetGroup.png"))); // NOI18N
+        PetGroupSignUp.setText("jLabel7");
 
-        jCheckBox1.setText("Show Password");
+        cbShowPassword.setBackground(new java.awt.Color(255, 153, 51));
+        cbShowPassword.setText("Show Password");
+        cbShowPassword.addActionListener(this::cbShowPasswordActionPerformed);
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/signUpRabbit.png"))); // NOI18N
-        jLabel8.setText("jLabel8");
+        RabbitSignUp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/signUpRabbit.png"))); // NOI18N
+        RabbitSignUp.setText("jLabel8");
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/signUpBird2.png"))); // NOI18N
-        jLabel9.setText("jLabel9");
+        BirdSignUp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/signUpBird.png"))); // NOI18N
+        BirdSignUp.setText("jLabel10");
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/signUpBird.png"))); // NOI18N
-        jLabel10.setText("jLabel10");
+        pfpMain.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pfp.png"))); // NOI18N
+        pfpMain.setText("jLabel1");
+        pfpMain.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        pfpMain.setMaximumSize(new java.awt.Dimension(80, 80));
+        pfpMain.setMinimumSize(new java.awt.Dimension(80, 80));
+        pfpMain.setPreferredSize(new java.awt.Dimension(80, 80));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton1)
-                                .addGap(126, 126, 126))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(226, 226, 226))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+        btnUploadImgMain.setText("Upload Image");
+
+        javax.swing.GroupLayout MainSignUpPanelLayout = new javax.swing.GroupLayout(MainSignUpPanel);
+        MainSignUpPanel.setLayout(MainSignUpPanelLayout);
+        MainSignUpPanelLayout.setHorizontalGroup(
+            MainSignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MainSignUpPanelLayout.createSequentialGroup()
+                .addComponent(PetGroupSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(MainSignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MainSignUpPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnSignUp)
+                        .addGap(147, 147, 147)
+                        .addComponent(RabbitSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainSignUpPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(MainSignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LblSignUp)
+                            .addComponent(pfpMain, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(159, 159, 159)
+                        .addComponent(BirdSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(MainSignUpPanelLayout.createSequentialGroup()
+                        .addGroup(MainSignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(MainSignUpPanelLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(180, 180, 180)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jCheckBox1)
-                                .addGap(71, 71, 71))
-                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(MainSignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(MainSignUpPanelLayout.createSequentialGroup()
+                                        .addGroup(MainSignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(MainSignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(LblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(LblConfirmPassword))
+                                            .addComponent(LblPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(MainSignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(MainSignUpPanelLayout.createSequentialGroup()
+                                                .addGroup(MainSignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(txtConfirmPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
+                                                    .addComponent(txtEmail))
+                                                .addGap(44, 44, 44)
+                                                .addComponent(cbShowPassword))
+                                            .addGroup(MainSignUpPanelLayout.createSequentialGroup()
+                                                .addComponent(txtPassword)
+                                                .addGap(149, 149, 149))))
+                                    .addGroup(MainSignUpPanelLayout.createSequentialGroup()
+                                        .addGap(39, 39, 39)
+                                        .addGroup(MainSignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(LblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(LblRole, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(MainSignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cmbRole, 0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(MainSignUpPanelLayout.createSequentialGroup()
+                                .addGap(194, 194, 194)
+                                .addComponent(btnUploadImgMain)))
+                        .addContainerGap())))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(jLabel1))
-                    .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(jCheckBox1))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addComponent(jButton1)
+        MainSignUpPanelLayout.setVerticalGroup(
+            MainSignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MainSignUpPanelLayout.createSequentialGroup()
+                .addGroup(MainSignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(MainSignUpPanelLayout.createSequentialGroup()
+                        .addComponent(BirdSignUp)
+                        .addGap(18, 18, 18))
+                    .addGroup(MainSignUpPanelLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(LblSignUp)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel8))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))))
-            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pfpMain, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)))
+                .addComponent(btnUploadImgMain)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(MainSignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LblRole))
+                .addGap(18, 18, 18)
+                .addGroup(MainSignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LblUsername))
+                .addGap(18, 18, 18)
+                .addGroup(MainSignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LblPassword))
+                .addGap(18, 18, 18)
+                .addGroup(MainSignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LblConfirmPassword)
+                    .addComponent(cbShowPassword))
+                .addGap(18, 18, 18)
+                .addGroup(MainSignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LblEmail))
+                .addGap(18, 18, 18)
+                .addGroup(MainSignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(RabbitSignUp)
+                    .addComponent(btnSignUp)))
+            .addComponent(PetGroupSignUp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(MainSignUpPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(MainSignUpPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void cmbRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRoleActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_cmbRoleActionPerformed
 
+    private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSignUpActionPerformed
+
+    private void cbShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbShowPasswordActionPerformed
+        // TODO add your handling code here:
+        if (cbShowPassword.isSelected()) {
+
+        txtPassword.setEchoChar((char) 0);
+        txtConfirmPassword.setEchoChar((char) 0);
+
+    } else {
+
+        txtPassword.setEchoChar('*');
+        txtConfirmPassword.setEchoChar('*');
+    }
+    }//GEN-LAST:event_cbShowPasswordActionPerformed
+
+    
+    // listener for SignUp button of main signup window
+    public void addSignupListener(ActionListener listener) {
+        btnSignUp.addActionListener(listener);
+    }
+    
+    // Getting text field data
+    public javax.swing.JTextField getTxtUsername() {
+        return txtUsername;
+    }
+
+    public javax.swing.JPasswordField getTxtPassword() {
+        return txtPassword;
+    }
+
+    public javax.swing.JPasswordField getTxtConfirmPassword() {
+        return txtConfirmPassword;
+    }
+
+    public javax.swing.JTextField getTxtEmail() {
+        return txtEmail;
+    }
+
+    public javax.swing.JComboBox<String> getCmbRole() {
+        return cmbRole;
+    }
+    
+    
+    
+    // Listener method for Upload Image button action call
+    public void addUploadImageListener(ActionListener listener) {
+       btnUploadImgMain.addActionListener(listener);
+    }
+    
+    // returning the uploaded image
+    public javax.swing.JLabel getPfpMain() {
+        return pfpMain;
+    }
     /**
      * @param args the command line arguments
      */
@@ -216,23 +295,24 @@ public class SignupWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JLabel BirdSignUp;
+    private javax.swing.JLabel LblConfirmPassword;
+    private javax.swing.JLabel LblEmail;
+    private javax.swing.JLabel LblPassword;
+    private javax.swing.JLabel LblRole;
+    private javax.swing.JLabel LblSignUp;
+    private javax.swing.JLabel LblUsername;
+    private javax.swing.JPanel MainSignUpPanel;
+    private javax.swing.JLabel PetGroupSignUp;
+    private javax.swing.JLabel RabbitSignUp;
+    private javax.swing.JButton btnSignUp;
+    private javax.swing.JButton btnUploadImgMain;
+    private javax.swing.JCheckBox cbShowPassword;
+    private javax.swing.JComboBox<String> cmbRole;
+    private javax.swing.JLabel pfpMain;
+    private javax.swing.JPasswordField txtConfirmPassword;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }

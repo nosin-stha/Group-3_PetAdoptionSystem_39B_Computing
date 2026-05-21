@@ -9,6 +9,7 @@ package model;
  * @author Dell
  */
 public class ProviderData {
+    private int provider_id;
     private String shelterName;
     private String licenseID;
     private String username;
@@ -25,6 +26,17 @@ public class ProviderData {
 
     private String missionStatement;
     private String adoptionPolicy;
+    
+    private String Pfp;
+    
+    
+    public int getProviderID() {
+        return provider_id;
+    }
+
+    public void setProviderID(int provider_id) {
+        this.provider_id = provider_id;
+    }
 
     public String getShelterName() {
         return shelterName;
@@ -128,5 +140,13 @@ public class ProviderData {
 
     public void setAdoptionPolicy(String adoptionPolicy) {
         this.adoptionPolicy = adoptionPolicy;
+    }
+    
+    public String getPfp() {
+        return Pfp;
+    }
+
+    public void setPfp(String Pfp) {
+        this.Pfp = Pfp;
     }
 }
