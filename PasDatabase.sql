@@ -35,8 +35,8 @@ create table otp (
     created_time timestamp default current_timestamp
 );
 
-delete from adopters where adopterID = 6;
-
+delete from adopters where adopterID = 2;
+delete from providers where providerID = 1;
 select * from adopters;
 select * from providers;
 

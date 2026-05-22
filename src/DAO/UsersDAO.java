@@ -25,9 +25,7 @@ public class UsersDAO {
 
     MySqlConnector mysql = new MySqlConnector();
 
-    // =====================================================
-    // CHECK EMAIL EXISTS
-    // =====================================================
+  
     public boolean isEmailExist(String email) {
 
         boolean exists = false;
@@ -59,9 +57,7 @@ public class UsersDAO {
         return exists;
     }
 
-    // =====================================================
-    // CHECK USERNAME EXISTS
-    // =====================================================
+   
     public boolean isUsernameExist(String username) {
 
         boolean exists = false;
@@ -92,10 +88,8 @@ public class UsersDAO {
 
         return exists;
     }
-
-    // =====================================================
-    // INSERT ADOPTER (FIXED ✔ RETURN BOOLEAN)
-    // =====================================================
+  
+   
     public boolean insertAdopter(AdopterData adopter) {
 
         String sql =
@@ -122,9 +116,7 @@ public class UsersDAO {
         }
     }
 
-    // =====================================================
-    // INSERT PROVIDER (FIXED ✔ RETURN BOOLEAN)
-    // =====================================================
+    
     public boolean insertProvider(ProviderData provider) {
 
         String sql =
