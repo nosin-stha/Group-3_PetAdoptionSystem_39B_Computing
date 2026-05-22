@@ -1,16 +1,12 @@
-package Controller;
+package controller;
 
 import DAO.AdopterHomePageDao;
 import DAO.ProviderHomePageDao;
-import java.awt.event.AdjustmentEvent;
-import java.awt.event.AdjustmentListener;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JPanel;
-import javax.swing.JScrollBar;
-import javax.swing.JScrollPane;
 import model.PetsData;
 import model.SessionData;
+import view.PetCardPanel;
 
 public class PetController {
 
@@ -20,99 +16,56 @@ public class PetController {
     private final JPanel adopterPanel;
     private final JPanel providerPanel;
 
-    private final JScrollPane adopterScrollPane;
-    private final JScrollPane providerScrollPane;
-
-    public PetController(
-            JPanel adopterPanel,
-            JPanel providerPanel,
-            JScrollPane adopterScrollPane,
-            JScrollPane providerScrollPane
-    ) {
+    public PetController(JPanel adopterPanel, JPanel providerPanel) {
         this.adopterPanel = adopterPanel;
         this.providerPanel = providerPanel;
-        this.adopterScrollPane = adopterScrollPane;
-        this.providerScrollPane = providerScrollPane;
-
-        setupScrollListeners();
     }
 
-    public int loadAdopterPets() {
+    // ---------------- ADOPTER ----------------
+    public void loadAdopterPets() {
 
-        if (adopterPanel == null) return 0;
+        if (adopterPanel == null) return;
 
         adopterPanel.removeAll();
 
         List<PetsData> pets = adopterDAO.getAvailablePets();
 
         for (PetsData pet : pets) {
-            adopterPanel.add(new PetCard(pet));
+            adopterPanel.add(new PetCardPanel(pet));
         }
 
         adopterPanel.revalidate();
         adopterPanel.repaint();
-
-        return pets.size();
+        
+        
     }
 
-    public int loadProviderPets() {
+    // ---------------- PROVIDER ----------------
+    public void loadProviderPets() {
 
-        if (providerPanel == null) return 0;
+        if (providerPanel == null) return;
 
         providerPanel.removeAll();
 
         int providerID = SessionData.userID;
 
-        List<PetsData> allPets = providerDAO.getPetsByProvider(providerID);
-        List<PetsData> availablePets = new ArrayList<>();
+        List<PetsData> pets = providerDAO.getPetsByProvider(providerID);
 
-        for (PetsData pet : allPets) {
-            if ("Available".equalsIgnoreCase(pet.getPetAdoptionStatus())) {
-                availablePets.add(pet);
-                providerPanel.add(new PetCard(pet));
-            }
+        for (PetsData pet : pets) {
+            providerPanel.add(new PetCardPanel(pet));
         }
 
         providerPanel.revalidate();
         providerPanel.repaint();
-
-        return availablePets.size();
     }
 
-    // =========================
-    // SCROLL SETTINGS
-    // =========================
-    private void setupScrollListeners() {
+    // ---------------- REFRESH ----------------
+    public void refresh() {
 
-        if (adopterScrollPane != null) {
-            configureScroll(adopterScrollPane);
+        if ("Adopter".equals(SessionData.role)) {
+            loadAdopterPets();
+        } else if ("Provider".equals(SessionData.role)) {
+            loadProviderPets();
         }
-
-        if (providerScrollPane != null) {
-            configureScroll(providerScrollPane);
-        }
-    }
-
-    private void configureScroll(JScrollPane scrollPane) {
-
-        JScrollBar bar = scrollPane.getVerticalScrollBar();
-        bar.setUnitIncrement(16);
-
-        bar.addAdjustmentListener(new AdjustmentListener() {
-            @Override
-            public void adjustmentValueChanged(AdjustmentEvent e) {
-                // Debug scroll position if needed
-                // System.out.println("Scroll Position: " + e.getValue());
-            }
-        });
-    }
-
- 
-    public void refreshAdopter() {
-        loadAdopterPets();
-    }
-
-    public void refreshProvider() {
-        loadProviderPets();
     }
 }

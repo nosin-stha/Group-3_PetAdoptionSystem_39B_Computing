@@ -50,7 +50,7 @@ public class ProviderHomePageDao {
         db.closeConnection(conn);
 
     } catch (Exception e) {
-        e.printStackTrace();
+        System.out.println("Provider DAO Error: " + e);
     }
 
     return petList;

@@ -46,99 +46,97 @@
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="94" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                          <Component id="LblLicenseID" min="-2" pref="56" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="txtLicenseID" min="-2" pref="271" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Component id="LblAddress" alignment="1" min="-2" pref="46" max="-2" attributes="0"/>
-                                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                                      <Component id="LblShelterName" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="LblPhoneNumber" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="txtShelterName" max="32767" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                                  <Component id="txtAddress" min="-2" pref="271" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="txtPhoneNumber" min="-2" pref="271" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="LblSignUp" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="LblSignUp" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="LblWorKDays" min="-2" pref="82" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                  <Component id="cmbStartDay" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="to1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="cmbEndDay" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="237" max="-2" attributes="0"/>
+                                  <Component id="btnSaveProvider" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="btnSaveProvider" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                              <Component id="LblLicenseID" min="-2" pref="56" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                              <Component id="LblShelterName" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                          <Component id="LblAddress" alignment="1" min="-2" pref="46" max="-2" attributes="0"/>
+                                          <Component id="LblPhoneNumber" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtLicenseID" alignment="1" min="-2" pref="271" max="-2" attributes="0"/>
+                                      <Component id="txtShelterName" alignment="1" min="-2" pref="271" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="txtAddress" min="-2" pref="271" max="-2" attributes="0"/>
+                                          <Component id="txtPhoneNumber" min="-2" pref="271" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="LblWorKDays" min="-2" pref="82" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                          <Component id="cmbStartDay" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="to1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="cmbEndDay" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
                                           <Component id="LblWorkHours" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="cmbStartHour" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="to2" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="cmbEndHour" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="cmbEndHour" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="40" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtAreaAP" min="-2" pref="380" max="-2" attributes="0"/>
-                          <Component id="LblAdoptionPolicy" alignment="0" min="-2" pref="107" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                          <Component id="txtAreaMS" min="-2" pref="380" max="-2" attributes="0"/>
-                          <Component id="LblMissionStatement" alignment="0" min="-2" pref="111" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                          <Component id="btnUploadImgProviderExtra" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="ProviderSignUpPfp" min="-2" pref="75" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="276" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="btnUploadImgProviderExtra" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="ProviderSignUpPfp" min="-2" pref="75" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
+                          <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                  <Component id="txtAreaAP" min="-2" pref="380" max="-2" attributes="0"/>
+                                  <Component id="LblAdoptionPolicy" alignment="0" min="-2" pref="107" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                  <Component id="txtAreaMS" min="-2" pref="380" max="-2" attributes="0"/>
+                                  <Component id="LblMissionStatement" alignment="0" min="-2" pref="111" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -147,9 +145,23 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Component id="LblSignUp" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                          <Component id="ProviderSignUpPfp" min="-2" pref="75" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnUploadImgProviderExtra" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="LblMissionStatement" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="txtAreaMS" min="-2" pref="118" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                          <Component id="LblAdoptionPolicy" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="txtAreaAP" min="-2" pref="118" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txtShelterName" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="LblShelterName" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -159,16 +171,7 @@
                               <Component id="txtLicenseID" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="LblLicenseID" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="ProviderSignUpPfp" min="-2" pref="75" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnUploadImgProviderExtra" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txtPhoneNumber" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="LblPhoneNumber" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -178,7 +181,7 @@
                               <Component id="txtAddress" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="LblAddress" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="cmbStartDay" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="LblWorKDays" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -192,21 +195,11 @@
                               <Component id="cmbEndHour" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="to2" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                           <Component id="btnSaveProvider" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                          <Component id="LblMissionStatement" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtAreaMS" min="-2" pref="118" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                          <Component id="LblAdoptionPolicy" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtAreaAP" min="-2" pref="118" max="-2" attributes="0"/>
-                      </Group>
                   </Group>
-                  <EmptySpace min="34" pref="85" max="32767" attributes="0"/>
+                  <EmptySpace min="50" pref="81" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

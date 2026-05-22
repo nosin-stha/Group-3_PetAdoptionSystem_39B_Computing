@@ -5,6 +5,8 @@
 package group3petadoptionsystem;
 
 import view.AdopterHomePage;
+//import model.SessionData;
+//import view.ProviderHomePage;
 
 //import Controller.SignUpController;
 //import view.SignupWindow;
@@ -26,5 +28,9 @@ public class Group3PetAdoptionSystem {
         //controller.open();
         
         new AdopterHomePage().setVisible(true);
+        
+        //SessionData.userID = 3;
+        //SessionData.role = "Provider";
+        //new ProviderHomePage().setVisible(true);
     }
 }

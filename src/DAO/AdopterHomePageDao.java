@@ -37,7 +37,7 @@ public class AdopterHomePageDao {
     rs.getString("specialNeeds"),
     rs.getString("petAdoptionStatus"),
     rs.getString("imagePath")
-                        // ✅ add this
+                        
 );
 
                 petList.add(pet);
@@ -46,7 +46,7 @@ public class AdopterHomePageDao {
             db.closeConnection(conn);
 
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println("Adopter DAO Error: " + e);
         }
 
         return petList;

@@ -5,8 +5,8 @@
 
 package view;
 
-import Controller.PetController;
 import Controller.SessionController;
+import controller.PetController;
 
 
 
@@ -23,31 +23,28 @@ public class AdopterHomePage extends javax.swing.JFrame {
      * Creates new form AdopterHomePage
      */
     
-    private final PetController petController;
-    
     
 
 public AdopterHomePage() {
     initComponents();
     setLocationRelativeTo(null);
+    
+    petContainerPanel.setLayout(new java.awt.GridLayout(0, 3, 20, 20));
+    
 
-    petController = new PetController(
-        petContainerPanel,
-        null,
-        AdopterAllPetScrollPane,
-        null
-    );
-
-    petController.loadAdopterPets();
+    AdopterAllPetScrollPane.setViewportView(petContainerPanel);
+    
+    PetController controller = new PetController(petContainerPanel, null);
+    controller.loadAdopterPets();
+    
+    AdopterAllPetScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+    AdopterAllPetScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+    
+    
 }
     
     
-    private void loadAdopterPets() {
-
-    int count = petController.loadAdopterPets();
-
-    totalnumberofpet.setText(String.valueOf(count));
-}
+  
     
 
     /**
@@ -73,7 +70,7 @@ public AdopterHomePage() {
         Pet_combobox = new javax.swing.JComboBox<>();
         PetClear_btn = new javax.swing.JButton();
         Total_pet = new javax.swing.JLabel();
-        totalnumberofpet = new javax.swing.JLabel();
+        AdopterSideTotalPetCount = new javax.swing.JLabel();
         AdopterAllPetScrollPane = new javax.swing.JScrollPane();
         petContainerPanel = new javax.swing.JPanel();
 
@@ -147,7 +144,7 @@ public AdopterHomePage() {
 
         Total_pet.setText("Total pet:");
 
-        totalnumberofpet.setText("jLabel1");
+        AdopterSideTotalPetCount.setText("Pet Count");
 
         petContainerPanel.setLayout(new java.awt.GridLayout(0, 3, 20, 20));
         AdopterAllPetScrollPane.setViewportView(petContainerPanel);
@@ -176,13 +173,13 @@ public AdopterHomePage() {
                         .addGap(59, 59, 59)
                         .addComponent(PetClear_btn))
                     .addGroup(mainpanalLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(Total_pet, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(totalnumberofpet, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(mainpanalLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(AdopterAllPetScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 932, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(31, 31, 31)
+                        .addGroup(mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(mainpanalLayout.createSequentialGroup()
+                                .addComponent(Total_pet, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(AdopterSideTotalPetCount, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(AdopterAllPetScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 925, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         mainpanalLayout.setVerticalGroup(
@@ -203,13 +200,10 @@ public AdopterHomePage() {
                     .addGroup(mainpanalLayout.createSequentialGroup()
                         .addGap(146, 146, 146)
                         .addComponent(PetClear_btn)))
-                .addGroup(mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainpanalLayout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(totalnumberofpet))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainpanalLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Total_pet, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(59, 59, 59)
+                .addGroup(mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AdopterSideTotalPetCount)
+                    .addComponent(Total_pet, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(AdopterAllPetScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(42, Short.MAX_VALUE))
@@ -288,6 +282,7 @@ public AdopterHomePage() {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane AdopterAllPetScrollPane;
+    private javax.swing.JLabel AdopterSideTotalPetCount;
     private javax.swing.JComboBox<String> Age_combobox;
     private javax.swing.JButton BtnHome_btn;
     private javax.swing.JComboBox<String> Gender_combobox;
@@ -303,7 +298,6 @@ public AdopterHomePage() {
     private javax.swing.JPanel mainpanal;
     private javax.swing.JPanel petContainerPanel;
     private javax.swing.JPanel toppanel;
-    private javax.swing.JLabel totalnumberofpet;
     // End of variables declaration//GEN-END:variables
 
 

@@ -1,17 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
-/**
- *
- * @author OMEN
- */
 public class PetsData {
 
-    private int petID;
-    private int providerID;
+    private final int petID;
+    private final int providerID;
     private String petName;
     private String petBreed;
     private String petGender;
@@ -21,7 +13,7 @@ public class PetsData {
     private String vaccinated;
     private String specialNeeds;
     private String petAdoptionStatus;
-    private String imagePath;   // ✅ Only ONE declaration
+    private String imagePath;
 
     public PetsData(int petID, int providerID, String petName,
                     String petBreed, String petGender, String petAge,
@@ -44,51 +36,72 @@ public class PetsData {
         this.imagePath = imagePath;
     }
 
-    public int getPetID() {
-        return petID;
+    public int getPetID() { 
+        return petID; 
+    }
+    public int getProviderID() { 
+        return providerID; 
+    }
+    public String getPetName() { 
+        return petName; 
+    }
+    public String getPetBreed() { 
+        return petBreed; 
+    }
+    public String getPetGender() { 
+        return petGender; 
+    }
+    public String getPetAge() { 
+        return petAge; 
+    }
+    public String getHouseTrained() { 
+        return houseTrained; 
+    }
+    public String getSpayed() { 
+        return spayed; 
+    }
+    public String getVaccinated() { 
+        return vaccinated; 
+    }
+    public String getSpecialNeeds() { 
+        return specialNeeds; 
+    }
+    public String getPetAdoptionStatus() { 
+        return petAdoptionStatus; 
+    }
+    public String getImagePath() { 
+        return imagePath; 
     }
 
-    public int getProviderID() {
-        return providerID;
+  
+    public void setPetName(String petName) { 
+        this.petName = petName; 
     }
-
-    public String getPetName() {
-        return petName;
+    public void setPetBreed(String petBreed) { 
+        this.petBreed = petBreed; 
     }
-
-    public String getPetBreed() {
-        return petBreed;
+    public void setPetGender(String petGender) { 
+        this.petGender = petGender; 
     }
-
-    public String getPetGender() {
-        return petGender;
+    public void setPetAge(String petAge) { 
+        this.petAge = petAge; 
     }
-
-    public String getPetAge() {
-        return petAge;
+    public void setHouseTrained(String houseTrained) { 
+        this.houseTrained = houseTrained; 
     }
-
-    public String getHouseTrained() {
-        return houseTrained;
+    public void setSpayed(String spayed) { 
+        this.spayed = spayed; 
     }
-
-    public String getSpayed() {
-        return spayed;
+    public void setVaccinated(String vaccinated) { 
+        this.vaccinated = vaccinated; 
     }
-
-    public String getVaccinated() {
-        return vaccinated;
+    public void setSpecialNeeds(String specialNeeds) { 
+        this.specialNeeds = specialNeeds; 
     }
-
-    public String getSpecialNeeds() {
-        return specialNeeds;
+    public void setPetAdoptionStatus(String petAdoptionStatus) { 
+        this.petAdoptionStatus = petAdoptionStatus; 
     }
-
-    public String getPetAdoptionStatus() {
-        return petAdoptionStatus;
-    }
-
-    public String getImagePath() {
-        return imagePath;
+    public void setImagePath(String imagePath) { 
+        this.imagePath = imagePath; 
     }
 }

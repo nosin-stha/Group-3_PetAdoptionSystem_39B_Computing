@@ -4,8 +4,8 @@
  */
 package view;
 
+import controller.PetController;
 
-import Controller.PetController;
 
 
 
@@ -21,31 +21,26 @@ public final class ProviderHomePage extends javax.swing.JFrame {
      * Creates new form PetDisplay
      */
     
-    private final PetController petController;
     
     
 
 public ProviderHomePage() {
     initComponents();
-    setLocationRelativeTo(null);   // ✅ Center window
-    setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-    petController = new PetController(
-        null,
-        providerPetContainerPanel,
-        null,
-        ProviderPetsScrollPane
+    setLocationRelativeTo(null);  
+    providerPetContainerPanel.setLayout(
+        new java.awt.GridLayout(0, 3, 20, 20)
     );
 
-    petController.loadProviderPets();   // ✅ Load provider pets
+    ProviderPetsScrollPane.setViewportView(providerPetContainerPanel);
+
+    PetController controller = new PetController(null, providerPetContainerPanel);
+    controller.loadProviderPets();
+
+    ProviderPetsScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+    ProviderPetsScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 }
     
-    private void loadProviderPets() {
-
-    int count = petController.loadProviderPets();
-
-    TotalPetnumber.setText(String.valueOf(count));
-}
     
 
     /**
