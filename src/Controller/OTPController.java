@@ -112,6 +112,16 @@ public class OTPController {
                     } else {
                         JOptionPane.showMessageDialog(otpView,"Registration Failed!");
                     }
+                }else if (SessionData.role.equals("Provider")) {
+                    ProviderExtraWindow providerExtra = new ProviderExtraWindow();
+                    SignUpController controller = new SignUpController(providerExtra);
+                    providerExtra.setLocationRelativeTo(null);
+                    
+                    // OPEN USING CONTROLLER
+                    controller.open();
+
+                   // close otp window
+                   otpView.dispose();
                 }
             }
         }

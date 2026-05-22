@@ -54,6 +54,19 @@ public class SignUpController {
         
         providerView.addSaveProviderListener(new SaveProviderListener());
         providerView.addUploadProviderImageListener(new UploadProviderImageListener());
+        
+        if (SessionData.imagePath != null) {
+
+            ImageIcon icon = new ImageIcon(SessionData.imagePath);
+
+            Image image = icon.getImage().getScaledInstance(
+                    providerView.getProviderSignUpPfp().getWidth(),
+                    providerView.getProviderSignUpPfp().getHeight(),
+                    Image.SCALE_SMOOTH
+            );
+
+            providerView.getProviderSignUpPfp().setIcon(new ImageIcon(image));
+        }
     }
 
     
