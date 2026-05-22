@@ -9,10 +9,20 @@ package model;
  * @author Dell
  */
 public class AdopterData {
+    private int adopter_id;
     private String username;
     private String password;
     private String email;
+    private String Pfp;
+    
+    public int getAdopterID() {
+        return adopter_id;
+    }
 
+    public void setAdopterID(int adopter_id) {
+        this.adopter_id = adopter_id;
+    }
+    
     public String getUsername() {
         return username;
     }
@@ -35,5 +45,13 @@ public class AdopterData {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+    
+    public String getPfp() {
+        return Pfp;
+    }
+
+    public void setPfp(String Pfp) {
+        this.Pfp = Pfp;
     }
 }

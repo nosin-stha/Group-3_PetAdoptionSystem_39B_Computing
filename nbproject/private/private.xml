@@ -36,6 +36,30 @@
             <file>file:/C:/Users/OMEN/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/totalnumberofpet.java</file>
             <file>file:/C:/Users/OMEN/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/ResultSet.java</file>
             <file>file:/C:/Users/OMEN/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/rs.java</file>
+            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group3PetAdoptionSystem/src/group3petadoptionsystem/Group3PetAdoptionSystem.java</file>
+            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group3PetAdoptionSystem/src/database/Db.java</file>
+            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group3PetAdoptionSystem/src/database/MySqlConnector.java</file>
+            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group3PetAdoptionSystem/src/model/AdopterData.java</file>
+            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group3PetAdoptionSystem/src/DAO/OtpDAO.java</file>
+            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group3PetAdoptionSystem/src/model/ProviderData.java</file>
+            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group3PetAdoptionSystem/src/model/SessionData.java</file>
+            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group3PetAdoptionSystem/src/DAO/UsersDAO.java</file>
+            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group3PetAdoptionSystem/src/view/Login.java</file>
+            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group3PetAdoptionSystem/src/view/OTPWindow.java</file>
+            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group3PetAdoptionSystem/src/view/ProiderHomePage.java</file>
+            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group3PetAdoptionSystem/src/view/AdopterHomePage.java</file>
+            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group3PetAdoptionSystem/src/view/ProviderExtraWindow.java</file>
+            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group3PetAdoptionSystem/src/view/SignupWindow.java</file>
+            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group3PetAdoptionSystem/src/DAO/AdopterHomePageDao.java</file>
+            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group3PetAdoptionSystem/src/utils/EmailService.java</file>
+            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group3PetAdoptionSystem/src/utils/OTPGenerator.java</file>
+            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group3PetAdoptionSystem/src/Controller/SignUpController.java</file>
+            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group3PetAdoptionSystem/src/DAO/ProviderHomePageDao.java</file>
+            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group3PetAdoptionSystem/src/model/PetsData.java</file>
+            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group3PetAdoptionSystem/src/Images/signUpBird2.png</file>
+            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group3PetAdoptionSystem/src/Controller/OTPController.java</file>
+            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group3PetAdoptionSystem/src/Controller/LoginController.java</file>
+            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group3PetAdoptionSystem/src/DAO/LoginDAO.java</file>
         </group>
     </open-files>
 </project-private>
