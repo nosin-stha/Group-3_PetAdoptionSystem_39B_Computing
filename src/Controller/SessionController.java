@@ -18,6 +18,7 @@ public void logout(javax.swing.JFrame currentFrame) {
     javax.swing.SwingUtilities.invokeLater(() -> {
         Login login = new Login();
         login.setVisible(true);
+        login.setLocationRelativeTo(null);
     });
 }
 
