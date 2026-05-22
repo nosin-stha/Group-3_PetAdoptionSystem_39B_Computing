@@ -16,10 +16,26 @@
             <file>file:/C:/Users/OMEN/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/ProviderExtraWindow.java</file>
             <file>file:/C:/Users/OMEN/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/PasDatabase.sql</file>
             <file>file:/C:/Users/OMEN/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/Images/imgs.java</file>
-            <file>file:/C:/Users/OMEN/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/Images/Petlogo.png</file>
             <file>file:/C:/Users/OMEN/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/DAO/AdopterHomePageDao.java</file>
             <file>file:/C:/Users/OMEN/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/model/PetsData.java</file>
             <file>file:/C:/Users/OMEN/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/DAO/ProviderHomePageDao.java</file>
+            <file>file:/C:/Users/OMEN/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/ProviderHomePage.java</file>
+            <file>file:/C:/Users/OMEN/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/model/SessionData.java</file>
+            <file>file:/C:/Users/OMEN/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/model/ProviderData.java</file>
+            <file>file:/C:/Users/OMEN/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/petname_1_petcard.java</file>
+            <file>file:/C:/Users/OMEN/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/petname_2_petcard.java</file>
+            <file>file:/C:/Users/OMEN/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/Controller/control.java</file>
+            <file>file:/C:/Users/OMEN/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/Controller/AdopterController.java</file>
+            <file>file:/C:/Users/OMEN/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/Controller/ProviderController.java</file>
+            <file>file:/C:/Users/OMEN/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/Controller/SessionController.java</file>
+            <file>file:/C:/Users/OMEN/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/label.java</file>
+            <file>file:/C:/Users/OMEN/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/TotalPetnumber_AdopterHome.java</file>
+            <file>file:/C:/Users/OMEN/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/java/Login.java</file>
+            <file>file:/C:/Users/OMEN/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/PetCard.java</file>
+            <file>file:/C:/Users/OMEN/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/petContainerPanel.java</file>
+            <file>file:/C:/Users/OMEN/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/totalnumberofpet.java</file>
+            <file>file:/C:/Users/OMEN/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/ResultSet.java</file>
+            <file>file:/C:/Users/OMEN/OneDrive/Documents/NetBeansProjects/Group-3-39B-Pet-Adoption-System/src/view/rs.java</file>
         </group>
     </open-files>
 </project-private>
