@@ -88,6 +88,8 @@ public class UsersDAO {
 
         return exists;
     }
+    
+    
   
    
     public boolean insertAdopter(AdopterData adopter) {
@@ -108,8 +110,8 @@ public class UsersDAO {
 
             return result > 0;
 
-        } catch (Exception e) {
-            System.out.println("Insert Adopter Error: " + e.getMessage());
+        } catch (java.sql.SQLException ex) {
+            System.out.println("Insert Adopter Error: " + ex.getMessage());
             return false;
         } finally {
             mysql.closeConnection(conn);
@@ -149,8 +151,8 @@ public class UsersDAO {
 
             return result > 0;
 
-        } catch (Exception e) {
-            System.out.println("Insert Provider Error: " + e.getMessage());
+        } catch (java.sql.SQLException ex) {
+            System.out.println("Insert Provider Error: " + ex.getMessage());
             return false;
         } finally {
             mysql.closeConnection(conn);

@@ -57,24 +57,28 @@
                                   <Component id="btnSaveProvider" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                              <Component id="LblLicenseID" min="-2" pref="56" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                                  <Component id="LblShelterName" min="-2" pref="87" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                                                  <Component id="LblLicenseID" min="-2" pref="67" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                              <Component id="LblShelterName" min="-2" max="-2" attributes="0"/>
-                                          </Group>
+                                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                          <Component id="LblAddress" alignment="1" min="-2" pref="46" max="-2" attributes="0"/>
-                                          <Component id="LblPhoneNumber" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="LblAddress" alignment="1" min="-2" pref="56" max="-2" attributes="0"/>
+                                              <Component id="LblPhoneNumber" min="-2" pref="94" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="txtLicenseID" alignment="1" min="-2" pref="271" max="-2" attributes="0"/>
                                       <Component id="txtShelterName" alignment="1" min="-2" pref="271" max="-2" attributes="0"/>
@@ -307,7 +311,7 @@
         <Component class="javax.swing.JComboBox" name="cmbEndDay">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="8">
+              <StringArray count="7">
                 <StringItem index="0" value="Sun"/>
                 <StringItem index="1" value="Mon"/>
                 <StringItem index="2" value="Tue"/>
@@ -315,7 +319,6 @@
                 <StringItem index="4" value="Thur"/>
                 <StringItem index="5" value="Fri"/>
                 <StringItem index="6" value="Sat"/>
-                <StringItem index="7" value=" "/>
               </StringArray>
             </Property>
           </Properties>

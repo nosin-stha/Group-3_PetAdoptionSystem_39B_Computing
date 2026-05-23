@@ -6,6 +6,7 @@ package utils;
 import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.*;
+import model.SessionData;
 /**
  *
  * @author Dell
@@ -46,7 +47,29 @@ public class EmailService {
 
             message.setSubject("Paws & Claws Finder OTP Verification");
 
-            message.setText("Your OTP is: " + otp);
+            if (SessionData.role.equalsIgnoreCase("Provider")) {
+                message.setText(
+                        """
+                        Hi Provider,
+                        
+                        Thank you for joining Paws & Claws Finder.
+                        We appreciate your support in helping pets find loving homes.
+                        
+                        Your OTP is: """ + otp
+                    );
+
+            } else if (SessionData.role.equalsIgnoreCase("Adopter")) {
+
+                message.setText(
+                    """
+                    Hi Adopter,
+                    
+                    Thank you for using Paws & Claws Finder.
+                    We look forward to helping you find a reliable pet companion.
+                    
+                    Your OTP is: """ + otp
+                );
+            }
 
             Transport.send(message);
 

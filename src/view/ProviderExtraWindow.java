@@ -90,7 +90,7 @@ public class ProviderExtraWindow extends javax.swing.JFrame {
 
         LblWorKDays.setText("Working Days:");
 
-        cmbEndDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat", " " }));
+        cmbEndDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat" }));
 
         to1.setText("to");
 
@@ -130,19 +130,21 @@ public class ProviderExtraWindow extends javax.swing.JFrame {
                                 .addGap(237, 237, 237)
                                 .addComponent(btnSaveProvider))
                             .addGroup(ProviderExtraSignUpUILayout.createSequentialGroup()
-                                .addGap(38, 38, 38)
                                 .addGroup(ProviderExtraSignUpUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProviderExtraSignUpUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(ProviderExtraSignUpUILayout.createSequentialGroup()
-                                            .addGap(28, 28, 28)
-                                            .addComponent(LblLicenseID, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(ProviderExtraSignUpUILayout.createSequentialGroup()
-                                            .addGap(8, 8, 8)
-                                            .addComponent(LblShelterName)))
-                                    .addGroup(ProviderExtraSignUpUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(LblAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(LblPhoneNumber)))
-                                .addGap(28, 28, 28)
+                                    .addGroup(ProviderExtraSignUpUILayout.createSequentialGroup()
+                                        .addGroup(ProviderExtraSignUpUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProviderExtraSignUpUILayout.createSequentialGroup()
+                                                .addGap(46, 46, 46)
+                                                .addComponent(LblShelterName, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(ProviderExtraSignUpUILayout.createSequentialGroup()
+                                                .addGap(66, 66, 66)
+                                                .addComponent(LblLicenseID, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(17, 17, 17))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProviderExtraSignUpUILayout.createSequentialGroup()
+                                        .addGroup(ProviderExtraSignUpUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(LblAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(LblPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)))
                                 .addGroup(ProviderExtraSignUpUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtLicenseID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtShelterName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)

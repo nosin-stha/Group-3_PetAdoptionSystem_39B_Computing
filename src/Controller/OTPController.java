@@ -20,8 +20,10 @@ import model.SessionData;
 
 import utils.EmailService;
 import utils.OTPGenerator;
+import view.Login;
 import view.OTPWindow;
 import view.ProviderExtraWindow;
+
 
 public class OTPController {
     
@@ -67,7 +69,7 @@ public class OTPController {
 
             // send otp to email
             EmailService.sendOTP(email, otp);          
-            JOptionPane.showMessageDialog(otpView, "OTP Sent Successfully!");
+            JOptionPane.showMessageDialog(otpView, "OTP Sent Successfully!.");
         }
     }
 
@@ -109,6 +111,11 @@ public class OTPController {
                         otpDAO.deleteOtp(email);
                         JOptionPane.showMessageDialog(otpView,"You successfully registered as an adopter!");
                         otpView.dispose();
+                        
+                        Login loginPg = new Login();
+                        loginPg.setVisible(true);
+                        loginPg.setLocationRelativeTo(null);
+                        
                     } else {
                         JOptionPane.showMessageDialog(otpView,"Registration Failed!");
                     }

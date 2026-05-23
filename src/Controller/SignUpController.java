@@ -19,6 +19,7 @@ import javax.swing.JFileChooser;
 
 import javax.swing.JOptionPane;
 import model.SessionData;
+import view.Login;
 import view.OTPWindow;
 import view.ProviderExtraWindow;
 import view.SignupWindow;
@@ -43,6 +44,7 @@ public class SignUpController {
 
         signupView.addSignupListener(new SignupListener());
         signupView.addUploadImageListener(new UploadMainImageListener());
+        signupView.addBackToLoginListener(new BackToLoginListener());
     }
 
     
@@ -75,8 +77,10 @@ public class SignUpController {
     public void open() {
         if (signupView != null) {
             signupView.setVisible(true);
+            signupView.setLocationRelativeTo(null);
         } else if (providerView != null) {
             providerView.setVisible(true);
+            providerView.setLocationRelativeTo(null);
         }
     }
 
@@ -189,7 +193,22 @@ public class SignUpController {
         }
     }
        
+    // BACK TO LOGIN LISTENER
+    class BackToLoginListener implements ActionListener {
 
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            // close signup window
+            signupView.dispose();
+
+            // open login window
+            Login login = new Login();
+
+            login.setVisible(true);
+            login.setLocationRelativeTo(null);
+    }
+}
 
     
     // SAVE PROVIDER LISTENER
@@ -234,15 +253,31 @@ public class SignUpController {
 
                 return;
             }
+            
+            if (!provider.getPhoneNumber().matches("\\d{10}")) {
+
+                JOptionPane.showMessageDialog(
+                        providerView,
+                        "Invalid Phone Number! Must be exactly 10 digits."
+                );
+                return;
+            }
+            
 
             boolean inserted = dao.insertProvider(provider);
 
             if (inserted) {
                 JOptionPane.showMessageDialog(providerView,"You have sucessfully registered as a Pet Provider!");
+                providerView.dispose();
+                Login login = new Login();
+           
+                login.setVisible(true);
+                login.setLocationRelativeTo(null);
+                
             } else {
                 JOptionPane.showMessageDialog(providerView,"Provider Registration Failed!");
+                  
             }
-            providerView.dispose();
         }
     }
     

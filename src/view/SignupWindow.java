@@ -52,12 +52,13 @@ public class SignupWindow extends javax.swing.JFrame {
         txtConfirmPassword = new javax.swing.JPasswordField();
         pfpMain = new javax.swing.JLabel();
         btnUploadImgMain = new javax.swing.JButton();
+        btnBacktoLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         MainSignUpPanel.setBackground(new java.awt.Color(255, 153, 51));
 
-        cmbRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Adopter", "Provider", " " }));
+        cmbRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Adopter", "Provider" }));
         cmbRole.addActionListener(this::cmbRoleActionPerformed);
 
         LblSignUp.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
@@ -97,6 +98,8 @@ public class SignupWindow extends javax.swing.JFrame {
         pfpMain.setPreferredSize(new java.awt.Dimension(80, 80));
 
         btnUploadImgMain.setText("Upload Image");
+
+        btnBacktoLogin.setText("Back to Login");
 
         javax.swing.GroupLayout MainSignUpPanelLayout = new javax.swing.GroupLayout(MainSignUpPanel);
         MainSignUpPanel.setLayout(MainSignUpPanelLayout);
@@ -143,9 +146,15 @@ public class SignupWindow extends javax.swing.JFrame {
                             .addComponent(cmbRole, 0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(MainSignUpPanelLayout.createSequentialGroup()
-                        .addGap(236, 236, 236)
-                        .addComponent(btnSignUp)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 264, Short.MAX_VALUE)
+                        .addGroup(MainSignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(MainSignUpPanelLayout.createSequentialGroup()
+                                .addGap(236, 236, 236)
+                                .addComponent(btnSignUp)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 264, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainSignUpPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnBacktoLogin)
+                                .addGap(113, 113, 113)))
                         .addComponent(RabbitSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -187,7 +196,9 @@ public class SignupWindow extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnSignUp)
                         .addGap(140, 140, 140))
-                    .addComponent(RabbitSignUp, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainSignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(RabbitSignUp)
+                        .addComponent(btnBacktoLogin))))
             .addComponent(PetGroupSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
@@ -289,6 +300,12 @@ public class SignupWindow extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new SignupWindow().setVisible(true));
     }
+    
+    
+    // listener for Back to Login button
+    public void addBackToLoginListener(ActionListener listener) {
+        btnBacktoLogin.addActionListener(listener);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BirdSignUp;
@@ -301,6 +318,7 @@ public class SignupWindow extends javax.swing.JFrame {
     private javax.swing.JPanel MainSignUpPanel;
     private javax.swing.JLabel PetGroupSignUp;
     private javax.swing.JLabel RabbitSignUp;
+    private javax.swing.JButton btnBacktoLogin;
     private javax.swing.JButton btnSignUp;
     private javax.swing.JButton btnUploadImgMain;
     private javax.swing.JCheckBox cbShowPassword;
