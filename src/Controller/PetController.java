@@ -1,4 +1,4 @@
-package controller;
+package Controller;
 
 import DAO.AdopterHomePageDao;
 import DAO.ProviderHomePageDao;
@@ -21,7 +21,7 @@ public class PetController {
         this.providerPanel = providerPanel;
     }
 
-    // ---------------- ADOPTER ----------------
+    // load pet cards for adopters
     public void loadAdopterPets() {
 
         if (adopterPanel == null) return;
@@ -30,17 +30,17 @@ public class PetController {
 
         List<PetsData> pets = adopterDAO.getAvailablePets();
 
-        for (PetsData pet : pets) {
-            adopterPanel.add(new PetCardPanel(pet));
+        if (pets != null) {
+            for (PetsData pet : pets) {
+                adopterPanel.add(new PetCardPanel(pet));
+            }
         }
 
         adopterPanel.revalidate();
         adopterPanel.repaint();
-        
-        
     }
 
-    // ---------------- PROVIDER ----------------
+    // load pet cards for providers
     public void loadProviderPets() {
 
         if (providerPanel == null) return;
@@ -51,19 +51,22 @@ public class PetController {
 
         List<PetsData> pets = providerDAO.getPetsByProvider(providerID);
 
-        for (PetsData pet : pets) {
-            providerPanel.add(new PetCardPanel(pet));
+        if (pets != null) {
+            for (PetsData pet : pets) {
+                providerPanel.add(new PetCardPanel(pet));
+            }
         }
 
         providerPanel.revalidate();
         providerPanel.repaint();
     }
 
-    // ---------------- REFRESH ----------------
+    // auto refresh system
     public void refresh() {
 
         if ("Adopter".equals(SessionData.role)) {
             loadAdopterPets();
+
         } else if ("Provider".equals(SessionData.role)) {
             loadProviderPets();
         }

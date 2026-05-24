@@ -5,11 +5,19 @@
 package group3petadoptionsystem;
 
 //import view.AdopterHomePage;
-//import model.SessionData;
-//import view.ProviderHomePage;
 
-import Controller.SignUpController;
-import view.SignupWindow;
+
+
+//import Controller.LoginController;
+//import Controller.SignUpController;
+//import view.Login;
+//import view.SignupWindow;
+
+import model.SessionData;
+import view.ProviderHomePage;
+
+//import Controller.SignUpController;
+//import view.SignupWindow;
 
 /**
  *
@@ -22,15 +30,22 @@ public class Group3PetAdoptionSystem {
      */
     public static void main(String[] args) {
 
-        SignupWindow view = new SignupWindow();
-        SignUpController controller = new SignUpController(view);
+        //SignupWindow view = new SignupWindow();
+        //SignUpController controller = new SignUpController(view);
 
-        controller.open();
+        //Controller.openWindow(view);
         
         //new AdopterHomePage().setVisible(true);
         
-        //SessionData.userID = 3;
-        //SessionData.role = "Provider";
-        //new ProviderHomePage().setVisible(true);
+        SessionData.userID = 2;
+        SessionData.role = "Provider";
+        new ProviderHomePage().setVisible(true);
+        
+        //Login login = new Login();
+
+        //new LoginController(login); // attach controller
+
+        //login.setVisible(true);
+        //login.setLocationRelativeTo(null);
     }
 }

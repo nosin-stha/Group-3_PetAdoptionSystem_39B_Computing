@@ -4,7 +4,8 @@
  */
 package view;
 
-import controller.PetController;
+import Controller.PetController;
+import Controller.SessionController;
 
 
 
@@ -24,22 +25,33 @@ public final class ProviderHomePage extends javax.swing.JFrame {
     
     
 
-public ProviderHomePage() {
-    initComponents();
-    setLocationRelativeTo(null);  
-    providerPetContainerPanel.setLayout(
-        new java.awt.GridLayout(0, 3, 20, 20)
-    );
+    public ProviderHomePage() {
+        initComponents();
+        setLocationRelativeTo(null);  
+        providerPetContainerPanel.setLayout(
+            new java.awt.GridLayout(0, 3, 20, 20)
+        );
 
-    ProviderPetsScrollPane.setViewportView(providerPetContainerPanel);
+        ProviderPetsScrollPane.setViewportView(providerPetContainerPanel);
 
-    PetController controller = new PetController(null, providerPetContainerPanel);
-    controller.loadProviderPets();
+        PetController controller = new PetController(null, providerPetContainerPanel);
+        controller.loadProviderPets();
 
-    ProviderPetsScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        ProviderPetsScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-    ProviderPetsScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
-}
+        ProviderPetsScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+        
+        SessionController sessionController = new SessionController();
+            Logout_btn.addActionListener(
+                sessionController.getLogoutListener(this)
+            );
+    }
+    
+    
+    public javax.swing.JPanel getProviderPetContainerPanel() {
+        return providerPetContainerPanel;
+    }
+    
     
     
 
@@ -208,9 +220,6 @@ public ProviderHomePage() {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Logout_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Logout_btnActionPerformed
-       
-
-    new Controller.SessionController().logout(this);
 
     }//GEN-LAST:event_Logout_btnActionPerformed
 

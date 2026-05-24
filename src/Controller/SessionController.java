@@ -1,36 +1,45 @@
 package Controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.SwingUtilities;
 import model.SessionData;
 import view.Login;
 
 public class SessionController {
-public void logout(javax.swing.JFrame currentFrame) {
-    // Clear user session data
-    model.SessionData.userID = 0;
-    model.SessionData.role = null;
 
-    // Instantly close the home page
-    if (currentFrame != null) {
-        currentFrame.dispose();
+    // Logout Logic
+    public void logout(javax.swing.JFrame currentFrame) {
+
+        // clear session
+        SessionData.userID = 0;
+        SessionData.username = null;
+        SessionData.role = null;
+        SessionData.email = null;
+        SessionData.password = null;
+        SessionData.imagePath = null;
+
+        // close current window
+        if (currentFrame != null) {
+            currentFrame.dispose();
+        }
+
+        // open login again WITH controller
+        SwingUtilities.invokeLater(() -> {
+            Login login = new Login();
+            //new LoginController(login);
+            login.setVisible(true);
+            login.setLocationRelativeTo(null);
+        });
     }
 
-    // Instantly open the login page centered and fresh
-    javax.swing.SwingUtilities.invokeLater(() -> {
-        Login login = new Login();
-        login.setVisible(true);
-        login.setLocationRelativeTo(null);
-    });
+    // Logout Button - Listener
+    public ActionListener getLogoutListener(javax.swing.JFrame frame) {
+        return new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                logout(frame);
+            }
+        };
+    }
 }
-
-
-
-
-
-
-public void logout() {
-    SessionData.userID = 0;
-    SessionData.role = null;
-}
-}
-
-   

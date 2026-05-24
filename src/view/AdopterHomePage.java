@@ -5,9 +5,8 @@
 
 package view;
 
+import Controller.PetController;
 import Controller.SessionController;
-import controller.PetController;
-
 
 
 
@@ -25,24 +24,32 @@ public class AdopterHomePage extends javax.swing.JFrame {
     
     
 
-public AdopterHomePage() {
-    initComponents();
-    setLocationRelativeTo(null);
+    public AdopterHomePage() {
+        initComponents();
+        setLocationRelativeTo(null);
     
-    petContainerPanel.setLayout(new java.awt.GridLayout(0, 3, 20, 20));
+        petContainerPanel.setLayout(new java.awt.GridLayout(0, 3, 20, 20));
     
 
-    AdopterAllPetScrollPane.setViewportView(petContainerPanel);
+        AdopterAllPetScrollPane.setViewportView(petContainerPanel);
     
-    PetController controller = new PetController(petContainerPanel, null);
-    controller.loadAdopterPets();
+        PetController controller = new PetController(petContainerPanel, null);
+        controller.loadAdopterPets();
     
-    AdopterAllPetScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-    AdopterAllPetScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+        AdopterAllPetScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        AdopterAllPetScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+        
+        
+        SessionController sessionController = new SessionController();
+        Logout_btn.addActionListener(
+            sessionController.getLogoutListener(this)
+        );
+       
+    }
     
-    
-}
-    
+    public javax.swing.JPanel getPetContainerPanel() {
+        return petContainerPanel;
+    }
     
   
     
@@ -234,24 +241,7 @@ public AdopterHomePage() {
     }//GEN-LAST:event_SearchbarActionPerformed
 
     private void Logout_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Logout_btnActionPerformed
-                                             
-    // 1. Instantly hide and kill this home page frame right now
-    this.setVisible(false);
-    this.dispose();
-    
-    // 2. Call the session controller to clear data and open the login page
-    SessionController sessionController = new SessionController();
-    sessionController.logout(this); 
-
-
-
-
-
-
-
-    
-
-
+                                           
     }//GEN-LAST:event_Logout_btnActionPerformed
     
      

@@ -8,74 +8,66 @@ package Controller;
  *
  * @author Dell
  */
+
 import DAO.OtpDAO;
 import DAO.UsersDAO;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JOptionPane;
 import model.AdopterData;
 import model.SessionData;
-
 import utils.EmailService;
 import utils.OTPGenerator;
 import view.Login;
 import view.OTPWindow;
 import view.ProviderExtraWindow;
 
-
 public class OTPController {
-    
-    
+
     private final OTPWindow otpView;
     private final OtpDAO otpDAO = new OtpDAO();
     private final UsersDAO usersDAO = new UsersDAO();
 
-    // Otp window button click listener
-    
     public OTPController(OTPWindow otpView) {
         this.otpView = otpView;
-        
+
         otpView.setLocationRelativeTo(null);
-        
         otpView.addSendOtpListener(new SendOtpListener());
         otpView.addVerifyOtpListener(new VerifyOtpListener());
     }
 
-    // Open OTP Window 
     public void open() {
-
+        otpView.setLocationRelativeTo(null);
         otpView.setVisible(true);
     }
 
-    // on click sent otp button actions to send otp
-    class SendOtpListener implements ActionListener {
+    public void close() {
+        otpView.dispose();
+    }
 
+    // Send OTP Button - LISTENER
+    class SendOtpListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
 
             String email = otpView.getTxtEmail().getText().trim();
 
-            // generate otp
             String otp = OTPGenerator.generateOTP();
 
-            // saveOTP 
             boolean saved = otpDAO.saveOtp(email, otp);
+
             if (!saved) {
-                JOptionPane.showMessageDialog(otpView,"Failed to save OTP!");
+                JOptionPane.showMessageDialog(otpView, "Failed to save OTP!");
                 return;
             }
 
-            // send otp to email
-            EmailService.sendOTP(email, otp);          
-            JOptionPane.showMessageDialog(otpView, "OTP Sent Successfully!.");
+            EmailService.sendOTP(email, otp);
+            JOptionPane.showMessageDialog(otpView, "OTP sent successfully!");
         }
     }
 
-    // on click verify email button actions to verify
+    // Verify OTP Button - LISTENER
     class VerifyOtpListener implements ActionListener {
-
         @Override
         public void actionPerformed(ActionEvent e) {
 
@@ -84,22 +76,22 @@ public class OTPController {
 
             String result = otpDAO.verifyOtp(email, otp);
 
-            if (result.equals("EXPIRED")) {
-                JOptionPane.showMessageDialog(otpView,"OTP has expired! Please request a new one.");
+            if ("EXPIRED".equals(result)) {
+                JOptionPane.showMessageDialog(otpView, "OTP expired!");
                 return;
             }
 
-            if (result.equals("INVALID")) {
-                JOptionPane.showMessageDialog(otpView,"Invalid OTP!");
+            if ("INVALID".equals(result)) {
+                JOptionPane.showMessageDialog(otpView, "Invalid OTP!");
                 return;
             }
 
-            if (result.equals("VALID")) {
+            if ("VALID".equals(result)) {
 
-                if (SessionData.role.equals("Adopter")) {
+                // OTP for Adopter
+                if ("Adopter".equals(SessionData.role)) {
 
                     AdopterData adopter = new AdopterData();
-
                     adopter.setUsername(SessionData.username);
                     adopter.setPassword(SessionData.password);
                     adopter.setEmail(SessionData.email);
@@ -109,26 +101,38 @@ public class OTPController {
 
                     if (inserted) {
                         otpDAO.deleteOtp(email);
-                        JOptionPane.showMessageDialog(otpView,"You successfully registered as an adopter!");
-                        otpView.dispose();
-                        
-                        Login loginPg = new Login();
-                        loginPg.setVisible(true);
-                        loginPg.setLocationRelativeTo(null);
-                        
-                    } else {
-                        JOptionPane.showMessageDialog(otpView,"Registration Failed!");
-                    }
-                }else if (SessionData.role.equals("Provider")) {
-                    ProviderExtraWindow providerExtra = new ProviderExtraWindow();
-                    SignUpController controller = new SignUpController(providerExtra);
-                    providerExtra.setLocationRelativeTo(null);
-                    
-                    // OPEN USING CONTROLLER
-                    controller.open();
 
-                   // close otp window
-                   otpView.dispose();
+                        JOptionPane.showMessageDialog(otpView, "Adopter registered successfully!");
+
+                        close();
+
+                        Login login = new Login();
+                        //new LoginController(login);
+                        login.setVisible(true);
+                        login.setLocationRelativeTo(null);
+
+                    } else {
+                        JOptionPane.showMessageDialog(otpView, "Registration failed!");
+                    }
+                }
+
+                // OTP for Provider
+                else if ("Provider".equals(SessionData.role)) {
+
+                    otpDAO.deleteOtp(email);
+
+                    JOptionPane.showMessageDialog(otpView,
+                            "OTP verified. Continue provider registration.");
+
+                    close();
+
+                    ProviderExtraWindow providerExtra = new ProviderExtraWindow();
+
+                    // IMPORTANT FIX: attach controller first
+                    new SignUpController(providerExtra);
+
+                    providerExtra.setLocationRelativeTo(null);
+                    providerExtra.setVisible(true);
                 }
             }
         }

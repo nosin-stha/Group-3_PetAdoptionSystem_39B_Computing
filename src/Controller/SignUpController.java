@@ -8,37 +8,30 @@ package Controller;
  *
  * @author Dell
  */
+
 import DAO.UsersDAO;
 import java.awt.Image;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
-
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import model.SessionData;
 import view.Login;
 import view.OTPWindow;
 import view.ProviderExtraWindow;
 import view.SignupWindow;
 
-
-
 public class SignUpController {
 
     private SignupWindow signupView;
     private ProviderExtraWindow providerView;
+
     private String mainImagePath;
     private String providerImagePath;
 
     private final UsersDAO dao = new UsersDAO();
 
-    
-    
-    
-    // SignUp Window Controller
+    // Sign Up Main Window - Constructor
     public SignUpController(SignupWindow signupView) {
         this.signupView = signupView;
 
@@ -47,173 +40,149 @@ public class SignUpController {
         signupView.addBackToLoginListener(new BackToLoginListener());
     }
 
-    
-    
-    // Provider Extra Sign Up Window Controller
-
+    // Provider Extra Window - Constructor
     public SignUpController(ProviderExtraWindow providerView) {
         this.providerView = providerView;
-        
+
         providerView.addSaveProviderListener(new SaveProviderListener());
         providerView.addUploadProviderImageListener(new UploadProviderImageListener());
-        
+
         if (SessionData.imagePath != null) {
-
             ImageIcon icon = new ImageIcon(SessionData.imagePath);
-
             Image image = icon.getImage().getScaledInstance(
                     providerView.getProviderSignUpPfp().getWidth(),
                     providerView.getProviderSignUpPfp().getHeight(),
                     Image.SCALE_SMOOTH
             );
-
             providerView.getProviderSignUpPfp().setIcon(new ImageIcon(image));
         }
     }
 
-    
-    
-    // Window Opening
-    public void open() {
-        if (signupView != null) {
-            signupView.setVisible(true);
-            signupView.setLocationRelativeTo(null);
-        } else if (providerView != null) {
-            providerView.setVisible(true);
-            providerView.setLocationRelativeTo(null);
+   // open windows
+    public void openWindow(JFrame frame) {
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+
+    // close windows
+    public void closeWindow(JFrame frame) {
+        frame.dispose();
+    }
+
+    // listener to sign up button of main signup window
+    class SignupListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            String username = signupView.getTxtUsername().getText().trim();
+            String password = new String(signupView.getTxtPassword().getPassword()).trim();
+            String confirmPassword = new String(signupView.getTxtConfirmPassword().getPassword()).trim();
+            String email = signupView.getTxtEmail().getText().trim();
+            String role = signupView.getCmbRole().getSelectedItem().toString();
+
+            if (username.isEmpty() || password.isEmpty() ||
+                confirmPassword.isEmpty() || email.isEmpty()) {
+                JOptionPane.showMessageDialog(signupView, "Fill all fields!");
+                return;
+            }
+
+            if (!password.equals(confirmPassword)) {
+                JOptionPane.showMessageDialog(signupView, "Password mismatch!");
+                return;
+            }
+
+            if (!email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {
+                JOptionPane.showMessageDialog(signupView, "Invalid email format!");
+                return;
+            }
+
+            if (dao.isUsernameExist(username)) {
+                JOptionPane.showMessageDialog(signupView, "Username already exists!");
+                return;
+            }
+
+            if (dao.isEmailExist(email)) {
+                JOptionPane.showMessageDialog(signupView, "Email already exists!");
+                return;
+            }
+
+            // store data in session model
+            SessionData.username = username;
+            SessionData.password = password;
+            SessionData.email = email;
+            SessionData.role = role;
+            SessionData.imagePath = mainImagePath;
+
+            // open OTP window after valid credentials
+            OTPWindow otp = new OTPWindow();
+            otp.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+
+            otp.setLocationRelativeTo(signupView);
+
+            otp.setAlwaysOnTop(true);
+            
+            signupView.setEnabled(false);
+
+
+            otp.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosed(java.awt.event.WindowEvent e) {
+                    signupView.setEnabled(true);
+                    signupView.toFront();
+                }
+            });
+
+            openWindow(otp);
+
+           new OTPController(otp).open();
         }
     }
 
-    
-    
-    // SIGNUP LISTENER
-    
-    class SignupListener implements ActionListener {
-        
-        @Override
-        public void actionPerformed(ActionEvent e) {
-
-            try {
-                System.out.println("SIGNUP CLICKED");
-
-                String username = signupView.getTxtUsername().getText().trim();
-                String password = new String(signupView.getTxtPassword().getPassword()).trim();
-                String confirmPassword = new String(signupView.getTxtConfirmPassword().getPassword()).trim();
-                String email = signupView.getTxtEmail().getText().trim();
-                String role = signupView.getCmbRole().getSelectedItem().toString();
-
-                if (username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || email.isEmpty()) {
-                    JOptionPane.showMessageDialog(signupView, "Fill all fields!");
-                    return;
-                }
-
-                if (!password.equals(confirmPassword)) {
-                    JOptionPane.showMessageDialog(signupView, "Password mismatch!");
-                    return;
-                }
-            
-                if (!email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {
-                    JOptionPane.showMessageDialog(signupView, "Invalid email format!");
-                    return;
-                }
-        
-            
-                // check username exists
-                if (dao.isUsernameExist(username)) {
-                    JOptionPane.showMessageDialog(signupView,"Username already exists!");
-                    return;
-                }
-        
-                // check email exists
-                if (dao.isEmailExist(email)) {
-                    JOptionPane.showMessageDialog(signupView, "Email already exists!");
-                    return;
-                }
-            
-                // set session data for after login
-                SessionData.username = username;
-                SessionData.password = password;
-                SessionData.email = email;
-                SessionData.role = role;
-                SessionData.imagePath = mainImagePath;
-                
-                
-                // open OTP window
-                OTPWindow otp = new OTPWindow();
-
-                // center OTP relative to signup window
-                otp.setLocationRelativeTo(signupView);
-                
-                otp.setAlwaysOnTop(true);
-                
-                // IMPORTANT: ensure closing OTP does NOT exit app
-                otp.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-                
-                // optional: bring to front
-                otp.toFront();
-                otp.requestFocus();
-
-                // start controller
-                new OTPController(otp).open();
-
-            } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(signupView, "Error: " + ex.getMessage());
-                }
-            }
-        }
-    
-    // Uploaded Image Listener at Main SignUp
+    // listener to upload image in main sign up window
     class UploadMainImageListener implements ActionListener {
-        
 
         @Override
         public void actionPerformed(ActionEvent e) {
+
             JFileChooser chooser = new JFileChooser();
-            
             int result = chooser.showOpenDialog(signupView);
+
             if (result == JFileChooser.APPROVE_OPTION) {
 
                 File file = chooser.getSelectedFile();
-
-                // SAVE IMAGE PATH
                 mainImagePath = file.getAbsolutePath();
+
                 SessionData.imagePath = mainImagePath;
 
-                // DISPLAY IMAGE
                 ImageIcon icon = new ImageIcon(mainImagePath);
-
                 Image image = icon.getImage().getScaledInstance(
-                            signupView.getPfpMain().getWidth(),
-                            signupView.getPfpMain().getHeight(),
-                            Image.SCALE_SMOOTH
-                    );
+                        signupView.getPfpMain().getWidth(),
+                        signupView.getPfpMain().getHeight(),
+                        Image.SCALE_SMOOTH
+                );
 
                 signupView.getPfpMain().setIcon(new ImageIcon(image));
             }
         }
     }
-       
-    // BACK TO LOGIN LISTENER
+
+    // listener for back to login button
     class BackToLoginListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            // close signup window
-            signupView.dispose();
+            closeWindow(signupView);
 
-            // open login window
             Login login = new Login();
+            //new LoginController(login);  
 
-            login.setVisible(true);
-            login.setLocationRelativeTo(null);
+            openWindow(login);
+        }
     }
-}
 
-    
-    // SAVE PROVIDER LISTENER
-
-
+    // listener for save button click pointer
     class SaveProviderListener implements ActionListener {
 
         @Override
@@ -227,86 +196,67 @@ public class SignUpController {
             provider.setAddress(providerView.getTxtAddress().getText().trim());
             provider.setMissionStatement(providerView.getTxtMissionStatement().getText().trim());
             provider.setAdoptionPolicy(providerView.getTxtAdoptionPolicy().getText().trim());
-            provider.setStartWorkDay(providerView.getCmbStartDay().getSelectedItem().toString());
-            provider.setEndWorkDay(providerView.getCmbEndDay().getSelectedItem().toString());
-            provider.setStartWorkHour(providerView.getCmbStartHour().getSelectedItem().toString());
-            provider.setEndWorkHour(providerView.getCmbEndHour().getSelectedItem().toString());
-            
-            
+
             provider.setUsername(SessionData.username);
             provider.setPassword(SessionData.password);
             provider.setEmail(SessionData.email);
             provider.setPfp(SessionData.imagePath);
 
+            if (provider.getShelterName().isEmpty() ||
+                provider.getLicenseID().isEmpty() ||
+                provider.getPhoneNumber().isEmpty()) {
 
-            // VALIDATION
-
-            if (provider.getShelterName().isEmpty()
-                    || provider.getLicenseID().isEmpty()
-                    || provider.getPhoneNumber().isEmpty()
-                    || provider.getAddress().isEmpty()) {
-
-                JOptionPane.showMessageDialog(
-                        providerView,
-                        "Please fill all required fields!"
-                );
-
+                JOptionPane.showMessageDialog(providerView, "Fill required fields!");
                 return;
             }
-            
+
             if (!provider.getPhoneNumber().matches("\\d{10}")) {
-
-                JOptionPane.showMessageDialog(
-                        providerView,
-                        "Invalid Phone Number! Must be exactly 10 digits."
-                );
+                JOptionPane.showMessageDialog(providerView, "Invalid phone number!");
                 return;
             }
-            
 
             boolean inserted = dao.insertProvider(provider);
 
             if (inserted) {
-                JOptionPane.showMessageDialog(providerView,"You have sucessfully registered as a Pet Provider!");
-                providerView.dispose();
+                JOptionPane.showMessageDialog(providerView, "Registration Successful!");
+
+                closeWindow(providerView);
+
                 Login login = new Login();
-           
-                login.setVisible(true);
-                login.setLocationRelativeTo(null);
-                
+                //new LoginController(login);
+
+                openWindow(login);
+
             } else {
-                JOptionPane.showMessageDialog(providerView,"Provider Registration Failed!");
-                  
+                JOptionPane.showMessageDialog(providerView, "Registration Failed!");
             }
         }
     }
-    
-    
-    // Uploaded Image Listener at Provider Extra SignUp
+
+   // Listener to upload image when provider extra sign up window opens
     class UploadProviderImageListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
 
             JFileChooser chooser = new JFileChooser();
+            int result = chooser.showOpenDialog(providerView);
 
-        int result = chooser.showOpenDialog(providerView);
-        if (result == JFileChooser.APPROVE_OPTION) {
-            File file = chooser.getSelectedFile();
+            if (result == JFileChooser.APPROVE_OPTION) {
 
-            // SAVE IMAGE PATH
-            providerImagePath = file.getAbsolutePath();
-            SessionData.imagePath = providerImagePath;
+                File file = chooser.getSelectedFile();
+                providerImagePath = file.getAbsolutePath();
 
-            // DISPLAY IMAGE
-            ImageIcon icon = new ImageIcon(providerImagePath);
-            Image image = icon.getImage().getScaledInstance(
-                            providerView.getProviderSignUpPfp().getWidth(),
-                            providerView.getProviderSignUpPfp().getHeight(),
-                            Image.SCALE_SMOOTH
-                    );
-            providerView.getProviderSignUpPfp().setIcon(new ImageIcon(image));
-            
+                SessionData.imagePath = providerImagePath;
+
+                ImageIcon icon = new ImageIcon(providerImagePath);
+                Image image = icon.getImage().getScaledInstance(
+                        providerView.getProviderSignUpPfp().getWidth(),
+                        providerView.getProviderSignUpPfp().getHeight(),
+                        Image.SCALE_SMOOTH
+                );
+
+                providerView.getProviderSignUpPfp().setIcon(new ImageIcon(image));
             }
         }
     }
