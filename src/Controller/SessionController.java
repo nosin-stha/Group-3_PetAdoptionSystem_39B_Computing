@@ -27,7 +27,7 @@ public class SessionController {
         // open login again WITH controller
         SwingUtilities.invokeLater(() -> {
             Login login = new Login();
-            //new LoginController(login);
+            new LoginController(login);
             login.setVisible(true);
             login.setLocationRelativeTo(null);
         });

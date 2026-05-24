@@ -176,7 +176,7 @@ public class SignUpController {
             closeWindow(signupView);
 
             Login login = new Login();
-            //new LoginController(login);  
+            new LoginController(login);  
 
             openWindow(login);
         }
@@ -223,7 +223,7 @@ public class SignUpController {
                 closeWindow(providerView);
 
                 Login login = new Login();
-                //new LoginController(login);
+                new LoginController(login);
 
                 openWindow(login);
 

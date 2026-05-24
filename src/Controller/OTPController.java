@@ -107,7 +107,7 @@ public class OTPController {
                         close();
 
                         Login login = new Login();
-                        //new LoginController(login);
+                        new LoginController(login);
                         login.setVisible(true);
                         login.setLocationRelativeTo(null);
 

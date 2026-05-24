@@ -33,7 +33,7 @@ public class AdopterHomePage extends javax.swing.JFrame {
 
         AdopterAllPetScrollPane.setViewportView(petContainerPanel);
     
-        PetController controller = new PetController(petContainerPanel, null);
+        PetController controller = new PetController(petContainerPanel, null, AdopterSideTotalPetCount);
         controller.loadAdopterPets();
     
         AdopterAllPetScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -110,13 +110,13 @@ public class AdopterHomePage extends javax.swing.JFrame {
                 .addComponent(Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(80, 80, 80)
                 .addComponent(BtnHome_btn)
-                .addGap(65, 65, 65)
+                .addGap(30, 30, 30)
                 .addComponent(MyRequests_btn)
-                .addGap(85, 85, 85)
+                .addGap(30, 30, 30)
                 .addComponent(Shelters_btn)
-                .addGap(90, 90, 90)
+                .addGap(33, 33, 33)
                 .addComponent(Logout_btn)
-                .addContainerGap(242, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         toppanelLayout.setVerticalGroup(
             toppanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,7 +187,7 @@ public class AdopterHomePage extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(AdopterSideTotalPetCount, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(AdopterAllPetScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 925, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         mainpanalLayout.setVerticalGroup(
             mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -34,7 +34,7 @@ public final class ProviderHomePage extends javax.swing.JFrame {
 
         ProviderPetsScrollPane.setViewportView(providerPetContainerPanel);
 
-        PetController controller = new PetController(null, providerPetContainerPanel);
+        PetController controller = new PetController(null, providerPetContainerPanel, TotalPetCount);
         controller.loadProviderPets();
 
         ProviderPetsScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -78,7 +78,7 @@ public final class ProviderHomePage extends javax.swing.JFrame {
         PetType_combobox = new javax.swing.JComboBox<>();
         PetClear = new javax.swing.JButton();
         totalpet = new javax.swing.JLabel();
-        TotalPetnumber = new javax.swing.JLabel();
+        TotalPetCount = new javax.swing.JLabel();
         ProviderPetsScrollPane = new javax.swing.JScrollPane();
         providerPetContainerPanel = new javax.swing.JPanel();
 
@@ -129,7 +129,7 @@ public final class ProviderHomePage extends javax.swing.JFrame {
                     .addComponent(Adoption_Historybtn)
                     .addComponent(Logout_btn))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Logo, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
         );
 
         Searchbar.setForeground(new java.awt.Color(204, 204, 204));
@@ -153,7 +153,7 @@ public final class ProviderHomePage extends javax.swing.JFrame {
 
         totalpet.setText("Total Pet:");
 
-        TotalPetnumber.setText("jLabel3");
+        TotalPetCount.setText("Pet Count");
 
         providerPetContainerPanel.setLayout(new java.awt.GridLayout(0, 2, 20, 20));
         ProviderPetsScrollPane.setViewportView(providerPetContainerPanel);
@@ -183,7 +183,7 @@ public final class ProviderHomePage extends javax.swing.JFrame {
                         .addGap(17, 17, 17)
                         .addComponent(totalpet)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TotalPetnumber, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(TotalPetCount, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(ProviderPetsScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 934, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -195,22 +195,22 @@ public final class ProviderHomePage extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Searchbar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(SearchLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
+                        .addGap(24, 24, 24)
                         .addComponent(PetClear)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PetType_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Gender_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Age_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(totalpet, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(TotalPetnumber, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(TotalPetCount, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(28, 28, 28)
                 .addComponent(ProviderPetsScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
@@ -273,7 +273,7 @@ public final class ProviderHomePage extends javax.swing.JFrame {
     private javax.swing.JScrollPane ProviderPetsScrollPane;
     private javax.swing.JButton SearchLogo;
     private javax.swing.JTextField Searchbar;
-    private javax.swing.JLabel TotalPetnumber;
+    private javax.swing.JLabel TotalPetCount;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel providerPetContainerPanel;

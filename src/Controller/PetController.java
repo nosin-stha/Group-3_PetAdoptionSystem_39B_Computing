@@ -15,10 +15,12 @@ public class PetController {
 
     private final JPanel adopterPanel;
     private final JPanel providerPanel;
+    private final javax.swing.JLabel countLabel;
 
-    public PetController(JPanel adopterPanel, JPanel providerPanel) {
+    public PetController(JPanel adopterPanel, JPanel providerPanel, javax.swing.JLabel countLabel) {
         this.adopterPanel = adopterPanel;
         this.providerPanel = providerPanel;
+        this.countLabel = countLabel;
     }
 
     // load pet cards for adopters
@@ -38,6 +40,10 @@ public class PetController {
 
         adopterPanel.revalidate();
         adopterPanel.repaint();
+        
+        if (countLabel != null) {
+            countLabel.setText(String.valueOf(adopterPanel.getComponentCount()));
+        }
     }
 
     // load pet cards for providers
@@ -59,6 +65,10 @@ public class PetController {
 
         providerPanel.revalidate();
         providerPanel.repaint();
+        
+        if (countLabel != null) {
+            countLabel.setText(String.valueOf(providerPanel.getComponentCount()));
+        }
     }
 
     // auto refresh system
