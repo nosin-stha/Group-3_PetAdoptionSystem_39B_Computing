@@ -73,6 +73,7 @@ public class AdopterHomePage extends javax.swing.JFrame {
         Favourite_btn = new javax.swing.JButton();
         Favourite_text = new javax.swing.JLabel();
         profile_btn = new javax.swing.JButton();
+        Profile_text = new javax.swing.JLabel();
         Searchbar = new javax.swing.JTextField();
         SearchLogo = new javax.swing.JButton();
         Age_combobox = new javax.swing.JComboBox<>();
@@ -92,8 +93,7 @@ public class AdopterHomePage extends javax.swing.JFrame {
         toppanel.setBackground(new java.awt.Color(255, 153, 51));
         toppanel.setPreferredSize(new java.awt.Dimension(1000, 112));
 
-        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/petlogo.png"))); // NOI18N
-        Logo.setText("jLabel1");
+        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pas_circular_logo.png"))); // NOI18N
 
         BtnHome_btn.setBackground(new java.awt.Color(255, 204, 51));
         BtnHome_btn.setText("Home");
@@ -118,52 +118,58 @@ public class AdopterHomePage extends javax.swing.JFrame {
         profile_btn.setBorder(null);
         profile_btn.addActionListener(this::profile_btnActionPerformed);
 
+        Profile_text.setText("profile");
+
         javax.swing.GroupLayout toppanelLayout = new javax.swing.GroupLayout(toppanel);
         toppanel.setLayout(toppanelLayout);
         toppanelLayout.setHorizontalGroup(
             toppanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(toppanelLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGap(35, 35, 35)
                 .addComponent(Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
+                .addGap(67, 67, 67)
                 .addComponent(BtnHome_btn)
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(MyRequests_btn)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(Shelters_btn)
-                .addGap(33, 33, 33)
+                .addGap(18, 18, 18)
                 .addComponent(Logout_btn)
+                .addGap(23, 23, 23)
                 .addGroup(toppanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(toppanelLayout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addComponent(Favourite_btn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 198, Short.MAX_VALUE)
-                        .addComponent(profile_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+                        .addGap(123, 123, 123)
+                        .addComponent(Favourite_btn))
                     .addGroup(toppanelLayout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(Favourite_text)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(115, 115, 115)
+                        .addComponent(Favourite_text)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 198, Short.MAX_VALUE)
+                .addGroup(toppanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(profile_btn)
+                    .addComponent(Profile_text, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
         );
         toppanelLayout.setVerticalGroup(
             toppanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(toppanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(toppanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(35, 35, 35)
+                .addGroup(toppanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Favourite_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(profile_btn)
                     .addGroup(toppanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(BtnHome_btn)
                         .addComponent(MyRequests_btn)
                         .addComponent(Shelters_btn)
-                        .addComponent(Logout_btn))
-                    .addGroup(toppanelLayout.createSequentialGroup()
-                        .addGroup(toppanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Favourite_btn)
-                            .addComponent(profile_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Favourite_text)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(Logout_btn)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(toppanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Favourite_text)
+                    .addComponent(Profile_text))
+                .addContainerGap(30, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, toppanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Logo)
+                .addGap(17, 17, 17))
         );
 
         Searchbar.setForeground(new java.awt.Color(204, 204, 204));
@@ -320,6 +326,7 @@ public class AdopterHomePage extends javax.swing.JFrame {
     private javax.swing.JButton MyRequests_btn;
     private javax.swing.JButton PetClear_btn;
     private javax.swing.JComboBox<String> Pet_combobox;
+    private javax.swing.JLabel Profile_text;
     private javax.swing.JButton SearchLogo;
     private javax.swing.JTextField Searchbar;
     private javax.swing.JButton Shelters_btn;

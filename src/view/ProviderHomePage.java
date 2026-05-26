@@ -82,15 +82,16 @@ public final class ProviderHomePage extends javax.swing.JFrame {
         Adoption_Historybtn = new javax.swing.JButton();
         Logout_btn = new javax.swing.JButton();
         Logo = new javax.swing.JLabel();
-        Favourite_btn = new javax.swing.JButton();
-        Favourite_text = new javax.swing.JLabel();
         profile_btn = new javax.swing.JButton();
+        Profile_text = new javax.swing.JLabel();
+        Add_pet_provider = new javax.swing.JButton();
 
         jCheckBox1.setText("jCheckBox1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(988, 550));
 
+        Main_panal.setBackground(new java.awt.Color(255, 255, 255));
         Main_panal.setLayout(null);
 
         PetClear.setBackground(new java.awt.Color(255, 153, 51));
@@ -102,7 +103,7 @@ public final class ProviderHomePage extends javax.swing.JFrame {
         Gender_combobox.setBackground(new java.awt.Color(255, 153, 51));
         Gender_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gender", "Male", "Female" }));
         Main_panal.add(Gender_combobox);
-        Gender_combobox.setBounds(290, 170, 72, 22);
+        Gender_combobox.setBounds(280, 170, 72, 22);
 
         PetType_combobox.setBackground(new java.awt.Color(255, 153, 51));
         PetType_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pet Type", "Dog", "Cat", "Bird", "Marine", "Others", " " }));
@@ -122,7 +123,7 @@ public final class ProviderHomePage extends javax.swing.JFrame {
         Age_combobox.setBackground(new java.awt.Color(255, 153, 51));
         Age_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Age", "2", "4", "6", "Other..", " " }));
         Main_panal.add(Age_combobox);
-        Age_combobox.setBounds(380, 170, 72, 22);
+        Age_combobox.setBounds(360, 170, 72, 22);
 
         totalpet.setText("Total Pet:");
         Main_panal.add(totalpet);
@@ -152,20 +153,14 @@ public final class ProviderHomePage extends javax.swing.JFrame {
         Logout_btn.setText("Logout");
         Logout_btn.addActionListener(this::Logout_btnActionPerformed);
 
-        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/petlogo.png"))); // NOI18N
-
-        Favourite_btn.setBackground(new java.awt.Color(255, 153, 51));
-        Favourite_btn.setForeground(new java.awt.Color(255, 153, 51));
-        Favourite_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/heart_PNG.png"))); // NOI18N
-        Favourite_btn.setBorder(null);
-        Favourite_btn.addActionListener(this::Favourite_btnActionPerformed);
-
-        Favourite_text.setText("Favourite");
+        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pas_circular_logo.png"))); // NOI18N
 
         profile_btn.setBackground(new java.awt.Color(255, 153, 51));
-        profile_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/profile logo.png"))); // NOI18N
+        profile_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/profileButtonIcon.png"))); // NOI18N
         profile_btn.setBorder(null);
         profile_btn.addActionListener(this::profile_btnActionPerformed);
+
+        Profile_text.setText("profile");
 
         javax.swing.GroupLayout Top_panalLayout = new javax.swing.GroupLayout(Top_panal);
         Top_panal.setLayout(Top_panalLayout);
@@ -182,17 +177,15 @@ public final class ProviderHomePage extends javax.swing.JFrame {
                 .addComponent(Adoption_Historybtn)
                 .addGap(24, 24, 24)
                 .addComponent(Logout_btn)
-                .addGap(62, 62, 62)
-                .addGroup(Top_panalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Favourite_btn)
-                    .addComponent(Favourite_text))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
-                .addComponent(profile_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 295, Short.MAX_VALUE)
+                .addGroup(Top_panalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(profile_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Profile_text, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23))
         );
         Top_panalLayout.setVerticalGroup(
             Top_panalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Logo, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+            .addComponent(Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(Top_panalLayout.createSequentialGroup()
                 .addGroup(Top_panalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Top_panalLayout.createSequentialGroup()
@@ -203,21 +196,20 @@ public final class ProviderHomePage extends javax.swing.JFrame {
                             .addComponent(Logout_btn)
                             .addComponent(Adoption_Historybtn)))
                     .addGroup(Top_panalLayout.createSequentialGroup()
-                        .addGroup(Top_panalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(Top_panalLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(profile_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(9, 9, 9))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Top_panalLayout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(Favourite_btn)))
+                        .addGap(22, 22, 22)
+                        .addComponent(profile_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Favourite_text)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(Profile_text)))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         Main_panal.add(Top_panal);
         Top_panal.setBounds(0, 0, 1000, 112);
+
+        Add_pet_provider.setBackground(new java.awt.Color(255, 153, 51));
+        Add_pet_provider.setText("Add pet");
+        Main_panal.add(Add_pet_provider);
+        Add_pet_provider.setBounds(600, 190, 73, 23);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -249,10 +241,6 @@ public final class ProviderHomePage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_PetClearActionPerformed
 
-    private void Favourite_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Favourite_btnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Favourite_btnActionPerformed
-
     private void profile_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profile_btnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_profile_btnActionPerformed
@@ -283,11 +271,10 @@ public final class ProviderHomePage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Add_pet_provider;
     private javax.swing.JButton Adoption_Historybtn;
     private javax.swing.JButton Adoption_requestbtn;
     private javax.swing.JComboBox<String> Age_combobox;
-    private javax.swing.JButton Favourite_btn;
-    private javax.swing.JLabel Favourite_text;
     private javax.swing.JComboBox<String> Gender_combobox;
     private javax.swing.JButton Home_btn;
     private javax.swing.JLabel Logo;
@@ -295,6 +282,7 @@ public final class ProviderHomePage extends javax.swing.JFrame {
     private javax.swing.JPanel Main_panal;
     private javax.swing.JButton PetClear;
     private javax.swing.JComboBox<String> PetType_combobox;
+    private javax.swing.JLabel Profile_text;
     private javax.swing.JScrollPane ProviderPetsScrollPane;
     private javax.swing.JButton SearchLogo;
     private javax.swing.JTextField Searchbar;
