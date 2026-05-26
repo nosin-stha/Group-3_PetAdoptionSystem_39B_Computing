@@ -161,6 +161,7 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
         Main_panal_Viewpet_adopter.add(toppanel_viewpet_adopter);
         toppanel_viewpet_adopter.setBounds(0, 0, 1000, 112);
 
+        Playerimage_box_petview_adopter.setBackground(new java.awt.Color(255, 255, 255));
         Playerimage_box_petview_adopter.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         Petimage_petview_adopter.setText("pet_image");

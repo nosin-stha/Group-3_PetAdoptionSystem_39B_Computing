@@ -128,6 +128,7 @@ public class ProviderViewPetDetails extends javax.swing.JFrame {
         Main_panal_Viewpet_provider.add(toppanel_viewpet_provider);
         toppanel_viewpet_provider.setBounds(0, 0, 1000, 112);
 
+        Playerimage_box_petview_provider.setBackground(new java.awt.Color(255, 255, 255));
         Playerimage_box_petview_provider.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         Petimage_petview_provider.setText("pet_image");

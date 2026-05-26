@@ -98,7 +98,7 @@ public final class ProviderHomePage extends javax.swing.JFrame {
         PetClear.setText("Clear");
         PetClear.addActionListener(this::PetClearActionPerformed);
         Main_panal.add(PetClear);
-        PetClear.setBounds(600, 160, 72, 23);
+        PetClear.setBounds(600, 160, 90, 23);
 
         Gender_combobox.setBackground(new java.awt.Color(255, 153, 51));
         Gender_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gender", "Male", "Female" }));
@@ -209,7 +209,7 @@ public final class ProviderHomePage extends javax.swing.JFrame {
         Add_pet_provider.setBackground(new java.awt.Color(255, 153, 51));
         Add_pet_provider.setText("Add pet");
         Main_panal.add(Add_pet_provider);
-        Add_pet_provider.setBounds(600, 190, 73, 23);
+        Add_pet_provider.setBounds(600, 190, 90, 23);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
