@@ -6,6 +6,7 @@ package view;
 
 import Controller.PetController;
 import Controller.SessionController;
+import java.awt.event.ActionListener;
 
 
 
@@ -23,28 +24,37 @@ public final class ProviderHomePage extends javax.swing.JFrame {
      */
     
     
+    private PetController controller;
     
-
     public ProviderHomePage() {
         initComponents();
-        setLocationRelativeTo(null);  
+        setLocationRelativeTo(null);
+
         providerPetContainerPanel.setLayout(
             new java.awt.GridLayout(0, 3, 20, 20)
         );
 
         ProviderPetsScrollPane.setViewportView(providerPetContainerPanel);
 
-        PetController controller = new PetController(null, providerPetContainerPanel, TotalPetCount);
+        ProviderPetsScrollPane.setHorizontalScrollBarPolicy(
+            javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER
+        );
+
+        ProviderPetsScrollPane.setVerticalScrollBarPolicy(
+            javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED
+        );
+
+
+        controller = new PetController(this);
         controller.loadProviderPets();
 
-        ProviderPetsScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-
-        ProviderPetsScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
         
+
+
         SessionController sessionController = new SessionController();
-            Logout_btn.addActionListener(
-                sessionController.getLogoutListener(this)
-            );
+        Logout_btn.addActionListener(
+            sessionController.getLogoutListener(this)
+        );
     }
     
     
@@ -52,9 +62,16 @@ public final class ProviderHomePage extends javax.swing.JFrame {
         return providerPetContainerPanel;
     }
     
+    public void addPetButtonListener(ActionListener listener) {
+        Add_pet_provider.addActionListener(listener);
+    }
     
     
-
+    public javax.swing.JLabel getTotalPetCountLabel() {
+        return TotalPetCount;
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -127,17 +144,17 @@ public final class ProviderHomePage extends javax.swing.JFrame {
 
         totalpet.setText("Total Pet:");
         Main_panal.add(totalpet);
-        totalpet.setBounds(30, 260, 50, 16);
+        totalpet.setBounds(30, 230, 70, 16);
 
         TotalPetCount.setText("Pet Count");
         Main_panal.add(TotalPetCount);
-        TotalPetCount.setBounds(90, 260, 63, 16);
+        TotalPetCount.setBounds(90, 230, 63, 16);
 
         providerPetContainerPanel.setLayout(new java.awt.GridLayout(0, 3, 20, 20));
         ProviderPetsScrollPane.setViewportView(providerPetContainerPanel);
 
         Main_panal.add(ProviderPetsScrollPane);
-        ProviderPetsScrollPane.setBounds(30, 290, 925, 280);
+        ProviderPetsScrollPane.setBounds(30, 250, 930, 370);
 
         Top_panal.setBackground(new java.awt.Color(255, 153, 51));
         Top_panal.setPreferredSize(new java.awt.Dimension(1000, 100));
@@ -215,14 +232,14 @@ public final class ProviderHomePage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Main_panal, javax.swing.GroupLayout.DEFAULT_SIZE, 999, Short.MAX_VALUE)
+            .addComponent(Main_panal, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Main_panal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 621, Short.MAX_VALUE)
+            .addComponent(Main_panal, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
         );
 
-        setBounds(0, 0, 1013, 629);
+        setBounds(0, 0, 1016, 689);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Logout_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Logout_btnActionPerformed

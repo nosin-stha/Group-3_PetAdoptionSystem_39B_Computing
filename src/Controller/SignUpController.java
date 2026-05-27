@@ -133,9 +133,9 @@ public class SignUpController {
                 }
             });
 
-            openWindow(otp);
-
-           new OTPController(otp).open();
+            signupView.dispose();   // CLOSE signup immediately
+            OTPController controller = new OTPController(otp);
+            controller.open();
         }
     }
 

@@ -31,7 +31,7 @@ public class ProviderHomePageDao {
                 rs.getInt("petID"),
                 rs.getInt("providerID"),
                 rs.getString("petName"),
-                rs.getString("petBreed"),
+                rs.getString("petType"),
                 rs.getString("petGender"),
                 rs.getString("petAge"),
                 rs.getString("houseTrained"),

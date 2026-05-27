@@ -5,6 +5,7 @@
 package view;
 
 import java.awt.Image;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import model.PetsData;
 
@@ -20,36 +21,48 @@ public class PetCardPanel extends javax.swing.JPanel {
     public PetCardPanel(PetsData pet) {
         initComponents();
         
-        setPreferredSize(new java.awt.Dimension(250, 330));
-        setMinimumSize(new java.awt.Dimension(250, 330));
-        setMaximumSize(new java.awt.Dimension(250, 330));
+        setPreferredSize(new java.awt.Dimension(250, 355));
+        setMinimumSize(new java.awt.Dimension(250, 355));
+        setMaximumSize(new java.awt.Dimension(250, 355));
         
         PetName.setText(pet.getPetName());
-        PetBreed.setText(pet.getPetBreed());
+        PetType.setText(pet.getPetType());
         PetAge.setText(pet.getPetAge());
         PetGender.setText(pet.getPetGender());
         
-        
         loadImage(pet.getImagePath());
     }
+    
+    
 
     private void loadImage(String path) {
+        try {
+            ImageIcon icon = new ImageIcon(path);
 
-    try {
-        ImageIcon icon = new ImageIcon(path);
-
-        Image img = icon.getImage().getScaledInstance(
-                120,
-                120,
-                Image.SCALE_SMOOTH
-        );
-
-        PetImg.setIcon(new ImageIcon(img));
-
-    } catch (Exception e) {
-        System.out.println("Image load error: " + e.getMessage());
+            Image img = icon.getImage().getScaledInstance(120,120, Image.SCALE_SMOOTH);
+            PetImg.setIcon(new ImageIcon(img));
+        } catch (Exception e) {
+            System.out.println("Image load error: " + e.getMessage());
+        }
     }
-}
+    
+    
+    public void hideActionButtons() {
+        PetUpdate.setVisible(false);
+        PetDelete.setVisible(false);
+    }
+    
+    
+    // listeners for update, delete button
+
+    public void addUpdateListener(ActionListener listener) {
+        PetUpdate.addActionListener(listener);
+    }
+
+    public void addDeleteListener(ActionListener listener) {
+        PetDelete.addActionListener(listener);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -61,13 +74,15 @@ public class PetCardPanel extends javax.swing.JPanel {
 
         PetImg = new javax.swing.JLabel();
         PetName = new javax.swing.JLabel();
-        LblPetBreed = new javax.swing.JLabel();
-        PetBreed = new javax.swing.JLabel();
+        LblPetType = new javax.swing.JLabel();
+        PetType = new javax.swing.JLabel();
         LblPetAge = new javax.swing.JLabel();
         PetAge = new javax.swing.JLabel();
         LblPetGender = new javax.swing.JLabel();
         PetGender = new javax.swing.JLabel();
         btnViewPetDetail = new javax.swing.JButton();
+        PetUpdate = new javax.swing.JButton();
+        PetDelete = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(249, 215, 147));
 
@@ -76,9 +91,9 @@ public class PetCardPanel extends javax.swing.JPanel {
 
         PetName.setText("Pet Name");
 
-        LblPetBreed.setText("Breed:");
+        LblPetType.setText("Type");
 
-        PetBreed.setText("Pet Breed");
+        PetType.setText("Pet Type");
 
         LblPetAge.setText("Age:");
 
@@ -91,47 +106,54 @@ public class PetCardPanel extends javax.swing.JPanel {
         btnViewPetDetail.setText("View More");
         btnViewPetDetail.addActionListener(this::btnViewPetDetailActionPerformed);
 
+        PetUpdate.setText("Update Pet");
+        PetUpdate.addActionListener(this::PetUpdateActionPerformed);
+
+        PetDelete.setText("Delete Pet");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(89, 89, 89)
-                            .addComponent(PetImg, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(98, 98, 98)
-                            .addComponent(PetName)))
-                    .addGroup(layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(LblPetAge)
-                            .addComponent(LblPetBreed)
+                            .addComponent(LblPetType)
                             .addComponent(LblPetGender))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(PetBreed, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(PetType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(PetAge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(PetGender, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(1, 1, 1)))
-                .addContainerGap(91, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnViewPetDetail)
-                .addGap(75, 75, 75))
+                            .addComponent(PetGender, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(PetImg, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(PetName)))
+                .addContainerGap(58, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(PetUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
+                    .addComponent(PetDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnViewPetDetail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(24, 24, 24)
                 .addComponent(PetImg, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(PetName)
-                .addGap(31, 31, 31)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LblPetBreed)
-                    .addComponent(PetBreed))
+                    .addComponent(LblPetType)
+                    .addComponent(PetType))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LblPetAge)
@@ -140,9 +162,13 @@ public class PetCardPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LblPetGender)
                     .addComponent(PetGender))
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(btnViewPetDetail)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(PetUpdate)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PetDelete)
+                .addGap(18, 18, 18))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -150,16 +176,22 @@ public class PetCardPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnViewPetDetailActionPerformed
 
+    private void PetUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PetUpdateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PetUpdateActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LblPetAge;
-    private javax.swing.JLabel LblPetBreed;
     private javax.swing.JLabel LblPetGender;
+    private javax.swing.JLabel LblPetType;
     private javax.swing.JLabel PetAge;
-    private javax.swing.JLabel PetBreed;
+    private javax.swing.JButton PetDelete;
     private javax.swing.JLabel PetGender;
     private javax.swing.JLabel PetImg;
     private javax.swing.JLabel PetName;
+    private javax.swing.JLabel PetType;
+    private javax.swing.JButton PetUpdate;
     private javax.swing.JButton btnViewPetDetail;
     // End of variables declaration//GEN-END:variables
 }

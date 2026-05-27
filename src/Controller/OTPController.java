@@ -19,6 +19,7 @@ import model.SessionData;
 import utils.EmailService;
 import utils.OTPGenerator;
 import view.Login;
+import view.SignupWindow;
 import view.OTPWindow;
 import view.ProviderExtraWindow;
 
@@ -105,7 +106,7 @@ public class OTPController {
                         JOptionPane.showMessageDialog(otpView, "Adopter registered successfully!");
 
                         close();
-
+                        
                         Login login = new Login();
                         new LoginController(login);
                         login.setVisible(true);

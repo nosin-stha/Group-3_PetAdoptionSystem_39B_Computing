@@ -1,11 +1,12 @@
 package model;
 
 public class PetsData {
+    
 
-    private final int petID;
-    private final int providerID;
+    private int petID;
+    private int providerID;
     private String petName;
-    private String petBreed;
+    private String petType;
     private String petGender;
     private String petAge;
     private String houseTrained;
@@ -16,7 +17,7 @@ public class PetsData {
     private String imagePath;
 
     public PetsData(int petID, int providerID, String petName,
-                    String petBreed, String petGender, String petAge,
+                    String petType, String petGender, String petAge,
                     String houseTrained, String spayed,
                     String vaccinated, String specialNeeds,
                     String petAdoptionStatus,
@@ -25,7 +26,7 @@ public class PetsData {
         this.petID = petID;
         this.providerID = providerID;
         this.petName = petName;
-        this.petBreed = petBreed;
+        this.petType = petType;
         this.petGender = petGender;
         this.petAge = petAge;
         this.houseTrained = houseTrained;
@@ -35,6 +36,8 @@ public class PetsData {
         this.petAdoptionStatus = petAdoptionStatus;
         this.imagePath = imagePath;
     }
+    
+    // getters
 
     public int getPetID() { 
         return petID; 
@@ -45,8 +48,8 @@ public class PetsData {
     public String getPetName() { 
         return petName; 
     }
-    public String getPetBreed() { 
-        return petBreed; 
+    public String getPetType() { 
+        return petType; 
     }
     public String getPetGender() { 
         return petGender; 
@@ -73,12 +76,22 @@ public class PetsData {
         return imagePath; 
     }
 
+    
+    
+    // Setters
+    public void setPetID(int petID) { 
+        this.petID = petID; 
+    }
+    
+    public void setProviderID(int providerID) { 
+        this.providerID = providerID; 
+    }
   
     public void setPetName(String petName) { 
         this.petName = petName; 
     }
-    public void setPetBreed(String petBreed) { 
-        this.petBreed = petBreed; 
+    public void setPetType(String petType) { 
+        this.petType = petType; 
     }
     public void setPetGender(String petGender) { 
         this.petGender = petGender; 
@@ -103,5 +116,8 @@ public class PetsData {
     }
     public void setImagePath(String imagePath) { 
         this.imagePath = imagePath; 
+    }
+    
+    public PetsData() {
     }
 }
