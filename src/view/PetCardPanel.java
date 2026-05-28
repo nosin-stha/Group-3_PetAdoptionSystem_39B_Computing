@@ -20,30 +20,23 @@ public class PetCardPanel extends javax.swing.JPanel {
      */
     public PetCardPanel(PetsData pet) {
         initComponents();
-        
-        setPreferredSize(new java.awt.Dimension(250, 355));
-        setMinimumSize(new java.awt.Dimension(250, 355));
-        setMaximumSize(new java.awt.Dimension(250, 355));
-        
-        PetName.setText(pet.getPetName());
-        PetType.setText(pet.getPetType());
-        PetAge.setText(pet.getPetAge());
-        PetGender.setText(pet.getPetGender());
-        
-        loadImage(pet.getImagePath());
     }
-    
-    
 
-    private void loadImage(String path) {
-        try {
-            ImageIcon icon = new ImageIcon(path);
-
-            Image img = icon.getImage().getScaledInstance(120,120, Image.SCALE_SMOOTH);
-            PetImg.setIcon(new ImageIcon(img));
-        } catch (Exception e) {
-            System.out.println("Image load error: " + e.getMessage());
-        }
+    // Getters
+    public javax.swing.JLabel getPetName() { 
+        return PetName; 
+    }
+    public javax.swing.JLabel getPetType() { 
+        return PetType; 
+    }
+    public javax.swing.JLabel getPetAge() { 
+        return PetAge; 
+    }
+    public javax.swing.JLabel getPetGender() { 
+        return PetGender; 
+    }
+    public javax.swing.JLabel getPetImg() { 
+        return PetImg; 
     }
     
     

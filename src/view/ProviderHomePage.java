@@ -5,7 +5,6 @@
 package view;
 
 import Controller.PetController;
-import Controller.SessionController;
 import java.awt.event.ActionListener;
 
 
@@ -24,53 +23,39 @@ public final class ProviderHomePage extends javax.swing.JFrame {
      */
     
     
-    private PetController controller;
-    
+
     public ProviderHomePage() {
-        initComponents();
-        setLocationRelativeTo(null);
+    initComponents();
+    setLocationRelativeTo(null);
+    new PetController(this);  // all setup moved to controller
+}
 
-        providerPetContainerPanel.setLayout(
-            new java.awt.GridLayout(0, 3, 20, 20)
-        );
-
-        ProviderPetsScrollPane.setViewportView(providerPetContainerPanel);
-
-        ProviderPetsScrollPane.setHorizontalScrollBarPolicy(
-            javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER
-        );
-
-        ProviderPetsScrollPane.setVerticalScrollBarPolicy(
-            javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED
-        );
-
-
-        controller = new PetController(this);
-        controller.loadProviderPets();
-
-        
-
-
-        SessionController sessionController = new SessionController();
-        Logout_btn.addActionListener(
-            sessionController.getLogoutListener(this)
-        );
-    }
     
     
-    public javax.swing.JPanel getProviderPetContainerPanel() {
-        return providerPetContainerPanel;
-    }
-    
+// GETTERS
+public javax.swing.JPanel getProviderPetContainerPanel() {
+    return providerPetContainerPanel;
+}
+
+public javax.swing.JLabel getTotalPetCountLabel() {
+    return TotalPetCount;
+}
+
+public javax.swing.JScrollPane getProviderPetsScrollPane() {
+    return ProviderPetsScrollPane;
+}
+
+
+// LISTENERS
     public void addPetButtonListener(ActionListener listener) {
         Add_pet_provider.addActionListener(listener);
     }
     
-    
-    public javax.swing.JLabel getTotalPetCountLabel() {
-        return TotalPetCount;
+    public void addLogoutListener(ActionListener listener) {
+        Logout_btn.addActionListener(listener);
     }
     
+   
     
     /**
      * This method is called from within the constructor to initialize the form.

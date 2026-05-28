@@ -138,7 +138,7 @@
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="Logo" min="-2" pref="96" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                      <Component id="BtnHome_btn" min="-2" max="-2" attributes="0"/>
+                      <Component id="Home_btn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="MyRequests_btn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
@@ -173,7 +173,7 @@
                           <Component id="Favourite_btn" min="-2" pref="25" max="-2" attributes="0"/>
                           <Component id="profile_btn" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="BtnHome_btn" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="Home_btn" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="MyRequests_btn" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="Shelters_btn" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="Logout_btn" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -202,7 +202,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="BtnHome_btn">
+            <Component class="javax.swing.JButton" name="Home_btn">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="cc" red="ff" type="rgb"/>

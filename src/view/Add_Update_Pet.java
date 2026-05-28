@@ -53,34 +53,33 @@ private String currentImagePath = null;
     
     
     
-public void setPetImage(String path) {
-    this.currentImagePath = path;  // ✅ store it
-    try {
-        if (path != null && !path.isEmpty()) {
-            ImageIcon icon = new ImageIcon(path);
-            Image img = icon.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
-            PetImg_AddUpdate.setIcon(new ImageIcon(img));
+    public void setPetImage(String path) {
+        this.currentImagePath = path; 
+        try {
+            if (path != null && !path.isEmpty()) {
+                ImageIcon icon = new ImageIcon(path);
+                Image img = icon.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
+                PetImg_AddUpdate.setIcon(new ImageIcon(img));
+            }
+        } catch (Exception e) {
+            System.out.println("Image load error: " + e.getMessage());
         }
-    } catch (Exception e) {
-        System.out.println("Image load error: " + e.getMessage());
     }
-}
 
-// Add this new getter below setPetImage
-public String getCurrentImagePath() {
-    return currentImagePath;
-}
+
+    public String getCurrentImagePath() {
+        return currentImagePath;
+    }
     
-// lets the controller attach the ImageUploadListener
-public void addImageUploadListener(java.awt.event.MouseListener listener) {
-    PetImg_AddUpdate.addMouseListener(listener);
-    PetImg_AddUpdate.setToolTipText("Click to upload image");
-}
 
-// lets the controller set the cursor on mouseEntered/mouseExited
-public javax.swing.JLabel getPetImgLabel() {
-    return PetImg_AddUpdate;
-}
+    public void addImageUploadListener(java.awt.event.MouseListener listener) {
+        PetImg_AddUpdate.addMouseListener(listener);
+        PetImg_AddUpdate.setToolTipText("Click to upload image");
+    }
+
+    public javax.swing.JLabel getPetImgLabel() {
+        return PetImg_AddUpdate;
+    }
     
     
     public javax.swing.JTextField getTxtPetName() {

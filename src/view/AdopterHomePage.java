@@ -5,8 +5,9 @@
 
 package view;
 
+import Controller.NavigationController;
 import Controller.PetController;
-import Controller.SessionController;
+import java.awt.event.ActionListener;
 
 
 
@@ -25,33 +26,37 @@ public class AdopterHomePage extends javax.swing.JFrame {
     
 
     public AdopterHomePage() {
-        initComponents();
-        setLocationRelativeTo(null);
-    
-        petContainerPanel.setLayout(new java.awt.GridLayout(0, 3, 20, 20));
-    
+    initComponents();
+    setLocationRelativeTo(null);
+    new NavigationController(this);
+    new PetController(this);  // all setup moved to controller
+}
 
-        AdopterAllPetScrollPane.setViewportView(petContainerPanel);
+// Getters
+public javax.swing.JScrollPane getAdopterAllPetScrollPane() { 
+    return AdopterAllPetScrollPane; 
+}
+
+public javax.swing.JLabel getAdopterTotalPetCountLabel() { 
+    return AdopterSideTotalPetCount; 
+}
+
+public javax.swing.JPanel getPetContainerPanel() { 
+    return petContainerPanel; 
+}
     
-        PetController controller = new PetController(petContainerPanel, null, AdopterSideTotalPetCount);
-        controller.loadAdopterPets();
     
-        AdopterAllPetScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        AdopterAllPetScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
-        
-        
-        SessionController sessionController = new SessionController();
-        Logout_btn.addActionListener(
-            sessionController.getLogoutListener(this)
-        );
-       
+    public void addHomeListener(ActionListener listener) {
+        Home_btn.addActionListener(listener);
     }
-    
-    public javax.swing.JPanel getPetContainerPanel() {
-        return petContainerPanel;
+
+    public void addMyRequestsListener(ActionListener listener) {
+        MyRequests_btn.addActionListener(listener);
     }
-    
-  
+
+    public void addLogoutListener(ActionListener listener) {
+        Logout_btn.addActionListener(listener);
+    }
     
 
     /**
@@ -66,7 +71,7 @@ public class AdopterHomePage extends javax.swing.JFrame {
         mainpanal = new javax.swing.JPanel();
         toppanel = new javax.swing.JPanel();
         Logo = new javax.swing.JLabel();
-        BtnHome_btn = new javax.swing.JButton();
+        Home_btn = new javax.swing.JButton();
         MyRequests_btn = new javax.swing.JButton();
         Shelters_btn = new javax.swing.JButton();
         Logout_btn = new javax.swing.JButton();
@@ -95,8 +100,8 @@ public class AdopterHomePage extends javax.swing.JFrame {
 
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pas_circular_logo.png"))); // NOI18N
 
-        BtnHome_btn.setBackground(new java.awt.Color(255, 204, 51));
-        BtnHome_btn.setText("Home");
+        Home_btn.setBackground(new java.awt.Color(255, 204, 51));
+        Home_btn.setText("Home");
 
         MyRequests_btn.setText("My Requests");
 
@@ -128,7 +133,7 @@ public class AdopterHomePage extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addComponent(Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67)
-                .addComponent(BtnHome_btn)
+                .addComponent(Home_btn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(MyRequests_btn)
                 .addGap(18, 18, 18)
@@ -157,7 +162,7 @@ public class AdopterHomePage extends javax.swing.JFrame {
                     .addComponent(Favourite_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(profile_btn)
                     .addGroup(toppanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(BtnHome_btn)
+                        .addComponent(Home_btn)
                         .addComponent(MyRequests_btn)
                         .addComponent(Shelters_btn)
                         .addComponent(Logout_btn)))
@@ -317,10 +322,10 @@ public class AdopterHomePage extends javax.swing.JFrame {
     private javax.swing.JScrollPane AdopterAllPetScrollPane;
     private javax.swing.JLabel AdopterSideTotalPetCount;
     private javax.swing.JComboBox<String> Age_combobox;
-    private javax.swing.JButton BtnHome_btn;
     private javax.swing.JButton Favourite_btn;
     private javax.swing.JLabel Favourite_text;
     private javax.swing.JComboBox<String> Gender_combobox;
+    private javax.swing.JButton Home_btn;
     private javax.swing.JLabel Logo;
     private javax.swing.JButton Logout_btn;
     private javax.swing.JButton MyRequests_btn;

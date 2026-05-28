@@ -18,7 +18,7 @@ public class AdoptionRequestDAO {
 
         String sql =
             "SELECT ar.*, " +
-            "p.petName, p.petBreed, p.petGender, p.petAge, p.imagePath " +
+            "p.petName, p.petType, p.petGender, p.petAge, p.imagePath " +
             "FROM AdoptionRequests ar " +
             "JOIN Pets p ON ar.petID = p.petID " +
             "WHERE ar.adopterID = ? " +
@@ -51,7 +51,7 @@ public class AdoptionRequestDAO {
                         rs.getString("adoptionStatus"),
 
                         rs.getString("petName"),
-                        rs.getString("petBreed"),
+                        rs.getString("petType"),
                         rs.getString("petGender"),
                         rs.getString("petAge"),
 

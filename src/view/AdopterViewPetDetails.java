@@ -4,6 +4,9 @@
  */
 package view;
 
+import Controller.NavigationController;
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author OMEN
@@ -17,6 +20,19 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
      */
     public AdopterViewPetDetails() {
         initComponents();
+        new NavigationController(this); 
+    }
+    
+    public void addHomeListener(ActionListener listener) {
+        Home_btn.addActionListener(listener);
+    }
+
+    public void addMyRequestsListener(ActionListener listener) {
+        MyRequests_btn.addActionListener(listener);
+    }
+
+    public void addLogoutListener(ActionListener listener) {
+        Logout_btn.addActionListener(listener);
     }
 
     /**
@@ -31,7 +47,7 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
         Main_panal_Viewpet_adopter = new javax.swing.JPanel();
         toppanel_viewpet_adopter = new javax.swing.JPanel();
         Logo = new javax.swing.JLabel();
-        BtnHome_btn = new javax.swing.JButton();
+        Home_btn = new javax.swing.JButton();
         MyRequests_btn = new javax.swing.JButton();
         Shelters_btn = new javax.swing.JButton();
         Logout_btn = new javax.swing.JButton();
@@ -80,12 +96,14 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
 
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pas_circular_logo.png"))); // NOI18N
 
-        BtnHome_btn.setBackground(new java.awt.Color(255, 204, 51));
-        BtnHome_btn.setText("Home");
+        Home_btn.setBackground(new java.awt.Color(255, 204, 51));
+        Home_btn.setText("Home");
 
         MyRequests_btn.setText("My Requests");
+        MyRequests_btn.addActionListener(this::MyRequests_btnActionPerformed);
 
         Shelters_btn.setText("Shelters");
+        Shelters_btn.addActionListener(this::Shelters_btnActionPerformed);
 
         Logout_btn.setText("Logout");
         Logout_btn.addActionListener(this::Logout_btnActionPerformed);
@@ -111,9 +129,9 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
             toppanel_viewpet_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(toppanel_viewpet_adopterLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75)
-                .addComponent(BtnHome_btn)
+                .addComponent(Logo)
+                .addGap(96, 96, 96)
+                .addComponent(Home_btn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(MyRequests_btn)
                 .addGap(18, 18, 18)
@@ -128,7 +146,7 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
                     .addGroup(toppanel_viewpet_adopterLayout.createSequentialGroup()
                         .addGap(115, 115, 115)
                         .addComponent(Favourite_text)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 198, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 197, Short.MAX_VALUE)
                 .addGroup(toppanel_viewpet_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(profile_btn)
                     .addComponent(Profile_text, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -144,7 +162,7 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
                             .addComponent(Favourite_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(profile_btn)
                             .addGroup(toppanel_viewpet_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(BtnHome_btn)
+                                .addComponent(Home_btn)
                                 .addComponent(MyRequests_btn)
                                 .addComponent(Shelters_btn)
                                 .addComponent(Logout_btn)))
@@ -379,6 +397,15 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Favouritethepet_btn_petview_adopterActionPerformed
 
+    private void MyRequests_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MyRequests_btnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MyRequests_btnActionPerformed
+
+    private void Shelters_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Shelters_btnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Shelters_btnActionPerformed
+
+    
     /**
      * @param args the command line arguments
      */
@@ -410,13 +437,13 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
     private javax.swing.JLabel Age_petview_adopter;
     private javax.swing.JLabel Breed_name_petview_adopter;
     private javax.swing.JLabel Breed_petview_adopter;
-    private javax.swing.JButton BtnHome_btn;
     private javax.swing.JButton Exit_btn_petview_adopter;
     private javax.swing.JButton Favourite_btn;
     private javax.swing.JLabel Favourite_text;
     private javax.swing.JButton Favouritethepet_btn_petview_adopter;
     private javax.swing.JLabel Gender_Info_petview_adopter;
     private javax.swing.JLabel Gender_petview_adopter;
+    private javax.swing.JButton Home_btn;
     private javax.swing.JLabel HouseTrained_Info_petview_adopter;
     private javax.swing.JLabel HouseTrained_petview_adopter;
     private javax.swing.JLabel Logo;
