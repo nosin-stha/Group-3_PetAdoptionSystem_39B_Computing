@@ -26,26 +26,26 @@ public class AdopterHomePage extends javax.swing.JFrame {
     
 
     public AdopterHomePage() {
-    initComponents();
-    setLocationRelativeTo(null);
-    new NavigationController(this);
-    new PetController(this);  // all setup moved to controller
-}
+       initComponents();
+       setLocationRelativeTo(null);
+       new NavigationController(this);
+       new PetController(this);  // all setup moved to controller
+    }
 
-// Getters
-public javax.swing.JScrollPane getAdopterAllPetScrollPane() { 
-    return AdopterAllPetScrollPane; 
-}
+    // Getters
+    public javax.swing.JScrollPane getAdopterAllPetScrollPane() { 
+        return AdopterAllPetScrollPane; 
+    }
 
-public javax.swing.JLabel getAdopterTotalPetCountLabel() { 
-    return AdopterSideTotalPetCount; 
-}
+    public javax.swing.JLabel getAdopterTotalPetCountLabel() { 
+        return AdopterSideTotalPetCount; 
+    }
 
-public javax.swing.JPanel getPetContainerPanel() { 
-    return petContainerPanel; 
-}
+    public javax.swing.JPanel getPetContainerPanel() { 
+        return petContainerPanel; 
+    }
     
-    
+    // LISTENERS
     public void addHomeListener(ActionListener listener) {
         Home_btn.addActionListener(listener);
     }

@@ -28,17 +28,22 @@ public class AdoptionRequestTrackingPage extends javax.swing.JFrame {
         
         new AdoptionRequestController(this);
     }
+    
+    //   GETTERS
     public javax.swing.JPanel getRequestContainerPanel() {
-    return requestContainerPanel;
-}
+        return requestContainerPanel;
+    }
 
-public javax.swing.JScrollPane getAdopterAdoptionRequestsScroll() {
-    return AdopterAdoptionRequestsScroll;
-}
+    public javax.swing.JScrollPane getAdopterAdoptionRequestsScroll() {
+        return AdopterAdoptionRequestsScroll;
+    }
 
-public javax.swing.JLabel getAdopterTotalRequestsCount() {
-    return AdopterTotalRequestsCount;
-}
+    public javax.swing.JLabel getAdopterTotalRequestsCount() {
+        return AdopterTotalRequestsCount;
+    }
+    
+    
+    // LISTENERS
     public void addHomeListener(ActionListener listener) {
         Home_btn.addActionListener(listener);
     }
