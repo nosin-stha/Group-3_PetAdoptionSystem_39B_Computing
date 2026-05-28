@@ -4,8 +4,6 @@
  */
 package view;
 
-import java.awt.Image;
-import javax.swing.ImageIcon;
 import model.AdoptionRequestData;
 
 /**
@@ -19,83 +17,46 @@ public class AdopterRequestCard extends javax.swing.JPanel {
      */
     public AdopterRequestCard(AdoptionRequestData req) {
         initComponents();
-        
-        setPreferredSize(new java.awt.Dimension(905, 340));
-        setMaximumSize(new java.awt.Dimension(905, 340));
-        setMinimumSize(new java.awt.Dimension(905, 340));
-        
-        
-        
-        LblRequestCardPetName.setText(req.getPetName());
-        LblRequestCardPetBreed.setText(req.getPetBreed());
-        LblRequestCardPetAge.setText(req.getPetAge());
-        LblRequestCardPetGender.setText(req.getPetGender());
-        LblRequestStatus.setText(req.getAdoptionStatus());
-
-    setStatusColor(req.getAdoptionStatus());
-    loadImage(req.getImagePath());
-    
-     String status = req.getAdoptionStatus();
-     
-    if(status.equalsIgnoreCase("Pending")) {
-
-        BtnCancelRequestCard.setVisible(true);
-        BtnDeleteRequestCard.setVisible(false);
-
     }
-    else if(status.equalsIgnoreCase("Declined")) {
 
-        BtnCancelRequestCard.setVisible(false);
-        BtnDeleteRequestCard.setVisible(true);
-
+    // Getters
+    public javax.swing.JLabel getLblRequestCardPetName() { 
+        return LblRequestCardPetName; 
     }
-    else if(status.equalsIgnoreCase("Accepted")) {
-
-        BtnCancelRequestCard.setVisible(false);
-        BtnDeleteRequestCard.setVisible(false);
-
+    public javax.swing.JLabel getLblRequestCardPetBreed() { 
+        return LblRequestCardPetBreed; 
     }
-        
+    public javax.swing.JLabel getLblRequestCardPetAge() {
+        return LblRequestCardPetAge; 
     }
-private void setStatusColor(String status) {
-
-    if (status == null) return;
-
-    status = status.toLowerCase();
-
-    if (status.equals("pending")) {
-        LblRequestStatus.setOpaque(true);
-        LblRequestStatus.setBackground(new java.awt.Color(255, 204, 0)); // yellow
-    } 
-    else if (status.equals("accepted")) {
-        LblRequestStatus.setOpaque(true);
-        LblRequestStatus.setBackground(new java.awt.Color(46, 204, 113)); // green
-    } 
-    else if (status.equals("declined") || status.equals("rejected")) {
-        LblRequestStatus.setOpaque(true);
-        LblRequestStatus.setBackground(new java.awt.Color(231, 76, 60)); // red
+    public javax.swing.JLabel getLblRequestCardPetGender() { 
+        return LblRequestCardPetGender; 
     }
-}
-
-private void loadImage(String path) {
-
-    try {
-
-        ImageIcon icon = new ImageIcon(path);
-
-        Image img = icon.getImage().getScaledInstance(
-            120,
-            120,
-            Image.SCALE_SMOOTH
-        );
-
-        PetImgRequestCard.setIcon(new ImageIcon(img));
-
-    } catch (Exception e) {
-
-        System.out.println("Image load error: " + e.getMessage());
+    public javax.swing.JLabel getLblRequestStatus() { 
+        return LblRequestStatus; 
     }
-}
+    public javax.swing.JLabel getPetImgRequestCard() { 
+        return PetImgRequestCard; 
+    }
+    public javax.swing.JButton getBtnCancelRequestCard() { 
+        return BtnCancelRequestCard; 
+    }
+    public javax.swing.JButton getBtnDeleteRequestCard() { 
+        return BtnDeleteRequestCard; 
+    }
+
+    // Listeners
+    public void addCancelListener(java.awt.event.ActionListener listener) {
+        BtnCancelRequestCard.addActionListener(listener);
+    }
+
+    public void addDeleteListener(java.awt.event.ActionListener listener) {
+        BtnDeleteRequestCard.addActionListener(listener);
+    }
+
+    public void addViewMoreListener(java.awt.event.ActionListener listener) {
+        BtnVIewMoreRequestCard.addActionListener(listener);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

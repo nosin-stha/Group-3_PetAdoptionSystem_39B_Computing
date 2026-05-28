@@ -10,6 +10,7 @@ public class AdoptionRequestData {
     private String reqEmail;
     private String reqPhoneNo;
     private String reqAddress;
+    private String reqReason;
 
     private String adoptionStatus;
 
@@ -28,6 +29,7 @@ public class AdoptionRequestData {
             String reqEmail,
             String reqPhoneNo,
             String reqAddress,
+            String reqReason,
             String adoptionStatus,
             String petName,
             String petBreed,
@@ -44,6 +46,7 @@ public class AdoptionRequestData {
         this.reqEmail = reqEmail;
         this.reqPhoneNo = reqPhoneNo;
         this.reqAddress = reqAddress;
+        this.reqReason = reqReason;
 
         this.adoptionStatus = adoptionStatus;
 
@@ -80,6 +83,10 @@ public class AdoptionRequestData {
 
     public String getReqAddress() {
         return reqAddress;
+    }
+    
+    public String getReqReason() {
+        return reqReason;
     }
 
     public String getAdoptionStatus() {
