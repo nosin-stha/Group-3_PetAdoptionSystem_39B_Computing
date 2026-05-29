@@ -164,41 +164,41 @@ public class ProviderViewPetDetails extends javax.swing.JFrame {
         Main_panal_Viewpet_provider.add(Petname_petview_provider);
         Petname_petview_provider.setBounds(440, 170, 70, 16);
 
-        Breed_petview_provider.setText("Breedname:");
+        Breed_petview_provider.setText("Type:");
         Main_panal_Viewpet_provider.add(Breed_petview_provider);
-        Breed_petview_provider.setBounds(440, 220, 80, 16);
+        Breed_petview_provider.setBounds(490, 220, 80, 16);
 
-        Gender_petview_provider.setText("Genderinfo:");
+        Gender_petview_provider.setText("Gender:");
         Main_panal_Viewpet_provider.add(Gender_petview_provider);
-        Gender_petview_provider.setBounds(440, 250, 70, 16);
+        Gender_petview_provider.setBounds(480, 250, 70, 16);
 
-        Age_petview_provider.setText("AgeInfo:");
+        Age_petview_provider.setText("Age:");
         Main_panal_Viewpet_provider.add(Age_petview_provider);
-        Age_petview_provider.setBounds(440, 280, 70, 16);
+        Age_petview_provider.setBounds(500, 280, 70, 16);
 
         Breed_name_petview_provider.setText("jLabel2");
         Main_panal_Viewpet_provider.add(Breed_name_petview_provider);
-        Breed_name_petview_provider.setBounds(510, 220, 40, 16);
+        Breed_name_petview_provider.setBounds(550, 220, 110, 16);
 
         Gender_Info_petview_provider.setText("jLabel2");
         Main_panal_Viewpet_provider.add(Gender_Info_petview_provider);
-        Gender_Info_petview_provider.setBounds(510, 250, 50, 16);
+        Gender_Info_petview_provider.setBounds(550, 250, 130, 16);
 
         Age_Info_petview_provider.setText("jLabel2");
         Main_panal_Viewpet_provider.add(Age_Info_petview_provider);
-        Age_Info_petview_provider.setBounds(500, 280, 40, 16);
+        Age_Info_petview_provider.setBounds(550, 280, 150, 16);
 
         HouseTrained_petview_provider.setText("House Trained:");
         Main_panal_Viewpet_provider.add(HouseTrained_petview_provider);
-        HouseTrained_petview_provider.setBounds(440, 310, 90, 16);
+        HouseTrained_petview_provider.setBounds(450, 310, 90, 16);
 
         HouseTrained_Info_petview_provider.setText("jLabel2");
         Main_panal_Viewpet_provider.add(HouseTrained_Info_petview_provider);
-        HouseTrained_Info_petview_provider.setBounds(530, 310, 50, 16);
+        HouseTrained_Info_petview_provider.setBounds(550, 310, 50, 16);
 
         Spayed_Neutered_petview_provider.setText("Spayed/ Neutered: ");
         Main_panal_Viewpet_provider.add(Spayed_Neutered_petview_provider);
-        Spayed_Neutered_petview_provider.setBounds(440, 340, 110, 16);
+        Spayed_Neutered_petview_provider.setBounds(430, 340, 110, 16);
 
         Spayed_Neutered_Info_petview_provider.setText("jLabel2");
         Main_panal_Viewpet_provider.add(Spayed_Neutered_Info_petview_provider);
@@ -206,19 +206,19 @@ public class ProviderViewPetDetails extends javax.swing.JFrame {
 
         Vaccinated_petview_provider.setText("Vaccinated:");
         Main_panal_Viewpet_provider.add(Vaccinated_petview_provider);
-        Vaccinated_petview_provider.setBounds(440, 370, 70, 16);
+        Vaccinated_petview_provider.setBounds(470, 370, 70, 16);
 
         Vaccinated_info_petview_provider.setText("jLabel2");
         Main_panal_Viewpet_provider.add(Vaccinated_info_petview_provider);
-        Vaccinated_info_petview_provider.setBounds(510, 370, 50, 16);
+        Vaccinated_info_petview_provider.setBounds(550, 370, 50, 16);
 
         SpecialNeeds_petview_provider.setText("Special Needs: ");
         Main_panal_Viewpet_provider.add(SpecialNeeds_petview_provider);
-        SpecialNeeds_petview_provider.setBounds(440, 400, 90, 16);
+        SpecialNeeds_petview_provider.setBounds(460, 400, 80, 16);
 
         SpecialNeeds_Info_petview_provider.setText("jLabel3");
         Main_panal_Viewpet_provider.add(SpecialNeeds_Info_petview_provider);
-        SpecialNeeds_Info_petview_provider.setBounds(530, 400, 37, 16);
+        SpecialNeeds_Info_petview_provider.setBounds(550, 400, 37, 16);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -266,6 +266,52 @@ public class ProviderViewPetDetails extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new ProviderViewPetDetails().setVisible(true));
     }
+    
+    // ================= GETTERS FOR CONTROLLER =================
+
+public javax.swing.JLabel getPetNameLabel() {
+    return Petname_petview_provider;
+}
+
+public javax.swing.JLabel getBreedLabel() {
+    return Breed_name_petview_provider;
+}
+
+public javax.swing.JLabel getGenderLabel() {
+    return Gender_Info_petview_provider;
+}
+
+public javax.swing.JLabel getAgeLabel() {
+    return Age_Info_petview_provider;
+}
+
+public javax.swing.JLabel getHouseTrainedLabel() {
+    return HouseTrained_Info_petview_provider;
+}
+
+public javax.swing.JLabel getSpayedLabel() {
+    return Spayed_Neutered_Info_petview_provider;
+}
+
+public javax.swing.JLabel getVaccinatedLabel() {
+    return Vaccinated_info_petview_provider;
+}
+
+public javax.swing.JLabel getSpecialNeedsLabel() {
+    return SpecialNeeds_Info_petview_provider;
+}
+
+public javax.swing.JLabel getPetImageLabel() {
+    return Petimage_petview_provider;
+}
+
+public javax.swing.JButton getExitButton() {
+    return Exit_btn_petview_provider;
+}
+
+    public javax.swing.JButton getLogoutButton() {
+    return Logout_btn;
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Age_Info_petview_provider;
