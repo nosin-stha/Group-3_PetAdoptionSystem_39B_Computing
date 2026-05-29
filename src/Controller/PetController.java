@@ -25,7 +25,7 @@ import view.AdopterHomePage;
 import view.ProviderHomePage;
 
 public class PetController {
-
+    private AdopterHomePage adopterHomeView; 
     private final AdopterHomePageDao adopterDAO = new AdopterHomePageDao();
     private final ProviderHomePageDao providerDAO = new ProviderHomePageDao();
     private final PetDAO petDAO = new PetDAO();
@@ -50,6 +50,7 @@ public class PetController {
 
     // ADOPTER HOME PAGE
     public PetController(AdopterHomePage adopterHomeView) {
+        this.adopterHomeView = adopterHomeView;
         this.adopterPanel = adopterHomeView.getPetContainerPanel();
         this.adopterCountLabel = adopterHomeView.getAdopterTotalPetCountLabel();
 
@@ -221,6 +222,7 @@ public PetController(ProviderHomePage providerHomeView) {
 
                 card.addUpdateListener(new UpdatePetListener(pet));
                 card.addDeleteListener(new DeletePetListener(pet.getPetID()));
+                new PetDetailsController(card, pet, "provider", providerHomeView);
                 providerPanel.add(card);
             }
         }
@@ -260,6 +262,7 @@ public PetController(ProviderHomePage providerHomeView) {
                 loadImageOnCard(card.getPetImg(), pet.getImagePath());
 
                 card.hideActionButtons();
+                new PetDetailsController(card, pet, "adopter", adopterHomeView);
                 adopterPanel.add(card);
             }
         }
@@ -420,8 +423,8 @@ public PetController(ProviderHomePage providerHomeView) {
             form.getCbPetAge().setSelectedItem(pet.getPetAge());
 
             setRadio(form.getRbYesHouseTrained(), form.getRbNoHouseTrained(), pet.getHouseTrained());
-            setRadio(form.getRbYesSpayed(),       form.getRbNoSpayed(),       pet.getSpayed());
-            setRadio(form.getRbYesVaccinated(),   form.getRbNoVaccinated(),   pet.getVaccinated());
+            setRadio(form.getRbYesSpayed(), form.getRbNoSpayed(), pet.getSpayed());
+            setRadio(form.getRbYesVaccinated(), form.getRbNoVaccinated(), pet.getVaccinated());
             setRadio(form.getRbYesSpecialNeeds(), form.getRbNoSpecialNeeds(), pet.getSpecialNeeds());
 
             form.setPetImage(pet.getImagePath());

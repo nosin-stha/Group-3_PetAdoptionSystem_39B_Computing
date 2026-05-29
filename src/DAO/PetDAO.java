@@ -13,6 +13,7 @@ package DAO;
 import database.MySqlConnector;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import model.PetsData;
 
 public class PetDAO {
@@ -55,6 +56,9 @@ public class PetDAO {
         }
     }
 
+    
+    
+    
     // UPDATE PET
     public boolean updatePet(PetsData pet) {
 
@@ -91,6 +95,9 @@ public class PetDAO {
             mysql.closeConnection(conn);
         }
     }
+    
+    
+    
 
     // DELETE PET
     public boolean deletePet(int petID) {
@@ -116,5 +123,40 @@ public class PetDAO {
 
             mysql.closeConnection(conn);
         }
+    }
+    
+    
+    
+    
+    // GET PET BY ID  ← new method
+    public PetsData getPetById(int petID) {
+        String sql = "SELECT * FROM Pets WHERE petID = ?";
+        Connection conn = mysql.openConnection();
+        if (conn == null) return null;
+        try (PreparedStatement pst = conn.prepareStatement(sql)) {
+            pst.setInt(1, petID);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                return new PetsData(
+                    rs.getInt("petID"),
+                    rs.getInt("providerID"),
+                    rs.getString("petName"),
+                    rs.getString("petType"),
+                    rs.getString("petGender"),
+                    rs.getString("petAge"),
+                    rs.getString("houseTrained"),
+                    rs.getString("spayed"),
+                    rs.getString("vaccinated"),
+                    rs.getString("specialNeeds"),
+                    rs.getString("petAdoptionStatus"),
+                    rs.getString("imagePath")
+                );
+            }
+        } catch (Exception e) {
+            System.out.println("Get Pet By ID Error: " + e.getMessage());
+        } finally {
+            mysql.closeConnection(conn);
+        }
+        return null;
     }
 }

@@ -18,8 +18,20 @@ public class PetCardPanel extends javax.swing.JPanel {
     /**
      * Creates new form PetCardPanel
      */
+    
+    private PetsData pet;
     public PetCardPanel(PetsData pet) {
         initComponents();
+        this.pet = pet; 
+        
+        PetName.setText(pet.getPetName());
+        PetType.setText(pet.getPetType());
+        PetAge.setText(pet.getPetAge());
+        PetGender.setText(pet.getPetGender());
+    }
+    
+    public PetsData getPet() {
+        return pet;
     }
 
     // Getters
@@ -54,6 +66,10 @@ public class PetCardPanel extends javax.swing.JPanel {
 
     public void addDeleteListener(ActionListener listener) {
         PetDelete.addActionListener(listener);
+    }
+    
+    public void addViewMoreListener(ActionListener listener) {
+        btnViewPetDetail.addActionListener(listener);
     }
 
     /**

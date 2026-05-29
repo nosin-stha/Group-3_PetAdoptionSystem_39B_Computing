@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.ScrollPaneConstants;
 import model.AdoptionRequestData;
+import model.PetsData;
 import model.SessionData;
 import view.AdopterRequestCard;
 import view.AdoptionRequestTrackingPage;
@@ -88,6 +89,10 @@ public class AdoptionRequestController {
             // both cancel and delete use same listener — same job
             card.addCancelListener(new RemoveRequestListener(req.getAdoptionID()));
             card.addDeleteListener(new RemoveRequestListener(req.getAdoptionID()));
+            
+            PetsData pet = new PetsData();
+            pet.setPetID(req.getPetID());
+            new PetDetailsController(card, pet, "adopter", view);
 
             requestPanel.add(card);
             requestPanel.add(javax.swing.Box.createVerticalStrut(10));

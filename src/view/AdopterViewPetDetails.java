@@ -64,7 +64,6 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
         ViewShelterProfile_ShelterInfo_petview_adopter = new javax.swing.JButton();
         ShelterPhonenumber_shelterinfopanal_petview_adopter = new javax.swing.JLabel();
         ShelterMail_shelterinfopanal_petview_adopter = new javax.swing.JLabel();
-        ShelterEmail_shelterinfopanal_petview_adopter = new javax.swing.JLabel();
         phoneicon_shelterinfopanal_petview_adopter = new javax.swing.JLabel();
         Mailicon_shelterinfopanal_petview_adopter = new javax.swing.JLabel();
         Favouritethepet_btn_petview_adopter = new javax.swing.JButton();
@@ -221,41 +220,36 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
 
         ShelterMail_shelterinfopanal_petview_adopter.setText("jLabel3");
 
-        ShelterEmail_shelterinfopanal_petview_adopter.setText("jLabel4");
+        phoneicon_shelterinfopanal_petview_adopter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/phone.png"))); // NOI18N
 
-        phoneicon_shelterinfopanal_petview_adopter.setText("phone_icon");
-
-        Mailicon_shelterinfopanal_petview_adopter.setText("mailicon");
+        Mailicon_shelterinfopanal_petview_adopter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/mail-outline-rounded.png"))); // NOI18N
 
         javax.swing.GroupLayout Shelterinfopanal_petview_adopterLayout = new javax.swing.GroupLayout(Shelterinfopanal_petview_adopter);
         Shelterinfopanal_petview_adopter.setLayout(Shelterinfopanal_petview_adopterLayout);
         Shelterinfopanal_petview_adopterLayout.setHorizontalGroup(
             Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Shelterinfopanal_petview_adopterLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Shelterinfopanal_petview_adopterLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(179, 179, 179)
-                        .addComponent(Shelter_name_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(Shelterinfopanal_petview_adopterLayout.createSequentialGroup()
-                        .addComponent(Shelter_logo_shelterinfopanal_petview_adopter)
-                        .addGap(162, 162, 162)
+                        .addGap(44, 44, 44)
+                        .addComponent(Shelter_logo_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(109, 109, 109)
                         .addGroup(Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(phoneicon_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Mailicon_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(31, 31, 31)
-                        .addGroup(Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Shelter_name_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(Shelterinfopanal_petview_adopterLayout.createSequentialGroup()
-                                .addComponent(ShelterPhonenumber_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 358, Short.MAX_VALUE)
-                                .addComponent(ViewShelterProfile_ShelterInfo_petview_adopter))
-                            .addGroup(Shelterinfopanal_petview_adopterLayout.createSequentialGroup()
-                                .addGroup(Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(ShelterEmail_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
-                                    .addComponent(ShelterMail_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGroup(Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(phoneicon_shelterinfopanal_petview_adopter)
+                                    .addComponent(Mailicon_shelterinfopanal_petview_adopter))
+                                .addGap(23, 23, 23)
+                                .addGroup(Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ShelterPhonenumber_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ShelterMail_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(21, 21, 21)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
+                .addComponent(ViewShelterProfile_ShelterInfo_petview_adopter)
                 .addGap(19, 19, 19))
         );
         Shelterinfopanal_petview_adopterLayout.setVerticalGroup(
@@ -264,26 +258,27 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Shelterinfopanal_petview_adopterLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(32, 32, 32))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Shelterinfopanal_petview_adopterLayout.createSequentialGroup()
-                        .addComponent(Shelter_name_shelterinfopanal_petview_adopter)
-                        .addGap(18, 18, 18)))
-                .addGroup(Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Shelter_logo_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(ViewShelterProfile_ShelterInfo_petview_adopter))
+                        .addGap(34, 34, 34)
+                        .addComponent(ViewShelterProfile_ShelterInfo_petview_adopter)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(Shelterinfopanal_petview_adopterLayout.createSequentialGroup()
-                        .addGroup(Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ShelterPhonenumber_shelterinfopanal_petview_adopter)
-                            .addComponent(phoneicon_shelterinfopanal_petview_adopter))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ShelterMail_shelterinfopanal_petview_adopter)
-                            .addComponent(Mailicon_shelterinfopanal_petview_adopter))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ShelterEmail_shelterinfopanal_petview_adopter)
-                .addContainerGap(28, Short.MAX_VALUE))
+                        .addComponent(jLabel1)
+                        .addGroup(Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Shelterinfopanal_petview_adopterLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(Shelter_logo_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Shelterinfopanal_petview_adopterLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Shelter_name_shelterinfopanal_petview_adopter)
+                                .addGap(28, 28, 28)
+                                .addGroup(Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(phoneicon_shelterinfopanal_petview_adopter)
+                                    .addComponent(ShelterPhonenumber_shelterinfopanal_petview_adopter))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(ShelterMail_shelterinfopanal_petview_adopter)
+                                    .addComponent(Mailicon_shelterinfopanal_petview_adopter))
+                                .addGap(22, 22, 22))))))
         );
 
         Main_panal_Viewpet_adopter.add(Shelterinfopanal_petview_adopter);
@@ -309,63 +304,63 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
         Petname_petview_adopter.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Petname_petview_adopter.setText("PetName");
         Main_panal_Viewpet_adopter.add(Petname_petview_adopter);
-        Petname_petview_adopter.setBounds(440, 170, 70, 16);
+        Petname_petview_adopter.setBounds(430, 170, 140, 16);
 
-        Breed_petview_adopter.setText("Breedname:");
+        Breed_petview_adopter.setText("Type:");
         Main_panal_Viewpet_adopter.add(Breed_petview_adopter);
-        Breed_petview_adopter.setBounds(440, 220, 80, 16);
+        Breed_petview_adopter.setBounds(480, 220, 40, 16);
 
-        Gender_petview_adopter.setText("Genderinfo:");
+        Gender_petview_adopter.setText("Gender:");
         Main_panal_Viewpet_adopter.add(Gender_petview_adopter);
-        Gender_petview_adopter.setBounds(440, 250, 70, 16);
+        Gender_petview_adopter.setBounds(470, 250, 70, 16);
 
-        Age_petview_adopter.setText("AgeInfo:");
+        Age_petview_adopter.setText("Age:");
         Main_panal_Viewpet_adopter.add(Age_petview_adopter);
-        Age_petview_adopter.setBounds(440, 280, 70, 16);
+        Age_petview_adopter.setBounds(490, 280, 30, 16);
 
         Breed_name_petview_adopter.setText("jLabel2");
         Main_panal_Viewpet_adopter.add(Breed_name_petview_adopter);
-        Breed_name_petview_adopter.setBounds(510, 220, 40, 16);
+        Breed_name_petview_adopter.setBounds(530, 220, 150, 16);
 
         Gender_Info_petview_adopter.setText("jLabel2");
         Main_panal_Viewpet_adopter.add(Gender_Info_petview_adopter);
-        Gender_Info_petview_adopter.setBounds(510, 250, 50, 16);
+        Gender_Info_petview_adopter.setBounds(530, 250, 160, 16);
 
         Age_Info_petview_adopter.setText("jLabel2");
         Main_panal_Viewpet_adopter.add(Age_Info_petview_adopter);
-        Age_Info_petview_adopter.setBounds(500, 280, 40, 16);
+        Age_Info_petview_adopter.setBounds(530, 280, 130, 16);
 
         HouseTrained_petview_adopter.setText("House Trained:");
         Main_panal_Viewpet_adopter.add(HouseTrained_petview_adopter);
-        HouseTrained_petview_adopter.setBounds(440, 310, 90, 16);
+        HouseTrained_petview_adopter.setBounds(440, 320, 90, 16);
 
         HouseTrained_Info_petview_adopter.setText("jLabel2");
         Main_panal_Viewpet_adopter.add(HouseTrained_Info_petview_adopter);
-        HouseTrained_Info_petview_adopter.setBounds(530, 310, 50, 16);
+        HouseTrained_Info_petview_adopter.setBounds(540, 320, 50, 16);
 
         Spayed_Neutered_petview_adopter.setText("Spayed/ Neutered: ");
         Main_panal_Viewpet_adopter.add(Spayed_Neutered_petview_adopter);
-        Spayed_Neutered_petview_adopter.setBounds(440, 340, 110, 16);
+        Spayed_Neutered_petview_adopter.setBounds(420, 350, 110, 16);
 
         Spayed_Neutered_Info_petview_adopter.setText("jLabel2");
         Main_panal_Viewpet_adopter.add(Spayed_Neutered_Info_petview_adopter);
-        Spayed_Neutered_Info_petview_adopter.setBounds(550, 340, 50, 16);
+        Spayed_Neutered_Info_petview_adopter.setBounds(540, 350, 50, 16);
 
         Vaccinated_petview_adopter.setText("Vaccinated:");
         Main_panal_Viewpet_adopter.add(Vaccinated_petview_adopter);
-        Vaccinated_petview_adopter.setBounds(440, 370, 70, 16);
+        Vaccinated_petview_adopter.setBounds(460, 380, 70, 16);
 
         Vaccinated_info_petview_adopter.setText("jLabel2");
         Main_panal_Viewpet_adopter.add(Vaccinated_info_petview_adopter);
-        Vaccinated_info_petview_adopter.setBounds(510, 370, 50, 16);
+        Vaccinated_info_petview_adopter.setBounds(540, 380, 50, 16);
 
         SpecialNeeds_petview_adopter.setText("Special Needs: ");
         Main_panal_Viewpet_adopter.add(SpecialNeeds_petview_adopter);
-        SpecialNeeds_petview_adopter.setBounds(440, 400, 90, 16);
+        SpecialNeeds_petview_adopter.setBounds(450, 410, 90, 16);
 
         SpecialNeeds_Info_petview_adopter.setText("jLabel3");
         Main_panal_Viewpet_adopter.add(SpecialNeeds_Info_petview_adopter);
-        SpecialNeeds_Info_petview_adopter.setBounds(530, 400, 37, 16);
+        SpecialNeeds_Info_petview_adopter.setBounds(540, 410, 37, 16);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -431,6 +426,84 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> new AdopterViewPetDetails().setVisible(true));
     }
 
+    
+    // ================= SHELTER GETTERS =================
+
+public javax.swing.JLabel getShelterNameLabel() {
+    return Shelter_name_shelterinfopanal_petview_adopter;
+}
+
+public javax.swing.JLabel getShelterPhoneLabel() {
+    return ShelterPhonenumber_shelterinfopanal_petview_adopter;
+}
+
+public javax.swing.JLabel getShelterEmailLabel() {
+    return ShelterMail_shelterinfopanal_petview_adopter;
+}
+
+
+
+
+// ===================== GETTERS FOR CONTROLLER =====================
+
+public javax.swing.JLabel getPetNameLabel() {
+    return Petname_petview_adopter;
+}
+
+public javax.swing.JLabel getBreedLabel() {
+    return Breed_name_petview_adopter;
+}
+
+public javax.swing.JLabel getGenderLabel() {
+    return Gender_Info_petview_adopter;
+}
+
+public javax.swing.JLabel getAgeLabel() {
+    return Age_Info_petview_adopter;
+}
+
+public javax.swing.JLabel getHouseTrainedLabel() {
+    return HouseTrained_Info_petview_adopter;
+}
+
+public javax.swing.JLabel getSpayedLabel() {
+    return Spayed_Neutered_Info_petview_adopter;
+}
+
+public javax.swing.JLabel getVaccinatedLabel() {
+    return Vaccinated_info_petview_adopter;
+}
+
+public javax.swing.JLabel getSpecialNeedsLabel() {
+    return SpecialNeeds_Info_petview_adopter;
+}
+
+public javax.swing.JLabel getPetImageLabel() {
+    return Petimage_petview_adopter;
+}
+
+public javax.swing.JButton getExitButton() {
+    return Exit_btn_petview_adopter;
+}
+
+public javax.swing.JButton getAdoptButton() {
+    return Adopt_btn_petview_adopter;
+}
+
+public javax.swing.JLabel getShelterLogoLabel() {
+    return Shelter_logo_shelterinfopanal_petview_adopter;
+}
+
+    
+public javax.swing.JButton getLogoutButton() {
+    return Logout_btn;
+}
+
+public void hideAdoptButton() {
+    Adopt_btn_petview_adopter.setVisible(false);
+}
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Adopt_btn_petview_adopter;
     private javax.swing.JLabel Age_Info_petview_adopter;
@@ -455,7 +528,6 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
     private javax.swing.JLabel Petname_petview_adopter;
     private javax.swing.JPanel Playerimage_box_petview_adopter;
     private javax.swing.JLabel Profile_text;
-    private javax.swing.JLabel ShelterEmail_shelterinfopanal_petview_adopter;
     private javax.swing.JLabel ShelterMail_shelterinfopanal_petview_adopter;
     private javax.swing.JLabel ShelterPhonenumber_shelterinfopanal_petview_adopter;
     private javax.swing.JLabel Shelter_logo_shelterinfopanal_petview_adopter;

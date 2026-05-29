@@ -283,38 +283,34 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel1" min="-2" pref="75" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
-                              <Component id="Shelter_name_shelterinfopanal_petview_adopter" min="-2" pref="56" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="Shelter_logo_shelterinfopanal_petview_adopter" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                              <Component id="Shelter_logo_shelterinfopanal_petview_adopter" min="-2" pref="75" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="phoneicon_shelterinfopanal_petview_adopter" min="-2" pref="37" max="-2" attributes="0"/>
-                                  <Component id="Mailicon_shelterinfopanal_petview_adopter" min="-2" pref="37" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="ShelterPhonenumber_shelterinfopanal_petview_adopter" min="-2" pref="77" max="-2" attributes="0"/>
-                                      <EmptySpace pref="358" max="32767" attributes="0"/>
-                                      <Component id="ViewShelterProfile_ShelterInfo_petview_adopter" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="Shelter_name_shelterinfopanal_petview_adopter" alignment="0" min="-2" pref="320" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="ShelterEmail_shelterinfopanal_petview_adopter" pref="65" max="32767" attributes="0"/>
-                                          <Component id="ShelterMail_shelterinfopanal_petview_adopter" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="phoneicon_shelterinfopanal_petview_adopter" min="-2" max="-2" attributes="0"/>
+                                          <Component id="Mailicon_shelterinfopanal_petview_adopter" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="ShelterPhonenumber_shelterinfopanal_petview_adopter" min="-2" pref="252" max="-2" attributes="0"/>
+                                          <Component id="ShelterMail_shelterinfopanal_petview_adopter" min="-2" pref="252" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                       </Group>
+                      <EmptySpace pref="190" max="32767" attributes="0"/>
+                      <Component id="ViewShelterProfile_ShelterInfo_petview_adopter" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -324,35 +320,36 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="Shelter_name_shelterinfopanal_petview_adopter" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="Shelter_logo_shelterinfopanal_petview_adopter" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="ViewShelterProfile_ShelterInfo_petview_adopter" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                              <Component id="ViewShelterProfile_ShelterInfo_petview_adopter" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="ShelterPhonenumber_shelterinfopanal_petview_adopter" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="phoneicon_shelterinfopanal_petview_adopter" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="ShelterMail_shelterinfopanal_petview_adopter" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="Mailicon_shelterinfopanal_petview_adopter" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="Shelter_logo_shelterinfopanal_petview_adopter" min="-2" pref="75" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="Shelter_name_shelterinfopanal_petview_adopter" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="phoneicon_shelterinfopanal_petview_adopter" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ShelterPhonenumber_shelterinfopanal_petview_adopter" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="ShelterMail_shelterinfopanal_petview_adopter" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="Mailicon_shelterinfopanal_petview_adopter" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="ShelterEmail_shelterinfopanal_petview_adopter" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="28" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -391,19 +388,18 @@
                 <Property name="text" type="java.lang.String" value="jLabel3"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="ShelterEmail_shelterinfopanal_petview_adopter">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel4"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="phoneicon_shelterinfopanal_petview_adopter">
               <Properties>
-                <Property name="text" type="java.lang.String" value="phone_icon"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Images/phone.png"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="Mailicon_shelterinfopanal_petview_adopter">
               <Properties>
-                <Property name="text" type="java.lang.String" value="mailicon"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Images/mail-outline-rounded.png"/>
+                </Property>
               </Properties>
             </Component>
           </SubComponents>
@@ -464,37 +460,37 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="440" y="170" width="70" height="-1"/>
+              <AbsoluteConstraints x="430" y="170" width="140" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="Breed_petview_adopter">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Breedname:"/>
+            <Property name="text" type="java.lang.String" value="Type:"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="440" y="220" width="80" height="-1"/>
+              <AbsoluteConstraints x="480" y="220" width="40" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="Gender_petview_adopter">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Genderinfo:"/>
+            <Property name="text" type="java.lang.String" value="Gender:"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="440" y="250" width="70" height="-1"/>
+              <AbsoluteConstraints x="470" y="250" width="70" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="Age_petview_adopter">
           <Properties>
-            <Property name="text" type="java.lang.String" value="AgeInfo:"/>
+            <Property name="text" type="java.lang.String" value="Age:"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="440" y="280" width="70" height="-1"/>
+              <AbsoluteConstraints x="490" y="280" width="30" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -504,7 +500,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="510" y="220" width="40" height="-1"/>
+              <AbsoluteConstraints x="530" y="220" width="150" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -514,7 +510,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="510" y="250" width="50" height="-1"/>
+              <AbsoluteConstraints x="530" y="250" width="160" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -524,7 +520,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="500" y="280" width="40" height="-1"/>
+              <AbsoluteConstraints x="530" y="280" width="130" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -534,7 +530,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="440" y="310" width="90" height="-1"/>
+              <AbsoluteConstraints x="440" y="320" width="90" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -544,7 +540,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="530" y="310" width="50" height="-1"/>
+              <AbsoluteConstraints x="540" y="320" width="50" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -554,7 +550,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="440" y="340" width="110" height="-1"/>
+              <AbsoluteConstraints x="420" y="350" width="110" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -564,7 +560,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="550" y="340" width="50" height="-1"/>
+              <AbsoluteConstraints x="540" y="350" width="50" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -574,7 +570,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="440" y="370" width="70" height="-1"/>
+              <AbsoluteConstraints x="460" y="380" width="70" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -584,7 +580,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="510" y="370" width="50" height="-1"/>
+              <AbsoluteConstraints x="540" y="380" width="50" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -594,7 +590,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="440" y="400" width="90" height="-1"/>
+              <AbsoluteConstraints x="450" y="410" width="90" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -604,7 +600,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="530" y="400" width="37" height="-1"/>
+              <AbsoluteConstraints x="540" y="410" width="37" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
