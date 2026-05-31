@@ -8,10 +8,14 @@ package group3petadoptionsystem;
 
 
 
-//import Controller.LoginController;
-import model.SessionData;
-import view.AdoptionRequestTrackingPage;
-//import view.Login;
+import Controller.LoginController;
+import view.Login;
+
+
+//import model.SessionData;
+//import view.AdoptionRequest;
+//import view.AdoptionRequestTrackingPage;
+
 
 //import Controller.SignUpController;
 //import view.SignupWindow;
@@ -44,19 +48,27 @@ public class Group3PetAdoptionSystem {
         //SessionData.role = "Provider";
         //new ProviderHomePage().setVisible(true);
         
-        //Login login = new Login();
+        Login login = new Login();
 
-        //new LoginController(login); // attach controller
+        new LoginController(login); // attach controller
 
-        //login.setVisible(true);
-        //login.setLocationRelativeTo(null);
+        login.setVisible(true);
+        login.setLocationRelativeTo(null);
         
         
         
-        SessionData.userID = 1;
+        //SessionData.userID = 1;
 
-        java.awt.EventQueue.invokeLater(() -> {
-            new AdoptionRequestTrackingPage().setVisible(true);
-        });
+        //java.awt.EventQueue.invokeLater(() -> {
+          //  new AdoptionRequestTrackingPage().setVisible(true);
+        //});
+        
+        
+        //SessionData.userID = 1;  
+        //SessionData.username = "yourAdopterUsername";
+        //int testPetID = 3;  // Use actual petID from DB
+        //AdoptionRequest view = new AdoptionRequest(testPetID);
+        //view.setLocationRelativeTo(null);
+        //view.setVisible(true);
     }
 }

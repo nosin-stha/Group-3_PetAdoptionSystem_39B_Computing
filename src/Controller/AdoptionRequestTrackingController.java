@@ -13,14 +13,14 @@ import model.SessionData;
 import view.AdopterRequestCard;
 import view.AdoptionRequestTrackingPage;
 
-public class AdoptionRequestController {
+public class AdoptionRequestTrackingController {
 
     private final AdoptionRequestDAO dao = new AdoptionRequestDAO();
     private JPanel requestPanel;
     private AdoptionRequestTrackingPage view;
 
     // Constructor for full view setup
-    public AdoptionRequestController(AdoptionRequestTrackingPage view) {
+    public AdoptionRequestTrackingController(AdoptionRequestTrackingPage view) {
         this.view = view;
         this.requestPanel = view.getRequestContainerPanel();
 
@@ -42,7 +42,7 @@ public class AdoptionRequestController {
         requestPanel.repaint();
     }
 
-    public AdoptionRequestController(JPanel requestPanel) {
+    public AdoptionRequestTrackingController(JPanel requestPanel) {
         this.requestPanel = requestPanel;
     }
 

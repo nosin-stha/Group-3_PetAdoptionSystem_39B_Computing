@@ -9,7 +9,6 @@ package Controller;
  * @author Dell
  */
 
-
 import DAO.PetDAO;
 import DAO.ProviderDetailsDAO;
 import model.PetsData;
@@ -25,32 +24,31 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
+import view.AdoptionRequest;
 
 public class PetDetailsController implements ActionListener {
 
     private final PetsData pet;
     private final String role;
     private final JFrame parentFrame;
-    private final boolean hideAdopt; 
+    private final boolean hideAdopt;
 
     private final PetDAO petDAO = new PetDAO();
     private final ProviderDetailsDAO providerDAO = new ProviderDetailsDAO();
 
-   
     public PetDetailsController(PetCardPanel card, PetsData pet, String role, JFrame parentFrame) {
         this.pet = pet;
         this.role = role;
         this.parentFrame = parentFrame;
-        this.hideAdopt = false; 
+        this.hideAdopt = false;
         card.addViewMoreListener(this);
     }
-
 
     public PetDetailsController(AdopterRequestCard card, PetsData pet, String role, JFrame parentFrame) {
         this.pet = pet;
         this.role = role;
         this.parentFrame = parentFrame;
-        this.hideAdopt = true; 
+        this.hideAdopt = true;
         card.addViewMoreListener(this);
     }
 
@@ -61,16 +59,16 @@ public class PetDetailsController implements ActionListener {
             System.out.println("PetDetailsController: no pet found for ID " + pet.getPetID());
             return;
         }
-        SwingUtilities.invokeLater(() -> {
-            if ("adopter".equalsIgnoreCase(role)) {
-                openAdopterView(fullPet);
-            } else {
-                openProviderView(fullPet);
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                if ("adopter".equalsIgnoreCase(role)) {
+                    openAdopterView(fullPet);
+                } else {
+                    openProviderView(fullPet);
+                }
             }
         });
     }
-
-
 
     private void openAdopterView(PetsData fullPet) {
         AdopterViewPetDetails view = new AdopterViewPetDetails();
@@ -81,39 +79,52 @@ public class PetDetailsController implements ActionListener {
             view.getShelterNameLabel().setText(provider.getShelterName());
             view.getShelterPhoneLabel().setText(provider.getPhoneNumber());
             view.getShelterEmailLabel().setText(provider.getEmail());
-            loadShelterImage(view.getShelterLogoLabel(), provider.getPfp()); 
+            loadShelterImage(view.getShelterLogoLabel(), provider.getPfp());
         }
-
 
         if (hideAdopt) {
             view.hideAdoptButton();
         }
 
-        view.getExitButton().addActionListener(ev -> {
-            view.dispose();
-            if (parentFrame != null) {
-                parentFrame.setVisible(true);
-                parentFrame.toFront();
+      view.addAdoptListener(new ActionListener() {
+    public void actionPerformed(ActionEvent e) {
+        AdoptionRequest adoptionForm = new AdoptionRequest(fullPet.getPetID());
+        new AdoptionReqController(adoptionForm, fullPet.getPetID());
+        adoptionForm.setSize(1000, 630);
+        adoptionForm.setResizable(false);
+        adoptionForm.setLocationRelativeTo(view);
+        adoptionForm.setAlwaysOnTop(true);
+        adoptionForm.setVisible(true);
+    }
+});
+
+        view.getExitButton().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                view.dispose();
+                if (parentFrame != null) {
+                    parentFrame.setVisible(true);
+                    parentFrame.toFront();
+                }
             }
         });
 
         if (parentFrame != null) parentFrame.setVisible(false);
-        view.pack();                    
-        view.setLocationRelativeTo(null);  
+        view.pack();
+        view.setLocationRelativeTo(null);
         view.setVisible(true);
     }
-
-
 
     private void openProviderView(PetsData fullPet) {
         ProviderViewPetDetails view = new ProviderViewPetDetails();
         populatePetFields(view, fullPet);
 
-        view.getExitButton().addActionListener(ev -> {
-            view.dispose();
-            if (parentFrame != null) {
-                parentFrame.setVisible(true);
-                parentFrame.toFront();
+        view.getExitButton().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                view.dispose();
+                if (parentFrame != null) {
+                    parentFrame.setVisible(true);
+                    parentFrame.toFront();
+                }
             }
         });
 
@@ -121,7 +132,6 @@ public class PetDetailsController implements ActionListener {
         view.setLocationRelativeTo(null);
         view.setVisible(true);
     }
-
 
     private void populatePetFields(AdopterViewPetDetails view, PetsData pet) {
         view.getPetNameLabel().setText(pet.getPetName());
@@ -147,8 +157,6 @@ public class PetDetailsController implements ActionListener {
         loadImage(view.getPetImageLabel(), pet.getImagePath());
     }
 
-
-
     private void loadImage(javax.swing.JLabel imageLabel, String imagePath) {
         if (imagePath == null || imagePath.isEmpty()) return;
         try {
@@ -160,22 +168,20 @@ public class PetDetailsController implements ActionListener {
             System.out.println("Image load error: " + ex.getMessage());
         }
     }
-    
-    
-    
+
     private void loadShelterImage(javax.swing.JLabel imageLabel, String imagePath) {
-    if (imagePath == null || imagePath.isEmpty()) {
-        imageLabel.setText("No Image");
-        return;
+        if (imagePath == null || imagePath.isEmpty()) {
+            imageLabel.setText("No Image");
+            return;
+        }
+        try {
+            ImageIcon icon = new ImageIcon(imagePath);
+            Image scaled = icon.getImage().getScaledInstance(75, 75, Image.SCALE_SMOOTH);
+            imageLabel.setIcon(new ImageIcon(scaled));
+            imageLabel.setText("");
+        } catch (Exception ex) {
+            System.out.println("Shelter image load error: " + ex.getMessage());
+            imageLabel.setText("No Image");
+        }
     }
-    try {
-        ImageIcon icon = new ImageIcon(imagePath);
-        Image scaled = icon.getImage().getScaledInstance(75, 75, Image.SCALE_SMOOTH);
-        imageLabel.setIcon(new ImageIcon(scaled));
-        imageLabel.setText(""); // clear the "Shelter logo" placeholder text
-    } catch (Exception ex) {
-        System.out.println("Shelter image load error: " + ex.getMessage());
-        imageLabel.setText("No Image");
-    }
-}
 }
