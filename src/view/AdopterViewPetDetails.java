@@ -285,7 +285,7 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
         );
 
         Main_panal_Viewpet_adopter.add(Shelterinfopanal_petview_adopter);
-        Shelterinfopanal_petview_adopter.setBounds(50, 460, 890, 150);
+        Shelterinfopanal_petview_adopter.setBounds(50, 470, 890, 150);
 
         Favouritethepet_btn_petview_adopter.setForeground(new java.awt.Color(255, 153, 51));
         Favouritethepet_btn_petview_adopter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/petFavBtnIcon.png"))); // NOI18N
@@ -373,7 +373,7 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Main_panal_Viewpet_adopter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
+            .addComponent(Main_panal_Viewpet_adopter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
         );
 
         pack();
