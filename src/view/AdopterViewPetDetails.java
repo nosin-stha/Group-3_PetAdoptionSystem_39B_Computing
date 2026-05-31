@@ -34,6 +34,10 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
     public void addLogoutListener(ActionListener listener) {
         Logout_btn.addActionListener(listener);
     }
+    
+    public void addAdoptListener(ActionListener listener) {
+        Adopt_btn_petview_adopter.addActionListener(listener);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -246,8 +250,7 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
                                 .addGap(23, 23, 23)
                                 .addGroup(Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(ShelterPhonenumber_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ShelterMail_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(21, 21, 21)))))
+                                    .addComponent(ShelterMail_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
                 .addComponent(ViewShelterProfile_ShelterInfo_petview_adopter)
                 .addGap(19, 19, 19))
@@ -275,7 +278,7 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
                                     .addComponent(phoneicon_shelterinfopanal_petview_adopter)
                                     .addComponent(ShelterPhonenumber_shelterinfopanal_petview_adopter))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(ShelterMail_shelterinfopanal_petview_adopter)
                                     .addComponent(Mailicon_shelterinfopanal_petview_adopter))
                                 .addGap(22, 22, 22))))))

@@ -304,7 +304,6 @@
                                           <Component id="ShelterPhonenumber_shelterinfopanal_petview_adopter" min="-2" pref="252" max="-2" attributes="0"/>
                                           <Component id="ShelterMail_shelterinfopanal_petview_adopter" min="-2" pref="252" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -341,9 +340,9 @@
                                           <Component id="ShelterPhonenumber_shelterinfopanal_petview_adopter" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="ShelterMail_shelterinfopanal_petview_adopter" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="Mailicon_shelterinfopanal_petview_adopter" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="Mailicon_shelterinfopanal_petview_adopter" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                                   </Group>

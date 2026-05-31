@@ -5,7 +5,7 @@
 package view;
 
 import Controller.NavigationController;
-import Controller.AdoptionRequestController;
+import Controller.AdoptionRequestTrackingController;
 import java.awt.event.ActionListener;
 
 
@@ -26,7 +26,7 @@ public class AdoptionRequestTrackingPage extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         new NavigationController(this); 
         
-        new AdoptionRequestController(this);
+        new AdoptionRequestTrackingController(this);
     }
     
     //   GETTERS

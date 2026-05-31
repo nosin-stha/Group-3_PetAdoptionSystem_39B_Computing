@@ -158,4 +158,30 @@ public class UsersDAO {
             mysql.closeConnection(conn);
         }
     }
+    
+    public int getAdopterIDByUsername(String username) {
+
+        int id = 0;
+
+        try {
+
+            Connection conn = new MySqlConnector().openConnection();
+
+            String sql = "SELECT adopterID FROM Adopters WHERE adpUsername = ?";
+
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, username);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                id = rs.getInt("adopterID");
+            }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return id;
+        }
 }
