@@ -57,10 +57,10 @@ public class Provider_NavigationController {
             if (currentFrame instanceof AdoptionRequestManagement_ProviderPage) return;
 
             AdoptionRequestManagement_ProviderPage requestsPage = new AdoptionRequestManagement_ProviderPage();
-            new AdoptionRequestsBoardController(requestsPage, providerID); // load data into requestsPage
-            new Provider_NavigationController(requestsPage, providerID);   // wire nav into requestsPage
+            new AdoptionRequestsBoardController(requestsPage, providerID); 
+            new Provider_NavigationController(requestsPage, providerID);   
             requestsPage.setLocationRelativeTo(null);
-            requestsPage.setVisible(true);   // show the SAME requestsPage, not a new one
+            requestsPage.setVisible(true);  
             currentFrame.dispose();
         }
     }

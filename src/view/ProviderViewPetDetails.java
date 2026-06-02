@@ -4,6 +4,8 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author OMEN
@@ -31,9 +33,9 @@ public class ProviderViewPetDetails extends javax.swing.JFrame {
         Main_panal_Viewpet_provider = new javax.swing.JPanel();
         toppanel_viewpet_provider = new javax.swing.JPanel();
         Logo = new javax.swing.JLabel();
-        BtnHome_btn = new javax.swing.JButton();
-        MyRequests_btn = new javax.swing.JButton();
-        Shelters_btn = new javax.swing.JButton();
+        Home_btn = new javax.swing.JButton();
+        Adoption_requestbtn = new javax.swing.JButton();
+        Adoption_Historybtn = new javax.swing.JButton();
         Logout_btn = new javax.swing.JButton();
         profile_btn = new javax.swing.JButton();
         Profile_text = new javax.swing.JLabel();
@@ -66,12 +68,12 @@ public class ProviderViewPetDetails extends javax.swing.JFrame {
 
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pas_circular_logo.png"))); // NOI18N
 
-        BtnHome_btn.setBackground(new java.awt.Color(255, 204, 51));
-        BtnHome_btn.setText("Home");
+        Home_btn.setBackground(new java.awt.Color(255, 204, 51));
+        Home_btn.setText("Home");
 
-        MyRequests_btn.setText("My Requests");
+        Adoption_requestbtn.setText("Adoption Requests");
 
-        Shelters_btn.setText("Shelters");
+        Adoption_Historybtn.setText("Adoption History");
 
         Logout_btn.setText("Logout");
         Logout_btn.addActionListener(this::Logout_btnActionPerformed);
@@ -91,14 +93,14 @@ public class ProviderViewPetDetails extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addComponent(Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(73, 73, 73)
-                .addComponent(BtnHome_btn)
+                .addComponent(Home_btn)
                 .addGap(29, 29, 29)
-                .addComponent(MyRequests_btn)
+                .addComponent(Adoption_requestbtn)
                 .addGap(32, 32, 32)
-                .addComponent(Shelters_btn)
+                .addComponent(Adoption_Historybtn)
                 .addGap(33, 33, 33)
                 .addComponent(Logout_btn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 339, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 256, Short.MAX_VALUE)
                 .addGroup(toppanel_viewpet_providerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(profile_btn)
                     .addComponent(Profile_text, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -113,9 +115,9 @@ public class ProviderViewPetDetails extends javax.swing.JFrame {
                         .addGroup(toppanel_viewpet_providerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(profile_btn)
                             .addGroup(toppanel_viewpet_providerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(BtnHome_btn)
-                                .addComponent(MyRequests_btn)
-                                .addComponent(Shelters_btn)
+                                .addComponent(Home_btn)
+                                .addComponent(Adoption_requestbtn)
+                                .addComponent(Adoption_Historybtn)
                                 .addComponent(Logout_btn)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Profile_text))
@@ -309,30 +311,38 @@ public javax.swing.JButton getExitButton() {
     return Exit_btn_petview_provider;
 }
 
-    public javax.swing.JButton getLogoutButton() {
-    return Logout_btn;
-}
+    public void addHomeListener(ActionListener listener) {
+        Home_btn.addActionListener(listener);
+    }
+
+    public void addAdoptionRequestsListener(ActionListener listener) {
+        Adoption_requestbtn.addActionListener(listener);
+    }
+
+    public void addLogoutListener(ActionListener listener) {
+        Logout_btn.addActionListener(listener);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Adoption_Historybtn;
+    private javax.swing.JButton Adoption_requestbtn;
     private javax.swing.JLabel Age_Info_petview_provider;
     private javax.swing.JLabel Age_petview_provider;
     private javax.swing.JLabel Breed_name_petview_provider;
     private javax.swing.JLabel Breed_petview_provider;
-    private javax.swing.JButton BtnHome_btn;
     private javax.swing.JButton Exit_btn_petview_provider;
     private javax.swing.JLabel Gender_Info_petview_provider;
     private javax.swing.JLabel Gender_petview_provider;
+    private javax.swing.JButton Home_btn;
     private javax.swing.JLabel HouseTrained_Info_petview_provider;
     private javax.swing.JLabel HouseTrained_petview_provider;
     private javax.swing.JLabel Logo;
     private javax.swing.JButton Logout_btn;
     private javax.swing.JPanel Main_panal_Viewpet_provider;
-    private javax.swing.JButton MyRequests_btn;
     private javax.swing.JLabel Petimage_petview_provider;
     private javax.swing.JLabel Petname_petview_provider;
     private javax.swing.JPanel Playerimage_box_petview_provider;
     private javax.swing.JLabel Profile_text;
-    private javax.swing.JButton Shelters_btn;
     private javax.swing.JLabel Spayed_Neutered_Info_petview_provider;
     private javax.swing.JLabel Spayed_Neutered_petview_provider;
     private javax.swing.JLabel SpecialNeeds_Info_petview_provider;

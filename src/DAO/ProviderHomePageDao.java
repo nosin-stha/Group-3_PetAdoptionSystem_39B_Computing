@@ -16,7 +16,7 @@ public class ProviderHomePageDao {
     MySqlConnector db = new MySqlConnector();
     Connection conn = db.openConnection();
 
-    String query = "SELECT * FROM Pets WHERE providerID = ?";
+    String query = "SELECT * FROM Pets WHERE providerID = ? AND petAdoptionStatus = 'Available'";
 
     try {
 

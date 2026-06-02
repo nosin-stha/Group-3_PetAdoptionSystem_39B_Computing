@@ -128,7 +128,6 @@ public class PetDAO {
     
     
     
-    // GET PET BY ID  ← new method
     public PetsData getPetById(int petID) {
         String sql = "SELECT * FROM Pets WHERE petID = ?";
         Connection conn = mysql.openConnection();
@@ -161,6 +160,6 @@ public class PetDAO {
     }
 
     public PetsData getPetByID(int petID) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
 }

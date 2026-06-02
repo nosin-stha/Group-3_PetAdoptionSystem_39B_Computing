@@ -44,9 +44,6 @@ public class PetController {
     private PetController parentController;
     private String existingImagePath = null;
 
-    // ─────────────────────────────────────────────
-    // CONSTRUCTORS
-    // ─────────────────────────────────────────────
 
     // ADOPTER HOME PAGE
     public PetController(AdopterHomePage adopterHomeView) {
@@ -68,36 +65,24 @@ public class PetController {
         loadAdopterPets();
     }
 
-    // PROVIDER HOME PAGE
-    // PROVIDER HOME PAGE constructor — replace logout line
-public PetController(ProviderHomePage providerHomeView) {
-    this.providerHomeView = providerHomeView;
-    this.providerPanel = providerHomeView.getProviderPetContainerPanel();
-    this.providerCountLabel = providerHomeView.getTotalPetCountLabel();
 
-    // scroll setup
-    providerHomeView.getProviderPetsScrollPane()
-        .setHorizontalScrollBarPolicy(
-            javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-    providerHomeView.getProviderPetsScrollPane()
-        .setVerticalScrollBarPolicy(
-            javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+    public PetController(ProviderHomePage providerHomeView) {
+        this.providerHomeView = providerHomeView;
+        this.providerPanel = providerHomeView.getProviderPetContainerPanel();
+        this.providerCountLabel = providerHomeView.getTotalPetCountLabel();
 
-    providerPanel.setLayout(new java.awt.GridLayout(0, 3, 20, 20));
-    providerHomeView.getProviderPetsScrollPane().setViewportView(providerPanel);
+        providerHomeView.getProviderPetsScrollPane().setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        providerHomeView.getProviderPetsScrollPane().setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 
-    // register listeners
-    providerHomeView.addPetButtonListener(new AddPetButtonListener());
+        providerPanel.setLayout(new java.awt.GridLayout(0, 3, 20, 20));
+        providerHomeView.getProviderPetsScrollPane().setViewportView(providerPanel);
 
-    // reuse NavigationController's logout instead of separate LogoutListener
-    providerHomeView.addLogoutListener(
-        new NavigationController(providerHomeView).new LogoutListener()
-    );
+        providerHomeView.addPetButtonListener(new AddPetButtonListener());
 
-    loadProviderPets();
-}
+        loadProviderPets();
+    }
 
-    // ADD FORM
+
     public PetController(Add_Update_Pet addUpdateView, ProviderHomePage providerHomeView, PetController parentController) {
         this.addUpdateView = addUpdateView;
         this.providerHomeView = providerHomeView;
@@ -109,12 +94,10 @@ public PetController(ProviderHomePage providerHomeView) {
         addUpdateView.addImageUploadListener(new ImageUploadListener());
     }
 
-    // ADD FORM (backwards compatibility)
     public PetController(Add_Update_Pet addUpdateView, ProviderHomePage providerHomeView) {
         this(addUpdateView, providerHomeView, null);
     }
 
-    // UPDATE FORM
     public PetController(Add_Update_Pet addUpdateView, PetsData pet, PetController parentController) {
         this.addUpdateView = addUpdateView;
         this.isUpdateMode = true;
@@ -127,14 +110,10 @@ public PetController(ProviderHomePage providerHomeView) {
         addUpdateView.addImageUploadListener(new ImageUploadListener());
     }
 
-    // UPDATE FORM (backwards compatibility)
     public PetController(Add_Update_Pet addUpdateView, PetsData pet) {
         this(addUpdateView, pet, null);
     }
 
-    // ─────────────────────────────────────────────
-    // SETUP
-    // ─────────────────────────────────────────────
 
     private void setupForm() {
         if (addUpdateView != null) {
@@ -142,9 +121,7 @@ public PetController(ProviderHomePage providerHomeView) {
         }
     }
 
-    // ─────────────────────────────────────────────
-    // HELPERS
-    // ─────────────────────────────────────────────
+
 
     private String getRadio(JRadioButton yes, JRadioButton no) {
         return yes.isSelected() ? "Yes" : "No";
@@ -166,9 +143,6 @@ public PetController(ProviderHomePage providerHomeView) {
         return true;
     }
 
-    // ─────────────────────────────────────────────
-    // SCROLL PANE REFRESH
-    // ─────────────────────────────────────────────
 
     private void revalidateScrollPane(JPanel panel) {
         Container parent = panel.getParent();
@@ -182,9 +156,7 @@ public PetController(ProviderHomePage providerHomeView) {
         }
     }
 
-    // ─────────────────────────────────────────────
-    // REFRESH
-    // ─────────────────────────────────────────────
+
 
     public void refresh() {
         if (parentController != null) {
@@ -195,9 +167,6 @@ public PetController(ProviderHomePage providerHomeView) {
         if (adopterPanel != null) loadAdopterPets();
     }
 
-    // ─────────────────────────────────────────────
-    // LOAD PROVIDER PETS
-    // ─────────────────────────────────────────────
 
     public void loadProviderPets() {
         if (providerPanel == null) return;
@@ -236,9 +205,6 @@ public PetController(ProviderHomePage providerHomeView) {
         }
     }
 
-    // ─────────────────────────────────────────────
-    // LOAD ADOPTER PETS
-    // ─────────────────────────────────────────────
 
     public void loadAdopterPets() {
         if (adopterPanel == null) return;
@@ -276,9 +242,6 @@ public PetController(ProviderHomePage providerHomeView) {
         }
     }
 
-    // ─────────────────────────────────────────────
-    // IMAGE HELPER
-    // ─────────────────────────────────────────────
 
     private void loadImageOnCard(JLabel imgLabel, String path) {
         try {
@@ -290,29 +253,6 @@ public PetController(ProviderHomePage providerHomeView) {
             System.out.println("Image load error: " + e.getMessage());
         }
     }
-
-    // ─────────────────────────────────────────────
-    // INNER CLASS: LOGOUT
-    // ─────────────────────────────────────────────
-
-    class LogoutListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            int confirm = JOptionPane.showConfirmDialog(
-                providerHomeView,
-                "Are you sure you want to logout?",
-                "Logout",
-                JOptionPane.YES_NO_OPTION
-            );
-            if (confirm == JOptionPane.YES_OPTION) {
-                new SessionController().logout(providerHomeView);
-            }
-        }
-    }
-
-    // ─────────────────────────────────────────────
-    // INNER CLASS: IMAGE UPLOAD
-    // ─────────────────────────────────────────────
 
     class ImageUploadListener extends MouseAdapter {
 
@@ -343,9 +283,6 @@ public PetController(ProviderHomePage providerHomeView) {
         }
     }
 
-    // ─────────────────────────────────────────────
-    // INNER CLASS: SAVE
-    // ─────────────────────────────────────────────
 
     class SavePetListener implements ActionListener {
 
@@ -398,9 +335,6 @@ public PetController(ProviderHomePage providerHomeView) {
         }
     }
 
-    // ─────────────────────────────────────────────
-    // INNER CLASS: UPDATE CLICK
-    // ─────────────────────────────────────────────
 
     class UpdatePetListener implements ActionListener {
 
@@ -432,9 +366,6 @@ public PetController(ProviderHomePage providerHomeView) {
         }
     }
 
-    // ─────────────────────────────────────────────
-    // INNER CLASS: DELETE
-    // ─────────────────────────────────────────────
 
     class DeletePetListener implements ActionListener {
 
@@ -459,9 +390,6 @@ public PetController(ProviderHomePage providerHomeView) {
         }
     }
 
-    // ─────────────────────────────────────────────
-    // INNER CLASS: ADD BUTTON
-    // ─────────────────────────────────────────────
 
     class AddPetButtonListener implements ActionListener {
 

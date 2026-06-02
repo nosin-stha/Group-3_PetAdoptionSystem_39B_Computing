@@ -91,15 +91,14 @@ public class PetRequestsBoard extends javax.swing.JPanel {
         PetRequestScroll_PanelLayout.setHorizontalGroup(
             PetRequestScroll_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PetRequestScroll_PanelLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 895, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 839, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 133, Short.MAX_VALUE))
         );
         PetRequestScroll_PanelLayout.setVerticalGroup(
             PetRequestScroll_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PetRequestScroll_PanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 38, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 45, Short.MAX_VALUE))
         );
 
         PetRequests_ScrollPane.setViewportView(PetRequestScroll_Panel);
@@ -123,7 +122,7 @@ public class PetRequestsBoard extends javax.swing.JPanel {
         RequestsBoard_PetType.setText("Pet Type");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        jLabel2.setText("------------------------------------------------------------------- Requests ------------------------------------------------------------------");
+        jLabel2.setText("----------------------------------------------------------------- Requests ----------------------------------------------------------------");
 
         Lbl_PetAdoptionRequests_Count.setText("Total Pet Adoption Requests Count:");
 
@@ -142,7 +141,8 @@ public class PetRequestsBoard extends javax.swing.JPanel {
                                 .addComponent(Lbl_PetAdoptionRequests_Count)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(PetAdoptionRequests_Count, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel2)))
+                            .addComponent(jLabel2)
+                            .addComponent(PetRequests_ScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 848, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(113, 113, 113)
                         .addComponent(RequestsBoard_PetImg, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -162,9 +162,8 @@ public class PetRequestsBoard extends javax.swing.JPanel {
                                         .addComponent(RequestsBoard_PetType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(RequestsBoard_PetGender, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(RequestsBoard_PetAge)))
-                            .addComponent(RequestsBoard_PetName)))
-                    .addComponent(PetRequests_ScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 916, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(16, Short.MAX_VALUE))
+                            .addComponent(RequestsBoard_PetName))))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

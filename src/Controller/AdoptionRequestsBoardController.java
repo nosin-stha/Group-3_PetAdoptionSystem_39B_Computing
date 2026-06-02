@@ -10,7 +10,6 @@ package Controller;
  */
 
 
-
 import DAO.AdoptionRequestsBoardDAO;
 import model.AdoptionRequestData;
 import model.PetsData;
@@ -37,7 +36,6 @@ public class AdoptionRequestsBoardController {
         loadAllRequests();
     }
 
-   
     public void loadAllRequests() {
         Map<PetsData, List<AdoptionRequestData>> grouped = dao.getRequestsGroupedByPet(providerID);
         populateScrollPanel(grouped);
@@ -46,10 +44,11 @@ public class AdoptionRequestsBoardController {
     private void populateScrollPanel(Map<PetsData, List<AdoptionRequestData>> grouped) {
         JPanel scrollPanel = view.getAllPetsRequests_ScrollPanel();
         scrollPanel.removeAll();
+        scrollPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 15, 10, 15));
         scrollPanel.setLayout(new BoxLayout(scrollPanel, BoxLayout.Y_AXIS));
 
         for (Map.Entry<PetsData, List<AdoptionRequestData>> entry : grouped.entrySet()) {
-            PetsData pet                   = entry.getKey();
+            PetsData pet = entry.getKey();
             List<AdoptionRequestData> reqs = entry.getValue();
 
             PetRequestsBoard board = new PetRequestsBoard();
@@ -67,22 +66,27 @@ public class AdoptionRequestsBoardController {
 
             setupTable(board.getRequestsTable(), pet, reqs);
 
+    
+            board.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 15, 10, 15));
             scrollPanel.add(board);
-            scrollPanel.add(Box.createVerticalStrut(12));
+            scrollPanel.add(Box.createVerticalStrut(16));
         }
 
         scrollPanel.revalidate();
         scrollPanel.repaint();
     }
 
-
     private void setupTable(JTable table, PetsData pet, List<AdoptionRequestData> requests) {
 
         DefaultTableModel model = new DefaultTableModel(
             new String[]{"adoptionID", "petID", "Adopter Name", "Email", "Phone Number", "Status", "Action"}, 0
         ) {
-            @Override public boolean isCellEditable(int r, int c) { return c == 6; }
-            @Override public Class<?> getColumnClass(int c)       { return Object.class; }
+            @Override public boolean isCellEditable(int r, int c){ 
+                return c == 6; 
+            }
+            @Override public Class<?> getColumnClass(int c){ 
+                return Object.class; 
+            }
         };
 
         for (AdoptionRequestData r : requests) {
@@ -107,18 +111,15 @@ public class AdoptionRequestsBoardController {
         table.getTableHeader().setForeground(Color.WHITE);
         table.setGridColor(new Color(220, 220, 220));
 
-
         hideColumn(table, 0);
         hideColumn(table, 1);
 
-      
         table.getColumnModel().getColumn(2).setPreferredWidth(150);
         table.getColumnModel().getColumn(3).setPreferredWidth(180);
         table.getColumnModel().getColumn(4).setPreferredWidth(120);
         table.getColumnModel().getColumn(5).setPreferredWidth(90);
         table.getColumnModel().getColumn(6).setPreferredWidth(190);
 
-     
         table.getColumnModel().getColumn(6).setCellRenderer(new ActionCellRenderer());
         table.getColumnModel().getColumn(6).setCellEditor(new ActionCellEditor(table));
     }
@@ -130,10 +131,9 @@ public class AdoptionRequestsBoardController {
         tc.setWidth(0);
     }
 
-    
     private void handleAccept(JTable table, int row) {
         int adoptionID = (int) table.getModel().getValueAt(row, 0);
-        int petID      = (int) table.getModel().getValueAt(row, 1);
+        int petID = (int) table.getModel().getValueAt(row, 1);
 
         int confirm = JOptionPane.showConfirmDialog(view,
                 "Accept this adoption request?", "Confirm Accept",
@@ -141,8 +141,21 @@ public class AdoptionRequestsBoardController {
 
         if (confirm == JOptionPane.YES_OPTION) {
             if (dao.acceptRequest(adoptionID, petID)) {
+                
                 table.getModel().setValueAt("Accepted", row, 5);
                 table.getModel().setValueAt("done",     row, 6);
+
+      
+                for (int i = 0; i < table.getModel().getRowCount(); i++) {
+                    if (i == row) continue;
+                    String status = table.getModel().getValueAt(i, 5).toString();
+                    if (status.equalsIgnoreCase("Pending")) {
+                        table.getModel().setValueAt("Declined", i, 5);
+                        table.getModel().setValueAt("done",     i, 6);
+                    }
+                }
+
+                table.repaint();
                 JOptionPane.showMessageDialog(view, "Request Accepted! Pet marked as Adopted.");
             } else {
                 JOptionPane.showMessageDialog(view, "Failed. Try again.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -150,7 +163,6 @@ public class AdoptionRequestsBoardController {
         }
     }
 
-    
     private void handleDecline(JTable table, int row) {
         int adoptionID = (int) table.getModel().getValueAt(row, 0);
 
@@ -160,8 +172,9 @@ public class AdoptionRequestsBoardController {
 
         if (confirm == JOptionPane.YES_OPTION) {
             if (dao.declineRequest(adoptionID)) {
-                table.getModel().setValueAt("Declined", row, 5);
-                table.getModel().setValueAt("done",     row, 6);
+                table.getModel().setValueAt("Declined",row,5);
+                table.getModel().setValueAt("done",row,6);
+                table.repaint();
                 JOptionPane.showMessageDialog(view, "Declined. Pet remains Available.");
             } else {
                 JOptionPane.showMessageDialog(view, "Failed. Try again.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -169,13 +182,12 @@ public class AdoptionRequestsBoardController {
         }
     }
 
-   
     private class ActionCellRenderer implements TableCellRenderer {
 
-        private final JPanel  panel   = new JPanel(new FlowLayout(FlowLayout.CENTER, 6, 4));
-        private final JButton accept  = new JButton("Accept");
+        private final JPanel  panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 6, 4));
+        private final JButton accept = new JButton("Accept");
         private final JButton decline = new JButton("Decline");
-        private final JLabel  done    = new JLabel();
+        private final JLabel  done = new JLabel();
 
         ActionCellRenderer() {
             styleAccept(accept);
@@ -192,12 +204,11 @@ public class AdoptionRequestsBoardController {
             panel.setBackground(selected ? table.getSelectionBackground() : table.getBackground());
 
             if ("done".equals(value)) {
-                // No buttons — show status text with color
                 String status = table.getModel().getValueAt(row, 5).toString();
-                done.setText("● " + status);
+                done.setText(status);
                 done.setForeground(status.equalsIgnoreCase("Accepted")
-                        ? new Color(56, 142, 60)  
-                        : new Color(198, 40, 40));  
+                        ? new Color(56, 142, 60)
+                        : new Color(198, 40, 40));
                 panel.add(done);
             } else {
                 panel.add(accept);
@@ -206,7 +217,6 @@ public class AdoptionRequestsBoardController {
             return panel;
         }
     }
-
 
     private class ActionCellEditor extends AbstractCellEditor implements TableCellEditor {
 
@@ -225,7 +235,6 @@ public class AdoptionRequestsBoardController {
             done.setFont(new Font("Segoe UI", Font.BOLD, 12));
             panel.setOpaque(true);
 
-            
             accept.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -234,7 +243,6 @@ public class AdoptionRequestsBoardController {
                 }
             });
 
-            
             decline.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -256,7 +264,7 @@ public class AdoptionRequestsBoardController {
 
             if ("done".equals(currentValue)) {
                 String status = table.getModel().getValueAt(row, 5).toString();
-                done.setText("● " + status);
+                done.setText(status);
                 done.setForeground(status.equalsIgnoreCase("Accepted")
                         ? new Color(56, 142, 60)
                         : new Color(198, 40, 40));
@@ -274,7 +282,6 @@ public class AdoptionRequestsBoardController {
         }
     }
 
-    
     private void styleAccept(JButton btn) {
         btn.setBackground(new Color(76, 175, 80));
         btn.setForeground(Color.WHITE);
