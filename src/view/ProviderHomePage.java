@@ -51,6 +51,14 @@ public javax.swing.JScrollPane getProviderPetsScrollPane() {
         Add_pet_provider.addActionListener(listener);
     }
     
+    public void addHomeListener(ActionListener listener) {
+        Home_btn.addActionListener(listener);
+    }
+
+    public void addAdoptionRequestsListener(ActionListener listener) {
+        Adoption_requestbtn.addActionListener(listener);
+    }
+
     public void addLogoutListener(ActionListener listener) {
         Logout_btn.addActionListener(listener);
     }

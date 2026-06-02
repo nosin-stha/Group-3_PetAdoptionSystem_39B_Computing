@@ -27,7 +27,7 @@ public class MySqlConnector implements Db{
 
             String username = "root";
 
-            String password = "bayak123";
+            String password = "2065";
 
             String database = "PetAdoptionSystem";
 

@@ -61,6 +61,7 @@ public class LoginController {
             } else if (SessionData.role.equals("Provider")) {
                 JOptionPane.showMessageDialog(loginView, "Provider Login Successful");
                 ProviderHomePage home = new ProviderHomePage();
+                new Provider_NavigationController(home, SessionData.userID); 
                 openWindow(home);
                 closeWindow(loginView);
 
