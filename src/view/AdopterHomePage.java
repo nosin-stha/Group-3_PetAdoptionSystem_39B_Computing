@@ -58,6 +58,10 @@ public class AdopterHomePage extends javax.swing.JFrame {
         Logout_btn.addActionListener(listener);
     }
     
+    public void addShelterListener(ActionListener listener) {
+        Shelters_btn.addActionListener(listener);
+    }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.

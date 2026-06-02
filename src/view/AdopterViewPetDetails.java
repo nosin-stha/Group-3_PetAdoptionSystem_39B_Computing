@@ -38,6 +38,10 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
     public void addAdoptListener(ActionListener listener) {
         Adopt_btn_petview_adopter.addActionListener(listener);
     }
+    
+    public void addShelterListener(ActionListener listener) {
+        Shelters_btn.addActionListener(listener);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

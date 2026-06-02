@@ -55,6 +55,10 @@ public class AdoptionRequestTrackingPage extends javax.swing.JFrame {
     public void addLogoutListener(ActionListener listener) {
         Logout_btn.addActionListener(listener);
     }
+    
+    public void addShelterListener(ActionListener listener) {
+        Shelters_btn.addActionListener(listener);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

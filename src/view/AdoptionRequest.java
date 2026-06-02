@@ -126,7 +126,7 @@ import java.awt.event.ActionListener;
         lblEmail.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblEmail.setText("Email:");
         jPanel3.add(lblEmail);
-        lblEmail.setBounds(50, 210, 32, 16);
+        lblEmail.setBounds(50, 210, 50, 16);
 
         txtAddress.addActionListener(this::txtAddressActionPerformed);
         jPanel3.add(txtAddress);

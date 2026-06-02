@@ -55,8 +55,9 @@ public class AdopterRequestCard extends javax.swing.JPanel {
     }
 
     public void addViewMoreListener(java.awt.event.ActionListener listener) {
-        BtnVIewMoreRequestCard.addActionListener(listener);
+        btnViewPetDetail.addActionListener(listener);
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -66,7 +67,7 @@ public class AdopterRequestCard extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        BtnVIewMoreRequestCard = new javax.swing.JButton();
+        btnViewPetDetail = new javax.swing.JButton();
         BtnCancelRequestCard = new javax.swing.JButton();
         BtnDeleteRequestCard = new javax.swing.JButton();
         LblRequestStatus = new javax.swing.JLabel();
@@ -81,7 +82,7 @@ public class AdopterRequestCard extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(248, 230, 182));
 
-        BtnVIewMoreRequestCard.setText("View More");
+        btnViewPetDetail.setText("View More");
 
         BtnCancelRequestCard.setText("Cancel");
 
@@ -134,7 +135,7 @@ public class AdopterRequestCard extends javax.swing.JPanel {
                             .addComponent(LblRequestCardPetAge, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 421, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(BtnVIewMoreRequestCard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnViewPetDetail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BtnCancelRequestCard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BtnDeleteRequestCard, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48))
@@ -147,7 +148,7 @@ public class AdopterRequestCard extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(BtnVIewMoreRequestCard)
+                        .addComponent(btnViewPetDetail)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(BtnCancelRequestCard))
                     .addGroup(layout.createSequentialGroup()
@@ -182,7 +183,6 @@ public class AdopterRequestCard extends javax.swing.JPanel {
     private javax.swing.JLabel BreedRequestCard;
     private javax.swing.JButton BtnCancelRequestCard;
     private javax.swing.JButton BtnDeleteRequestCard;
-    private javax.swing.JButton BtnVIewMoreRequestCard;
     private javax.swing.JLabel GenderRequestCard;
     private javax.swing.JLabel LblRequestCardPetAge;
     private javax.swing.JLabel LblRequestCardPetBreed;
@@ -190,5 +190,6 @@ public class AdopterRequestCard extends javax.swing.JPanel {
     private javax.swing.JLabel LblRequestCardPetName;
     private javax.swing.JLabel LblRequestStatus;
     private javax.swing.JLabel PetImgRequestCard;
+    private javax.swing.JButton btnViewPetDetail;
     // End of variables declaration//GEN-END:variables
 }

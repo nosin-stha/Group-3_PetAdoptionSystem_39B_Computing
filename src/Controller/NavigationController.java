@@ -1,8 +1,10 @@
 package Controller;
 
+import Controller.SessionController;
 import view.AdopterHomePage;
 import view.AdoptionRequestTrackingPage;
 import view.AdopterViewPetDetails;
+import view.ShelterListingDisplay;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
@@ -21,16 +23,25 @@ public class NavigationController {
             home.addHomeListener(new HomeListener());
             home.addMyRequestsListener(new MyRequestsListener());
             home.addLogoutListener(new LogoutListener());
+            home.addShelterListener(new ShelterListener());
 
         } else if (currentFrame instanceof AdoptionRequestTrackingPage requests) {
             requests.addHomeListener(new HomeListener());
             requests.addMyRequestsListener(new MyRequestsListener());
             requests.addLogoutListener(new LogoutListener());
+            requests.addShelterListener(new ShelterListener());
 
         } else if (currentFrame instanceof AdopterViewPetDetails petDetails) {
             petDetails.addHomeListener(new HomeListener());
             petDetails.addMyRequestsListener(new MyRequestsListener());
             petDetails.addLogoutListener(new LogoutListener());
+            petDetails.addShelterListener(new ShelterListener());
+
+        } else if (currentFrame instanceof ShelterListingDisplay shelter) {
+            shelter.addHomeListener(new HomeListener());
+            shelter.addMyRequestsListener(new MyRequestsListener());
+            shelter.addLogoutListener(new LogoutListener());
+            shelter.addShelterListener(new ShelterListener());
         }
     }
 
@@ -64,6 +75,18 @@ public class NavigationController {
             if (confirm == javax.swing.JOptionPane.YES_OPTION) {
                 new SessionController().logout(currentFrame);
             }
+        }
+    }
+
+    public class ShelterListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (currentFrame instanceof ShelterListingDisplay) return;
+            ShelterListingDisplay shelterView = new ShelterListingDisplay();
+            new ShelterController(shelterView);
+            shelterView.setLocationRelativeTo(null);
+            shelterView.setVisible(true);
+            currentFrame.dispose();
         }
     }
 }
