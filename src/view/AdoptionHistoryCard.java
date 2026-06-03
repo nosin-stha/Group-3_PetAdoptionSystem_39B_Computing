@@ -19,16 +19,30 @@ public class AdoptionHistoryCard extends javax.swing.JPanel {
     return lblPetPicture;
     }
     
-    public javax.swing.JLabel getlbl_PetName() {return lbl_PetName;}
-    public javax.swing.JLabel getlbl_AdopterName_fill()        { return lbl_AdopterName_fill; }
-    public javax.swing.JLabel getlbl_PetBreed_fill()   { return lbl_PetBreed_fill; }
-    public javax.swing.JLabel getlbl_PetAge_fill()   { return lbl_PetAge_fill; }
-    public javax.swing.JLabel getlbl_PetGender_fill()    { return lbl_PetGender_fill; }
-    public javax.swing.JLabel getlbl_AdopterPhoneNum_fill() { return lbl_AdopterPhoneNum_fill; }
-    public javax.swing.JLabel getlbl_AdopterAddress_fill() { return lbl_AdopterAddress_fill; }
+    public javax.swing.JLabel getlbl_PetName(){
+        return lbl_PetName;
+    }
+    public javax.swing.JLabel getlbl_AdopterName_fill(){ 
+        return lbl_AdopterName_fill; 
+    }
+    public javax.swing.JLabel getlbl_PetBreed_fill(){ 
+        return lbl_PetBreed_fill; 
+    }
+    public javax.swing.JLabel getlbl_PetAge_fill(){ 
+        return lbl_PetAge_fill; 
+    }
+    public javax.swing.JLabel getlbl_PetGender_fill(){ 
+        return lbl_PetGender_fill; 
+    }
+    public javax.swing.JLabel getlbl_AdopterPhoneNum_fill(){ 
+        return lbl_AdopterPhoneNum_fill; 
+    }
+    public javax.swing.JLabel getlbl_AdopterAddress_fill(){ 
+        return lbl_AdopterAddress_fill; 
+    }
     
     public javax.swing.JLabel getlbl_Adopt_Status() {
-    return Lbl_Adopted;
+    return lbl_Adopted;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,7 +60,7 @@ public class AdoptionHistoryCard extends javax.swing.JPanel {
         lbl_PetGender = new javax.swing.JLabel();
         lbl_PetBreed_fill = new javax.swing.JLabel();
         lbl_PetGender_fill = new javax.swing.JLabel();
-        Lbl_Adopted = new javax.swing.JLabel();
+        lbl_Adopted = new javax.swing.JLabel();
         lbl_Adoptor = new javax.swing.JLabel();
         lbl_AdopterName = new javax.swing.JLabel();
         lbl_AdopterPhoneNum = new javax.swing.JLabel();
@@ -72,7 +86,8 @@ public class AdoptionHistoryCard extends javax.swing.JPanel {
 
         lbl_PetGender_fill.setText("Pet type");
 
-        Lbl_Adopted.setText("jLabel1");
+        lbl_Adopted.setBackground(new java.awt.Color(153, 255, 102));
+        lbl_Adopted.setText("jLabel1");
 
         lbl_Adoptor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lbl_Adoptor.setText("---------------- Adopter -----------------");
@@ -135,7 +150,7 @@ public class AdoptionHistoryCard extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblPet)
                         .addGap(28, 28, 28)
-                        .addComponent(Lbl_Adopted, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lbl_Adopted, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -144,7 +159,7 @@ public class AdoptionHistoryCard extends javax.swing.JPanel {
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPet)
-                    .addComponent(Lbl_Adopted))
+                    .addComponent(lbl_Adopted))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
@@ -184,9 +199,9 @@ public class AdoptionHistoryCard extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Lbl_Adopted;
     private javax.swing.JLabel lblPet;
     private javax.swing.JLabel lblPetPicture;
+    private javax.swing.JLabel lbl_Adopted;
     private javax.swing.JLabel lbl_AdopterAddress;
     private javax.swing.JLabel lbl_AdopterAddress_fill;
     private javax.swing.JLabel lbl_AdopterName;
