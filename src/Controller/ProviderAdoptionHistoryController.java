@@ -26,12 +26,10 @@ public class ProviderAdoptionHistoryController {
 
         javax.swing.JPanel panel = view.getSpnlAdoptionHistory();
         panel.removeAll();
-        panel.setLayout(new javax.swing.BoxLayout(panel, javax.swing.BoxLayout.Y_AXIS));
+        panel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 15, 15));
 
         if (list.isEmpty()) {
-            javax.swing.JLabel empty = new javax.swing.JLabel("No adoption history found.");
-            empty.setAlignmentX(java.awt.Component.CENTER_ALIGNMENT);
-            panel.add(empty);
+            panel.add(new javax.swing.JLabel("No adoption history found."));
         }
 
         for (AdoptionRequestData data : list) {
@@ -44,21 +42,30 @@ public class ProviderAdoptionHistoryController {
             card.getlbl_AdopterName_fill().setText(data.getReqFullName());
             card.getlbl_AdopterPhoneNum_fill().setText(data.getReqPhoneNo());
             card.getlbl_AdopterAddress_fill().setText(data.getReqAddress());
-            card.getlbl_Adopt_Status().setText(data.getAdoptionStatus());
+
+            card.getlbl_Adopt_Status().setText("Adopted");
+            card.getlbl_Adopt_Status().setOpaque(true);
+            card.getlbl_Adopt_Status().setBackground(new java.awt.Color(0, 180, 0));
+            card.getlbl_Adopt_Status().setForeground(java.awt.Color.WHITE);
+            card.getlbl_Adopt_Status().setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 12));
+            card.getlbl_Adopt_Status().setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+            card.getlbl_Adopt_Status().setBorder(
+                javax.swing.BorderFactory.createEmptyBorder(3, 8, 3, 8)
+            );
 
             String imagePath = data.getImagePath();
             if (imagePath != null && !imagePath.isEmpty()) {
                 java.net.URL imgURL = getClass().getResource(imagePath);
                 if (imgURL != null) {
-                    Image scaled = new ImageIcon(imgURL).getImage().getScaledInstance(95, 95, Image.SCALE_SMOOTH);
-                    card.getLblPetPicture().setIcon(new ImageIcon(scaled));
+                    Image img = new ImageIcon(imgURL).getImage()
+                        .getScaledInstance(95, 95, Image.SCALE_SMOOTH);
+                    card.getLblPetPicture().setIcon(new ImageIcon(img));
                 } else {
                     card.getLblPetPicture().setText("No Image");
                 }
             }
 
             panel.add(card);
-            panel.add(javax.swing.Box.createVerticalStrut(10));
         }
 
         panel.revalidate();
@@ -67,7 +74,6 @@ public class ProviderAdoptionHistoryController {
 
     private void loadTotalRequestCount() {
         int count = dao.getTotalAdoptionRequests(SessionData.userID);
-        System.out.println("Total adopted count: " + count);
         view.getlblPetCount().setText(String.valueOf(count));
     }
 }
