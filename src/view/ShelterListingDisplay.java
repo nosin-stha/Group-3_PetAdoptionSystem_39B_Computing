@@ -24,6 +24,8 @@ public class ShelterListingDisplay extends javax.swing.JFrame {
     return SheltersDisplayPane;
 }
 
+    
+    // navigation button listeners
 public void addHomeListener(java.awt.event.ActionListener listener) {
     Home_btn.addActionListener(listener);
 }
@@ -75,6 +77,7 @@ public void addShelterListener(java.awt.event.ActionListener listener) {
 
         MyRequest_btn.setText("My Requests");
 
+        Shelters_btn.setBackground(new java.awt.Color(255, 204, 0));
         Shelters_btn.setText("Shelters");
 
         Logout_btn.setText("Logout");

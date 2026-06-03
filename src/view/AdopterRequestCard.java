@@ -12,14 +12,11 @@ import model.AdoptionRequestData;
  */
 public class AdopterRequestCard extends javax.swing.JPanel {
 
-    /**
-     * Creates new form AdopterRequestCard
-     */
     public AdopterRequestCard(AdoptionRequestData req) {
         initComponents();
     }
 
-    // Getters
+ 
     public javax.swing.JLabel getLblRequestCardPetName() { 
         return LblRequestCardPetName; 
     }
