@@ -11,6 +11,7 @@ package Controller;
 
 
 import view.AdoptionRequestManagement_ProviderPage;
+import view.ProviderAdoptionHistory;
 import view.ProviderHomePage;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,11 +32,20 @@ public class Provider_NavigationController {
         if (currentFrame instanceof AdoptionRequestManagement_ProviderPage providerPage) {
             providerPage.addHomeListener(new HomeListener());
             providerPage.addAdoptionRequestsListener(new AdoptionRequestsListener());
+            providerPage.addAdoptionHistoryListener(new AdoptionHistoryListener());
             providerPage.addLogoutListener(new LogoutListener());
+
         } else if (currentFrame instanceof ProviderHomePage home) {
             home.addHomeListener(new HomeListener());
             home.addAdoptionRequestsListener(new AdoptionRequestsListener());
+            home.addAdoptionHistoryListener(new AdoptionHistoryListener());
             home.addLogoutListener(new LogoutListener());
+
+        } else if (currentFrame instanceof ProviderAdoptionHistory history) {
+            history.addHomeListener(new HomeListener());
+            history.addAdoptionRequestsListener(new AdoptionRequestsListener());
+            history.addAdoptionHistoryListener(new AdoptionHistoryListener());
+            history.addLogoutListener(new LogoutListener());
         }
     }
 
@@ -55,12 +65,24 @@ public class Provider_NavigationController {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (currentFrame instanceof AdoptionRequestManagement_ProviderPage) return;
-
-            AdoptionRequestManagement_ProviderPage requestsPage = new AdoptionRequestManagement_ProviderPage();
-            new AdoptionRequestsBoardController(requestsPage, providerID); 
-            new Provider_NavigationController(requestsPage, providerID);   
+            AdoptionRequestManagement_ProviderPage requestsPage =
+                    new AdoptionRequestManagement_ProviderPage();
+            new AdoptionRequestsBoardController(requestsPage, providerID);
+            new Provider_NavigationController(requestsPage, providerID);
             requestsPage.setLocationRelativeTo(null);
-            requestsPage.setVisible(true);  
+            requestsPage.setVisible(true);
+            currentFrame.dispose();
+        }
+    }
+
+    public class AdoptionHistoryListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (currentFrame instanceof ProviderAdoptionHistory) return;
+            ProviderAdoptionHistory historyPage = new ProviderAdoptionHistory();
+            new Provider_NavigationController(historyPage, providerID);
+            historyPage.setLocationRelativeTo(null);
+            historyPage.setVisible(true);
             currentFrame.dispose();
         }
     }

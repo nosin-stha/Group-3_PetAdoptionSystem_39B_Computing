@@ -3,46 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/view/AdopterHomePage.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/view/Login.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/view/OTPWindow.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/view/ProviderExtraWindow.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/view/ProviderHomePage.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/view/SignupWindow.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/group3petadoptionsystem/Group3PetAdoptionSystem.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/database/MySqlConnector.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/model/PetsData.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/model/AdopterData.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/model/ProviderData.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/model/SessionData.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/view/PetCardPanel.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/utils/OTPGenerator.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/utils/EmailService.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/view/AdoptionRequestTrackingPage.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/view/Add_Update_Pet.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/view/AdopterRequestCard.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/model/AdoptionRequestData.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/view/ProviderViewPetDetails.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/view/AdopterViewPetDetails.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/view/ShelterListingDisplay.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/view/ShelterCard.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/DAO/PetReqDAO.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/Controller/AdoptionReqController.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/DAO/AdoptionRequestDAO.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/Controller/NavigationController.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/Controller/LoginController.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/Controller/PetController.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/Controller/PetDetailsController.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/Controller/AdoptionRequestsBoardController.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/DAO/AdoptionRequestsBoardDAO.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/DAO/PetDAO.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/DAO/AdopterHomePageDao.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/DAO/ProviderDetailsDAO.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/DAO/ProviderHomePageDao.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/Controller/Provider_NavigationController.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/view/AdoptionRequest.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/view/AdoptionRequestManagement_ProviderPage.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/view/PetRequestsBoard.java</file>
+            <file>file:/C:/Users/shank/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/view/ProviderAdoptionHistory.java</file>
+            <file>file:/C:/Users/shank/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/view/AdoptionHistoryCard.java</file>
+            <file>file:/C:/Users/shank/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/model/PetsData.java</file>
+            <file>file:/C:/Users/shank/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/DAO/ProviderAdoptionHistoryDAO.java</file>
+            <file>file:/C:/Users/shank/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/Controller/ProviderAdoptionHistoryController.java</file>
+            <file>file:/C:/Users/shank/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/group3petadoptionsystem/Group3PetAdoptionSystem.java</file>
+            <file>file:/C:/Users/shank/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/database/MySqlConnector.java</file>
+            <file>file:/C:/Users/shank/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/model/AdoptionRequestData.java</file>
+            <file>file:/C:/Users/shank/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/view/ProviderExtraWindow.java</file>
+            <file>file:/C:/Users/shank/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/view/ProviderHomePage.java</file>
+            <file>file:/C:/Users/shank/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/model/ProviderData.java</file>
+            <file>file:/C:/Users/shank/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/Controller/Provider_NavigationController.java</file>
+            <file>file:/C:/Users/shank/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/view/ProviderViewPetDetails.java</file>
+            <file>file:/C:/Users/shank/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/view/AdoptionRequestManagement_ProviderPage.java</file>
+            <file>file:/C:/Users/shank/OneDrive/Documents/NetBeansProjects/Group-3_PetAdoptionSystem_39B_Computing/src/Controller/NavigationController.java</file>
         </group>
     </open-files>
 </project-private>
