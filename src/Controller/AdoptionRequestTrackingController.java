@@ -1,6 +1,6 @@
 package Controller;
 
-import DAO.AdoptionRequestDAO;
+import DAO.AdoptionRequestTrackingDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -15,7 +15,7 @@ import view.AdoptionRequestTrackingPage;
 
 public class AdoptionRequestTrackingController {
 
-    private final AdoptionRequestDAO dao = new AdoptionRequestDAO();
+    private final AdoptionRequestTrackingDAO dao = new AdoptionRequestTrackingDAO();
     private JPanel requestPanel;
     private AdoptionRequestTrackingPage view;
 
@@ -108,6 +108,8 @@ public class AdoptionRequestTrackingController {
         }
     }
 
+    
+    
     private void setStatusColor(AdopterRequestCard card, String status) {
         if (status == null) return;
         status = status.toLowerCase();
@@ -124,6 +126,9 @@ public class AdoptionRequestTrackingController {
         }
     }
 
+    
+    
+    
     private void loadImageOnCard(javax.swing.JLabel imgLabel, String path) {
         try {
             javax.swing.ImageIcon icon = new javax.swing.ImageIcon(path);
@@ -135,15 +140,17 @@ public class AdoptionRequestTrackingController {
         }
     }
 
+    
+    
     public int getTotalRequests() {
         return dao.getTotalRequestsByAdopter(SessionData.userID);
     }
 
-    // ─── Same listener for both Cancel and Delete ─────────────────────────────
+
+    
+    
     class RemoveRequestListener implements ActionListener {
-
         private int adoptionID;
-
         public RemoveRequestListener(int adoptionID) {
             this.adoptionID = adoptionID;
         }

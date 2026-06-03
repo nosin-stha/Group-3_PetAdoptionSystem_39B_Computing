@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.AdoptionRequestData;
 
-public class AdoptionRequestDAO {
+public class AdoptionRequestTrackingDAO {
 
     MySqlConnector mysql = new MySqlConnector();
 

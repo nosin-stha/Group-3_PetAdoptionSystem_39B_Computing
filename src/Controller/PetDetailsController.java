@@ -9,6 +9,7 @@ package Controller;
  * @author Dell
  */
 
+import DAO.AdoptionReqDAO;
 import DAO.PetDAO;
 import DAO.ProviderDetailsDAO;
 import model.PetsData;
@@ -86,17 +87,25 @@ public class PetDetailsController implements ActionListener {
             view.hideAdoptButton();
         }
 
-      view.addAdoptListener(new ActionListener() {
-    public void actionPerformed(ActionEvent e) {
-        AdoptionRequest adoptionForm = new AdoptionRequest(fullPet.getPetID());
-        new AdoptionReqController(adoptionForm, fullPet.getPetID());
-        adoptionForm.setSize(1000, 630);
-        adoptionForm.setResizable(false);
-        adoptionForm.setLocationRelativeTo(view);
-        adoptionForm.setAlwaysOnTop(true);
-        adoptionForm.setVisible(true);
-    }
-});
+        view.addAdoptListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+            AdoptionReqDAO dao = new AdoptionReqDAO();
+            if (dao.hasAlreadyApplied(model.SessionData.userID, fullPet.getPetID())) {
+                javax.swing.JOptionPane.showMessageDialog(view,
+                    "You have already applied for adoption of this pet.",
+                    "Already Applied",
+                    javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            AdoptionRequest adoptionForm = new AdoptionRequest(fullPet.getPetID());
+            new AdoptionReqController(adoptionForm, fullPet.getPetID());
+            adoptionForm.setSize(1000, 630);
+            adoptionForm.setResizable(false);
+            adoptionForm.setLocationRelativeTo(view);
+            adoptionForm.setAlwaysOnTop(true);
+            adoptionForm.setVisible(true);
+        }
+    });
 
         view.getExitButton().addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

@@ -43,7 +43,7 @@ public class AdoptionRequestsBoardDAO {
             while (rs != null && rs.next()) {
                 int petID = rs.getInt("petID");
 
-                // Build PetsData only once per pet
+                
                 PetsData pet = petCache.computeIfAbsent(petID, id -> {
                     try {
                         return new PetsData(
@@ -69,7 +69,7 @@ public class AdoptionRequestsBoardDAO {
                 if (pet == null) continue;
                 map.putIfAbsent(pet, new ArrayList<>());
 
-                // Only add if there's an actual adoption request (LEFT JOIN)
+                
                 if (rs.getObject("adoptionID") != null) {
                     map.get(pet).add(new AdoptionRequestData(
                         rs.getInt("adoptionID"),
@@ -109,14 +109,14 @@ public class AdoptionRequestsBoardDAO {
                              + "WHERE adoptionID = " + adoptionID;
         String updatePet     = "UPDATE Pets SET petAdoptionStatus = 'Adopted' "
                              + "WHERE petID = " + petID;
-        // Decline all OTHER pending requests for the same pet
+     
         String declineOthers = "UPDATE AdoptionRequests SET adoptionStatus = 'Declined' "
                              + "WHERE petID = " + petID + " "
                              + "AND adoptionID != " + adoptionID;
 
         int r1 = connector.executeUpdate(con, updateRequest);
         int r2 = connector.executeUpdate(con, updatePet);
-        connector.executeUpdate(con, declineOthers); // decline others (0 rows is fine)
+        connector.executeUpdate(con, declineOthers); 
 
         if (r1 > 0 && r2 > 0) {
             con.commit();

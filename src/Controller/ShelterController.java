@@ -15,9 +15,6 @@ public class ShelterController {
     private final ProviderDetailsDAO providerDAO = new ProviderDetailsDAO();
     private JPanel shelterPanel;
 
-    // ─────────────────────────────────────────────
-    // CONSTRUCTOR
-    // ─────────────────────────────────────────────
 
     public ShelterController(ShelterListingDisplay shelterView) {
         this.shelterView = shelterView;
@@ -42,9 +39,6 @@ public class ShelterController {
         loadProviderShelters();
     }
 
-    // ─────────────────────────────────────────────
-    // LOAD PROVIDER SHELTERS
-    // ─────────────────────────────────────────────
 
     public void loadProviderShelters() {
         if (shelterPanel == null) return;
@@ -89,10 +83,6 @@ public class ShelterController {
 
     return card;
 }
-
-    // ─────────────────────────────────────────────
-    // LOAD IMAGE ON CARD
-    // ─────────────────────────────────────────────
 
     private void loadImageOnCard(JLabel imgLabel, String path) {
         try {

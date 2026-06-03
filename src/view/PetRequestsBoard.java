@@ -51,10 +51,6 @@ public class PetRequestsBoard extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        PetRequests_ScrollPane = new javax.swing.JScrollPane();
-        PetRequestScroll_Panel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        PetRequests_Table = new javax.swing.JTable();
         Lbl_RequestsBoard_PetName = new javax.swing.JLabel();
         Lbl_RequestsBoard_PetGender = new javax.swing.JLabel();
         RequestsBoard_PetGender = new javax.swing.JLabel();
@@ -66,42 +62,11 @@ public class PetRequestsBoard extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         Lbl_PetAdoptionRequests_Count = new javax.swing.JLabel();
         PetAdoptionRequests_Count = new javax.swing.JLabel();
+        PetRequestsTable_ScrollPane = new javax.swing.JScrollPane();
+        PetRequests_Table = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(248, 230, 182));
-
-        PetRequests_ScrollPane.setBorder(null);
-
-        PetRequestScroll_Panel.setBackground(new java.awt.Color(248, 230, 182));
-
-        PetRequests_Table.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(PetRequests_Table);
-
-        javax.swing.GroupLayout PetRequestScroll_PanelLayout = new javax.swing.GroupLayout(PetRequestScroll_Panel);
-        PetRequestScroll_Panel.setLayout(PetRequestScroll_PanelLayout);
-        PetRequestScroll_PanelLayout.setHorizontalGroup(
-            PetRequestScroll_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PetRequestScroll_PanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 839, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 133, Short.MAX_VALUE))
-        );
-        PetRequestScroll_PanelLayout.setVerticalGroup(
-            PetRequestScroll_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PetRequestScroll_PanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 45, Short.MAX_VALUE))
-        );
-
-        PetRequests_ScrollPane.setViewportView(PetRequestScroll_Panel);
+        setPreferredSize(new java.awt.Dimension(937, 428));
 
         Lbl_RequestsBoard_PetName.setText("Pet Type:");
 
@@ -122,11 +87,24 @@ public class PetRequestsBoard extends javax.swing.JPanel {
         RequestsBoard_PetType.setText("Pet Type");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        jLabel2.setText("----------------------------------------------------------------- Requests ----------------------------------------------------------------");
+        jLabel2.setText("------------------------------------------------------------------------ Requests -------------------------------------------------------------------");
 
         Lbl_PetAdoptionRequests_Count.setText("Total Pet Adoption Requests Count:");
 
         PetAdoptionRequests_Count.setText("..");
+
+        PetRequests_Table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        PetRequestsTable_ScrollPane.setViewportView(PetRequests_Table);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -142,7 +120,7 @@ public class PetRequestsBoard extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(PetAdoptionRequests_Count, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel2)
-                            .addComponent(PetRequests_ScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 848, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(PetRequestsTable_ScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(113, 113, 113)
                         .addComponent(RequestsBoard_PetImg, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -163,7 +141,7 @@ public class PetRequestsBoard extends javax.swing.JPanel {
                                         .addComponent(RequestsBoard_PetGender, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(RequestsBoard_PetAge)))
                             .addComponent(RequestsBoard_PetName))))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,20 +161,19 @@ public class PetRequestsBoard extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(RequestsBoard_PetAge))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE))
+                            .addComponent(RequestsBoard_PetAge)))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(24, Short.MAX_VALUE)
                         .addComponent(RequestsBoard_PetImg, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22)))
+                        .addGap(34, 34, 34)))
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Lbl_PetAdoptionRequests_Count)
                     .addComponent(PetAdoptionRequests_Count))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(PetRequests_ScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
+                .addGap(12, 12, 12)
+                .addComponent(PetRequestsTable_ScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -206,8 +183,7 @@ public class PetRequestsBoard extends javax.swing.JPanel {
     private javax.swing.JLabel Lbl_RequestsBoard_PetGender;
     private javax.swing.JLabel Lbl_RequestsBoard_PetName;
     private javax.swing.JLabel PetAdoptionRequests_Count;
-    private javax.swing.JPanel PetRequestScroll_Panel;
-    private javax.swing.JScrollPane PetRequests_ScrollPane;
+    private javax.swing.JScrollPane PetRequestsTable_ScrollPane;
     private javax.swing.JTable PetRequests_Table;
     private javax.swing.JLabel RequestsBoard_PetAge;
     private javax.swing.JLabel RequestsBoard_PetGender;
@@ -216,6 +192,5 @@ public class PetRequestsBoard extends javax.swing.JPanel {
     private javax.swing.JLabel RequestsBoard_PetType;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

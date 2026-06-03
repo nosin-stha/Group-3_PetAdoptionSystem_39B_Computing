@@ -2,8 +2,24 @@ package DAO;
 import database.MySqlConnector;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class AdoptionReqDAO {
+    
+    public boolean hasAlreadyApplied(int adopterID, int petID) {
+        MySqlConnector connector = new MySqlConnector();
+        Connection conn = connector.openConnection();
+        String query = "SELECT COUNT(*) FROM adoptionrequests WHERE AdopterID = " + adopterID + " AND PetID = " + petID;
+        try {
+            ResultSet rs = connector.runQuery(conn, query);
+            if (rs != null && rs.next()) return rs.getInt(1) > 0;
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            connector.closeConnection(conn);
+        }
+        return false;
+    }
     
     public boolean insertRequest(
             int adopterID,
@@ -13,6 +29,10 @@ public class AdoptionReqDAO {
             String phone,
             String address,
             String reason) {
+        
+        if (reason != null && reason.length() > 100) {
+            reason = reason.substring(0, 100);
+        }
         
         System.out.println("Inside insertRequest method");
         

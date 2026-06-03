@@ -78,9 +78,9 @@ public class AdoptionHistoryCard extends javax.swing.JPanel {
 
         lblPetPicture.setText("Pet Pic");
 
-        lbl_PetBreed.setText("Breed:");
+        lbl_PetBreed.setText("Type:");
 
-        lbl_PetGender.setText("Type:");
+        lbl_PetGender.setText("Gender:");
 
         lbl_PetBreed_fill.setText("Pet Breed");
 
@@ -113,24 +113,10 @@ public class AdoptionHistoryCard extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(lbl_Adoptor))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbl_AdopterPhoneNum)
-                        .addGap(7, 7, 7)
-                        .addComponent(lbl_AdopterPhoneNum_fill))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbl_AdopterAddress)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbl_AdopterAddress_fill))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbl_AdopterName)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbl_AdopterName_fill))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
                         .addComponent(lblPetPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,8 +136,23 @@ public class AdoptionHistoryCard extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblPet)
                         .addGap(28, 28, 28)
-                        .addComponent(lbl_Adopted, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lbl_Adopted, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbl_AdopterPhoneNum)
+                                .addGap(7, 7, 7)
+                                .addComponent(lbl_AdopterPhoneNum_fill))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbl_AdopterAddress)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbl_AdopterAddress_fill))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbl_AdopterName)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbl_AdopterName_fill))
+                            .addComponent(lbl_Adoptor)))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,9 +162,6 @@ public class AdoptionHistoryCard extends javax.swing.JPanel {
                     .addComponent(lblPet)
                     .addComponent(lbl_Adopted))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(lblPetPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(lbl_PetName, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -178,7 +176,10 @@ public class AdoptionHistoryCard extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbl_PetAge)
-                            .addComponent(lbl_PetAge_fill))))
+                            .addComponent(lbl_PetAge_fill)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(lblPetPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(41, 41, 41)
                 .addComponent(lbl_Adoptor)
                 .addGap(18, 18, 18)
@@ -193,7 +194,7 @@ public class AdoptionHistoryCard extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_AdopterAddress)
                     .addComponent(lbl_AdopterAddress_fill))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

@@ -237,7 +237,7 @@ import java.awt.event.ActionListener;
         );
 
         jPanel3.add(AdoptionPetPanel);
-        AdoptionPetPanel.setBounds(30, 450, 420, 140);
+        AdoptionPetPanel.setBounds(30, 430, 420, 140);
 
         txtReason.setColumns(20);
         txtReason.setRows(5);
