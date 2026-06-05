@@ -115,7 +115,7 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="AdopterAllPetScrollPane" min="-2" pref="380" max="-2" attributes="0"/>
-                  <EmptySpace pref="54" max="32767" attributes="0"/>
+                  <EmptySpace pref="55" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -156,7 +156,7 @@
                               <Component id="Favourite_text" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="197" max="32767" attributes="0"/>
+                      <EmptySpace pref="198" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="profile_btn" min="-2" max="-2" attributes="0"/>
                           <Component id="Profile_text" min="-2" pref="37" max="-2" attributes="0"/>
@@ -288,7 +288,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="SearchLogo">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jButton1"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Images/search_icon.png"/>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="Age_combobox">

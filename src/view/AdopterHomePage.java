@@ -152,7 +152,7 @@ public class AdopterHomePage extends javax.swing.JFrame {
                     .addGroup(toppanelLayout.createSequentialGroup()
                         .addGap(115, 115, 115)
                         .addComponent(Favourite_text)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 197, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 198, Short.MAX_VALUE)
                 .addGroup(toppanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(profile_btn)
                     .addComponent(Profile_text, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -185,7 +185,7 @@ public class AdopterHomePage extends javax.swing.JFrame {
         Searchbar.setText("parrot, husky, home-trained, kathmandu etc...");
         Searchbar.addActionListener(this::SearchbarActionPerformed);
 
-        SearchLogo.setText("jButton1");
+        SearchLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
 
         Age_combobox.setBackground(new java.awt.Color(255, 153, 51));
         Age_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Age", "2", "4", "6", "Other..", " " }));
@@ -264,7 +264,7 @@ public class AdopterHomePage extends javax.swing.JFrame {
                     .addComponent(Total_pet, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(AdopterAllPetScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

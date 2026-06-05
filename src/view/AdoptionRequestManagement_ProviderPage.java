@@ -142,7 +142,7 @@ public class AdoptionRequestManagement_ProviderPage extends javax.swing.JFrame {
         Searchbar1.setText("Jonny, parrot, husky, home-trained, kathmandu etc...");
         Searchbar1.addActionListener(this::Searchbar1ActionPerformed);
 
-        SearchLogo.setText("jButton1");
+        SearchLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
 
         AllPetsRequests_ScrollPanel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -184,7 +184,7 @@ public class AdoptionRequestManagement_ProviderPage extends javax.swing.JFrame {
                 .addGroup(PetRequestsPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Searchbar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SearchLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(AllPetsRequests_ScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );

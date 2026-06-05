@@ -83,7 +83,7 @@
                       <Component id="Searchbar1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="SearchLogo" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="48" max="32767" attributes="0"/>
+                  <EmptySpace pref="49" max="32767" attributes="0"/>
                   <Component id="AllPetsRequests_ScrollPane" min="-2" pref="421" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
@@ -223,7 +223,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="SearchLogo">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jButton1"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Images/search_icon.png"/>
+            </Property>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="AllPetsRequests_ScrollPane">

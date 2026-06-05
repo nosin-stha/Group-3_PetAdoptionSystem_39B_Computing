@@ -80,6 +80,7 @@ public class ProviderAdoptionHistory extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         spnlAdoptionHistory = new javax.swing.JPanel();
         cbAge = new javax.swing.JComboBox<>();
+        Searchbar1 = new javax.swing.JTextField();
 
         jRadioButtonMenuItem1.setSelected(true);
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
@@ -157,7 +158,7 @@ public class ProviderAdoptionHistory extends javax.swing.JFrame {
         cbGender.setBackground(new java.awt.Color(255, 153, 51));
         cbGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gender", "Male", "Female", "Other", " " }));
 
-        btnSearch.setText("...");
+        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
         btnSearch.addActionListener(this::btnSearchActionPerformed);
 
         lblTotalAdoptedPets.setText("Total Adopted Pets: ");
@@ -181,6 +182,10 @@ public class ProviderAdoptionHistory extends javax.swing.JFrame {
 
         cbAge.setBackground(new java.awt.Color(255, 153, 51));
         cbAge.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Age", "New Born (<1 year)", "Young (1-3  year)", "Adult  (3-8 year)", "Senior (8> year)" }));
+
+        Searchbar1.setForeground(new java.awt.Color(204, 204, 204));
+        Searchbar1.setText("Jonny, parrot, husky, home-trained, kathmandu etc...");
+        Searchbar1.addActionListener(this::Searchbar1ActionPerformed);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -206,8 +211,10 @@ public class ProviderAdoptionHistory extends javax.swing.JFrame {
                                 .addGap(401, 401, 401)))
                         .addGap(373, 373, 373))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(251, 251, 251))
+                        .addComponent(Searchbar1, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(263, 263, 263))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 940, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
@@ -215,10 +222,13 @@ public class ProviderAdoptionHistory extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(pnlTopBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(btnSearch)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(pnlTopBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(Searchbar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbPetType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -262,6 +272,10 @@ public class ProviderAdoptionHistory extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSearchActionPerformed
 
+    private void Searchbar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Searchbar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Searchbar1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -292,6 +306,7 @@ public class ProviderAdoptionHistory extends javax.swing.JFrame {
     private javax.swing.JButton Adoption_requestbtn;
     private javax.swing.JButton Home_btn;
     private javax.swing.JButton Logout_btn;
+    private javax.swing.JTextField Searchbar1;
     private javax.swing.JButton btnSearch;
     private javax.swing.JComboBox<String> cbAge;
     private javax.swing.JComboBox<String> cbGender;
