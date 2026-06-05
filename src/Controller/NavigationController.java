@@ -8,6 +8,7 @@ import view.ShelterListingDisplay;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
+import view.AdopterView_Shelter_Detail;
 
 public class NavigationController {
 
@@ -42,6 +43,11 @@ public class NavigationController {
             shelter.addMyRequestsListener(new MyRequestsListener());
             shelter.addLogoutListener(new LogoutListener());
             shelter.addShelterListener(new ShelterListener());
+        } else if (currentFrame instanceof AdopterView_Shelter_Detail shelterview) {
+            shelterview.addHomeListener(new HomeListener());
+            shelterview.addMyRequestsListener(new MyRequestsListener());
+            shelterview.addLogoutListener(new LogoutListener());
+            shelterview.addShelterListener(new ShelterListener());
         }
     }
 

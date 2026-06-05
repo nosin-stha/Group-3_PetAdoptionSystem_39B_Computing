@@ -42,6 +42,10 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
     public void addShelterListener(ActionListener listener) {
         Shelters_btn.addActionListener(listener);
     }
+    
+    public javax.swing.JButton getViewShelterButton() {
+        return ViewShelterProfile_ShelterInfo_petview_adopter;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

@@ -14,12 +14,12 @@ package DAO;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
+
 import database.MySqlConnector;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.ArrayList;  // removed List import
 import model.ProviderData;
 
 public class ProviderDetailsDAO {
@@ -64,19 +64,15 @@ public class ProviderDetailsDAO {
         return null;
     }
 
-    // ─────────────────────────────────────────────
-    // NEW — fetches all providers for shelter listing
-    // ─────────────────────────────────────────────
-
-    public List<ProviderData> getAllProviders() {
+    public ArrayList<ProviderData> getAllProviders() {  // changed List to ArrayList
         String sql = "SELECT * FROM Providers";
-        List<ProviderData> list = new ArrayList<>();
+        ArrayList<ProviderData> list = new ArrayList<>();  // changed List to ArrayList
         Connection conn = mysql.openConnection();
         if (conn == null) return list;
         try (PreparedStatement pst = conn.prepareStatement(sql)) {
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                list.add(mapRow(rs));   // reuses existing mapRow()
+                list.add(mapRow(rs));
             }
         } catch (Exception e) {
             System.out.println("Get All Providers Error: " + e.getMessage());

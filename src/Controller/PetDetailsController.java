@@ -82,6 +82,24 @@ public class PetDetailsController implements ActionListener {
             view.getShelterEmailLabel().setText(provider.getEmail());
             loadShelterImage(view.getShelterLogoLabel(), provider.getPfp());
         }
+        
+        view.getViewShelterButton().addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+            ProviderData shelterProvider = providerDAO.getProviderByPetId(fullPet.getPetID());
+            if (shelterProvider == null) {
+                javax.swing.JOptionPane.showMessageDialog(view,
+                    "Shelter info not found.",
+                    "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            view.setVisible(false);
+            view.AdopterView_Shelter_Detail shelterDetail =
+                new view.AdopterView_Shelter_Detail(shelterProvider, view);
+            shelterDetail.setLocationRelativeTo(null);
+            shelterDetail.setVisible(true);
+        }
+    });
 
         if (hideAdopt) {
             view.hideAdoptButton();
