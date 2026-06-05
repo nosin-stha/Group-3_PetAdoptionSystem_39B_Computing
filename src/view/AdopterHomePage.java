@@ -203,6 +203,7 @@ public class AdopterHomePage extends javax.swing.JFrame {
 
         AdopterSideTotalPetCount.setText("Pet Count");
 
+        petContainerPanel.setBackground(new java.awt.Color(255, 255, 255));
         petContainerPanel.setLayout(new java.awt.GridLayout(0, 3, 20, 20));
         AdopterAllPetScrollPane.setViewportView(petContainerPanel);
 

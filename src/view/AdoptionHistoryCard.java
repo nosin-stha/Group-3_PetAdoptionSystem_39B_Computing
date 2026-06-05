@@ -71,7 +71,7 @@ public class AdoptionHistoryCard extends javax.swing.JPanel {
         lbl_PetAge = new javax.swing.JLabel();
         lbl_PetAge_fill = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 204, 153));
+        setBackground(new java.awt.Color(248, 230, 182));
 
         lblPet.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblPet.setText("Pet ------------------------------");

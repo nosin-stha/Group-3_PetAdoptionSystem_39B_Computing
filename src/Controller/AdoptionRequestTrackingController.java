@@ -3,7 +3,7 @@ package Controller;
 import DAO.AdoptionRequestTrackingDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.ScrollPaneConstants;
@@ -19,7 +19,6 @@ public class AdoptionRequestTrackingController {
     private JPanel requestPanel;
     private AdoptionRequestTrackingPage view;
 
-    // Constructor for full view setup
     public AdoptionRequestTrackingController(AdoptionRequestTrackingPage view) {
         this.view = view;
         this.requestPanel = view.getRequestContainerPanel();
@@ -49,10 +48,11 @@ public class AdoptionRequestTrackingController {
     public void loadAdopterRequests() {
         requestPanel.removeAll();
 
-        List<AdoptionRequestData> requests =
+        ArrayList<AdoptionRequestData> requests =
             dao.getRequestsByAdopter(SessionData.userID);
 
-        for (AdoptionRequestData req : requests) {
+        for (int i = 0; i < requests.size(); i++) {
+            AdoptionRequestData req = requests.get(i);
             AdopterRequestCard card = new AdopterRequestCard(req);
 
             // set size
@@ -86,10 +86,9 @@ public class AdoptionRequestTrackingController {
                 card.getBtnDeleteRequestCard().setVisible(false);
             }
 
-            // both cancel and delete use same listener — same job
             card.addCancelListener(new RemoveRequestListener(req.getAdoptionID()));
             card.addDeleteListener(new RemoveRequestListener(req.getAdoptionID()));
-            
+
             PetsData pet = new PetsData();
             pet.setPetID(req.getPetID());
             new PetDetailsController(card, pet, "adopter", view);
@@ -101,15 +100,12 @@ public class AdoptionRequestTrackingController {
         requestPanel.revalidate();
         requestPanel.repaint();
 
-        // update count if view is available
         if (view != null) {
             view.getAdopterTotalRequestsCount().setText(
                 String.valueOf(getTotalRequests()));
         }
     }
 
-    
-    
     private void setStatusColor(AdopterRequestCard card, String status) {
         if (status == null) return;
         status = status.toLowerCase();
@@ -126,9 +122,6 @@ public class AdoptionRequestTrackingController {
         }
     }
 
-    
-    
-    
     private void loadImageOnCard(javax.swing.JLabel imgLabel, String path) {
         try {
             javax.swing.ImageIcon icon = new javax.swing.ImageIcon(path);
@@ -140,17 +133,13 @@ public class AdoptionRequestTrackingController {
         }
     }
 
-    
-    
     public int getTotalRequests() {
         return dao.getTotalRequestsByAdopter(SessionData.userID);
     }
 
-
-    
-    
     class RemoveRequestListener implements ActionListener {
         private int adoptionID;
+
         public RemoveRequestListener(int adoptionID) {
             this.adoptionID = adoptionID;
         }
@@ -168,7 +157,7 @@ public class AdoptionRequestTrackingController {
                 boolean success = dao.deleteRequest(adoptionID);
                 if (success) {
                     JOptionPane.showMessageDialog(null, "Request removed.");
-                    loadAdopterRequests(); // refresh cards
+                    loadAdopterRequests();
                 } else {
                     JOptionPane.showMessageDialog(null, "Failed to remove request.");
                 }

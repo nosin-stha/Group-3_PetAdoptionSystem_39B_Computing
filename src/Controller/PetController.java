@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
-import java.util.List;
+import java.util.ArrayList;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -25,7 +25,7 @@ import view.AdopterHomePage;
 import view.ProviderHomePage;
 
 public class PetController {
-    private AdopterHomePage adopterHomeView; 
+    private AdopterHomePage adopterHomeView;
     private final AdopterHomePageDao adopterDAO = new AdopterHomePageDao();
     private final ProviderHomePageDao providerDAO = new ProviderHomePageDao();
     private final PetDAO petDAO = new PetDAO();
@@ -51,7 +51,6 @@ public class PetController {
         this.adopterPanel = adopterHomeView.getPetContainerPanel();
         this.adopterCountLabel = adopterHomeView.getAdopterTotalPetCountLabel();
 
-        // scroll setup
         adopterHomeView.getAdopterAllPetScrollPane()
             .setHorizontalScrollBarPolicy(
                 javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -71,8 +70,10 @@ public class PetController {
         this.providerPanel = providerHomeView.getProviderPetContainerPanel();
         this.providerCountLabel = providerHomeView.getTotalPetCountLabel();
 
-        providerHomeView.getProviderPetsScrollPane().setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        providerHomeView.getProviderPetsScrollPane().setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+        providerHomeView.getProviderPetsScrollPane()
+            .setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        providerHomeView.getProviderPetsScrollPane()
+            .setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 
         providerPanel.setLayout(new java.awt.GridLayout(0, 3, 20, 20));
         providerHomeView.getProviderPetsScrollPane().setViewportView(providerPanel);
@@ -121,8 +122,6 @@ public class PetController {
         }
     }
 
-
-
     private String getRadio(JRadioButton yes, JRadioButton no) {
         return yes.isSelected() ? "Yes" : "No";
     }
@@ -143,7 +142,6 @@ public class PetController {
         return true;
     }
 
-
     private void revalidateScrollPane(JPanel panel) {
         Container parent = panel.getParent();
         while (parent != null) {
@@ -155,8 +153,6 @@ public class PetController {
             parent = parent.getParent();
         }
     }
-
-
 
     public void refresh() {
         if (parentController != null) {
@@ -173,10 +169,11 @@ public class PetController {
 
         providerPanel.removeAll();
 
-        List<PetsData> pets = providerDAO.getPetsByProvider(SessionData.userID);
+        ArrayList<PetsData> pets = providerDAO.getPetsByProvider(SessionData.userID);
 
         if (pets != null) {
-            for (PetsData pet : pets) {
+            for (int i = 0; i < pets.size(); i++) {
+                PetsData pet = pets.get(i);
                 PetCardPanel card = new PetCardPanel(pet);
 
                 card.setPreferredSize(new java.awt.Dimension(250, 355));
@@ -211,10 +208,11 @@ public class PetController {
 
         adopterPanel.removeAll();
 
-        List<PetsData> pets = adopterDAO.getAvailablePets();
+        ArrayList<PetsData> pets = adopterDAO.getAvailablePets();
 
         if (pets != null) {
-            for (PetsData pet : pets) {
+            for (int i = 0; i < pets.size(); i++) {
+                PetsData pet = pets.get(i);
                 PetCardPanel card = new PetCardPanel(pet);
 
                 card.setPreferredSize(new java.awt.Dimension(250, 355));
@@ -253,6 +251,7 @@ public class PetController {
             System.out.println("Image load error: " + e.getMessage());
         }
     }
+
 
     class ImageUploadListener extends MouseAdapter {
 

@@ -15,160 +15,150 @@ import model.AdoptionRequestData;
 import model.PetsData;
 import view.AdoptionRequestManagement_ProviderPage;
 import view.PetRequestsBoard;
- 
+
 import javax.swing.*;
 import javax.swing.table.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.*;
-import java.util.List;
- 
+import java.util.ArrayList;
+
 public class AdoptionRequestsBoardController {
- 
+
     private AdoptionRequestManagement_ProviderPage view;
     private AdoptionRequestsBoardDAO dao;
     private int providerID;
- 
 
     private static final int REASON_ROW_HEIGHT = 100;
- 
+
     public AdoptionRequestsBoardController(AdoptionRequestManagement_ProviderPage view, int providerID) {
         this.view = view;
         this.dao = new AdoptionRequestsBoardDAO();
         this.providerID = providerID;
         loadAllRequests();
     }
- 
- 
- 
- 
+
     public void loadAllRequests() {
-        
-        Map<PetsData, List<AdoptionRequestData>> grouped = dao.getRequestsGroupedByPet(providerID);
-        populateScrollPanel(grouped);
+        ArrayList<PetsData> pets = dao.getPetsByProvider(providerID);
+        ArrayList<ArrayList<AdoptionRequestData>> allRequests = new ArrayList<>();
+
+        for (PetsData pet : pets) {
+            ArrayList<AdoptionRequestData> requests = dao.getRequestsByPet(pet.getPetID());
+            allRequests.add(requests);
+        }
+
+        populateScrollPanel(pets, allRequests);
     }
- 
- 
- 
- 
-    private void populateScrollPanel(Map<PetsData, List<AdoptionRequestData>> grouped) {
+
+    private void populateScrollPanel(ArrayList<PetsData> pets, ArrayList<ArrayList<AdoptionRequestData>> allRequests) {
         JPanel scrollPanel = view.getAllPetsRequests_ScrollPanel();
         scrollPanel.removeAll();
         scrollPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         scrollPanel.setLayout(new BoxLayout(scrollPanel, BoxLayout.Y_AXIS));
- 
-        for (Map.Entry<PetsData, List<AdoptionRequestData>> entry : grouped.entrySet()) {
-            PetsData pet = entry.getKey();
-            List<AdoptionRequestData> reqs = entry.getValue();
- 
+
+        for (int i = 0; i < pets.size(); i++) {
+            PetsData pet = pets.get(i);
+            ArrayList<AdoptionRequestData> reqs = allRequests.get(i);
+
             PetRequestsBoard board = new PetRequestsBoard();
             board.setPetName(pet.getPetName());
             board.setPetType(pet.getPetType());
             board.setPetGender(pet.getPetGender());
             board.setPetAge(pet.getPetAge());
             board.setRequestCount(reqs.size());
- 
+
             if (pet.getImagePath() != null && !pet.getImagePath().isEmpty()) {
                 ImageIcon icon = new ImageIcon(pet.getImagePath());
                 Image scaled = icon.getImage().getScaledInstance(75, 75, Image.SCALE_SMOOTH);
                 board.setPetImage(new ImageIcon(scaled));
             }
- 
+
             setupTable(board.getRequestsTable(), pet, reqs);
- 
 
             JTable t = board.getRequestsTable();
             int totalHeight = 0;
-            for (int i = 0; i < t.getRowCount(); i++) {
-                totalHeight += t.getRowHeight(i);
+            for (int r = 0; r < t.getRowCount(); r++) {
+                totalHeight += t.getRowHeight(r);
             }
             totalHeight += t.getTableHeader().getPreferredSize().height;
             t.setPreferredScrollableViewportSize(
                 new Dimension(t.getPreferredSize().width, totalHeight)
             );
- 
+
             board.setPreferredSize(new Dimension(937, 428));
             board.setMaximumSize(new Dimension(937, 428));
             board.setMinimumSize(new Dimension(937, 428));
             board.setAlignmentX(Component.LEFT_ALIGNMENT);
-            
+
             scrollPanel.add(board);
             scrollPanel.add(Box.createVerticalStrut(16));
         }
- 
+
         scrollPanel.revalidate();
         scrollPanel.repaint();
     }
- 
- 
- 
- 
-    private void setupTable(JTable table, PetsData pet, List<AdoptionRequestData> requests) {
+
+    private void setupTable(JTable table, PetsData pet, ArrayList<AdoptionRequestData> requests) {
         DefaultTableModel model = new DefaultTableModel(
-            new String[]{"adoptionID", "petID", "Adopter Name", "Email", 
+            new String[]{"adoptionID", "petID", "Adopter Name", "Email",
                 "Phone Number", "Reason for Adoption", "Status", "Action"}, 0)
-            {
-                @Override
-                public boolean isCellEditable(int r, int c) {
-                    return c == 7;
+        {
+            @Override
+            public boolean isCellEditable(int r, int c) {
+                return c == 7;
             }
-                @Override
-                public Class<?> getColumnClass(int c) {
-                    return Object.class;
-                }
-            };
- 
-            for (AdoptionRequestData r : requests) {
-                boolean actedOn = r.getAdoptionStatus().equalsIgnoreCase("Accepted")
-                               || r.getAdoptionStatus().equalsIgnoreCase("Declined");
-                model.addRow(new Object[]{
-                    r.getAdoptionID(),
-                    pet.getPetID(),
-                    r.getReqFullName(),
-                    r.getReqEmail(),
-                    r.getReqPhoneNo(),
-                    r.getReqReason(),
-                    r.getAdoptionStatus(),
-                    actedOn ? "done" : "pending"
-                });
+            @Override
+            public Class<?> getColumnClass(int c) {
+                return Object.class;
             }
- 
-            table.setModel(model);
-            table.setRowHeight(REASON_ROW_HEIGHT);
-            table.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-            table.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 13));
-            table.getTableHeader().setBackground(new Color(255, 153, 51));
-            table.getTableHeader().setForeground(Color.WHITE);
-            table.setGridColor(new Color(220, 220, 220));
- 
+        };
 
-            table.getTableHeader().setReorderingAllowed(false);
-            table.getTableHeader().setResizingAllowed(false);
- 
-            hideColumn(table, 0);
-            hideColumn(table, 1);
- 
-            table.getColumn("Adopter Name").setPreferredWidth(150);
-            table.getColumn("Email").setPreferredWidth(180);
-            table.getColumn("Phone Number").setPreferredWidth(120);
-            table.getColumn("Reason for Adoption").setPreferredWidth(160);
-            table.getColumn("Status").setPreferredWidth(90);
-            table.getColumn("Action").setPreferredWidth(190);
- 
-
-            for (int i = 0; i < table.getColumnCount(); i++) {
-                table.getColumnModel().getColumn(i).setResizable(false);
-            }
- 
-            table.getColumn("Action").setCellRenderer(new ActionCellRenderer());
-            table.getColumn("Action").setCellEditor(new ActionCellEditor(table));
- 
-            wrapReasonColumn(table);
+        for (int i = 0; i < requests.size(); i++) {
+            AdoptionRequestData r = requests.get(i);
+            boolean actedOn = r.getAdoptionStatus().equalsIgnoreCase("Accepted")
+                           || r.getAdoptionStatus().equalsIgnoreCase("Declined");
+            model.addRow(new Object[]{
+                r.getAdoptionID(),
+                pet.getPetID(),
+                r.getReqFullName(),
+                r.getReqEmail(),
+                r.getReqPhoneNo(),
+                r.getReqReason(),
+                r.getAdoptionStatus(),
+                actedOn ? "done" : "pending"
+            });
         }
- 
- 
- 
- 
+
+        table.setModel(model);
+        table.setRowHeight(REASON_ROW_HEIGHT);
+        table.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        table.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 13));
+        table.getTableHeader().setBackground(new Color(255, 153, 51));
+        table.getTableHeader().setForeground(Color.WHITE);
+        table.setGridColor(new Color(220, 220, 220));
+
+        table.getTableHeader().setReorderingAllowed(false);
+        table.getTableHeader().setResizingAllowed(false);
+
+        hideColumn(table, 0);
+        hideColumn(table, 1);
+
+        table.getColumn("Adopter Name").setPreferredWidth(150);
+        table.getColumn("Email").setPreferredWidth(180);
+        table.getColumn("Phone Number").setPreferredWidth(120);
+        table.getColumn("Reason for Adoption").setPreferredWidth(160);
+        table.getColumn("Status").setPreferredWidth(90);
+        table.getColumn("Action").setPreferredWidth(190);
+
+        for (int i = 0; i < table.getColumnCount(); i++) {
+            table.getColumnModel().getColumn(i).setResizable(false);
+        }
+
+        table.getColumn("Action").setCellRenderer(new ActionCellRenderer());
+        table.getColumn("Action").setCellEditor(new ActionCellEditor(table));
+
+        wrapReasonColumn(table);
+    }
+
     private void wrapReasonColumn(JTable table) {
         table.getColumn("Reason for Adoption").setCellRenderer(new TableCellRenderer() {
             @Override
@@ -190,32 +180,26 @@ public class AdoptionRequestsBoardController {
             }
         });
     }
- 
- 
- 
- 
+
     private void hideColumn(JTable table, int col) {
         TableColumn tc = table.getColumnModel().getColumn(col);
         tc.setMinWidth(0);
         tc.setMaxWidth(0);
         tc.setWidth(0);
     }
- 
- 
- 
- 
+
     private void handleAccept(JTable table, int row) {
         int adoptionID = (int) table.getModel().getValueAt(row, 0);
         int petID = (int) table.getModel().getValueAt(row, 1);
- 
+
         int confirm = JOptionPane.showConfirmDialog(view,
                 "Accept this adoption request?", "Confirm Accept", JOptionPane.YES_NO_OPTION);
- 
+
         if (confirm == JOptionPane.YES_OPTION) {
             if (dao.acceptRequest(adoptionID, petID)) {
                 table.getModel().setValueAt("Accepted", row, 6);
                 table.getModel().setValueAt("done", row, 7);
- 
+
                 for (int i = 0; i < table.getModel().getRowCount(); i++) {
                     if (i == row) continue;
                     String status = table.getModel().getValueAt(i, 6).toString();
@@ -224,7 +208,7 @@ public class AdoptionRequestsBoardController {
                         table.getModel().setValueAt("done", i, 7);
                     }
                 }
- 
+
                 table.repaint();
                 JOptionPane.showMessageDialog(view, "Request Accepted! Pet marked as Adopted.");
             } else {
@@ -232,16 +216,13 @@ public class AdoptionRequestsBoardController {
             }
         }
     }
- 
- 
- 
- 
+
     private void handleDecline(JTable table, int row) {
         int adoptionID = (int) table.getModel().getValueAt(row, 0);
- 
+
         int confirm = JOptionPane.showConfirmDialog(view,
                 "Decline this adoption request?", "Confirm Decline", JOptionPane.YES_NO_OPTION);
- 
+
         if (confirm == JOptionPane.YES_OPTION) {
             if (dao.declineRequest(adoptionID)) {
                 table.getModel().setValueAt("Declined", row, 6);
@@ -253,30 +234,27 @@ public class AdoptionRequestsBoardController {
             }
         }
     }
- 
- 
- 
- 
+
     private class ActionCellRenderer implements TableCellRenderer {
- 
+
         private JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 6, 4));
         private JButton accept = new JButton("Accept");
         private JButton decline = new JButton("Decline");
         private JLabel done = new JLabel();
- 
+
         ActionCellRenderer() {
             styleAccept(accept);
             styleDecline(decline);
             done.setFont(new Font("Segoe UI", Font.BOLD, 12));
             panel.setOpaque(true);
         }
- 
+
         @Override
         public Component getTableCellRendererComponent(JTable table, Object value,
                 boolean selected, boolean focus, int row, int col) {
             panel.removeAll();
             panel.setBackground(selected ? table.getSelectionBackground() : table.getBackground());
- 
+
             if ("done".equals(value)) {
                 String status = table.getModel().getValueAt(row, 6).toString();
                 done.setText(status);
@@ -290,12 +268,9 @@ public class AdoptionRequestsBoardController {
             return panel;
         }
     }
- 
- 
- 
- 
+
     private class ActionCellEditor extends AbstractCellEditor implements TableCellEditor {
- 
+
         private JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 6, 4));
         private JButton accept = new JButton("Accept");
         private JButton decline = new JButton("Decline");
@@ -303,13 +278,13 @@ public class AdoptionRequestsBoardController {
         private JTable currentTable;
         private int currentRow;
         private String currentValue;
- 
+
         ActionCellEditor(JTable table) {
             styleAccept(accept);
             styleDecline(decline);
             done.setFont(new Font("Segoe UI", Font.BOLD, 12));
             panel.setOpaque(true);
- 
+
             accept.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -317,7 +292,7 @@ public class AdoptionRequestsBoardController {
                     handleAccept(currentTable, currentRow);
                 }
             });
- 
+
             decline.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -326,17 +301,17 @@ public class AdoptionRequestsBoardController {
                 }
             });
         }
- 
+
         @Override
         public Component getTableCellEditorComponent(JTable table, Object value,
                 boolean selected, int row, int col) {
             currentTable = table;
             currentRow = row;
             currentValue = (value == null) ? "pending" : value.toString();
- 
+
             panel.removeAll();
             panel.setBackground(table.getSelectionBackground());
- 
+
             if ("done".equals(currentValue)) {
                 String status = table.getModel().getValueAt(row, 6).toString();
                 done.setText(status);
@@ -349,16 +324,13 @@ public class AdoptionRequestsBoardController {
             }
             return panel;
         }
- 
+
         @Override
         public Object getCellEditorValue() {
             return currentValue;
         }
     }
- 
- 
- 
- 
+
     private void styleAccept(JButton btn) {
         btn.setBackground(new Color(76, 175, 80));
         btn.setForeground(Color.WHITE);
@@ -366,10 +338,7 @@ public class AdoptionRequestsBoardController {
         btn.setBorderPainted(false);
         btn.setFont(new Font("Segoe UI", Font.BOLD, 11));
     }
- 
- 
- 
- 
+
     private void styleDecline(JButton btn) {
         btn.setBackground(new Color(244, 67, 54));
         btn.setForeground(Color.WHITE);

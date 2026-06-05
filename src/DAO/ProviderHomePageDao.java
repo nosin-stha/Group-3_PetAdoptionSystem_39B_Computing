@@ -2,57 +2,51 @@ package DAO;
 
 import database.MySqlConnector;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.List;
 import model.PetsData;
 
 public class ProviderHomePageDao {
 
-    public List<PetsData> getPetsByProvider(int providerID) {
+    public ArrayList<PetsData> getPetsByProvider(int providerID) {
+        ArrayList<PetsData> petList = new ArrayList<>();
+        MySqlConnector db = new MySqlConnector();
+        Connection conn = db.openConnection();
+        String query = "SELECT * FROM Pets WHERE providerID = ? AND petAdoptionStatus = 'Available'";
 
-    List<PetsData> petList = new ArrayList<>();
+        try {
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, providerID);
+            ResultSet rs = ps.executeQuery();
 
-    MySqlConnector db = new MySqlConnector();
-    Connection conn = db.openConnection();
+            while (rs.next()) {
+                PetsData pet = new PetsData(
+                    rs.getInt("petID"),
+                    rs.getInt("providerID"),
+                    rs.getString("petName"),
+                    rs.getString("petType"),
+                    rs.getString("petGender"),
+                    rs.getString("petAge"),
+                    rs.getString("houseTrained"),
+                    rs.getString("spayed"),
+                    rs.getString("vaccinated"),
+                    rs.getString("specialNeeds"),
+                    rs.getString("petAdoptionStatus"),
+                    rs.getString("imagePath")
+                );
+                petList.add(pet);
+            }
 
-    String query = "SELECT * FROM Pets WHERE providerID = ? AND petAdoptionStatus = 'Available'";
+            rs.close();
+            ps.close();
 
-    try {
-
-        java.sql.PreparedStatement ps = conn.prepareStatement(query);
-        ps.setInt(1, providerID);
-
-        ResultSet rs = ps.executeQuery();
-
-        while (rs.next()) {
-
-            PetsData pet = new PetsData(
-                rs.getInt("petID"),
-                rs.getInt("providerID"),
-                rs.getString("petName"),
-                rs.getString("petType"),
-                rs.getString("petGender"),
-                rs.getString("petAge"),
-                rs.getString("houseTrained"),
-                rs.getString("spayed"),
-                rs.getString("vaccinated"),
-                rs.getString("specialNeeds"),
-                rs.getString("petAdoptionStatus"),
-                rs.getString("imagePath")
-            );
-
-            petList.add(pet);
+        } catch (Exception e) {
+            System.out.println("Provider DAO Error: " + e);
+        } finally {
+            db.closeConnection(conn);
         }
 
-        rs.close();
-        ps.close();
-        db.closeConnection(conn);
-
-    } catch (Exception e) {
-        System.out.println("Provider DAO Error: " + e);
+        return petList;
     }
-
-    return petList;
-}
 }

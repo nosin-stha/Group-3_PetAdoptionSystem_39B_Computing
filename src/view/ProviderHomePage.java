@@ -147,6 +147,7 @@ public javax.swing.JScrollPane getProviderPetsScrollPane() {
         Main_panal.add(TotalPetCount);
         TotalPetCount.setBounds(90, 230, 63, 16);
 
+        providerPetContainerPanel.setBackground(new java.awt.Color(255, 255, 255));
         providerPetContainerPanel.setLayout(new java.awt.GridLayout(0, 3, 20, 20));
         ProviderPetsScrollPane.setViewportView(providerPetContainerPanel);
 
