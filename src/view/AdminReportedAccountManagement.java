@@ -4,6 +4,8 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author User
@@ -18,6 +20,23 @@ public class AdminReportedAccountManagement extends javax.swing.JFrame {
     public AdminReportedAccountManagement() {
         initComponents();
     }
+    
+    public void addAllAccountsListener(ActionListener listener) {
+        AllAccounts_btn.addActionListener(listener);
+    }
+
+    public void addReportsListener(ActionListener listener) {
+        Reports_btn.addActionListener(listener);
+    }
+
+    public void addLogoutListener(ActionListener listener) {
+        Logout_btn.addActionListener(listener);
+    }
+    
+    public void addUnfreezeRequestsListener(ActionListener listener) {
+        UnfreezeRequests_btn.addActionListener(listener);
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,15 +50,14 @@ public class AdminReportedAccountManagement extends javax.swing.JFrame {
         ColorPanel1 = new javax.swing.JPanel();
         toppanel_viewpet_adopter = new javax.swing.JPanel();
         Logo = new javax.swing.JLabel();
-        Home_btn = new javax.swing.JButton();
-        MyRequests_btn = new javax.swing.JButton();
-        Shelters_btn = new javax.swing.JButton();
+        AllAccounts_btn = new javax.swing.JButton();
+        Reports_btn = new javax.swing.JButton();
+        UnfreezeRequests_btn = new javax.swing.JButton();
         Logout_btn = new javax.swing.JButton();
-        colorPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         btnSearch = new javax.swing.JButton();
         SearchbarReport = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,14 +68,14 @@ public class AdminReportedAccountManagement extends javax.swing.JFrame {
 
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pas_circular_logo.png"))); // NOI18N
 
-        Home_btn.setText("All Accounts");
+        AllAccounts_btn.setText("All Accounts");
 
-        MyRequests_btn.setBackground(new java.awt.Color(255, 204, 51));
-        MyRequests_btn.setText("Reports");
-        MyRequests_btn.addActionListener(this::MyRequests_btnActionPerformed);
+        Reports_btn.setBackground(new java.awt.Color(255, 204, 51));
+        Reports_btn.setText("Reports");
+        Reports_btn.addActionListener(this::Reports_btnActionPerformed);
 
-        Shelters_btn.setText("Unfreeze Requests");
-        Shelters_btn.addActionListener(this::Shelters_btnActionPerformed);
+        UnfreezeRequests_btn.setText("Unfreeze Requests");
+        UnfreezeRequests_btn.addActionListener(this::UnfreezeRequests_btnActionPerformed);
 
         Logout_btn.setText("Logout");
         Logout_btn.addActionListener(this::Logout_btnActionPerformed);
@@ -70,11 +88,11 @@ public class AdminReportedAccountManagement extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addComponent(Logo)
                 .addGap(96, 96, 96)
-                .addComponent(Home_btn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addComponent(MyRequests_btn)
+                .addComponent(AllAccounts_btn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addComponent(Reports_btn)
                 .addGap(58, 58, 58)
-                .addComponent(Shelters_btn)
+                .addComponent(UnfreezeRequests_btn)
                 .addGap(148, 148, 148)
                 .addComponent(Logout_btn)
                 .addGap(171, 171, 171))
@@ -86,46 +104,14 @@ public class AdminReportedAccountManagement extends javax.swing.JFrame {
                     .addGroup(toppanel_viewpet_adopterLayout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addGroup(toppanel_viewpet_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Home_btn)
-                            .addComponent(MyRequests_btn)
-                            .addComponent(Shelters_btn)
+                            .addComponent(AllAccounts_btn)
+                            .addComponent(Reports_btn)
+                            .addComponent(UnfreezeRequests_btn)
                             .addComponent(Logout_btn)))
                     .addGroup(toppanel_viewpet_adopterLayout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(Logo)))
                 .addContainerGap(21, Short.MAX_VALUE))
-        );
-
-        colorPanel2.setBackground(new java.awt.Color(248, 230, 182));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Adopter Name", "Email", "Report Reason", "Status", "Action"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        javax.swing.GroupLayout colorPanel2Layout = new javax.swing.GroupLayout(colorPanel2);
-        colorPanel2.setLayout(colorPanel2Layout);
-        colorPanel2Layout.setHorizontalGroup(
-            colorPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(colorPanel2Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 925, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
-        colorPanel2Layout.setVerticalGroup(
-            colorPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(colorPanel2Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
@@ -134,6 +120,23 @@ public class AdminReportedAccountManagement extends javax.swing.JFrame {
         SearchbarReport.setForeground(new java.awt.Color(102, 102, 102));
         SearchbarReport.setText("Adopter Name, Email etc");
         SearchbarReport.addActionListener(this::SearchbarReportActionPerformed);
+
+        jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 958, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 438, Short.MAX_VALUE)
+        );
+
+        jScrollPane2.setViewportView(jPanel1);
 
         javax.swing.GroupLayout ColorPanel1Layout = new javax.swing.GroupLayout(ColorPanel1);
         ColorPanel1.setLayout(ColorPanel1Layout);
@@ -149,8 +152,8 @@ public class AdminReportedAccountManagement extends javax.swing.JFrame {
                         .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(ColorPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(colorPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 960, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ColorPanel1Layout.setVerticalGroup(
@@ -161,9 +164,9 @@ public class AdminReportedAccountManagement extends javax.swing.JFrame {
                 .addGroup(ColorPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(SearchbarReport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                .addComponent(colorPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addGap(47, 47, 47)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -188,13 +191,13 @@ public class AdminReportedAccountManagement extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSearchActionPerformed
 
-    private void MyRequests_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MyRequests_btnActionPerformed
+    private void Reports_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reports_btnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_MyRequests_btnActionPerformed
+    }//GEN-LAST:event_Reports_btnActionPerformed
 
-    private void Shelters_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Shelters_btnActionPerformed
+    private void UnfreezeRequests_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UnfreezeRequests_btnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Shelters_btnActionPerformed
+    }//GEN-LAST:event_UnfreezeRequests_btnActionPerformed
 
     private void Logout_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Logout_btnActionPerformed
 
@@ -226,17 +229,16 @@ public class AdminReportedAccountManagement extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AllAccounts_btn;
     private javax.swing.JPanel ColorPanel1;
-    private javax.swing.JButton Home_btn;
     private javax.swing.JLabel Logo;
     private javax.swing.JButton Logout_btn;
-    private javax.swing.JButton MyRequests_btn;
+    private javax.swing.JButton Reports_btn;
     private javax.swing.JTextField SearchbarReport;
-    private javax.swing.JButton Shelters_btn;
+    private javax.swing.JButton UnfreezeRequests_btn;
     private javax.swing.JButton btnSearch;
-    private javax.swing.JPanel colorPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel toppanel_viewpet_adopter;
     // End of variables declaration//GEN-END:variables
 }
