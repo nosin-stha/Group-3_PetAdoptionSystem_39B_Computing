@@ -131,7 +131,7 @@ public class AdminReportedAccountManagement extends javax.swing.JFrame {
         btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
         btnSearch.addActionListener(this::btnSearchActionPerformed);
 
-        SearchbarReport.setForeground(new java.awt.Color(204, 204, 204));
+        SearchbarReport.setForeground(new java.awt.Color(102, 102, 102));
         SearchbarReport.setText("Adopter Name, Email etc");
         SearchbarReport.addActionListener(this::SearchbarReportActionPerformed);
 
