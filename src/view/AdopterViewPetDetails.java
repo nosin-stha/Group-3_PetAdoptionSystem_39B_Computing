@@ -70,7 +70,6 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
         Playerimage_box_petview_adopter = new javax.swing.JPanel();
         Petimage_petview_adopter = new javax.swing.JLabel();
         Shelterinfopanal_petview_adopter = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         Shelter_logo_shelterinfopanal_petview_adopter = new javax.swing.JLabel();
         Shelter_name_shelterinfopanal_petview_adopter = new javax.swing.JLabel();
         ViewShelterProfile_ShelterInfo_petview_adopter = new javax.swing.JButton();
@@ -96,6 +95,7 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
         Vaccinated_info_petview_adopter = new javax.swing.JLabel();
         SpecialNeeds_petview_adopter = new javax.swing.JLabel();
         SpecialNeeds_Info_petview_adopter = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -111,10 +111,8 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
         Home_btn.setText("Home");
 
         MyRequests_btn.setText("My Requests");
-        MyRequests_btn.addActionListener(this::MyRequests_btnActionPerformed);
 
         Shelters_btn.setText("Shelters");
-        Shelters_btn.addActionListener(this::Shelters_btnActionPerformed);
 
         Logout_btn.setText("Logout");
         Logout_btn.addActionListener(this::Logout_btnActionPerformed);
@@ -139,25 +137,25 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
         toppanel_viewpet_adopterLayout.setHorizontalGroup(
             toppanel_viewpet_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(toppanel_viewpet_adopterLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(Logo)
-                .addGap(96, 96, 96)
-                .addComponent(Home_btn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(MyRequests_btn)
-                .addGap(18, 18, 18)
-                .addComponent(Shelters_btn)
-                .addGap(18, 18, 18)
-                .addComponent(Logout_btn)
-                .addGap(23, 23, 23)
+                .addGap(35, 35, 35)
+                .addComponent(Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(toppanel_viewpet_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(toppanel_viewpet_adopterLayout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addComponent(Favourite_btn))
-                    .addGroup(toppanel_viewpet_adopterLayout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(Favourite_text)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 197, Short.MAX_VALUE)
+                        .addGap(67, 67, 67)
+                        .addComponent(Home_btn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(MyRequests_btn)
+                        .addGap(18, 18, 18)
+                        .addComponent(Shelters_btn)
+                        .addGap(18, 18, 18)
+                        .addComponent(Logout_btn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Favourite_btn)
+                        .addGap(69, 69, 69))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, toppanel_viewpet_adopterLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Favourite_text)
+                        .addGap(58, 58, 58)))
                 .addGroup(toppanel_viewpet_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(profile_btn)
                     .addComponent(Profile_text, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -166,25 +164,24 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
         toppanel_viewpet_adopterLayout.setVerticalGroup(
             toppanel_viewpet_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(toppanel_viewpet_adopterLayout.createSequentialGroup()
-                .addGroup(toppanel_viewpet_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(toppanel_viewpet_adopterLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(toppanel_viewpet_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Favourite_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(profile_btn)
-                            .addGroup(toppanel_viewpet_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(Home_btn)
-                                .addComponent(MyRequests_btn)
-                                .addComponent(Shelters_btn)
-                                .addComponent(Logout_btn)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(toppanel_viewpet_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Favourite_text)
-                            .addComponent(Profile_text)))
-                    .addGroup(toppanel_viewpet_adopterLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(Logo)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addGroup(toppanel_viewpet_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Favourite_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(profile_btn)
+                    .addGroup(toppanel_viewpet_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Home_btn)
+                        .addComponent(MyRequests_btn)
+                        .addComponent(Shelters_btn)
+                        .addComponent(Logout_btn)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(toppanel_viewpet_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Favourite_text)
+                    .addComponent(Profile_text))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, toppanel_viewpet_adopterLayout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addComponent(Logo)
+                .addGap(17, 17, 17))
         );
 
         Main_panal_Viewpet_adopter.add(toppanel_viewpet_adopter);
@@ -219,9 +216,6 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
         Shelterinfopanal_petview_adopter.setBackground(new java.awt.Color(248, 230, 182));
         Shelterinfopanal_petview_adopter.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setText("Shelter  Info:");
-
         Shelter_logo_shelterinfopanal_petview_adopter.setText("Shelter logo");
 
         Shelter_name_shelterinfopanal_petview_adopter.setText("jLabel2");
@@ -241,24 +235,19 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
         Shelterinfopanal_petview_adopterLayout.setHorizontalGroup(
             Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Shelterinfopanal_petview_adopterLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(Shelter_logo_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(109, 109, 109)
                 .addGroup(Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Shelter_name_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(Shelterinfopanal_petview_adopterLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Shelterinfopanal_petview_adopterLayout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(Shelter_logo_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(109, 109, 109)
                         .addGroup(Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Shelter_name_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(Shelterinfopanal_petview_adopterLayout.createSequentialGroup()
-                                .addGroup(Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(phoneicon_shelterinfopanal_petview_adopter)
-                                    .addComponent(Mailicon_shelterinfopanal_petview_adopter))
-                                .addGap(23, 23, 23)
-                                .addGroup(Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ShelterPhonenumber_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ShelterMail_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addComponent(phoneicon_shelterinfopanal_petview_adopter)
+                            .addComponent(Mailicon_shelterinfopanal_petview_adopter))
+                        .addGap(23, 23, 23)
+                        .addGroup(Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ShelterPhonenumber_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ShelterMail_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
                 .addComponent(ViewShelterProfile_ShelterInfo_petview_adopter)
                 .addGap(19, 19, 19))
@@ -266,34 +255,29 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
         Shelterinfopanal_petview_adopterLayout.setVerticalGroup(
             Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Shelterinfopanal_petview_adopterLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Shelterinfopanal_petview_adopterLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(ViewShelterProfile_ShelterInfo_petview_adopter)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(Shelterinfopanal_petview_adopterLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGroup(Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(Shelterinfopanal_petview_adopterLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(Shelter_logo_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Shelterinfopanal_petview_adopterLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Shelter_name_shelterinfopanal_petview_adopter)
-                                .addGap(28, 28, 28)
-                                .addGroup(Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(phoneicon_shelterinfopanal_petview_adopter)
-                                    .addComponent(ShelterPhonenumber_shelterinfopanal_petview_adopter))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ShelterMail_shelterinfopanal_petview_adopter)
-                                    .addComponent(Mailicon_shelterinfopanal_petview_adopter))
-                                .addGap(22, 22, 22))))))
+                .addGap(40, 40, 40)
+                .addComponent(ViewShelterProfile_ShelterInfo_petview_adopter)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(Shelterinfopanal_petview_adopterLayout.createSequentialGroup()
+                    .addGap(40, 40, 40)
+                    .addComponent(Shelter_logo_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Shelterinfopanal_petview_adopterLayout.createSequentialGroup()
+                    .addContainerGap(28, Short.MAX_VALUE)
+                    .addComponent(Shelter_name_shelterinfopanal_petview_adopter)
+                    .addGap(28, 28, 28)
+                    .addGroup(Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(phoneicon_shelterinfopanal_petview_adopter)
+                        .addComponent(ShelterPhonenumber_shelterinfopanal_petview_adopter))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(Shelterinfopanal_petview_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(ShelterMail_shelterinfopanal_petview_adopter)
+                        .addComponent(Mailicon_shelterinfopanal_petview_adopter))
+                    .addGap(22, 22, 22)))
         );
 
         Main_panal_Viewpet_adopter.add(Shelterinfopanal_petview_adopter);
-        Shelterinfopanal_petview_adopter.setBounds(50, 470, 890, 150);
+        Shelterinfopanal_petview_adopter.setBounds(50, 500, 890, 150);
 
         Favouritethepet_btn_petview_adopter.setForeground(new java.awt.Color(255, 153, 51));
         Favouritethepet_btn_petview_adopter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/petFavBtnIcon.png"))); // NOI18N
@@ -373,6 +357,11 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
         Main_panal_Viewpet_adopter.add(SpecialNeeds_Info_petview_adopter);
         SpecialNeeds_Info_petview_adopter.setBounds(520, 360, 90, 16);
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setText("Shelter  Info:");
+        Main_panal_Viewpet_adopter.add(jLabel1);
+        jLabel1.setBounds(50, 480, 75, 16);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -381,11 +370,16 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Main_panal_Viewpet_adopter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
+            .addComponent(Main_panal_Viewpet_adopter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Favouritethepet_btn_petview_adopterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Favouritethepet_btn_petview_adopterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Favouritethepet_btn_petview_adopterActionPerformed
 
     private void Logout_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Logout_btnActionPerformed
 
@@ -398,18 +392,6 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
     private void profile_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profile_btnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_profile_btnActionPerformed
-
-    private void Favouritethepet_btn_petview_adopterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Favouritethepet_btn_petview_adopterActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Favouritethepet_btn_petview_adopterActionPerformed
-
-    private void MyRequests_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MyRequests_btnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MyRequests_btnActionPerformed
-
-    private void Shelters_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Shelters_btnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Shelters_btnActionPerformed
 
     
     /**

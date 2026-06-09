@@ -53,11 +53,11 @@ public class AdoptionRequestManagement_ProviderPage extends javax.swing.JFrame {
         Searchbar = new javax.swing.JTextField();
         PetRequestsPagePanel = new javax.swing.JPanel();
         Navigation_Panel = new javax.swing.JPanel();
-        Logo = new javax.swing.JLabel();
         Home_btn = new javax.swing.JButton();
         Adoption_requestbtn = new javax.swing.JButton();
         Adoption_Historybtn = new javax.swing.JButton();
         Logout_btn = new javax.swing.JButton();
+        Logo = new javax.swing.JLabel();
         profile_btn = new javax.swing.JButton();
         Profile_text = new javax.swing.JLabel();
         Searchbar1 = new javax.swing.JTextField();
@@ -70,14 +70,14 @@ public class AdoptionRequestManagement_ProviderPage extends javax.swing.JFrame {
         Searchbar.addActionListener(this::SearchbarActionPerformed);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1000, 680));
 
         PetRequestsPagePanel.setBackground(new java.awt.Color(255, 255, 255));
 
         Navigation_Panel.setBackground(new java.awt.Color(255, 153, 51));
 
-        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pas_circular_logo.png"))); // NOI18N
-
         Home_btn.setText("Home");
+        Home_btn.addActionListener(this::Home_btnActionPerformed);
 
         Adoption_requestbtn.setBackground(new java.awt.Color(255, 204, 102));
         Adoption_requestbtn.setText("Adoption Requests");
@@ -87,6 +87,8 @@ public class AdoptionRequestManagement_ProviderPage extends javax.swing.JFrame {
 
         Logout_btn.setText("Logout");
         Logout_btn.addActionListener(this::Logout_btnActionPerformed);
+
+        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pas_circular_logo.png"))); // NOI18N
 
         profile_btn.setBackground(new java.awt.Color(255, 153, 51));
         profile_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/profileButtonIcon.png"))); // NOI18N
@@ -100,42 +102,42 @@ public class AdoptionRequestManagement_ProviderPage extends javax.swing.JFrame {
         Navigation_PanelLayout.setHorizontalGroup(
             Navigation_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Navigation_PanelLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(35, 35, 35)
                 .addComponent(Logo)
-                .addGap(88, 88, 88)
+                .addGap(83, 83, 83)
                 .addComponent(Home_btn)
-                .addGap(34, 34, 34)
+                .addGap(18, 18, 18)
                 .addComponent(Adoption_requestbtn)
-                .addGap(37, 37, 37)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Adoption_Historybtn)
-                .addGap(33, 33, 33)
+                .addGap(24, 24, 24)
                 .addComponent(Logout_btn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 251, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 298, Short.MAX_VALUE)
                 .addGroup(Navigation_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Profile_text, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(profile_btn))
-                .addGap(16, 16, 16))
+                    .addComponent(profile_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23))
         );
         Navigation_PanelLayout.setVerticalGroup(
             Navigation_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Navigation_PanelLayout.createSequentialGroup()
                 .addGroup(Navigation_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Navigation_PanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Navigation_PanelLayout.createSequentialGroup()
-                        .addGap(41, 41, 41)
+                        .addGap(43, 43, 43)
                         .addGroup(Navigation_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Home_btn)
                             .addComponent(Adoption_requestbtn)
-                            .addComponent(Adoption_Historybtn)
-                            .addComponent(Logout_btn)))
+                            .addComponent(Logout_btn)
+                            .addComponent(Adoption_Historybtn)))
                     .addGroup(Navigation_PanelLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(profile_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)
+                        .addComponent(profile_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Profile_text)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                        .addComponent(Profile_text))
+                    .addGroup(Navigation_PanelLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         Searchbar1.setForeground(new java.awt.Color(204, 204, 204));
@@ -174,17 +176,17 @@ public class AdoptionRequestManagement_ProviderPage extends javax.swing.JFrame {
                     .addGroup(PetRequestsPagePanelLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(AllPetsRequests_ScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 957, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         PetRequestsPagePanelLayout.setVerticalGroup(
             PetRequestsPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PetRequestsPagePanelLayout.createSequentialGroup()
-                .addComponent(Navigation_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Navigation_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(50, 50, 50)
                 .addGroup(PetRequestsPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Searchbar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SearchLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(AllPetsRequests_ScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
@@ -193,15 +195,23 @@ public class AdoptionRequestManagement_ProviderPage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PetRequestsPagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PetRequestsPagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PetRequestsPagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PetRequestsPagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        pack();
+        setBounds(0, 0, 1016, 725);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void SearchbarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchbarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SearchbarActionPerformed
+
+    private void Searchbar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Searchbar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Searchbar1ActionPerformed
 
     private void Adoption_requestbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Adoption_requestbtnActionPerformed
         // TODO add your handling code here:
@@ -215,13 +225,9 @@ public class AdoptionRequestManagement_ProviderPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_profile_btnActionPerformed
 
-    private void SearchbarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchbarActionPerformed
+    private void Home_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Home_btnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_SearchbarActionPerformed
-
-    private void Searchbar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Searchbar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Searchbar1ActionPerformed
+    }//GEN-LAST:event_Home_btnActionPerformed
 
     /**
      * @param args the command line arguments

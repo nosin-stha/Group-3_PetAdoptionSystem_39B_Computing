@@ -136,23 +136,23 @@ public class AdopterHomePage extends javax.swing.JFrame {
             .addGroup(toppanelLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
-                .addComponent(Home_btn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(MyRequests_btn)
-                .addGap(18, 18, 18)
-                .addComponent(Shelters_btn)
-                .addGap(18, 18, 18)
-                .addComponent(Logout_btn)
-                .addGap(23, 23, 23)
                 .addGroup(toppanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(toppanelLayout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addComponent(Favourite_btn))
-                    .addGroup(toppanelLayout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(Favourite_text)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 198, Short.MAX_VALUE)
+                        .addGap(67, 67, 67)
+                        .addComponent(Home_btn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(MyRequests_btn)
+                        .addGap(18, 18, 18)
+                        .addComponent(Shelters_btn)
+                        .addGap(18, 18, 18)
+                        .addComponent(Logout_btn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 290, Short.MAX_VALUE)
+                        .addComponent(Favourite_btn)
+                        .addGap(69, 69, 69))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, toppanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Favourite_text)
+                        .addGap(58, 58, 58)))
                 .addGroup(toppanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(profile_btn)
                     .addComponent(Profile_text, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -174,9 +174,9 @@ public class AdopterHomePage extends javax.swing.JFrame {
                 .addGroup(toppanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Favourite_text)
                     .addComponent(Profile_text))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, toppanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addComponent(Logo)
                 .addGap(17, 17, 17))
         );
@@ -279,6 +279,7 @@ public class AdopterHomePage extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void SearchbarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchbarActionPerformed
@@ -286,7 +287,7 @@ public class AdopterHomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_SearchbarActionPerformed
 
     private void Logout_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Logout_btnActionPerformed
-                                           
+
     }//GEN-LAST:event_Logout_btnActionPerformed
 
     private void Favourite_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Favourite_btnActionPerformed

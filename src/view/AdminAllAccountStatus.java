@@ -4,6 +4,9 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author User
@@ -18,6 +21,33 @@ public class AdminAllAccountStatus extends javax.swing.JFrame {
     public AdminAllAccountStatus() {
         initComponents();
     }
+    
+    public void addAllAccountsListener(ActionListener listener) {
+        AllAccounts_btn.addActionListener(listener);
+    }
+
+    public void addReportsListener(ActionListener listener) {
+        Reports_btn.addActionListener(listener);
+    }
+
+    public void addLogoutListener(ActionListener listener) {
+        Logout_btn.addActionListener(listener);
+    }
+    
+    public void addUnfreezeRequestsListener(ActionListener listener) {
+        UnfreezeRequests_btn.addActionListener(listener);
+    }
+    
+    
+    
+
+    public DefaultTableModel getTableModel() {
+        return (DefaultTableModel) AdminAllAccountsStatusTable.getModel();
+    }
+    
+    public javax.swing.JTable getTable() {
+        return AdminAllAccountsStatusTable;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,13 +61,13 @@ public class AdminAllAccountStatus extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         toppanel_viewpet_adopter = new javax.swing.JPanel();
         Logo = new javax.swing.JLabel();
-        Home_btn = new javax.swing.JButton();
-        MyRequests_btn = new javax.swing.JButton();
-        Shelters_btn = new javax.swing.JButton();
+        AllAccounts_btn = new javax.swing.JButton();
+        Reports_btn = new javax.swing.JButton();
+        UnfreezeRequests_btn = new javax.swing.JButton();
         Logout_btn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        AdminAllAccountsStatusTable = new javax.swing.JTable();
         jComboBox2 = new javax.swing.JComboBox<>();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -51,14 +81,14 @@ public class AdminAllAccountStatus extends javax.swing.JFrame {
 
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pas_circular_logo.png"))); // NOI18N
 
-        Home_btn.setBackground(new java.awt.Color(255, 204, 51));
-        Home_btn.setText("All Accounts");
+        AllAccounts_btn.setBackground(new java.awt.Color(255, 204, 51));
+        AllAccounts_btn.setText("All Accounts");
 
-        MyRequests_btn.setText("Reports");
-        MyRequests_btn.addActionListener(this::MyRequests_btnActionPerformed);
+        Reports_btn.setText("Reports");
+        Reports_btn.addActionListener(this::Reports_btnActionPerformed);
 
-        Shelters_btn.setText("Unfreeze Requests");
-        Shelters_btn.addActionListener(this::Shelters_btnActionPerformed);
+        UnfreezeRequests_btn.setText("Unfreeze Requests");
+        UnfreezeRequests_btn.addActionListener(this::UnfreezeRequests_btnActionPerformed);
 
         Logout_btn.setText("Logout");
         Logout_btn.addActionListener(this::Logout_btnActionPerformed);
@@ -71,12 +101,12 @@ public class AdminAllAccountStatus extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addComponent(Logo)
                 .addGap(96, 96, 96)
-                .addComponent(Home_btn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(MyRequests_btn)
-                .addGap(110, 110, 110)
-                .addComponent(Shelters_btn)
-                .addGap(96, 96, 96)
+                .addComponent(AllAccounts_btn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addComponent(Reports_btn)
+                .addGap(51, 51, 51)
+                .addComponent(UnfreezeRequests_btn)
+                .addGap(155, 155, 155)
                 .addComponent(Logout_btn)
                 .addGap(171, 171, 171))
         );
@@ -87,9 +117,9 @@ public class AdminAllAccountStatus extends javax.swing.JFrame {
                     .addGroup(toppanel_viewpet_adopterLayout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addGroup(toppanel_viewpet_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Home_btn)
-                            .addComponent(MyRequests_btn)
-                            .addComponent(Shelters_btn)
+                            .addComponent(AllAccounts_btn)
+                            .addComponent(Reports_btn)
+                            .addComponent(UnfreezeRequests_btn)
                             .addComponent(Logout_btn)))
                     .addGroup(toppanel_viewpet_adopterLayout.createSequentialGroup()
                         .addGap(16, 16, 16)
@@ -99,7 +129,7 @@ public class AdminAllAccountStatus extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(248, 230, 182));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        AdminAllAccountsStatusTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -107,7 +137,7 @@ public class AdminAllAccountStatus extends javax.swing.JFrame {
                 "Provider Name", "Email", "Status", "Reports"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(AdminAllAccountsStatusTable);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -184,13 +214,13 @@ public class AdminAllAccountStatus extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void MyRequests_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MyRequests_btnActionPerformed
+    private void Reports_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reports_btnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_MyRequests_btnActionPerformed
+    }//GEN-LAST:event_Reports_btnActionPerformed
 
-    private void Shelters_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Shelters_btnActionPerformed
+    private void UnfreezeRequests_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UnfreezeRequests_btnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Shelters_btnActionPerformed
+    }//GEN-LAST:event_UnfreezeRequests_btnActionPerformed
 
     private void Logout_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Logout_btnActionPerformed
 
@@ -226,17 +256,17 @@ public class AdminAllAccountStatus extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Home_btn;
+    private javax.swing.JTable AdminAllAccountsStatusTable;
+    private javax.swing.JButton AllAccounts_btn;
     private javax.swing.JLabel Logo;
     private javax.swing.JButton Logout_btn;
-    private javax.swing.JButton MyRequests_btn;
-    private javax.swing.JButton Shelters_btn;
+    private javax.swing.JButton Reports_btn;
+    private javax.swing.JButton UnfreezeRequests_btn;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel toppanel_viewpet_adopter;
     // End of variables declaration//GEN-END:variables

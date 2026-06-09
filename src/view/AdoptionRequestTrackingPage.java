@@ -68,28 +68,32 @@ public class AdoptionRequestTrackingPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         Logo = new javax.swing.JLabel();
         Home_btn = new javax.swing.JButton();
         MyRequests_btn = new javax.swing.JButton();
         Shelters_btn = new javax.swing.JButton();
         Logout_btn = new javax.swing.JButton();
-        profile_btn = new javax.swing.JButton();
         Favourite_btn = new javax.swing.JButton();
-        lbl_profile = new javax.swing.JLabel();
-        lbl_favourite = new javax.swing.JLabel();
-        cb_AdoptionRequestsStatus = new javax.swing.JComboBox<>();
+        Favourite_text = new javax.swing.JLabel();
+        profile_btn = new javax.swing.JButton();
+        Profile_text = new javax.swing.JLabel();
         AdopterAdoptionRequestsScroll = new javax.swing.JScrollPane();
         requestContainerPanel = new javax.swing.JPanel();
+        cb_AdoptionRequestsStatus = new javax.swing.JComboBox<>();
         lbl_yourRequests = new javax.swing.JLabel();
         lbl_CountRequests = new javax.swing.JLabel();
         AdopterTotalRequestsCount = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(255, 153, 51));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 100));
 
-        Logo.setBackground(new java.awt.Color(255, 153, 51));
+        jPanel2.setBackground(new java.awt.Color(255, 153, 51));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1000, 112));
+
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pas_circular_logo.png"))); // NOI18N
 
         Home_btn.setText("Home");
@@ -100,75 +104,74 @@ public class AdoptionRequestTrackingPage extends javax.swing.JFrame {
         Shelters_btn.setText("Shelters");
 
         Logout_btn.setText("Logout");
+        Logout_btn.addActionListener(this::Logout_btnActionPerformed);
+
+        Favourite_btn.setBackground(new java.awt.Color(255, 153, 51));
+        Favourite_btn.setForeground(new java.awt.Color(255, 153, 51));
+        Favourite_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/petFavBtnIcon.png"))); // NOI18N
+        Favourite_btn.setBorder(null);
+        Favourite_btn.addActionListener(this::Favourite_btnActionPerformed);
+
+        Favourite_text.setText("Favourite");
 
         profile_btn.setBackground(new java.awt.Color(255, 153, 51));
         profile_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/profileButtonIcon.png"))); // NOI18N
         profile_btn.setBorder(null);
+        profile_btn.addActionListener(this::profile_btnActionPerformed);
 
-        Favourite_btn.setBackground(new java.awt.Color(255, 153, 51));
-        Favourite_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/petFavBtnIcon.png"))); // NOI18N
-        Favourite_btn.setBorder(null);
-
-        lbl_profile.setText("Profile");
-
-        lbl_favourite.setText("Favourite");
+        Profile_text.setText("profile");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(Logo)
+                .addGap(35, 35, 35)
+                .addComponent(Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(108, 108, 108)
+                        .addGap(67, 67, 67)
                         .addComponent(Home_btn)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(MyRequests_btn)
                         .addGap(18, 18, 18)
                         .addComponent(Shelters_btn)
                         .addGap(18, 18, 18)
                         .addComponent(Logout_btn)
-                        .addGap(93, 93, 93)
-                        .addComponent(Favourite_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 290, Short.MAX_VALUE)
+                        .addComponent(Favourite_btn)
+                        .addGap(69, 69, 69))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbl_favourite)
-                        .addGap(209, 209, 209)))
+                        .addComponent(Favourite_text)
+                        .addGap(58, 58, 58)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(profile_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_profile))
-                .addGap(57, 57, 57))
+                    .addComponent(profile_btn)
+                    .addComponent(Profile_text, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Favourite_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(Home_btn)
-                                .addComponent(MyRequests_btn)
-                                .addComponent(Shelters_btn)
-                                .addComponent(Logout_btn))
-                            .addComponent(profile_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_profile)
-                            .addComponent(lbl_favourite))
-                        .addGap(0, 21, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addGap(35, 35, 35)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Favourite_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(profile_btn)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Home_btn)
+                        .addComponent(MyRequests_btn)
+                        .addComponent(Shelters_btn)
+                        .addComponent(Logout_btn)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Favourite_text)
+                    .addComponent(Profile_text))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addComponent(Logo)
+                .addGap(17, 17, 17))
         );
-
-        cb_AdoptionRequestsStatus.setBackground(new java.awt.Color(255, 153, 51));
-        cb_AdoptionRequestsStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Status", "Accepted", "Pending", "Declined" }));
 
         requestContainerPanel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -185,6 +188,9 @@ public class AdoptionRequestTrackingPage extends javax.swing.JFrame {
 
         AdopterAdoptionRequestsScroll.setViewportView(requestContainerPanel);
 
+        cb_AdoptionRequestsStatus.setBackground(new java.awt.Color(255, 153, 51));
+        cb_AdoptionRequestsStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Status", "Accepted", "Pending", "Declined" }));
+
         lbl_yourRequests.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbl_yourRequests.setText("Your Requests");
 
@@ -192,42 +198,75 @@ public class AdoptionRequestTrackingPage extends javax.swing.JFrame {
 
         AdopterTotalRequestsCount.setText("3");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cb_AdoptionRequestsStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AdopterAdoptionRequestsScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 945, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_yourRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(AdopterAdoptionRequestsScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 945, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lbl_CountRequests)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(AdopterTotalRequestsCount, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+                        .addComponent(AdopterTotalRequestsCount, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbl_yourRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_AdoptionRequestsStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(lbl_yourRequests)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(cb_AdoptionRequestsStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(36, 36, 36)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_CountRequests)
                     .addComponent(AdopterTotalRequestsCount))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(AdopterAdoptionRequestsScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
+                .addGap(31, 31, 31))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Logout_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Logout_btnActionPerformed
+
+    }//GEN-LAST:event_Logout_btnActionPerformed
+
+    private void Favourite_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Favourite_btnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Favourite_btnActionPerformed
+
+    private void profile_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profile_btnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_profile_btnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -258,16 +297,17 @@ public class AdoptionRequestTrackingPage extends javax.swing.JFrame {
     private javax.swing.JScrollPane AdopterAdoptionRequestsScroll;
     private javax.swing.JLabel AdopterTotalRequestsCount;
     private javax.swing.JButton Favourite_btn;
+    private javax.swing.JLabel Favourite_text;
     private javax.swing.JButton Home_btn;
     private javax.swing.JLabel Logo;
     private javax.swing.JButton Logout_btn;
     private javax.swing.JButton MyRequests_btn;
+    private javax.swing.JLabel Profile_text;
     private javax.swing.JButton Shelters_btn;
     private javax.swing.JComboBox<String> cb_AdoptionRequestsStatus;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lbl_CountRequests;
-    private javax.swing.JLabel lbl_favourite;
-    private javax.swing.JLabel lbl_profile;
     private javax.swing.JLabel lbl_yourRequests;
     private javax.swing.JButton profile_btn;
     private javax.swing.JPanel requestContainerPanel;

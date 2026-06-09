@@ -154,7 +154,7 @@ public class ProviderViewPetDetails extends javax.swing.JFrame {
         );
 
         Main_panal_Viewpet_provider.add(Playerimage_box_petview_provider);
-        Playerimage_box_petview_provider.setBounds(50, 180, 280, 250);
+        Playerimage_box_petview_provider.setBounds(100, 210, 280, 250);
 
         Exit_btn_petview_provider.setBackground(new java.awt.Color(255, 153, 51));
         Exit_btn_petview_provider.setText("Exit");
@@ -164,63 +164,63 @@ public class ProviderViewPetDetails extends javax.swing.JFrame {
         Petname_petview_provider.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Petname_petview_provider.setText("PetName");
         Main_panal_Viewpet_provider.add(Petname_petview_provider);
-        Petname_petview_provider.setBounds(440, 170, 70, 16);
+        Petname_petview_provider.setBounds(500, 230, 70, 16);
 
         Breed_petview_provider.setText("Type:");
         Main_panal_Viewpet_provider.add(Breed_petview_provider);
-        Breed_petview_provider.setBounds(440, 220, 30, 16);
+        Breed_petview_provider.setBounds(500, 280, 30, 16);
 
         Gender_petview_provider.setText("Gender:");
         Main_panal_Viewpet_provider.add(Gender_petview_provider);
-        Gender_petview_provider.setBounds(440, 240, 41, 16);
+        Gender_petview_provider.setBounds(500, 300, 41, 16);
 
         Age_petview_provider.setText("Age:");
         Main_panal_Viewpet_provider.add(Age_petview_provider);
-        Age_petview_provider.setBounds(440, 260, 30, 16);
+        Age_petview_provider.setBounds(500, 320, 30, 16);
 
         Breed_name_petview_provider.setText("Pet Type");
         Main_panal_Viewpet_provider.add(Breed_name_petview_provider);
-        Breed_name_petview_provider.setBounds(480, 220, 110, 16);
+        Breed_name_petview_provider.setBounds(540, 280, 110, 16);
 
         Gender_Info_petview_provider.setText("Pet Gender");
         Main_panal_Viewpet_provider.add(Gender_Info_petview_provider);
-        Gender_Info_petview_provider.setBounds(490, 240, 130, 16);
+        Gender_Info_petview_provider.setBounds(550, 300, 130, 16);
 
         Age_Info_petview_provider.setText("Pet Age");
         Main_panal_Viewpet_provider.add(Age_Info_petview_provider);
-        Age_Info_petview_provider.setBounds(470, 260, 150, 16);
+        Age_Info_petview_provider.setBounds(530, 320, 150, 16);
 
         HouseTrained_petview_provider.setText("House Trained:");
         Main_panal_Viewpet_provider.add(HouseTrained_petview_provider);
-        HouseTrained_petview_provider.setBounds(440, 300, 80, 16);
+        HouseTrained_petview_provider.setBounds(500, 360, 80, 16);
 
         HouseTrained_Info_petview_provider.setText("jLabel2");
         Main_panal_Viewpet_provider.add(HouseTrained_Info_petview_provider);
-        HouseTrained_Info_petview_provider.setBounds(530, 300, 50, 16);
+        HouseTrained_Info_petview_provider.setBounds(590, 360, 50, 16);
 
         Spayed_Neutered_petview_provider.setText("Spayed/ Neutered: ");
         Main_panal_Viewpet_provider.add(Spayed_Neutered_petview_provider);
-        Spayed_Neutered_petview_provider.setBounds(440, 320, 110, 16);
+        Spayed_Neutered_petview_provider.setBounds(500, 380, 110, 16);
 
         Spayed_Neutered_Info_petview_provider.setText("jLabel2");
         Main_panal_Viewpet_provider.add(Spayed_Neutered_Info_petview_provider);
-        Spayed_Neutered_Info_petview_provider.setBounds(550, 320, 50, 16);
+        Spayed_Neutered_Info_petview_provider.setBounds(610, 380, 50, 16);
 
         Vaccinated_petview_provider.setText("Vaccinated:");
         Main_panal_Viewpet_provider.add(Vaccinated_petview_provider);
-        Vaccinated_petview_provider.setBounds(440, 340, 70, 16);
+        Vaccinated_petview_provider.setBounds(500, 400, 70, 16);
 
         Vaccinated_info_petview_provider.setText("jLabel2");
         Main_panal_Viewpet_provider.add(Vaccinated_info_petview_provider);
-        Vaccinated_info_petview_provider.setBounds(510, 340, 50, 16);
+        Vaccinated_info_petview_provider.setBounds(570, 400, 50, 16);
 
         SpecialNeeds_petview_provider.setText("Special Needs: ");
         Main_panal_Viewpet_provider.add(SpecialNeeds_petview_provider);
-        SpecialNeeds_petview_provider.setBounds(440, 360, 90, 16);
+        SpecialNeeds_petview_provider.setBounds(500, 440, 90, 16);
 
         SpecialNeeds_Info_petview_provider.setText("jLabel3");
         Main_panal_Viewpet_provider.add(SpecialNeeds_Info_petview_provider);
-        SpecialNeeds_Info_petview_provider.setBounds(530, 360, 37, 16);
+        SpecialNeeds_Info_petview_provider.setBounds(590, 440, 37, 16);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -230,7 +230,7 @@ public class ProviderViewPetDetails extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Main_panal_Viewpet_provider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
+            .addComponent(Main_panal_Viewpet_provider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
         );
 
         pack();

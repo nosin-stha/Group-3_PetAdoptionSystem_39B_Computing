@@ -188,23 +188,23 @@ public class AdopterView_Shelter_Detail extends javax.swing.JFrame {
             .addGroup(toppanelLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
-                .addComponent(Home_btn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(MyRequests_btn)
-                .addGap(18, 18, 18)
-                .addComponent(Shelters_btn)
-                .addGap(18, 18, 18)
-                .addComponent(Logout_btn)
-                .addGap(23, 23, 23)
                 .addGroup(toppanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(toppanelLayout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addComponent(Favourite_btn))
-                    .addGroup(toppanelLayout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(Favourite_text)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 198, Short.MAX_VALUE)
+                        .addGap(67, 67, 67)
+                        .addComponent(Home_btn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(MyRequests_btn)
+                        .addGap(18, 18, 18)
+                        .addComponent(Shelters_btn)
+                        .addGap(18, 18, 18)
+                        .addComponent(Logout_btn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Favourite_btn)
+                        .addGap(69, 69, 69))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, toppanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Favourite_text)
+                        .addGap(58, 58, 58)))
                 .addGroup(toppanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(profile_btn)
                     .addComponent(Profile_text, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -251,8 +251,8 @@ public class AdopterView_Shelter_Detail extends javax.swing.JFrame {
         Exit_adopterView_shelter_details.setBackground(new java.awt.Color(255, 153, 0));
         Exit_adopterView_shelter_details.setText("Exit");
 
-        RightContentPanel.setBackground(new java.awt.Color(248, 230, 182));
-        RightContentPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        RightContentPanel.setBackground(new java.awt.Color(255, 255, 255));
+        RightContentPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         RightContentPanel.setPreferredSize(new java.awt.Dimension(500, 210));
         RightContentPanel.setLayout(null);
 
@@ -273,7 +273,7 @@ public class AdopterView_Shelter_Detail extends javax.swing.JFrame {
         Adopted_Pets.setBounds(370, 10, 120, 28);
 
         RightContentPanel.add(Top_small_panal);
-        Top_small_panal.setBounds(0, 0, 530, 40);
+        Top_small_panal.setBounds(0, 0, 530, 50);
 
         javax.swing.GroupLayout mainpanalLayout = new javax.swing.GroupLayout(mainpanal);
         mainpanal.setLayout(mainpanalLayout);
@@ -282,21 +282,21 @@ public class AdopterView_Shelter_Detail extends javax.swing.JFrame {
             .addGroup(mainpanalLayout.createSequentialGroup()
                 .addGroup(mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainpanalLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(Shelter_logo_adopterView_shelter_details, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
+                        .addGap(68, 68, 68)
+                        .addComponent(Exit_adopterView_shelter_details))
+                    .addGroup(mainpanalLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(Shelter_logo_adopterView_shelter_details, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addGroup(mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(Locationtext, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                                .addComponent(Locationtext, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(Email_adopterView_shelter_details, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Phone_number_adopterView_shelter_details, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(Phone_number_adopterView_shelter_details, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(Address_adopterView_shelter_details, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Contactstext, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Shelter_name_adopterView_shelter_details, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(mainpanalLayout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addComponent(Exit_adopterView_shelter_details)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Shelter_name_adopterView_shelter_details, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(RightContentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addComponent(toppanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -305,11 +305,15 @@ public class AdopterView_Shelter_Detail extends javax.swing.JFrame {
             mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainpanalLayout.createSequentialGroup()
                 .addComponent(toppanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
                 .addGroup(mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainpanalLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(RightContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(mainpanalLayout.createSequentialGroup()
+                        .addGap(87, 87, 87)
                         .addGroup(mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Shelter_logo_adopterView_shelter_details, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Shelter_logo_adopterView_shelter_details, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Shelter_name_adopterView_shelter_details))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Contactstext)
@@ -321,12 +325,9 @@ public class AdopterView_Shelter_Detail extends javax.swing.JFrame {
                         .addComponent(Locationtext)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(Address_adopterView_shelter_details, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
                         .addComponent(Exit_adopterView_shelter_details)
-                        .addGap(36, 36, 36))
-                    .addGroup(mainpanalLayout.createSequentialGroup()
-                        .addComponent(RightContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addGap(36, 36, 36))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -341,6 +342,7 @@ public class AdopterView_Shelter_Detail extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Logout_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Logout_btnActionPerformed

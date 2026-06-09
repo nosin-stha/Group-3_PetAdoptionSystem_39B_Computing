@@ -27,7 +27,7 @@ public final class ProviderHomePage extends javax.swing.JFrame {
     public ProviderHomePage() {
     initComponents();
     setLocationRelativeTo(null);
-    new PetController(this);  // all setup moved to controller
+    new PetController(this);  
 }
 
     
@@ -80,7 +80,7 @@ public javax.swing.JScrollPane getProviderPetsScrollPane() {
 
         jCheckBox1 = new javax.swing.JCheckBox();
         Main_panal = new javax.swing.JPanel();
-        PetClear = new javax.swing.JButton();
+        PetFilterClear = new javax.swing.JButton();
         Gender_combobox = new javax.swing.JComboBox<>();
         PetType_combobox = new javax.swing.JComboBox<>();
         Searchbar = new javax.swing.JTextField();
@@ -103,41 +103,41 @@ public javax.swing.JScrollPane getProviderPetsScrollPane() {
         jCheckBox1.setText("jCheckBox1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setSize(new java.awt.Dimension(988, 550));
+        setSize(new java.awt.Dimension(1000, 680));
 
         Main_panal.setBackground(new java.awt.Color(255, 255, 255));
         Main_panal.setLayout(null);
 
-        PetClear.setBackground(new java.awt.Color(255, 153, 51));
-        PetClear.setText("Clear");
-        PetClear.addActionListener(this::PetClearActionPerformed);
-        Main_panal.add(PetClear);
-        PetClear.setBounds(600, 160, 90, 23);
+        PetFilterClear.setBackground(new java.awt.Color(255, 153, 51));
+        PetFilterClear.setText("Clear");
+        PetFilterClear.addActionListener(this::PetFilterClearActionPerformed);
+        Main_panal.add(PetFilterClear);
+        PetFilterClear.setBounds(650, 180, 70, 23);
 
         Gender_combobox.setBackground(new java.awt.Color(255, 153, 51));
         Gender_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gender", "Male", "Female" }));
         Main_panal.add(Gender_combobox);
-        Gender_combobox.setBounds(280, 170, 72, 22);
+        Gender_combobox.setBounds(380, 180, 115, 22);
 
         PetType_combobox.setBackground(new java.awt.Color(255, 153, 51));
         PetType_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pet Type", "Dog", "Cat", "Bird", "Marine", "Others", " " }));
         Main_panal.add(PetType_combobox);
-        PetType_combobox.setBounds(190, 170, 80, 22);
+        PetType_combobox.setBounds(250, 180, 115, 22);
 
         Searchbar.setForeground(new java.awt.Color(204, 204, 204));
         Searchbar.setText("parrot, husky, home-trained, kathmandu etc...");
         Searchbar.addActionListener(this::SearchbarActionPerformed);
         Main_panal.add(Searchbar);
-        Searchbar.setBounds(190, 130, 300, 22);
+        Searchbar.setBounds(300, 140, 300, 22);
 
-        SearchLogo.setText("jButton1");
+        SearchLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
         Main_panal.add(SearchLogo);
-        SearchLogo.setBounds(500, 130, 40, 22);
+        SearchLogo.setBounds(610, 140, 40, 22);
 
         Age_combobox.setBackground(new java.awt.Color(255, 153, 51));
         Age_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Age", "2", "4", "6", "Other..", " " }));
         Main_panal.add(Age_combobox);
-        Age_combobox.setBounds(360, 170, 72, 22);
+        Age_combobox.setBounds(510, 180, 130, 22);
 
         totalpet.setText("Total Pet:");
         Main_panal.add(totalpet);
@@ -152,7 +152,7 @@ public javax.swing.JScrollPane getProviderPetsScrollPane() {
         ProviderPetsScrollPane.setViewportView(providerPetContainerPanel);
 
         Main_panal.add(ProviderPetsScrollPane);
-        ProviderPetsScrollPane.setBounds(30, 250, 930, 370);
+        ProviderPetsScrollPane.setBounds(30, 260, 940, 400);
 
         Top_panal.setBackground(new java.awt.Color(255, 153, 51));
         Top_panal.setPreferredSize(new java.awt.Dimension(1000, 100));
@@ -182,9 +182,9 @@ public javax.swing.JScrollPane getProviderPetsScrollPane() {
         Top_panalLayout.setHorizontalGroup(
             Top_panalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Top_panalLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
+                .addGap(35, 35, 35)
+                .addComponent(Logo)
+                .addGap(83, 83, 83)
                 .addComponent(Home_btn)
                 .addGap(18, 18, 18)
                 .addComponent(Adoption_requestbtn)
@@ -192,15 +192,14 @@ public javax.swing.JScrollPane getProviderPetsScrollPane() {
                 .addComponent(Adoption_Historybtn)
                 .addGap(24, 24, 24)
                 .addComponent(Logout_btn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 295, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 298, Short.MAX_VALUE)
                 .addGroup(Top_panalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(profile_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Profile_text, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Profile_text, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(profile_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23))
         );
         Top_panalLayout.setVerticalGroup(
             Top_panalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(Top_panalLayout.createSequentialGroup()
                 .addGroup(Top_panalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Top_panalLayout.createSequentialGroup()
@@ -212,19 +211,22 @@ public javax.swing.JScrollPane getProviderPetsScrollPane() {
                             .addComponent(Adoption_Historybtn)))
                     .addGroup(Top_panalLayout.createSequentialGroup()
                         .addGap(22, 22, 22)
-                        .addComponent(profile_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(profile_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Profile_text)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                        .addComponent(Profile_text))
+                    .addGroup(Top_panalLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         Main_panal.add(Top_panal);
-        Top_panal.setBounds(0, 0, 1000, 112);
+        Top_panal.setBounds(0, 0, 1000, 110);
 
         Add_pet_provider.setBackground(new java.awt.Color(255, 153, 51));
         Add_pet_provider.setText("Add pet");
         Main_panal.add(Add_pet_provider);
-        Add_pet_provider.setBounds(600, 190, 90, 23);
+        Add_pet_provider.setBounds(880, 230, 90, 23);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -237,7 +239,8 @@ public javax.swing.JScrollPane getProviderPetsScrollPane() {
             .addComponent(Main_panal, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
         );
 
-        setBounds(0, 0, 1016, 689);
+        pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Logout_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Logout_btnActionPerformed
@@ -248,17 +251,17 @@ public javax.swing.JScrollPane getProviderPetsScrollPane() {
         // TODO add your handling code here:
     }//GEN-LAST:event_Adoption_requestbtnActionPerformed
 
+    private void profile_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profile_btnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_profile_btnActionPerformed
+
     private void SearchbarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchbarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SearchbarActionPerformed
 
-    private void PetClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PetClearActionPerformed
+    private void PetFilterClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PetFilterClearActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PetClearActionPerformed
-
-    private void profile_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profile_btnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_profile_btnActionPerformed
+    }//GEN-LAST:event_PetFilterClearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -295,7 +298,7 @@ public javax.swing.JScrollPane getProviderPetsScrollPane() {
     private javax.swing.JLabel Logo;
     private javax.swing.JButton Logout_btn;
     private javax.swing.JPanel Main_panal;
-    private javax.swing.JButton PetClear;
+    private javax.swing.JButton PetFilterClear;
     private javax.swing.JComboBox<String> PetType_combobox;
     private javax.swing.JLabel Profile_text;
     private javax.swing.JScrollPane ProviderPetsScrollPane;

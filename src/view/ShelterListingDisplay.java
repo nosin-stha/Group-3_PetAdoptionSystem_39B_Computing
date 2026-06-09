@@ -31,7 +31,7 @@ public void addHomeListener(java.awt.event.ActionListener listener) {
 }
 
 public void addMyRequestsListener(java.awt.event.ActionListener listener) {
-    MyRequest_btn.addActionListener(listener);
+    MyRequests_btn.addActionListener(listener);
 }
 
 public void addLogoutListener(java.awt.event.ActionListener listener) {
@@ -53,15 +53,15 @@ public void addShelterListener(java.awt.event.ActionListener listener) {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        Logo = new javax.swing.JLabel();
         Home_btn = new javax.swing.JButton();
-        MyRequest_btn = new javax.swing.JButton();
+        MyRequests_btn = new javax.swing.JButton();
         Shelters_btn = new javax.swing.JButton();
         Logout_btn = new javax.swing.JButton();
         Favourite_btn = new javax.swing.JButton();
+        Favourite_text = new javax.swing.JLabel();
         profile_btn = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        Profile_text = new javax.swing.JLabel();
         Searchbar = new javax.swing.JTextField();
         SheltersDisplayPane = new javax.swing.JScrollPane();
         SheltersDisplayPanel = new javax.swing.JPanel();
@@ -72,15 +72,19 @@ public void addShelterListener(java.awt.event.ActionListener listener) {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBackground(new java.awt.Color(255, 153, 51));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1000, 112));
+
+        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pas_circular_logo.png"))); // NOI18N
 
         Home_btn.setText("Home");
 
-        MyRequest_btn.setText("My Requests");
+        MyRequests_btn.setText("My Requests");
 
-        Shelters_btn.setBackground(new java.awt.Color(255, 204, 0));
+        Shelters_btn.setBackground(new java.awt.Color(255, 204, 51));
         Shelters_btn.setText("Shelters");
 
         Logout_btn.setText("Logout");
+        Logout_btn.addActionListener(this::Logout_btnActionPerformed);
 
         Favourite_btn.setBackground(new java.awt.Color(255, 153, 51));
         Favourite_btn.setForeground(new java.awt.Color(255, 153, 51));
@@ -88,67 +92,65 @@ public void addShelterListener(java.awt.event.ActionListener listener) {
         Favourite_btn.setBorder(null);
         Favourite_btn.addActionListener(this::Favourite_btnActionPerformed);
 
+        Favourite_text.setText("Favourite");
+
         profile_btn.setBackground(new java.awt.Color(255, 153, 51));
         profile_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/profileButtonIcon.png"))); // NOI18N
         profile_btn.setBorder(null);
         profile_btn.addActionListener(this::profile_btnActionPerformed);
 
-        jLabel1.setText("Favourite");
-
-        jLabel2.setText("Profile");
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pas_circular_logo.png"))); // NOI18N
-        jLabel3.setText("jLabel3");
+        Profile_text.setText("profile");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
+                        .addGap(67, 67, 67)
                         .addComponent(Home_btn)
-                        .addGap(50, 50, 50)
-                        .addComponent(MyRequest_btn)
-                        .addGap(55, 55, 55)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(MyRequests_btn)
+                        .addGap(18, 18, 18)
                         .addComponent(Shelters_btn)
-                        .addGap(46, 46, 46)
+                        .addGap(18, 18, 18)
                         .addComponent(Logout_btn)
-                        .addGap(167, 167, 167)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Favourite_btn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                        .addComponent(profile_btn)
-                        .addGap(10, 10, 10))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(60, 60, 60)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(27, 27, 27))
+                        .addGap(69, 69, 69))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Favourite_text)
+                        .addGap(58, 58, 58)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(profile_btn)
+                    .addComponent(Profile_text, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
+                .addGap(35, 35, 35)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(profile_btn)
-                            .addComponent(Favourite_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)))
+                    .addComponent(Favourite_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(profile_btn)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(Home_btn)
-                        .addComponent(MyRequest_btn)
+                        .addComponent(MyRequests_btn)
                         .addComponent(Shelters_btn)
-                        .addComponent(Logout_btn)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(52, Short.MAX_VALUE))
+                        .addComponent(Logout_btn)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Favourite_text)
+                    .addComponent(Profile_text))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addComponent(Logo)
+                .addGap(17, 17, 17))
         );
 
         Searchbar.setForeground(new java.awt.Color(204, 204, 204));
@@ -181,28 +183,26 @@ public void addShelterListener(java.awt.event.ActionListener listener) {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(SheltersDisplayPane, javax.swing.GroupLayout.PREFERRED_SIZE, 937, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(254, 254, 254)
+                        .addGap(256, 256, 256)
                         .addComponent(Searchbar, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(SearchLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(SearchLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(SheltersDisplayPane, javax.swing.GroupLayout.PREFERRED_SIZE, 937, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(SearchLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(Searchbar))
-                .addGap(60, 60, 60)
+                .addGap(48, 48, 48)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(SearchLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Searchbar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                 .addComponent(SheltersDisplayPane, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
+                .addGap(42, 42, 42))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -219,6 +219,14 @@ public void addShelterListener(java.awt.event.ActionListener listener) {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void SearchbarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchbarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SearchbarActionPerformed
+
+    private void Logout_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Logout_btnActionPerformed
+
+    }//GEN-LAST:event_Logout_btnActionPerformed
+
     private void Favourite_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Favourite_btnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Favourite_btnActionPerformed
@@ -226,10 +234,6 @@ public void addShelterListener(java.awt.event.ActionListener listener) {
     private void profile_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profile_btnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_profile_btnActionPerformed
-
-    private void SearchbarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchbarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SearchbarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -258,17 +262,17 @@ public void addShelterListener(java.awt.event.ActionListener listener) {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Favourite_btn;
+    private javax.swing.JLabel Favourite_text;
     private javax.swing.JButton Home_btn;
+    private javax.swing.JLabel Logo;
     private javax.swing.JButton Logout_btn;
-    private javax.swing.JButton MyRequest_btn;
+    private javax.swing.JButton MyRequests_btn;
+    private javax.swing.JLabel Profile_text;
     private javax.swing.JButton SearchLogo;
     private javax.swing.JTextField Searchbar;
     private javax.swing.JScrollPane SheltersDisplayPane;
     private javax.swing.JPanel SheltersDisplayPanel;
     private javax.swing.JButton Shelters_btn;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton profile_btn;
