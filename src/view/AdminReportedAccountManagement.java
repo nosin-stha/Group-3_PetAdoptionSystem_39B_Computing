@@ -5,6 +5,7 @@
 package view;
 
 import java.awt.event.ActionListener;
+import javax.swing.JPanel;
 
 /**
  *
@@ -37,6 +38,10 @@ public class AdminReportedAccountManagement extends javax.swing.JFrame {
         UnfreezeRequests_btn.addActionListener(listener);
     }
     
+    public JPanel getScrollPanel() {
+        return ReportsTableScrollPanel;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -56,8 +61,8 @@ public class AdminReportedAccountManagement extends javax.swing.JFrame {
         Logout_btn = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
         SearchbarReport = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jPanel1 = new javax.swing.JPanel();
+        ReportsTableScrollPane = new javax.swing.JScrollPane();
+        ReportsTableScrollPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -121,22 +126,22 @@ public class AdminReportedAccountManagement extends javax.swing.JFrame {
         SearchbarReport.setText("Adopter Name, Email etc");
         SearchbarReport.addActionListener(this::SearchbarReportActionPerformed);
 
-        jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
+        ReportsTableScrollPane.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        ReportsTableScrollPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout ReportsTableScrollPanelLayout = new javax.swing.GroupLayout(ReportsTableScrollPanel);
+        ReportsTableScrollPanel.setLayout(ReportsTableScrollPanelLayout);
+        ReportsTableScrollPanelLayout.setHorizontalGroup(
+            ReportsTableScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 958, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        ReportsTableScrollPanelLayout.setVerticalGroup(
+            ReportsTableScrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 438, Short.MAX_VALUE)
         );
 
-        jScrollPane2.setViewportView(jPanel1);
+        ReportsTableScrollPane.setViewportView(ReportsTableScrollPanel);
 
         javax.swing.GroupLayout ColorPanel1Layout = new javax.swing.GroupLayout(ColorPanel1);
         ColorPanel1.setLayout(ColorPanel1Layout);
@@ -153,7 +158,7 @@ public class AdminReportedAccountManagement extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(ColorPanel1Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 960, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ReportsTableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 960, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ColorPanel1Layout.setVerticalGroup(
@@ -165,7 +170,7 @@ public class AdminReportedAccountManagement extends javax.swing.JFrame {
                     .addComponent(SearchbarReport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ReportsTableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -233,12 +238,12 @@ public class AdminReportedAccountManagement extends javax.swing.JFrame {
     private javax.swing.JPanel ColorPanel1;
     private javax.swing.JLabel Logo;
     private javax.swing.JButton Logout_btn;
+    private javax.swing.JScrollPane ReportsTableScrollPane;
+    private javax.swing.JPanel ReportsTableScrollPanel;
     private javax.swing.JButton Reports_btn;
     private javax.swing.JTextField SearchbarReport;
     private javax.swing.JButton UnfreezeRequests_btn;
     private javax.swing.JButton btnSearch;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel toppanel_viewpet_adopter;
     // End of variables declaration//GEN-END:variables
 }

@@ -64,9 +64,9 @@ public class ProviderDetailsDAO {
         return null;
     }
 
-    public ArrayList<ProviderData> getAllProviders() {  // changed List to ArrayList
+    public ArrayList<ProviderData> getAllProviders() { 
         String sql = "SELECT * FROM Providers";
-        ArrayList<ProviderData> list = new ArrayList<>();  // changed List to ArrayList
+        ArrayList<ProviderData> list = new ArrayList<>(); 
         Connection conn = mysql.openConnection();
         if (conn == null) return list;
         try (PreparedStatement pst = conn.prepareStatement(sql)) {

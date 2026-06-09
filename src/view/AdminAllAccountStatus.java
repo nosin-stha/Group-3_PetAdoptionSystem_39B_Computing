@@ -58,23 +58,23 @@ public class AdminAllAccountStatus extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
+        Admin_AllAccountsPanel = new javax.swing.JPanel();
         toppanel_viewpet_adopter = new javax.swing.JPanel();
         Logo = new javax.swing.JLabel();
         AllAccounts_btn = new javax.swing.JButton();
         Reports_btn = new javax.swing.JButton();
         UnfreezeRequests_btn = new javax.swing.JButton();
         Logout_btn = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        PanelWithAllAccountsTable = new javax.swing.JPanel();
+        AllAccountsScrollPane = new javax.swing.JScrollPane();
         AdminAllAccountsStatusTable = new javax.swing.JTable();
         jComboBox2 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
+        Search_UserAccount = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        Admin_AllAccountsPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         toppanel_viewpet_adopter.setBackground(new java.awt.Color(255, 153, 51));
         toppanel_viewpet_adopter.setPreferredSize(new java.awt.Dimension(1000, 112));
@@ -127,76 +127,76 @@ public class AdminAllAccountStatus extends javax.swing.JFrame {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
-        jPanel1.setBackground(new java.awt.Color(248, 230, 182));
+        PanelWithAllAccountsTable.setBackground(new java.awt.Color(248, 230, 182));
 
         AdminAllAccountsStatusTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Provider Name", "Email", "Status", "Reports"
+                "Account Type", "Username", "Email", "Report Count", "Status"
             }
         ));
-        jScrollPane1.setViewportView(AdminAllAccountsStatusTable);
+        AllAccountsScrollPane.setViewportView(AdminAllAccountsStatusTable);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout PanelWithAllAccountsTableLayout = new javax.swing.GroupLayout(PanelWithAllAccountsTable);
+        PanelWithAllAccountsTable.setLayout(PanelWithAllAccountsTableLayout);
+        PanelWithAllAccountsTableLayout.setHorizontalGroup(
+            PanelWithAllAccountsTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelWithAllAccountsTableLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 905, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AllAccountsScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 905, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(27, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        PanelWithAllAccountsTableLayout.setVerticalGroup(
+            PanelWithAllAccountsTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelWithAllAccountsTableLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AllAccountsScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
         jComboBox2.setBackground(new java.awt.Color(255, 204, 51));
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Status", "Active", "Reported", "Disabled", " " }));
 
-        jTextField1.setForeground(new java.awt.Color(102, 102, 102));
-        jTextField1.setText("Provider Name, Email etc");
-        jTextField1.addActionListener(this::jTextField1ActionPerformed);
+        Search_UserAccount.setForeground(new java.awt.Color(102, 102, 102));
+        Search_UserAccount.setText("Provider Name, Email etc");
+        Search_UserAccount.addActionListener(this::Search_UserAccountActionPerformed);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout Admin_AllAccountsPanelLayout = new javax.swing.GroupLayout(Admin_AllAccountsPanel);
+        Admin_AllAccountsPanel.setLayout(Admin_AllAccountsPanelLayout);
+        Admin_AllAccountsPanelLayout.setHorizontalGroup(
+            Admin_AllAccountsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(toppanel_viewpet_adopter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(Admin_AllAccountsPanelLayout.createSequentialGroup()
+                .addGroup(Admin_AllAccountsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Admin_AllAccountsPanelLayout.createSequentialGroup()
                         .addGap(431, 431, 431)
                         .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(Admin_AllAccountsPanelLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(PanelWithAllAccountsTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Admin_AllAccountsPanelLayout.createSequentialGroup()
                         .addGap(297, 297, 297)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Search_UserAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        Admin_AllAccountsPanelLayout.setVerticalGroup(
+            Admin_AllAccountsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Admin_AllAccountsPanelLayout.createSequentialGroup()
                 .addComponent(toppanel_viewpet_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(Admin_AllAccountsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Search_UserAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PanelWithAllAccountsTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -204,11 +204,11 @@ public class AdminAllAccountStatus extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Admin_AllAccountsPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Admin_AllAccountsPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -226,9 +226,9 @@ public class AdminAllAccountStatus extends javax.swing.JFrame {
 
     }//GEN-LAST:event_Logout_btnActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void Search_UserAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_UserAccountActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_Search_UserAccountActionPerformed
 
     /**
      * @param args the command line arguments
@@ -257,17 +257,17 @@ public class AdminAllAccountStatus extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable AdminAllAccountsStatusTable;
+    private javax.swing.JPanel Admin_AllAccountsPanel;
+    private javax.swing.JScrollPane AllAccountsScrollPane;
     private javax.swing.JButton AllAccounts_btn;
     private javax.swing.JLabel Logo;
     private javax.swing.JButton Logout_btn;
+    private javax.swing.JPanel PanelWithAllAccountsTable;
     private javax.swing.JButton Reports_btn;
+    private javax.swing.JTextField Search_UserAccount;
     private javax.swing.JButton UnfreezeRequests_btn;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel toppanel_viewpet_adopter;
     // End of variables declaration//GEN-END:variables
 }

@@ -20,10 +20,8 @@ public class LoginController {
     private final LoginDAO dao;
 
     public LoginController(Login loginView) {
-
         this.loginView = loginView;
         this.dao = new LoginDAO();
-
         this.loginView.getBtnLogin().addActionListener(new LoginListener());
         this.loginView.getBtnCreateAccount().addActionListener(new CreateAccountListener());
     }
@@ -39,75 +37,71 @@ public class LoginController {
     }
 
     class LoginListener implements ActionListener {
-
         @Override
         public void actionPerformed(ActionEvent e) {
-
             String username = loginView.getTxtLoginUsername().getText().trim();
             String password = String.valueOf(loginView.getTxtLoginPassword().getPassword());
-            String role = loginView.getSelectedRole();
+            String role     = loginView.getSelectedRole();
 
             if (username.isEmpty() || password.isEmpty() || role.isEmpty()) {
                 JOptionPane.showMessageDialog(loginView, "Please fill all fields.");
                 return;
             }
 
-            boolean success = dao.loginUser(username, password, role);
+            String result = dao.loginUser(username, password, role);
 
-            if (!success) {
-                JOptionPane.showMessageDialog(loginView, "Invalid login credentials.");
-                return;
-            }
+            switch (result) {
+                case "disabled" -> {
+                    JOptionPane.showMessageDialog(
+                        loginView,
+                        "Your account has been disabled.\nPlease contact support.",
+                        "Account Disabled",
+                        JOptionPane.ERROR_MESSAGE
+                    );
+                }
+                case "failed" -> {
+                    JOptionPane.showMessageDialog(
+                        loginView,
+                        "Invalid login credentials.",
+                        "Login Failed",
+                        JOptionPane.ERROR_MESSAGE
+                    );
+                }
+                case "success" -> {
+                    if (SessionData.role.equals("Adopter")) {
+                        JOptionPane.showMessageDialog(loginView, "Adopter Login Successful");
+                        AdopterHomePage home = new AdopterHomePage();
+                        openWindow(home);
+                        closeWindow(loginView);
 
-            if (SessionData.role.equals("Adopter")) {
+                    } else if (SessionData.role.equals("Provider")) {
+                        JOptionPane.showMessageDialog(loginView, "Provider Login Successful");
+                        ProviderHomePage home = new ProviderHomePage();
+                        new Provider_NavigationController(home, SessionData.userID);
+                        openWindow(home);
+                        closeWindow(loginView);
 
-                JOptionPane.showMessageDialog(loginView, "Adopter Login Successful");
-
-                AdopterHomePage home = new AdopterHomePage();
-
-                openWindow(home);
-                closeWindow(loginView);
-
-            } else if (SessionData.role.equals("Provider")) {
-
-                JOptionPane.showMessageDialog(loginView, "Provider Login Successful");
-
-                ProviderHomePage home = new ProviderHomePage();
-
-                new Provider_NavigationController(home, SessionData.userID);
-
-                openWindow(home);
-                closeWindow(loginView);
-
-            } else if (SessionData.role.equals("Admin")) {
-
-                JOptionPane.showMessageDialog(loginView, "Admin Login Successful");
-
-                AdminAllAccountStatus adminPage = new AdminAllAccountStatus();
-
-                Connection conn = new MySqlConnector().openConnection();
-
-                new AdminAllAccountsController(adminPage, conn);
-                new Admin_NavigationController(adminPage);
-
-                openWindow(adminPage);
-                closeWindow(loginView);
+                    } else if (SessionData.role.equals("Admin")) {
+                        JOptionPane.showMessageDialog(loginView, "Admin Login Successful");
+                        AdminAllAccountStatus adminPage = new AdminAllAccountStatus();
+                        Connection conn = new MySqlConnector().openConnection();
+                        new AdminAllAccountsController(adminPage, conn);
+                        new Admin_NavigationController(adminPage);
+                        openWindow(adminPage);
+                        closeWindow(loginView);
+                    }
+                }
             }
         }
     }
 
     class CreateAccountListener implements ActionListener {
-
         @Override
         public void actionPerformed(ActionEvent e) {
-
             SignupWindow signup = new SignupWindow();
-
             new SignUpController(signup);
-
             signup.setLocationRelativeTo(null);
             signup.setVisible(true);
-
             loginView.dispose();
         }
     }

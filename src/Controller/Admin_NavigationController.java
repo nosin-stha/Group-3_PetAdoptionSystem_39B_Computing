@@ -91,6 +91,7 @@ public class Admin_NavigationController {
                     new AdminReportedAccountManagement();
 
             new Admin_NavigationController(page);
+            new AdminReportedAccountController(page, new database.MySqlConnector().openConnection());
 
             page.setLocationRelativeTo(null);
             page.setVisible(true);

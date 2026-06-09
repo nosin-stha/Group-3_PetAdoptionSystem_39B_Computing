@@ -108,7 +108,6 @@ public class AdoptionRequestsBoardDAO {
         return requests;
     }
 
-    // ── Accept a request and mark pet as Adopted ────────────────────────────
     public boolean acceptRequest(int adoptionID, int petID) {
         Connection con = null;
         try {

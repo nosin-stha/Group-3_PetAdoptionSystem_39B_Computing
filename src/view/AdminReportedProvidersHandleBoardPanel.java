@@ -4,6 +4,8 @@
  */
 package view;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Dell
@@ -18,9 +20,31 @@ public class AdminReportedProvidersHandleBoardPanel extends javax.swing.JPanel {
     }
     
     
-    public javax.swing.table.TableModel getTableModel() { 
-        return AdminReportsHandleTable.getModel(); 
-    }
+    public javax.swing.JTable getAdminReportsHandleTable() {
+    return AdminReportsHandleTable;
+}
+    
+    // ───── Shelter Info Setters ─────
+
+public void setShelterName(String name) {
+    Shelter_name_shelterinfopanal_petview_adopter.setText(name);
+}
+
+public void setShelterEmail(String email) {
+    ShelterMail_shelterinfopanal_petview_adopter.setText(email);
+}
+
+public void setShelterPhone(String phone) {
+    ShelterPhonenumber_shelterinfopanal_petview_adopter.setText(phone);
+}
+
+public void setTotalReportCount(int count) {
+    TotalReportedProvidersCount.setText(String.valueOf(count));
+}
+
+public void setShelterLogo(ImageIcon icon) {
+    Shelter_logo_shelterinfopanal_petview_adopter.setIcon(icon);
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -50,7 +74,7 @@ public class AdminReportedProvidersHandleBoardPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Adopter Name", "Email", "Report Reason", "Status", "Action"
+                "Adopter Username", "Email", "Report Reason", "Status", "Action"
             }
         ));
         jScrollPane1.setViewportView(AdminReportsHandleTable);
@@ -67,7 +91,7 @@ public class AdminReportedProvidersHandleBoardPanel extends javax.swing.JPanel {
 
         Shelter_logo_shelterinfopanal_petview_adopter.setText("Shelter logo");
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setText("--------------- Reports --------------");
 
         jLabel2.setText("Total Reported Providers:");
@@ -81,42 +105,41 @@ public class AdminReportedProvidersHandleBoardPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(Shelter_logo_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(109, 109, 109)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(Shelter_name_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(phoneicon_shelterinfopanal_petview_adopter)
-                                        .addComponent(Mailicon_shelterinfopanal_petview_adopter))
-                                    .addGap(23, 23, 23)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(ShelterPhonenumber_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(ShelterMail_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGap(0, 0, 0))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Shelter_logo_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(phoneicon_shelterinfopanal_petview_adopter)
+                                    .addComponent(Mailicon_shelterinfopanal_petview_adopter))
+                                .addGap(23, 23, 23)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ShelterPhonenumber_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ShelterMail_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(Shelter_name_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(TotalReportedProvidersCount, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 890, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(19, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(344, 344, 344))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
                         .addComponent(Shelter_logo_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
                         .addComponent(Shelter_name_shelterinfopanal_petview_adopter)
-                        .addGap(28, 28, 28)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(phoneicon_shelterinfopanal_petview_adopter)
                             .addComponent(ShelterPhonenumber_shelterinfopanal_petview_adopter))
@@ -124,15 +147,15 @@ public class AdminReportedProvidersHandleBoardPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ShelterMail_shelterinfopanal_petview_adopter)
                             .addComponent(Mailicon_shelterinfopanal_petview_adopter))))
-                .addGap(4, 4, 4)
+                .addGap(15, 15, 15)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(TotalReportedProvidersCount))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addGap(16, 16, 16))
         );
     }// </editor-fold>//GEN-END:initComponents
 
