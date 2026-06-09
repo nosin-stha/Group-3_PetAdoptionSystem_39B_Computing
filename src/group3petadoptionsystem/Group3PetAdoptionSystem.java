@@ -53,12 +53,12 @@ public class Group3PetAdoptionSystem {
         //SessionData.role = "Provider";
         //new ProviderHomePage().setVisible(true);
         
-        //Login login = new Login();
+        Login login = new Login();
 
-        //new LoginController(login); 
+        new LoginController(login); 
 
-        //login.setVisible(true);
-        //login.setLocationRelativeTo(null);
+        login.setVisible(true);
+        login.setLocationRelativeTo(null);
         
         
         
@@ -70,15 +70,14 @@ public class Group3PetAdoptionSystem {
         
         
         
-        SessionData.userID = 1;   // must exist in Adopters table
-        int providerID = 1;       // must exist in Providers table
+        //SessionData.userID = 1; 
+        //int providerID = 1;      
+        //ReportPetProvider view = new ReportPetProvider();
 
-        ReportPetProvider view = new ReportPetProvider();
+        //new ReportPetProviderController(view, providerID);
 
-        new ReportPetProviderController(view, providerID);
-
-        view.setLocationRelativeTo(null);
-        view.setVisible(true);
+        //view.setLocationRelativeTo(null);
+        //view.setVisible(true);
         
         //SessionData.userID = 1;  
         //SessionData.username = "yourAdopterUsername";

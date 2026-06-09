@@ -5,6 +5,7 @@ import DAO.ReportDAO;
 import model.ProviderData;
 import model.SessionData;
 import view.ReportPetProvider;
+import view.ShelterCard;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,9 +17,9 @@ public class ReportPetProviderController {
 
     private final ReportPetProvider view;
     private final int providerID;
-
     private ButtonGroup radioGroup;
 
+    // ✅ Constructor used when opening directly with a known providerID
     public ReportPetProviderController(ReportPetProvider view, int providerID) {
         this.view = view;
         this.providerID = providerID;
@@ -26,6 +27,24 @@ public class ReportPetProviderController {
         setupRadioGroup();
         loadProviderDetails();
         attachListeners();
+    }
+
+    // ✅ Static factory — wires ReportProvider_btn on a ShelterCard to open the report page
+    public static void attachToShelterCard(ShelterCard card, int providerID) {
+        card.addReportListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                openReportPage(providerID);
+            }
+        });
+    }
+
+    // ✅ Opens and initializes the ReportPetProvider window
+    private static void openReportPage(int providerID) {
+        ReportPetProvider reportView = new ReportPetProvider();
+        ReportPetProviderController controller = 
+            new ReportPetProviderController(reportView, providerID);
+        reportView.setLocationRelativeTo(null);
+        reportView.setVisible(true);
     }
 
     private void setupRadioGroup() {
@@ -37,7 +56,6 @@ public class ReportPetProviderController {
         radioGroup.add(view.getRadioButton5());
     }
 
-
     private String getSelectedReason() {
         if (view.getRadioButton1().isSelected()) return view.getRadioButton1().getText().trim();
         if (view.getRadioButton2().isSelected()) return view.getRadioButton2().getText().trim();
@@ -47,7 +65,6 @@ public class ReportPetProviderController {
         return null;
     }
 
-    // ✅ Controller clears selection after successful submit
     private void clearRadioSelection() {
         radioGroup.clearSelection();
     }

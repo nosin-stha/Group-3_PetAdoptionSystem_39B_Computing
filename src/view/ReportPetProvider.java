@@ -155,34 +155,34 @@ public class ReportPetProvider extends javax.swing.JFrame {
 
         Shelter_pfp.setText("ShelterPfp");
         jPanel1.add(Shelter_pfp);
-        Shelter_pfp.setBounds(10, 110, 70, 70);
+        Shelter_pfp.setBounds(40, 120, 70, 70);
 
         lblShelterName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblShelterName.setText("Shelter Name");
         jPanel1.add(lblShelterName);
-        lblShelterName.setBounds(90, 130, 160, 20);
+        lblShelterName.setBounds(120, 140, 160, 20);
 
         lblContacts.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblContacts.setText("Contacts:");
         jPanel1.add(lblContacts);
-        lblContacts.setBounds(90, 180, 60, 16);
+        lblContacts.setBounds(120, 190, 60, 16);
 
         lblPhoneNo_fill.setText("Phone No_fill");
         jPanel1.add(lblPhoneNo_fill);
-        lblPhoneNo_fill.setBounds(90, 220, 140, 16);
+        lblPhoneNo_fill.setBounds(120, 230, 140, 16);
 
         lblEmail_fill.setText("Email_fill");
         jPanel1.add(lblEmail_fill);
-        lblEmail_fill.setBounds(90, 250, 140, 16);
+        lblEmail_fill.setBounds(120, 260, 140, 16);
 
         lblLocation.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblLocation.setText("Location:");
         jPanel1.add(lblLocation);
-        lblLocation.setBounds(90, 330, 60, 16);
+        lblLocation.setBounds(120, 340, 60, 16);
 
         lblAddress_fill.setText("Address_fill");
         jPanel1.add(lblAddress_fill);
-        lblAddress_fill.setBounds(90, 360, 170, 16);
+        lblAddress_fill.setBounds(120, 370, 170, 16);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

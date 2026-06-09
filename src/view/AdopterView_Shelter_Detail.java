@@ -149,6 +149,8 @@ public class AdopterView_Shelter_Detail extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        mainpanal.setBackground(new java.awt.Color(255, 255, 255));
+
         toppanel.setBackground(new java.awt.Color(255, 153, 51));
         toppanel.setPreferredSize(new java.awt.Dimension(1000, 112));
 
@@ -233,6 +235,7 @@ public class AdopterView_Shelter_Detail extends javax.swing.JFrame {
 
         Shelter_logo_adopterView_shelter_details.setText("jLabel1");
 
+        Shelter_name_adopterView_shelter_details.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Shelter_name_adopterView_shelter_details.setText("jLabel1");
 
         Contactstext.setText("Contacts:");
