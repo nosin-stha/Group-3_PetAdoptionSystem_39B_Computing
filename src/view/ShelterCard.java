@@ -43,7 +43,7 @@ public class ShelterCard extends javax.swing.JPanel {
         btnViewShelterDetail = new javax.swing.JButton();
         LblShelterName = new javax.swing.JLabel();
         ShelterImg_SheltersPage = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(248, 230, 182));
 
@@ -55,8 +55,9 @@ public class ShelterCard extends javax.swing.JPanel {
 
         ShelterImg_SheltersPage.setText("shelter img");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/report_icon.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
+        jButton1.setBackground(new java.awt.Color(248, 230, 182));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/report_icon.png"))); // NOI18N
+        jButton1.setBorder(null);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -70,21 +71,21 @@ public class ShelterCard extends javax.swing.JPanel {
                 .addContainerGap(37, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(ShelterImg_SheltersPage, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(52, 52, 52))
                             .addComponent(LblShelterName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(45, 45, 45))))
+                        .addGap(45, 45, 45))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jLabel2)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ShelterImg_SheltersPage, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -100,6 +101,6 @@ public class ShelterCard extends javax.swing.JPanel {
     private javax.swing.JLabel LblShelterName;
     private javax.swing.JLabel ShelterImg_SheltersPage;
     private javax.swing.JButton btnViewShelterDetail;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }
