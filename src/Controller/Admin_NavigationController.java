@@ -11,7 +11,7 @@ package Controller;
 
 import view.AdminAllAccountStatus;
 import view.AdminReportedAccountManagement;
-// import view.AdminUnfreezeRequestManagement;
+ import view.AdminUnfreezeRequestManagement;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,7 +33,7 @@ public class Admin_NavigationController {
             allAccounts.addAllAccountsListener(new AllAccountsListener());
             allAccounts.addReportsListener(new ReportsListener());
 
-            // allAccounts.addUnfreezeRequestsListener(new UnfreezeRequestsListener());
+             allAccounts.addUnfreezeRequestsListener(new UnfreezeRequestsListener());
 
             allAccounts.addLogoutListener(new LogoutListener());
 
@@ -42,13 +42,13 @@ public class Admin_NavigationController {
             reports.addAllAccountsListener(new AllAccountsListener());
             reports.addReportsListener(new ReportsListener());
 
-            // reports.addUnfreezeRequestsListener(new UnfreezeRequestsListener());
+             reports.addUnfreezeRequestsListener(new UnfreezeRequestsListener());
 
             reports.addLogoutListener(new LogoutListener());
 
         }
 
-        /*
+        
         else if (currentFrame instanceof AdminUnfreezeRequestManagement unfreeze) {
 
             unfreeze.addAllAccountsListener(new AllAccountsListener());
@@ -56,7 +56,7 @@ public class Admin_NavigationController {
             unfreeze.addUnfreezeRequestsListener(new UnfreezeRequestsListener());
             unfreeze.addLogoutListener(new LogoutListener());
         }
-        */
+        
     }
 
     public class AllAccountsListener implements ActionListener {
@@ -100,7 +100,7 @@ public class Admin_NavigationController {
         }
     }
 
-    /*
+    
     public class UnfreezeRequestsListener implements ActionListener {
 
         @Override
@@ -113,6 +113,8 @@ public class Admin_NavigationController {
                     new AdminUnfreezeRequestManagement();
 
             new Admin_NavigationController(page);
+            new AdminUnfreezeController(page); 
+
 
             page.setLocationRelativeTo(null);
             page.setVisible(true);
@@ -120,7 +122,7 @@ public class Admin_NavigationController {
             currentFrame.dispose();
         }
     }
-    */
+    
 
     public class LogoutListener implements ActionListener {
 
