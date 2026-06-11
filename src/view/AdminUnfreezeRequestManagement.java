@@ -117,20 +117,20 @@ public class AdminUnfreezeRequestManagement extends javax.swing.JFrame {
 
         PetRequests_Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "providerID", "Provider Name", "Email", "Report", "Request Details", "Status", "Action"
+                "reportID", "providerID", "Provider Name", "Email", "Report", "Request Details", "Status", "Action"
             }
         ));
         PetRequestsTable_ScrollPane.setViewportView(PetRequests_Table);
         if (PetRequests_Table.getColumnModel().getColumnCount() > 0) {
-            PetRequests_Table.getColumnModel().getColumn(2).setPreferredWidth(200);
-            PetRequests_Table.getColumnModel().getColumn(2).setMaxWidth(1000);
-            PetRequests_Table.getColumnModel().getColumn(3).setPreferredWidth(2);
+            PetRequests_Table.getColumnModel().getColumn(3).setPreferredWidth(200);
+            PetRequests_Table.getColumnModel().getColumn(3).setMaxWidth(1000);
+            PetRequests_Table.getColumnModel().getColumn(4).setPreferredWidth(2);
         }
 
         total_number_of_pets.setText("jLabel2");
