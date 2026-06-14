@@ -61,10 +61,10 @@ public class AdminAllAccountStatus extends javax.swing.JFrame {
         Admin_AllAccountsPanel = new javax.swing.JPanel();
         toppanel_viewpet_adopter = new javax.swing.JPanel();
         Logo = new javax.swing.JLabel();
-        AllAccounts_btn = new javax.swing.JButton();
         Reports_btn = new javax.swing.JButton();
-        UnfreezeRequests_btn = new javax.swing.JButton();
+        AllAccounts_btn = new javax.swing.JButton();
         Logout_btn = new javax.swing.JButton();
+        UnfreezeRequests_btn = new javax.swing.JButton();
         PanelWithAllAccountsTable = new javax.swing.JPanel();
         AllAccountsScrollPane = new javax.swing.JScrollPane();
         AdminAllAccountsStatusTable = new javax.swing.JTable();
@@ -81,17 +81,15 @@ public class AdminAllAccountStatus extends javax.swing.JFrame {
 
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pas_circular_logo.png"))); // NOI18N
 
-        AllAccounts_btn.setBackground(new java.awt.Color(255, 204, 51));
+        Reports_btn.setText("Reports");
+
+        AllAccounts_btn.setBackground(new java.awt.Color(255, 204, 102));
         AllAccounts_btn.setText("All Accounts");
 
-        Reports_btn.setText("Reports");
-        Reports_btn.addActionListener(this::Reports_btnActionPerformed);
-
-        UnfreezeRequests_btn.setText("Unfreeze Requests");
-        UnfreezeRequests_btn.addActionListener(this::UnfreezeRequests_btnActionPerformed);
-
         Logout_btn.setText("Logout");
-        Logout_btn.addActionListener(this::Logout_btnActionPerformed);
+
+        UnfreezeRequests_btn.setText("Unfreeze Request");
+        UnfreezeRequests_btn.addActionListener(this::UnfreezeRequests_btnActionPerformed);
 
         javax.swing.GroupLayout toppanel_viewpet_adopterLayout = new javax.swing.GroupLayout(toppanel_viewpet_adopter);
         toppanel_viewpet_adopter.setLayout(toppanel_viewpet_adopterLayout);
@@ -100,30 +98,30 @@ public class AdminAllAccountStatus extends javax.swing.JFrame {
             .addGroup(toppanel_viewpet_adopterLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(Logo)
-                .addGap(96, 96, 96)
+                .addGap(108, 108, 108)
                 .addComponent(AllAccounts_btn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
                 .addComponent(Reports_btn)
-                .addGap(51, 51, 51)
+                .addGap(26, 26, 26)
                 .addComponent(UnfreezeRequests_btn)
-                .addGap(155, 155, 155)
+                .addGap(152, 152, 152)
                 .addComponent(Logout_btn)
-                .addGap(171, 171, 171))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         toppanel_viewpet_adopterLayout.setVerticalGroup(
             toppanel_viewpet_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(toppanel_viewpet_adopterLayout.createSequentialGroup()
                 .addGroup(toppanel_viewpet_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(toppanel_viewpet_adopterLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(Logo))
+                    .addGroup(toppanel_viewpet_adopterLayout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addGroup(toppanel_viewpet_adopterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(AllAccounts_btn)
+                            .addComponent(Logout_btn)
                             .addComponent(Reports_btn)
-                            .addComponent(UnfreezeRequests_btn)
-                            .addComponent(Logout_btn)))
-                    .addGroup(toppanel_viewpet_adopterLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(Logo)))
+                            .addComponent(AllAccounts_btn)
+                            .addComponent(UnfreezeRequests_btn))))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -214,21 +212,13 @@ public class AdminAllAccountStatus extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Reports_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reports_btnActionPerformed
+    private void Search_UserAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_UserAccountActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Reports_btnActionPerformed
+    }//GEN-LAST:event_Search_UserAccountActionPerformed
 
     private void UnfreezeRequests_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UnfreezeRequests_btnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_UnfreezeRequests_btnActionPerformed
-
-    private void Logout_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Logout_btnActionPerformed
-
-    }//GEN-LAST:event_Logout_btnActionPerformed
-
-    private void Search_UserAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_UserAccountActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Search_UserAccountActionPerformed
 
     /**
      * @param args the command line arguments

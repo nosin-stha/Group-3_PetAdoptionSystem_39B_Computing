@@ -41,7 +41,7 @@ public class AdminAllAccountsController {
         table.setBackground(Color.WHITE);
         table.setFillsViewportHeight(true);
         table.getTableHeader().setBackground(new Color(255, 153, 51));
-        table.getTableHeader().setForeground(Color.WHITE);
+        table.getTableHeader().setForeground(Color.BLACK);
         table.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 13));
         table.setFont(new Font("Segoe UI", Font.PLAIN, 13));
         table.setGridColor(new Color(230, 230, 230));
@@ -52,6 +52,10 @@ public class AdminAllAccountsController {
         table.getColumnModel().getColumn(1).setCellRenderer(new WrappedTextRenderer());
 
         table.getColumnModel().getColumn(4).setCellRenderer(new StatusCellRenderer());
+        
+        for (int i = 0; i < table.getColumnCount(); i++) {
+            table.getColumnModel().getColumn(i).setResizable(false);
+        }
     }
 
     private void loadAllAccounts() {
@@ -106,10 +110,10 @@ public class AdminAllAccountsController {
             setBackground(Color.WHITE);
 
             switch (status) {
-                case "active"   -> setForeground(new Color(0, 130, 0));
+                case "active" -> setForeground(new Color(0, 130, 0));
                 case "reported" -> setForeground(new Color(200, 120, 0));
                 case "disabled" -> setForeground(new Color(198, 40, 40));
-                default         -> setForeground(Color.BLACK);
+                default -> setForeground(Color.BLACK);
             }
 
             return this;

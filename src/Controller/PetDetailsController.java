@@ -44,6 +44,13 @@ public class PetDetailsController implements ActionListener {
         this.hideAdopt = false;
         card.addViewMoreListener(this);
     }
+    
+    public PetDetailsController(PetsData pet, String role, JFrame parentFrame) {
+        this.pet = pet;
+        this.role = role;
+        this.parentFrame = parentFrame;
+        this.hideAdopt = false;
+    }
 
     public PetDetailsController(AdopterRequestCard card, PetsData pet, String role, JFrame parentFrame) {
         this.pet = pet;

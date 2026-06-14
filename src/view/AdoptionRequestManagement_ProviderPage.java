@@ -40,6 +40,10 @@ public class AdoptionRequestManagement_ProviderPage extends javax.swing.JFrame {
     public void addLogoutListener(ActionListener listener) {
         Logout_btn.addActionListener(listener);
     }
+    
+    public void addProfileListener(ActionListener listener) {
+        profile_btn.addActionListener(listener);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

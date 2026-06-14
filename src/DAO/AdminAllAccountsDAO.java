@@ -23,27 +23,29 @@ public class AdminAllAccountsDAO {
 
     public ArrayList<Object[]> getAllAccounts() {
     ArrayList<Object[]> accounts = new ArrayList<>();
-    
-    // Guard against null connection
+
     if (connection == null) {
         System.err.println("ERROR: Database connection is null!");
         return accounts;
     }
     
     String sql =
-        "SELECT 'Adopter' AS accountType, " +
-        "adpUsername AS username, " +
-        "adpEmail AS email, " +
-        "'0' AS reports, " +
-        "adpStatus AS status " +
-        "FROM Adopters " +
-        "UNION ALL " +
-        "SELECT 'Provider' AS accountType, " +
-        "shelterName AS username, " +
-        "proEmail AS email, " +
-        "'0' AS reports, " +
-        "proStatus AS status " +
-        "FROM Providers";
+    "SELECT 'Adopter' AS accountType, " +
+    "a.adpUsername AS username, " +
+    "a.adpEmail AS email, " +
+    "0 AS reports, " +                        
+    "a.adpStatus AS status " +
+    "FROM Adopters a " +
+    "UNION ALL " +
+    "SELECT 'Provider' AS accountType, " +
+    "p.shelterName AS username, " +
+    "p.proEmail AS email, " +
+    "COUNT(r.reportID) AS reports, " +         
+    "p.proStatus AS status " +
+    "FROM Providers p " +
+    "LEFT JOIN AccountReport r " +             
+    "    ON p.providerID = r.providerID " +
+    "GROUP BY p.providerID, p.shelterName, p.proEmail, p.proStatus";
     
     try (PreparedStatement ps = connection.prepareStatement(sql);
          ResultSet rs = ps.executeQuery()) {
@@ -53,7 +55,7 @@ public class AdminAllAccountsDAO {
                 rs.getString(1),
                 rs.getString(2),
                 rs.getString(3),
-                rs.getString(4),
+                rs.getInt(4),
                 rs.getString(5)
             };
             System.out.println("Row fetched: " + row[0] + " | " + row[1]);

@@ -1,14 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package DAO;
-
-/**
- *
- * @author Dell
- */
-
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -29,21 +19,34 @@ public class AdminAccountReportHandleDAO {
                    p.proEmail,
                    p.proPhoneNo,
                    p.proPfp,
-                   COUNT(ar.reportID) AS totalReports
+                   COUNT(ar.reportID) AS totalReports,
+                   p.proAddress,
+                   p.proMissionStatement,
+                   p.proAdoptionPolicy
             FROM Providers p
             JOIN AccountReport ar ON ar.providerID = p.providerID
-            GROUP BY p.providerID, p.shelterName, p.proEmail, p.proPhoneNo, p.proPfp
+            GROUP BY p.providerID,
+                     p.shelterName,
+                     p.proEmail,
+                     p.proPhoneNo,
+                     p.proPfp,
+                     p.proAddress,
+                     p.proMissionStatement,
+                     p.proAdoptionPolicy
         """;
         try (PreparedStatement ps = connection.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
                 list.add(new Object[]{
-                        rs.getInt("providerID"),
-                        rs.getString("shelterName"),
-                        rs.getString("proEmail"),
-                        rs.getString("proPhoneNo"),
-                        rs.getString("proPfp"),
-                        rs.getInt("totalReports")
+                    rs.getInt("providerID"),           // [0]
+                    rs.getString("shelterName"),       // [1]
+                    rs.getString("proEmail"),          // [2]
+                    rs.getString("proPhoneNo"),        // [3]
+                    rs.getString("proPfp"),            // [4]
+                    rs.getInt("totalReports"),         // [5]
+                    rs.getString("proAddress"),        // [6]
+                    rs.getString("proMissionStatement"), // [7]
+                    rs.getString("proAdoptionPolicy")  // [8]
                 });
             }
         } catch (SQLException e) {
@@ -69,11 +72,11 @@ public class AdminAccountReportHandleDAO {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(new Object[]{
-                        rs.getInt("reportID"),
-                        rs.getString("adpUsername"),
-                        rs.getString("adpEmail"),
-                        rs.getString("reportReason"),
-                        rs.getString("reportStatus")
+                    rs.getInt("reportID"),
+                    rs.getString("adpUsername"),
+                    rs.getString("adpEmail"),
+                    rs.getString("reportReason"),
+                    rs.getString("reportStatus")
                 });
             }
         } catch (SQLException e) {
@@ -88,53 +91,52 @@ public class AdminAccountReportHandleDAO {
         try {
             connection.setAutoCommit(false);
             try (PreparedStatement ps = connection.prepareStatement(updateReport)) {
-                ps.setInt(1, reportID);
-                ps.executeUpdate();
+                ps.setInt(1, reportID); ps.executeUpdate();
             }
             try (PreparedStatement ps = connection.prepareStatement(updateProvider)) {
-                ps.setInt(1, providerID);
-                ps.executeUpdate();
+                ps.setInt(1, providerID); ps.executeUpdate();
             }
             connection.commit();
             return true;
         } catch (SQLException e) {
-            try { connection.rollback(); } catch (SQLException ex) {}
+            try { connection.rollback(); } catch (SQLException ex) { ex.printStackTrace(); }
             e.printStackTrace();
             return false;
         } finally {
-            try { connection.setAutoCommit(true); } catch (SQLException e) {}
+            try { connection.setAutoCommit(true); } catch (SQLException e) { e.printStackTrace(); }
         }
     }
 
     public boolean dismissReport(int reportID, int providerID) {
-        // THIS row becomes 'Disabled', provider account becomes 'Disabled'
         String updateReport   = "UPDATE AccountReport SET reportStatus='Disabled' WHERE reportID=?";
         String updateProvider = "UPDATE Providers SET proStatus='Disabled' WHERE providerID=?";
         try {
             connection.setAutoCommit(false);
             try (PreparedStatement ps = connection.prepareStatement(updateReport)) {
-                ps.setInt(1, reportID);
-                ps.executeUpdate();
+                ps.setInt(1, reportID); ps.executeUpdate();
             }
             try (PreparedStatement ps = connection.prepareStatement(updateProvider)) {
-                ps.setInt(1, providerID);
-                ps.executeUpdate();
+                ps.setInt(1, providerID); ps.executeUpdate();
             }
             connection.commit();
             return true;
         } catch (SQLException e) {
-            try { connection.rollback(); } catch (SQLException ex) {}
+            try { connection.rollback(); } catch (SQLException ex) { ex.printStackTrace(); }
             e.printStackTrace();
             return false;
         } finally {
-            try { connection.setAutoCommit(true); } catch (SQLException e) {}
+            try { connection.setAutoCommit(true); } catch (SQLException e) { e.printStackTrace(); }
         }
     }
 
-    // Called after dismissReport to auto-resolve all remaining pending reports for this provider
     public boolean resolveAllOtherReports(int providerID, int exceptReportID) {
-        String sql = "UPDATE AccountReport SET reportStatus='Resolved' " +
-                     "WHERE providerID=? AND reportID != ? AND reportStatus='Pending'";
+        String sql = """
+            UPDATE AccountReport
+            SET reportStatus = 'Resolved'
+            WHERE providerID = ?
+              AND reportID != ?
+              AND reportStatus = 'Pending'
+        """;
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setInt(1, providerID);
             ps.setInt(2, exceptReportID);

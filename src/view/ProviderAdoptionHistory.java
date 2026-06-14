@@ -44,6 +44,10 @@ public class ProviderAdoptionHistory extends javax.swing.JFrame {
         Logout_btn.addActionListener(listener);
     }
     
+    public void addProfileListener(ActionListener listener) {
+        profile_btn.addActionListener(listener);
+    }
+    
     
     public javax.swing.JPanel getSpnlAdoptionHistory() {
         return spnlAdoptionHistory;
@@ -52,6 +56,8 @@ public class ProviderAdoptionHistory extends javax.swing.JFrame {
     public javax.swing.JLabel getlblPetCount() {
         return lblPetCount;
     }
+    
+    
     
     /**
      * This method is called from within the constructor to initialize the form.

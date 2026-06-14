@@ -14,6 +14,7 @@ import DAO.UsersDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 import model.AdopterData;
 import model.SessionData;
 import utils.EmailService;
@@ -106,6 +107,15 @@ public class OTPController {
                         JOptionPane.showMessageDialog(otpView, "Adopter registered successfully!");
 
                         close();
+                        
+                        SwingUtilities.invokeLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                for (java.awt.Window w : java.awt.Window.getWindows()) {
+                                    if (w instanceof view.SignupWindow) w.dispose();
+                                }
+                            }
+                        });
                         
                         Login login = new Login();
                         new LoginController(login);

@@ -24,6 +24,13 @@ public class AdminUnfreezeController {
         this.view = view;
         setupTable();
         loadRequests();
+        
+        new javax.swing.Timer(5000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                loadRequests();
+            }
+        }).start();
     }
 
     private void setupTable() {
@@ -51,6 +58,19 @@ public class AdminUnfreezeController {
         cm.getColumn(6).setCellRenderer(new StatusRenderer());
         cm.getColumn(7).setCellRenderer(new ActionRenderer());
         cm.getColumn(7).setCellEditor(new ActionEditor(new JCheckBox()));
+        
+        
+        JTableHeader header = table.getTableHeader();
+        header.setBackground(new Color(255, 190, 86));
+        header.setForeground(Color.BLACK);
+        header.setFont(new Font("Segoe UI", Font.BOLD, 12));
+        header.setReorderingAllowed(false);
+
+        cm.getColumn(2).setCellRenderer(new HtmlRenderer());
+        
+        for (int i = 0; i < cm.getColumnCount(); i++) {
+            cm.getColumn(i).setResizable(false);
+        }
     }
 
     private void hideColumn(JTable table, int col) {
@@ -75,7 +95,7 @@ public class AdminUnfreezeController {
             model.addRow(new Object[]{
                     d.getRecoverID(),
                     d.getProviderID(),
-                    d.getProviderName(),
+                    "<html><div style='width:150px'>" + d.getProviderName() + "</div></html>",
                     d.getEmail(),
                     "Report",
                     d.getRequestDetail(),
@@ -94,6 +114,7 @@ public class AdminUnfreezeController {
 
     class StatusRenderer extends DefaultTableCellRenderer {
 
+        @Override
         public Component getTableCellRendererComponent(
                 JTable table, Object value,
                 boolean isSelected, boolean hasFocus,
@@ -134,6 +155,7 @@ public class AdminUnfreezeController {
             done.setForeground(Color.GRAY);
         }
 
+        @Override
         public Component getTableCellRendererComponent(
                 JTable table, Object value,
                 boolean isSelected, boolean hasFocus,
@@ -171,12 +193,14 @@ public class AdminUnfreezeController {
             done.setForeground(Color.GRAY);
 
             accept.addActionListener(new ActionListener() {
+                @Override
                 public void actionPerformed(ActionEvent e) {
                     handle(ACCEPTED);
                 }
             });
 
             deny.addActionListener(new ActionListener() {
+                @Override
                 public void actionPerformed(ActionEvent e) {
                     handle(DENIED);
                 }
@@ -219,6 +243,7 @@ public class AdminUnfreezeController {
             loadRequests();
         }
 
+        @Override
         public Component getTableCellEditorComponent(
                 JTable table, Object value,
                 boolean isSelected, int row, int column) {
@@ -240,6 +265,7 @@ public class AdminUnfreezeController {
             return panel;
         }
 
+        @Override
         public Object getCellEditorValue() {
             return "";
         }
@@ -254,6 +280,7 @@ public class AdminUnfreezeController {
             setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         }
 
+        @Override
         public Component getTableCellRendererComponent(
                 JTable table, Object value,
                 boolean isSelected, boolean hasFocus,
@@ -264,4 +291,32 @@ public class AdminUnfreezeController {
             return this;
         }
     }
+    
+    
+    class HtmlRenderer extends DefaultTableCellRenderer {
+
+        @Override
+        public Component getTableCellRendererComponent(
+            JTable table,
+            Object value,
+            boolean isSelected,
+            boolean hasFocus,
+            int row,
+            int column) {
+
+            JLabel label = (JLabel) super.getTableCellRendererComponent(
+                    table,
+                    value,
+                    isSelected,
+                    hasFocus,
+                    row,
+                    column);
+
+                label.setHorizontalAlignment(SwingConstants.CENTER);
+                label.setVerticalAlignment(SwingConstants.CENTER);
+
+                return label;
+        }
+    }
+    
 }

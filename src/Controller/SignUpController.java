@@ -107,23 +107,18 @@ public class SignUpController {
                 return;
             }
 
-            // store data in session model
             SessionData.username = username;
             SessionData.password = password;
-            SessionData.email = email;
-            SessionData.role = role;
+            SessionData.email    = email;
+            SessionData.role     = role;
             SessionData.imagePath = mainImagePath;
 
-            // open OTP window after valid credentials
             OTPWindow otp = new OTPWindow();
             otp.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-
             otp.setLocationRelativeTo(signupView);
-
             otp.setAlwaysOnTop(true);
-            
-            signupView.setEnabled(false);
 
+            signupView.setEnabled(false);
 
             otp.addWindowListener(new java.awt.event.WindowAdapter() {
                 @Override
@@ -133,7 +128,7 @@ public class SignUpController {
                 }
             });
 
-            signupView.dispose();   // CLOSE signup immediately
+        
             OTPController controller = new OTPController(otp);
             controller.open();
         }

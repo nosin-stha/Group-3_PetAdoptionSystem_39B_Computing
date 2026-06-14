@@ -4,6 +4,8 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author User
@@ -26,21 +28,30 @@ public class ShelterListingDisplay extends javax.swing.JFrame {
 
     
     // navigation button listeners
-public void addHomeListener(java.awt.event.ActionListener listener) {
-    Home_btn.addActionListener(listener);
-}
+    public void addHomeListener(java.awt.event.ActionListener listener) {
+        Home_btn.addActionListener(listener);
+    }
 
-public void addMyRequestsListener(java.awt.event.ActionListener listener) {
-    MyRequests_btn.addActionListener(listener);
-}
+    public void addMyRequestsListener(java.awt.event.ActionListener listener) {
+        MyRequests_btn.addActionListener(listener);
+    }
 
-public void addLogoutListener(java.awt.event.ActionListener listener) {
-    Logout_btn.addActionListener(listener);
-}
+    public void addLogoutListener(java.awt.event.ActionListener listener) {
+        Logout_btn.addActionListener(listener);
+    }
 
-public void addShelterListener(java.awt.event.ActionListener listener) {
-    Shelters_btn.addActionListener(listener);
-}
+    public void addShelterListener(java.awt.event.ActionListener listener) {
+        Shelters_btn.addActionListener(listener);
+    }
+
+    public void addFavouriteListener(ActionListener listener) {
+        Favourite_btn.addActionListener(listener);
+    }
+    
+    public void addProfileListener(ActionListener listener) {
+        profile_btn.addActionListener(listener);
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

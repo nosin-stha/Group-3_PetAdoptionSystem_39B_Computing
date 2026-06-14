@@ -100,34 +100,34 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Component id="Logo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
                       <Component id="AllAccounts_btn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="58" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="Reports_btn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="UnfreezeRequests_btn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
                       <Component id="Logout_btn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="171" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="AllAccounts_btn" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="Reports_btn" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="UnfreezeRequests_btn" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="Logout_btn" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                               <Component id="Logo" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="Logout_btn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Reports_btn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="AllAccounts_btn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="UnfreezeRequests_btn" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <EmptySpace pref="21" max="32767" attributes="0"/>
@@ -143,36 +143,30 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="AllAccounts_btn">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="33" green="cc" red="ff" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="All Accounts"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JButton" name="Reports_btn">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Reports"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Reports_btnActionPerformed"/>
-              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="UnfreezeRequests_btn">
+            <Component class="javax.swing.JButton" name="AllAccounts_btn">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Unfreeze Requests"/>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="cc" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="All Accounts"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UnfreezeRequests_btnActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="Logout_btn">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Logout"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="UnfreezeRequests_btn">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Unfreeze Request"/>
+              </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Logout_btnActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UnfreezeRequests_btnActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

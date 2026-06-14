@@ -5,6 +5,8 @@ import view.AdopterHomePage;
 import view.AdoptionRequestTrackingPage;
 import view.AdopterViewPetDetails;
 import view.ShelterListingDisplay;
+//import view.AdopterProfile;
+//import view.PetFavouritePage;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
@@ -25,30 +27,57 @@ public class NavigationController {
             home.addMyRequestsListener(new MyRequestsListener());
             home.addLogoutListener(new LogoutListener());
             home.addShelterListener(new ShelterListener());
+            //home.addFavouriteListener(new FavouriteListener());
+            //home.addProfileListener(new ProfileListener());
 
         } else if (currentFrame instanceof AdoptionRequestTrackingPage requests) {
             requests.addHomeListener(new HomeListener());
             requests.addMyRequestsListener(new MyRequestsListener());
             requests.addLogoutListener(new LogoutListener());
             requests.addShelterListener(new ShelterListener());
+            //requests.addFavouriteListener(new FavouriteListener());
+            //requests.addProfileListener(new ProfileListener());
 
         } else if (currentFrame instanceof AdopterViewPetDetails petDetails) {
             petDetails.addHomeListener(new HomeListener());
             petDetails.addMyRequestsListener(new MyRequestsListener());
             petDetails.addLogoutListener(new LogoutListener());
             petDetails.addShelterListener(new ShelterListener());
+            //petDetails.addFavouriteListener(new FavouriteListener());
+            //petDetails.addProfileListener(new ProfileListener());
 
         } else if (currentFrame instanceof ShelterListingDisplay shelter) {
             shelter.addHomeListener(new HomeListener());
             shelter.addMyRequestsListener(new MyRequestsListener());
             shelter.addLogoutListener(new LogoutListener());
             shelter.addShelterListener(new ShelterListener());
+            //shelter.addFavouriteListener(new FavouriteListener());
+            //shelter.addProfileListener(new ProfileListener());
+            
         } else if (currentFrame instanceof AdopterView_Shelter_Detail shelterview) {
             shelterview.addHomeListener(new HomeListener());
             shelterview.addMyRequestsListener(new MyRequestsListener());
             shelterview.addLogoutListener(new LogoutListener());
             shelterview.addShelterListener(new ShelterListener());
-        }
+            //shelterview.addFavouriteListener(new FavouriteListener());
+            //shelterview.addProfileListener(new ProfileListener());
+            
+        //} else if (currentFrame instanceof PetFavouritePage petFavourite) {
+        //    petFavourite.addHomeListener(new HomeListener());
+        //    petFavourite.addMyRequestsListener(new MyRequestsListener());
+        //    petFavourite.addLogoutListener(new LogoutListener());
+        //    petFavourite.addShelterListener(new ShelterListener());
+            //petFavourite.addFavouriteListener(new FavouriteListener());
+            //petFavourite.addProfileListener(new ProfileListener());
+            
+        //} else if (currentFrame instanceof AdopterProfile adpProfile) {
+        //    adpProfile.addHomeListener(new HomeListener());
+        //    adpProfile.addMyRequestsListener(new MyRequestsListener());
+        //    adpProfile.addLogoutListener(new LogoutListener());
+        //    adpProfile.addShelterListener(new ShelterListener());
+            //adpProfile.addFavouriteListener(new FavouriteListener());
+            //adpProfile.addProfileListener(new ProfileListener());
+        }   
     }
 
     public class HomeListener implements ActionListener {
@@ -95,4 +124,30 @@ public class NavigationController {
             currentFrame.dispose();
         }
     }
+    
+    
+    //public class FavouriteListener implements ActionListener {
+    //    @Override
+    //    public void actionPerformed(ActionEvent e) {
+    //        if (currentFrame instanceof PetFavouritePage) return;
+    //        PetFavouritePage petFavourites = new PetFavouritePage();
+    //        new PetFavouriteController(favouriteView);
+    //        petFavourites.setLocationRelativeTo(null);
+    //        petFavourites.setVisible(true);
+    //        currentFrame.dispose();
+    //    }
+    //}
+    
+    
+    //public class ProfileListener implements ActionListener {
+    //   @Override
+    //    public void actionPerformed(ActionEvent e) {
+    //        if (currentFrame instanceof AdopterProfile) return;
+    //        AdopterProfile adpProfile = new AdopterProfile;
+    //        new AdopterProfileController(adpProfile);
+    //        adpProfile.setLocationRelativeTo(null);
+    //        adpProfile.setVisible(true);
+    //        currentFrame.dispose();
+    //    }
+    //}
 }

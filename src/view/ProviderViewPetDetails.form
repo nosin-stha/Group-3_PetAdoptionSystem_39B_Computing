@@ -273,7 +273,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="Breed_name_petview_provider">
+        <Component class="javax.swing.JLabel" name="PetType_name_petview_provider">
           <Properties>
             <Property name="text" type="java.lang.String" value="Pet Type"/>
           </Properties>

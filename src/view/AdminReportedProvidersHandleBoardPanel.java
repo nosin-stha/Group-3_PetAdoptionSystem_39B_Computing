@@ -4,6 +4,7 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 
 /**
@@ -26,25 +27,29 @@ public class AdminReportedProvidersHandleBoardPanel extends javax.swing.JPanel {
     
     // ───── Shelter Info Setters ─────
 
-public void setShelterName(String name) {
-    Shelter_name_shelterinfopanal_petview_adopter.setText(name);
-}
+    public void setShelterName(String name) {
+        Shelter_name_shelterinfopanal_petview_adopter.setText(name);
+    }
 
-public void setShelterEmail(String email) {
-    ShelterMail_shelterinfopanal_petview_adopter.setText(email);
-}
+    public void setShelterEmail(String email) {
+        ShelterMail_shelterinfopanal_petview_adopter.setText(email);
+    }
 
-public void setShelterPhone(String phone) {
-    ShelterPhonenumber_shelterinfopanal_petview_adopter.setText(phone);
-}
+    public void setShelterPhone(String phone) {
+        ShelterPhonenumber_shelterinfopanal_petview_adopter.setText(phone);
+    }
 
-public void setTotalReportCount(int count) {
-    TotalReportedProvidersCount.setText(String.valueOf(count));
-}
+    public void setTotalReportCount(int count) {
+        TotalReportedProvidersCount.setText(String.valueOf(count));
+    }
+    
+    public void addViewShelterListener(ActionListener listener) {
+        viewShelter_btn.addActionListener(listener);
+    }
 
-public void setShelterLogo(ImageIcon icon) {
-    Shelter_logo_shelterinfopanal_petview_adopter.setIcon(icon);
-}
+    public void setShelterLogo(ImageIcon icon) {
+        Shelter_logo_shelterinfopanal_petview_adopter.setIcon(icon);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -66,6 +71,7 @@ public void setShelterLogo(ImageIcon icon) {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         TotalReportedProvidersCount = new javax.swing.JLabel();
+        viewShelter_btn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(248, 230, 182));
 
@@ -98,6 +104,8 @@ public void setShelterLogo(ImageIcon icon) {
 
         TotalReportedProvidersCount.setText("3");
 
+        viewShelter_btn.setText("view shelter");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -115,8 +123,11 @@ public void setShelterLogo(ImageIcon icon) {
                                     .addComponent(Mailicon_shelterinfopanal_petview_adopter))
                                 .addGap(23, 23, 23)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ShelterPhonenumber_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ShelterMail_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(ShelterMail_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(ShelterPhonenumber_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(viewShelter_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(Shelter_name_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -138,11 +149,16 @@ public void setShelterLogo(ImageIcon icon) {
                         .addComponent(Shelter_logo_shelterinfopanal_petview_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addComponent(Shelter_name_shelterinfopanal_petview_adopter)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(phoneicon_shelterinfopanal_petview_adopter)
-                            .addComponent(ShelterPhonenumber_shelterinfopanal_petview_adopter))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Shelter_name_shelterinfopanal_petview_adopter)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(phoneicon_shelterinfopanal_petview_adopter)
+                                    .addComponent(ShelterPhonenumber_shelterinfopanal_petview_adopter)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(viewShelter_btn)
+                                .addGap(2, 2, 2)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ShelterMail_shelterinfopanal_petview_adopter)
@@ -172,5 +188,6 @@ public void setShelterLogo(ImageIcon icon) {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel phoneicon_shelterinfopanal_petview_adopter;
+    private javax.swing.JButton viewShelter_btn;
     // End of variables declaration//GEN-END:variables
 }

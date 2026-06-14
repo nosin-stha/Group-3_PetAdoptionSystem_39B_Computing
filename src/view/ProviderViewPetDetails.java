@@ -46,7 +46,7 @@ public class ProviderViewPetDetails extends javax.swing.JFrame {
         Breed_petview_provider = new javax.swing.JLabel();
         Gender_petview_provider = new javax.swing.JLabel();
         Age_petview_provider = new javax.swing.JLabel();
-        Breed_name_petview_provider = new javax.swing.JLabel();
+        PetType_name_petview_provider = new javax.swing.JLabel();
         Gender_Info_petview_provider = new javax.swing.JLabel();
         Age_Info_petview_provider = new javax.swing.JLabel();
         HouseTrained_petview_provider = new javax.swing.JLabel();
@@ -178,9 +178,9 @@ public class ProviderViewPetDetails extends javax.swing.JFrame {
         Main_panal_Viewpet_provider.add(Age_petview_provider);
         Age_petview_provider.setBounds(500, 320, 30, 16);
 
-        Breed_name_petview_provider.setText("Pet Type");
-        Main_panal_Viewpet_provider.add(Breed_name_petview_provider);
-        Breed_name_petview_provider.setBounds(540, 280, 110, 16);
+        PetType_name_petview_provider.setText("Pet Type");
+        Main_panal_Viewpet_provider.add(PetType_name_petview_provider);
+        PetType_name_petview_provider.setBounds(540, 280, 110, 16);
 
         Gender_Info_petview_provider.setText("Pet Gender");
         Main_panal_Viewpet_provider.add(Gender_Info_petview_provider);
@@ -276,7 +276,7 @@ public javax.swing.JLabel getPetNameLabel() {
 }
 
 public javax.swing.JLabel getBreedLabel() {
-    return Breed_name_petview_provider;
+    return PetType_name_petview_provider;
 }
 
 public javax.swing.JLabel getGenderLabel() {
@@ -328,13 +328,17 @@ public javax.swing.JButton getExitButton() {
     public void addLogoutListener(ActionListener listener) {
         Logout_btn.addActionListener(listener);
     }
+    
+    public void addProfileListener(ActionListener listener) {
+        profile_btn.addActionListener(listener);
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Adoption_Historybtn;
     private javax.swing.JButton Adoption_requestbtn;
     private javax.swing.JLabel Age_Info_petview_provider;
     private javax.swing.JLabel Age_petview_provider;
-    private javax.swing.JLabel Breed_name_petview_provider;
     private javax.swing.JLabel Breed_petview_provider;
     private javax.swing.JButton Exit_btn_petview_provider;
     private javax.swing.JLabel Gender_Info_petview_provider;
@@ -345,6 +349,7 @@ public javax.swing.JButton getExitButton() {
     private javax.swing.JLabel Logo;
     private javax.swing.JButton Logout_btn;
     private javax.swing.JPanel Main_panal_Viewpet_provider;
+    private javax.swing.JLabel PetType_name_petview_provider;
     private javax.swing.JLabel Petimage_petview_provider;
     private javax.swing.JLabel Petname_petview_provider;
     private javax.swing.JPanel Playerimage_box_petview_provider;

@@ -21,11 +21,10 @@ import model.ProviderData;
  */
 public class AdopterView_Shelter_Detail extends javax.swing.JFrame {
    
-  
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AdopterView_Shelter_Detail.class.getName());
-
     /**
      * Creates new form AdopterView_Shelter_Detail
+     * @param provider
+     * @param parentFrame
      */
     
     public AdopterView_Shelter_Detail(ProviderData provider, JFrame parentFrame) {
@@ -110,9 +109,24 @@ public class AdopterView_Shelter_Detail extends javax.swing.JFrame {
     public javax.swing.JButton getSheltersButton() {
         return Shelters_btn;
     }
+    
+    public void addFavouriteListener(ActionListener listener) {
+        Favourite_btn.addActionListener(listener);
+    }
+    
+    public void addProfileListener(ActionListener listener) {
+        profile_btn.addActionListener(listener);
+    }
+    
+    public javax.swing.JPanel getContentPanel() {
+        return ScrollPanel_ShelterView;
+    }
+    
+    public javax.swing.JScrollPane getScrollPane() {
+        return jScrollPane1;
+    }
 
-
-
+    
 /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -146,6 +160,8 @@ public class AdopterView_Shelter_Detail extends javax.swing.JFrame {
         About_shelter_adopterView_shelter_details = new javax.swing.JButton();
         Available_Pets = new javax.swing.JButton();
         Adopted_Pets = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ScrollPanel_ShelterView = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -275,6 +291,24 @@ public class AdopterView_Shelter_Detail extends javax.swing.JFrame {
         RightContentPanel.add(Top_small_panal);
         Top_small_panal.setBounds(0, 0, 530, 50);
 
+        ScrollPanel_ShelterView.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout ScrollPanel_ShelterViewLayout = new javax.swing.GroupLayout(ScrollPanel_ShelterView);
+        ScrollPanel_ShelterView.setLayout(ScrollPanel_ShelterViewLayout);
+        ScrollPanel_ShelterViewLayout.setHorizontalGroup(
+            ScrollPanel_ShelterViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 528, Short.MAX_VALUE)
+        );
+        ScrollPanel_ShelterViewLayout.setVerticalGroup(
+            ScrollPanel_ShelterViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 478, Short.MAX_VALUE)
+        );
+
+        jScrollPane1.setViewportView(ScrollPanel_ShelterView);
+
+        RightContentPanel.add(jScrollPane1);
+        jScrollPane1.setBounds(0, 50, 530, 480);
+
         javax.swing.GroupLayout mainpanalLayout = new javax.swing.GroupLayout(mainpanal);
         mainpanal.setLayout(mainpanalLayout);
         mainpanalLayout.setHorizontalGroup(
@@ -296,8 +330,8 @@ public class AdopterView_Shelter_Detail extends javax.swing.JFrame {
                             .addComponent(Address_adopterView_shelter_details, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Contactstext, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Shelter_name_adopterView_shelter_details, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(RightContentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addComponent(RightContentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addComponent(toppanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -306,10 +340,6 @@ public class AdopterView_Shelter_Detail extends javax.swing.JFrame {
             .addGroup(mainpanalLayout.createSequentialGroup()
                 .addComponent(toppanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainpanalLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(RightContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
                     .addGroup(mainpanalLayout.createSequentialGroup()
                         .addGap(87, 87, 87)
                         .addGroup(mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -327,7 +357,11 @@ public class AdopterView_Shelter_Detail extends javax.swing.JFrame {
                         .addComponent(Address_adopterView_shelter_details, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
                         .addComponent(Exit_adopterView_shelter_details)
-                        .addGap(36, 36, 36))))
+                        .addGap(36, 36, 36))
+                    .addGroup(mainpanalLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(RightContentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -379,21 +413,15 @@ public class AdopterView_Shelter_Detail extends javax.swing.JFrame {
     private javax.swing.JLabel Phone_number_adopterView_shelter_details;
     private javax.swing.JLabel Profile_text;
     private javax.swing.JPanel RightContentPanel;
+    private javax.swing.JPanel ScrollPanel_ShelterView;
     private javax.swing.JLabel Shelter_logo_adopterView_shelter_details;
     private javax.swing.JLabel Shelter_name_adopterView_shelter_details;
     private javax.swing.JButton Shelters_btn;
     private javax.swing.JPanel Top_small_panal;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel mainpanal;
     private javax.swing.JButton profile_btn;
     private javax.swing.JPanel toppanel;
     // End of variables declaration//GEN-END:variables
-
-    
-
-    
-
-    
-    
-
-    
+ 
 }

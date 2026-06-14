@@ -13,6 +13,7 @@ package Controller;
 import view.AdoptionRequestManagement_ProviderPage;
 import view.ProviderAdoptionHistory;
 import view.ProviderHomePage;
+//import view.ProviderProfile;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
@@ -46,7 +47,15 @@ public class Provider_NavigationController {
             history.addAdoptionRequestsListener(new AdoptionRequestsListener());
             history.addAdoptionHistoryListener(new AdoptionHistoryListener());
             history.addLogoutListener(new LogoutListener());
-        }
+            
+        //} else if (currentFrame instanceof ProviderProfile proProfile) {
+        //    proProfile.addHomeListener(new HomeListener());
+        //    proProfile.addMyRequestsListener(new MyRequestsListener());
+        //    proProfile.addLogoutListener(new LogoutListener());
+        //    proProfile.addShelterListener(new ShelterListener());
+        //    proProfile.addFavouriteListener(new FavouriteListener());
+        //    proProfile.addProfileListener(new ProfileListener());
+        }  
     }
 
     public class HomeListener implements ActionListener {
@@ -101,4 +110,16 @@ public class Provider_NavigationController {
             }
         }
     }
+    
+    //public class ProfileListener implements ActionListener {
+    //   @Override
+    //    public void actionPerformed(ActionEvent e) {
+    //        if (currentFrame instanceof ProviderProfile) return;
+    //        ProviderProfile proProfile = new ProviderProfile;
+    //        new ProviderProfileController(adpProfile);
+    //        proProfile.setLocationRelativeTo(null);
+    //        proProfile.setVisible(true);
+    //        currentFrame.dispose();
+    //    }
+    //}
 }

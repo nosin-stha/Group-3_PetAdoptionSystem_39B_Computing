@@ -29,7 +29,7 @@ public class ReportPetProviderController {
         attachListeners();
     }
 
-    // ✅ Static factory — wires ReportProvider_btn on a ShelterCard to open the report page
+    
     public static void attachToShelterCard(ShelterCard card, int providerID) {
         card.addReportListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -38,11 +38,12 @@ public class ReportPetProviderController {
         });
     }
 
-    // ✅ Opens and initializes the ReportPetProvider window
+    
     private static void openReportPage(int providerID) {
         ReportPetProvider reportView = new ReportPetProvider();
-        ReportPetProviderController controller = 
-            new ReportPetProviderController(reportView, providerID);
+        new ReportPetProviderController(reportView, providerID);
+        reportView.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        reportView.setAlwaysOnTop(true);
         reportView.setLocationRelativeTo(null);
         reportView.setVisible(true);
     }

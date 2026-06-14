@@ -61,14 +61,18 @@ public class ShelterController {
     private ShelterCard buildShelterCard(final ProviderData shelter) {
         final ShelterCard card = new ShelterCard();
 
-        card.setShelterName(shelter.getShelterName());
+        card.setShelterName(
+        "<html><div style='text-align:center; width:120px;'>"
+        + shelter.getShelterName()
+        + "</div></html>"
+    );
+        
         loadImageOnCard(card.getShelterImageLabel(), shelter.getPfp());
 
         card.addViewMoreListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(java.awt.event.ActionEvent e) {
-                AdopterView_Shelter_Detail detailFrame =
-                        new AdopterView_Shelter_Detail(shelter, shelterView);
+                AdopterView_Shelter_Detail detailFrame = new AdopterView_Shelter_Detail(shelter, shelterView);
                 detailFrame.setLocationRelativeTo(null);
                 detailFrame.setVisible(true);
                 shelterView.setVisible(false);

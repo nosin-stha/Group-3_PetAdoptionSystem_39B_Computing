@@ -62,6 +62,14 @@ public class AdopterHomePage extends javax.swing.JFrame {
         Shelters_btn.addActionListener(listener);
     }
     
+    public void addFavouriteListener(ActionListener listener) {
+        Favourite_btn.addActionListener(listener);
+    }
+    
+    public void addProfileListener(ActionListener listener) {
+        profile_btn.addActionListener(listener);
+    }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
