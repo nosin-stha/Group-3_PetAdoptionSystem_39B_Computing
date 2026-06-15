@@ -190,27 +190,33 @@ public class AdminViewShelterDetailController {
     }
 
     private void populateCard(SheltViewPetCard card, PetsData pet) {
-        card.getPetNameLabel().setText(safe(pet.getPetName()));
-        card.getBreedLabel().setText(safe(pet.getPetType()));
-        card.getGenderLabel().setText(safe(pet.getPetGender()));
-        card.getAgeLabel().setText(safe(pet.getPetAge()));
+    card.getPetNameLabel().setText(safe(pet.getPetName()));
+    card.getBreedLabel().setText(safe(pet.getPetType()));
+    card.getGenderLabel().setText(safe(pet.getPetGender()));
+    card.getAgeLabel().setText(safe(pet.getPetAge()));
 
-        // Disable the heart/favourite button — not applicable in admin view
-        card.getFavButton().setEnabled(false);
-        card.getFavButton().setVisible(false);
+    // Always disable fav button for all pets
+    card.getFavButton().setEnabled(false);
+    card.getFavButton().setVisible(false);
+    card.getViewMoreButton().setEnabled(false);
+    card.getViewMoreButton().setVisible(false);
+    
 
-        String imgPath = pet.getImagePath();
-        if (imgPath != null && !imgPath.trim().isEmpty() && new File(imgPath).exists()) {
-            Image scaled = new ImageIcon(imgPath).getImage()
-                               .getScaledInstance(75, 75, Image.SCALE_SMOOTH);
-            card.getPetImgLabel().setIcon(new ImageIcon(scaled));
-            card.getPetImgLabel().setText("");
-        }
-
-        card.addViewMoreListener(e ->
-            new PetDetailsController(pet, "admin", view).actionPerformed(e));
+    String imgPath = pet.getImagePath();
+    if (imgPath != null && !imgPath.trim().isEmpty() && new File(imgPath).exists()) {
+        Image scaled = new ImageIcon(imgPath).getImage()
+                           .getScaledInstance(75, 75, Image.SCALE_SMOOTH);
+        card.getPetImgLabel().setIcon(new ImageIcon(scaled));
+        card.getPetImgLabel().setText("");
     }
 
+    card.addViewMoreListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            new PetDetailsController(pet, "adopter", view).actionPerformed(e);
+        }
+    });
+}
     private String safe(String s) {
         return s == null ? "" : s;
     }

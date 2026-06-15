@@ -505,6 +505,9 @@ public void hideAdoptButton() {
     Adopt_btn_petview_adopter.setVisible(false);
 }
 
+public void hideFavButton() {
+    Favouritethepet_btn_petview_adopter.setVisible(false);
+}
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Adopt_btn_petview_adopter;

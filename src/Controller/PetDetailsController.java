@@ -68,6 +68,7 @@ public class PetDetailsController implements ActionListener {
             return;
         }
         SwingUtilities.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 if ("adopter".equalsIgnoreCase(role)) {
                     openAdopterView(fullPet);
@@ -91,6 +92,7 @@ public class PetDetailsController implements ActionListener {
         }
         
         view.getViewShelterButton().addActionListener(new ActionListener() {
+        @Override
         public void actionPerformed(ActionEvent e) {
             ProviderData shelterProvider = providerDAO.getProviderByPetId(fullPet.getPetID());
             if (shelterProvider == null) {
@@ -108,11 +110,13 @@ public class PetDetailsController implements ActionListener {
         }
     });
 
-        if (hideAdopt) {
+        if (hideAdopt || model.SessionData.role.equals("Admin")) {
             view.hideAdoptButton();
+            view.hideFavButton(); 
         }
-
+        
         view.addAdoptListener(new ActionListener() {
+        @Override
         public void actionPerformed(ActionEvent e) {
             AdoptionReqDAO dao = new AdoptionReqDAO();
             if (dao.hasAlreadyApplied(model.SessionData.userID, fullPet.getPetID())) {
@@ -133,6 +137,7 @@ public class PetDetailsController implements ActionListener {
     });
 
         view.getExitButton().addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 view.dispose();
                 if (parentFrame != null) {
@@ -153,6 +158,7 @@ public class PetDetailsController implements ActionListener {
         populatePetFields(view, fullPet);
 
         view.getExitButton().addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 view.dispose();
                 if (parentFrame != null) {
