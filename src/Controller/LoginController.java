@@ -1,6 +1,7 @@
 package Controller;
 
 import DAO.LoginDAO;
+import DAO.RequestToAdminDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
@@ -13,6 +14,7 @@ import view.ProviderHomePage;
 import view.SignupWindow;
 import java.sql.Connection;
 import database.MySqlConnector;
+import view.RequestToAdminForm;
 
 public class LoginController {
 
@@ -24,6 +26,7 @@ public class LoginController {
         this.dao = new LoginDAO();
         this.loginView.getBtnLogin().addActionListener(new LoginListener());
         this.loginView.getBtnCreateAccount().addActionListener(new CreateAccountListener());
+        this.loginView.addRequestToAdminListener(new RequestToAdminListener());
     }
 
     private void openWindow(JFrame frame) {
@@ -103,6 +106,20 @@ public class LoginController {
             signup.setLocationRelativeTo(null);
             signup.setVisible(true);
             loginView.dispose();
+        }
+    }
+    
+    class RequestToAdminListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            RequestToAdminForm form = new RequestToAdminForm();
+            form.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
+            
+            RequestToAdminDAO dao = new RequestToAdminDAO();
+            new RequestToAdminController(form, dao);
+            
+            form.setLocationRelativeTo(null); 
+            form.setVisible(true);
         }
     }
 }
