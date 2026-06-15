@@ -61,7 +61,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="PetRequestsTable_ScrollPane" min="-2" pref="958" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
-                                  <Component id="jLabel1" min="-2" pref="92" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" min="-2" pref="155" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="total_number_of_pets" min="-2" pref="51" max="-2" attributes="0"/>
                               </Group>
@@ -100,7 +100,7 @@
                   <EmptySpace pref="29" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="total_number_of_pets" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="total_number_of_pets" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="PetRequestsTable_ScrollPane" min="-2" pref="381" max="-2" attributes="0"/>
@@ -231,7 +231,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Total Provider:"/>
+            <Property name="text" type="java.lang.String" value="Total Unfreeze Requests:"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="PetRequestsTable_ScrollPane">

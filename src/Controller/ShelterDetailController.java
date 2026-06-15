@@ -110,9 +110,9 @@ public class ShelterDetailController {
         view.getAboutButton().setBackground(DEFAULT_TAB);
         view.getAvailableButton().setBackground(DEFAULT_TAB);
         view.getAdoptedButton().setBackground(DEFAULT_TAB);
-        if ("ABOUT".equals(tab))     view.getAboutButton().setBackground(ACTIVE_TAB);
-        if ("AVAILABLE".equals(tab)) view.getAvailableButton().setBackground(ACTIVE_TAB);
-        if ("ADOPTED".equals(tab))   view.getAdoptedButton().setBackground(ACTIVE_TAB);
+        if ("ABOUT".equals(tab))view.getAboutButton().setBackground(ACTIVE_TAB);
+        if ("AVAILABLE".equals(tab))view.getAvailableButton().setBackground(ACTIVE_TAB);
+        if ("ADOPTED".equals(tab))view.getAdoptedButton().setBackground(ACTIVE_TAB);
     }
  
     private void loadAbout() {
@@ -190,10 +190,10 @@ public class ShelterDetailController {
         }
  
         GridBagConstraints filler = new GridBagConstraints();
-        filler.gridx   = 0;
-        filler.gridy   = row;
+        filler.gridx = 0;
+        filler.gridy = row;
         filler.weighty = 1.0;
-        filler.fill    = GridBagConstraints.VERTICAL;
+        filler.fill = GridBagConstraints.VERTICAL;
         JPanel spacer = new JPanel();
         spacer.setOpaque(false);
         panel.add(spacer, filler);
@@ -208,10 +208,11 @@ public class ShelterDetailController {
         card.getGenderLabel().setText(safe(pet.getPetGender()));
         card.getAgeLabel().setText(safe(pet.getPetAge()));
 
-        // Disable fav button when pet is already adopted
         if ("adopted".equalsIgnoreCase(pet.getPetAdoptionStatus())) {
             card.getFavButton().setEnabled(false);
             card.getFavButton().setVisible(false);
+            card.getViewMoreButton().setEnabled(false);  
+            card.getViewMoreButton().setVisible(false); 
         }
  
         String imgPath = pet.getImagePath();

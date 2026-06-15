@@ -112,7 +112,7 @@ public class AdminUnfreezeRequestManagement extends javax.swing.JFrame {
         Status.setBackground(new java.awt.Color(255, 190, 86));
         Status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Status", "pending", " " }));
 
-        jLabel1.setText("Total Provider:");
+        jLabel1.setText("Total Unfreeze Requests:");
 
         PetRequests_Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -146,7 +146,7 @@ public class AdminUnfreezeRequestManagement extends javax.swing.JFrame {
                         .addGroup(mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(PetRequestsTable_ScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 958, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(mainpanalLayout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(total_number_of_pets, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(mainpanalLayout.createSequentialGroup()

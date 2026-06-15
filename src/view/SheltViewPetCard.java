@@ -49,6 +49,10 @@ public class SheltViewPetCard extends javax.swing.JPanel {
         return fav_shleterview;
     }
     
+    public javax.swing.JButton getViewMoreButton() {
+        return viewmore_shelterView;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -72,7 +76,7 @@ public class SheltViewPetCard extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        setPreferredSize(new java.awt.Dimension(405, 135));
+        setPreferredSize(new java.awt.Dimension(420, 135));
 
         PetImg_Set.setText("Pet Img");
 
