@@ -58,7 +58,7 @@ public class PetController {
             .setVerticalScrollBarPolicy(
                 javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 
-        adopterPanel.setLayout(new java.awt.GridLayout(0, 3, 20, 20));
+        adopterPanel.setLayout(new java.awt.GridLayout(0, 3, 5, 5));
         adopterHomeView.getAdopterAllPetScrollPane().setViewportView(adopterPanel);
 
         loadAdopterPets();
@@ -75,7 +75,7 @@ public class PetController {
         providerHomeView.getProviderPetsScrollPane()
             .setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 
-        providerPanel.setLayout(new java.awt.GridLayout(0, 3, 20, 20));
+        providerPanel.setLayout(new java.awt.GridLayout(0, 3, 5, 5));
         providerHomeView.getProviderPetsScrollPane().setViewportView(providerPanel);
 
         providerHomeView.addPetButtonListener(new AddPetButtonListener());
@@ -166,9 +166,12 @@ public class PetController {
 
     public void loadProviderPets() {
         if (providerPanel == null) return;
-
+        
         providerPanel.removeAll();
+        providerPanel.setLayout(new java.awt.GridLayout(0, 3, 5, 5));
+        providerPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
+ 
         ArrayList<PetsData> pets = providerDAO.getPetsByProvider(SessionData.userID);
 
         if (pets != null) {
@@ -179,7 +182,8 @@ public class PetController {
                 card.setPreferredSize(new java.awt.Dimension(250, 355));
                 card.setMinimumSize(new java.awt.Dimension(250, 355));
                 card.setMaximumSize(new java.awt.Dimension(250, 355));
-
+                
+                card.hideFavButton(); 
                 card.getPetName().setText(pet.getPetName());
                 card.getPetType().setText(pet.getPetType());
                 card.getPetAge().setText(pet.getPetAge());
@@ -207,6 +211,9 @@ public class PetController {
         if (adopterPanel == null) return;
 
         adopterPanel.removeAll();
+        adopterPanel.setLayout(new java.awt.GridLayout(0, 3, 5, 5));
+        adopterPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
+ 
 
         ArrayList<PetsData> pets = adopterDAO.getAvailablePets();
 

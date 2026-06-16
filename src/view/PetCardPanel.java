@@ -71,6 +71,10 @@ public class PetCardPanel extends javax.swing.JPanel {
     public void addViewMoreListener(ActionListener listener) {
         btnViewPetDetail.addActionListener(listener);
     }
+    
+    public void hideFavButton() {
+        fav_homePetCard.setVisible(false);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -92,6 +96,7 @@ public class PetCardPanel extends javax.swing.JPanel {
         btnViewPetDetail = new javax.swing.JButton();
         PetUpdate = new javax.swing.JButton();
         PetDelete = new javax.swing.JButton();
+        fav_homePetCard = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(249, 215, 147));
 
@@ -120,6 +125,10 @@ public class PetCardPanel extends javax.swing.JPanel {
 
         PetDelete.setText("Delete Pet");
 
+        fav_homePetCard.setBackground(new java.awt.Color(249, 215, 147));
+        fav_homePetCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/petFavBtnIcon.png"))); // NOI18N
+        fav_homePetCard.setBorder(null);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -143,7 +152,9 @@ public class PetCardPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(53, 53, 53)
                         .addComponent(PetName)))
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addComponent(fav_homePetCard, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -155,8 +166,13 @@ public class PetCardPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(PetImg, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(PetImg, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(fav_homePetCard, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(PetName)
                 .addGap(18, 18, 18)
@@ -202,5 +218,6 @@ public class PetCardPanel extends javax.swing.JPanel {
     private javax.swing.JLabel PetType;
     private javax.swing.JButton PetUpdate;
     private javax.swing.JButton btnViewPetDetail;
+    private javax.swing.JButton fav_homePetCard;
     // End of variables declaration//GEN-END:variables
 }
