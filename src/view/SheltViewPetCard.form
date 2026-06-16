@@ -62,7 +62,7 @@
                   <Component id="viewmore_shelterView" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="28" pref="28" max="-2" attributes="0"/>
-                      <Component id="fav_shleterview" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="favPet" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
@@ -81,7 +81,7 @@
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="fav_shleterview" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="favPet" min="-2" pref="25" max="-2" attributes="0"/>
                               <EmptySpace min="28" pref="28" max="-2" attributes="0"/>
                               <Component id="viewmore_shelterView" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -160,10 +160,13 @@
         <Property name="text" type="java.lang.String" value="view more"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="fav_shleterview">
+    <Component class="javax.swing.JButton" name="favPet">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Images/petFavBtnIcon.png"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="null"/>
         </Property>
       </Properties>
     </Component>

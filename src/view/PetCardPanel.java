@@ -24,6 +24,10 @@ public class PetCardPanel extends javax.swing.JPanel {
         initComponents();
         this.pet = pet; 
         
+        PetImg.setPreferredSize(new java.awt.Dimension(75, 75));
+        PetImg.setMinimumSize(new java.awt.Dimension(75, 75));
+        PetImg.setMaximumSize(new java.awt.Dimension(75, 75));
+        
         PetName.setText(pet.getPetName());
         PetType.setText(pet.getPetType());
         PetAge.setText(pet.getPetAge());
@@ -57,8 +61,16 @@ public class PetCardPanel extends javax.swing.JPanel {
         PetDelete.setVisible(false);
     }
     
+    public void hideFavButton() {
+        fav_homePetCard.setVisible(false);
+    }
     
-    // listeners for update, delete button
+    public javax.swing.JButton getFavHomePetCard() {
+        return fav_homePetCard;
+    }
+    
+    
+    // listeners for update, delete, view more button
 
     public void addUpdateListener(ActionListener listener) {
         PetUpdate.addActionListener(listener);
@@ -72,9 +84,6 @@ public class PetCardPanel extends javax.swing.JPanel {
         btnViewPetDetail.addActionListener(listener);
     }
     
-    public void hideFavButton() {
-        fav_homePetCard.setVisible(false);
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.

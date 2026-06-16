@@ -4,6 +4,9 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
 /**
  *
  * @author User
@@ -16,6 +19,14 @@ public class AdopterPetFavouriteCard extends javax.swing.JPanel {
     public AdopterPetFavouriteCard() {
         initComponents();
     }
+    
+    public JLabel getLblRequestCardPetName() { return LblRequestCardPetName; }
+    public JLabel getLblRequestCardPetBreed() { return LblRequestCardPetBreed; }
+    public JLabel getLblRequestCardPetGender() { return LblRequestCardPetGender; }
+    public JLabel getLblRequestCardPetAge() { return LblRequestCardPetAge; }
+    public JLabel getPetImgRequestCard() { return PetImgRequestCard; }
+    public JButton getPetFav_RemoveBtn() { return PetFav_RemoveBtn; }
+    public JButton getPetFav_ViewMoreBtn() { return PetFav_ViewMoreBtn; }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,7 +48,7 @@ public class AdopterPetFavouriteCard extends javax.swing.JPanel {
         PetImgRequestCard = new javax.swing.JLabel();
         BreedRequestCard = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(248, 230, 182));
+        setBackground(new java.awt.Color(249, 215, 147));
 
         GenderRequestCard.setText("Gender:");
 
@@ -78,10 +89,10 @@ public class AdopterPetFavouriteCard extends javax.swing.JPanel {
                     .addComponent(LblRequestCardPetBreed, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(LblRequestCardPetGender, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(LblRequestCardPetAge, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 234, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PetFav_ViewMoreBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PetFav_RemoveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(PetFav_ViewMoreBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+                    .addComponent(PetFav_RemoveBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(32, 32, 32))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()

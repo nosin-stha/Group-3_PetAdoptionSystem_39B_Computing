@@ -209,11 +209,15 @@ public class ShelterDetailController {
         card.getAgeLabel().setText(safe(pet.getPetAge()));
 
         if ("adopted".equalsIgnoreCase(pet.getPetAdoptionStatus())) {
-            card.getFavButton().setEnabled(false);
-            card.getFavButton().setVisible(false);
-            card.getViewMoreButton().setEnabled(false);  
-            card.getViewMoreButton().setVisible(false); 
-        }
+        card.getFavButton().setEnabled(false);
+        card.getFavButton().setVisible(false);
+        card.getViewMoreButton().setEnabled(false);  
+        card.getViewMoreButton().setVisible(false); 
+        } else {
+            card.getFavButton().addActionListener(e ->   
+                PetFavController.handleFavToggle(card, pet)
+        );
+    }
  
         String imgPath = pet.getImagePath();
         if (imgPath != null && !imgPath.trim().isEmpty() && new File(imgPath).exists()) {

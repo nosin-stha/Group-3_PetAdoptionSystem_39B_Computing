@@ -14,6 +14,10 @@ public class AdoptionHistoryCard extends javax.swing.JPanel {
      */
     public AdoptionHistoryCard() {
         initComponents();
+        
+        lblPetPicture.setPreferredSize(new java.awt.Dimension(75, 75));
+        lblPetPicture.setMinimumSize(new java.awt.Dimension(75, 75));
+        lblPetPicture.setMaximumSize(new java.awt.Dimension(75, 75));
     }
     public javax.swing.JLabel getLblPetPicture() {
     return lblPetPicture;

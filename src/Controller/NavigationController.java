@@ -6,7 +6,7 @@ import view.AdoptionRequestTrackingPage;
 import view.AdopterViewPetDetails;
 import view.ShelterListingDisplay;
 //import view.AdopterProfile;
-//import view.PetFavouritePage;
+import view.AdopterPetFavourite;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
@@ -27,7 +27,7 @@ public class NavigationController {
             home.addMyRequestsListener(new MyRequestsListener());
             home.addLogoutListener(new LogoutListener());
             home.addShelterListener(new ShelterListener());
-            //home.addFavouriteListener(new FavouriteListener());
+            home.addFavouriteListener(new FavouriteListener());
             //home.addProfileListener(new ProfileListener());
 
         } else if (currentFrame instanceof AdoptionRequestTrackingPage requests) {
@@ -35,7 +35,7 @@ public class NavigationController {
             requests.addMyRequestsListener(new MyRequestsListener());
             requests.addLogoutListener(new LogoutListener());
             requests.addShelterListener(new ShelterListener());
-            //requests.addFavouriteListener(new FavouriteListener());
+            requests.addFavouriteListener(new FavouriteListener());
             //requests.addProfileListener(new ProfileListener());
 
         } else if (currentFrame instanceof AdopterViewPetDetails petDetails) {
@@ -43,7 +43,7 @@ public class NavigationController {
             petDetails.addMyRequestsListener(new MyRequestsListener());
             petDetails.addLogoutListener(new LogoutListener());
             petDetails.addShelterListener(new ShelterListener());
-            //petDetails.addFavouriteListener(new FavouriteListener());
+            petDetails.addFavouriteListener(new FavouriteListener());
             //petDetails.addProfileListener(new ProfileListener());
 
         } else if (currentFrame instanceof ShelterListingDisplay shelter) {
@@ -51,7 +51,7 @@ public class NavigationController {
             shelter.addMyRequestsListener(new MyRequestsListener());
             shelter.addLogoutListener(new LogoutListener());
             shelter.addShelterListener(new ShelterListener());
-            //shelter.addFavouriteListener(new FavouriteListener());
+            shelter.addFavouriteListener(new FavouriteListener());
             //shelter.addProfileListener(new ProfileListener());
             
         } else if (currentFrame instanceof AdopterView_Shelter_Detail shelterview) {
@@ -59,15 +59,15 @@ public class NavigationController {
             shelterview.addMyRequestsListener(new MyRequestsListener());
             shelterview.addLogoutListener(new LogoutListener());
             shelterview.addShelterListener(new ShelterListener());
-            //shelterview.addFavouriteListener(new FavouriteListener());
+            shelterview.addFavouriteListener(new FavouriteListener());
             //shelterview.addProfileListener(new ProfileListener());
             
-        //} else if (currentFrame instanceof PetFavouritePage petFavourite) {
-        //    petFavourite.addHomeListener(new HomeListener());
-        //    petFavourite.addMyRequestsListener(new MyRequestsListener());
-        //    petFavourite.addLogoutListener(new LogoutListener());
-        //    petFavourite.addShelterListener(new ShelterListener());
-            //petFavourite.addFavouriteListener(new FavouriteListener());
+        } else if (currentFrame instanceof AdopterPetFavourite petFavourite) {
+            petFavourite.addHomeListener(new HomeListener());
+            petFavourite.addMyRequestsListener(new MyRequestsListener());
+            petFavourite.addLogoutListener(new LogoutListener());
+            petFavourite.addShelterListener(new ShelterListener());
+            petFavourite.addFavouriteListener(new FavouriteListener());
             //petFavourite.addProfileListener(new ProfileListener());
             
         //} else if (currentFrame instanceof AdopterProfile adpProfile) {
@@ -126,17 +126,17 @@ public class NavigationController {
     }
     
     
-    //public class FavouriteListener implements ActionListener {
-    //    @Override
-    //    public void actionPerformed(ActionEvent e) {
-    //        if (currentFrame instanceof PetFavouritePage) return;
-    //        PetFavouritePage petFavourites = new PetFavouritePage();
-    //        new PetFavouriteController(favouriteView);
-    //        petFavourites.setLocationRelativeTo(null);
-    //        petFavourites.setVisible(true);
-    //        currentFrame.dispose();
-    //    }
-    //}
+    public class FavouriteListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (currentFrame instanceof AdopterPetFavourite) return;
+            AdopterPetFavourite petFavourites = new AdopterPetFavourite();
+            new PetFavController(petFavourites);
+            petFavourites.setLocationRelativeTo(null);
+            petFavourites.setVisible(true);
+            currentFrame.dispose();
+        }
+    }
     
     
     //public class ProfileListener implements ActionListener {

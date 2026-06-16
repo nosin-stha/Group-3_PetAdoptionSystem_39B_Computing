@@ -233,6 +233,9 @@ public class PetController {
                 loadImageOnCard(card.getPetImg(), pet.getImagePath());
 
                 card.hideActionButtons();
+                card.getFavHomePetCard().addActionListener(e ->     
+                    PetFavController.handleFavToggle(card, pet)
+                );
                 new PetDetailsController(card, pet, "adopter", adopterHomeView);
                 adopterPanel.add(card);
             }
@@ -252,7 +255,7 @@ public class PetController {
         try {
             ImageIcon icon = new ImageIcon(path);
             java.awt.Image img = icon.getImage().getScaledInstance(
-                120, 120, java.awt.Image.SCALE_SMOOTH);
+                75, 75, java.awt.Image.SCALE_SMOOTH);
             imgLabel.setIcon(new ImageIcon(img));
         } catch (Exception e) {
             System.out.println("Image load error: " + e.getMessage());

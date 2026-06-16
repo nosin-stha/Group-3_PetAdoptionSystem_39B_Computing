@@ -17,6 +17,9 @@ public class ShelterCard extends javax.swing.JPanel {
      */
     public ShelterCard() {
         initComponents();
+        ShelterImg_SheltersPage.setPreferredSize(new java.awt.Dimension(75, 75));
+        ShelterImg_SheltersPage.setMinimumSize(new java.awt.Dimension(75, 75));
+        ShelterImg_SheltersPage.setMaximumSize(new java.awt.Dimension(75, 75));
     }
     
     public JLabel getShelterImageLabel() {

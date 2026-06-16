@@ -87,11 +87,16 @@ public class ShelterController {
     private void loadImageOnCard(JLabel imgLabel, String path) {
         try {
             if (path == null || path.trim().isEmpty()) return;
-            ImageIcon icon = new ImageIcon(path);
-            Image img = icon.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
+            java.io.File f = new java.io.File(path);
+            if (!f.exists()) return;
+
+            Image img = new ImageIcon(path).getImage()
+                        .getScaledInstance(75, 75, Image.SCALE_SMOOTH);
             imgLabel.setIcon(new ImageIcon(img));
+            imgLabel.setText("");
+            imgLabel.setHorizontalAlignment(SwingConstants.CENTER);
         } catch (Exception e) {
-            System.out.println("Image load error: " + e.getMessage());
+            System.out.println("Shelter image load error: " + e.getMessage());
         }
     }
 }

@@ -77,7 +77,7 @@ public class ProviderAdoptionHistoryController {
                 try {
                     java.awt.Image img = new javax.swing.ImageIcon(imagePath)
                         .getImage()
-                        .getScaledInstance(90, 90, java.awt.Image.SCALE_SMOOTH);
+                        .getScaledInstance(75, 75, java.awt.Image.SCALE_SMOOTH);
                     card.getLblPetPicture().setIcon(new javax.swing.ImageIcon(img));
                     card.getLblPetPicture().setText("");
                 } catch (Exception e) {

@@ -4,6 +4,10 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 /**
  *
  * @author User
@@ -17,7 +21,36 @@ public class AdopterPetFavourite extends javax.swing.JFrame {
      */
     public AdopterPetFavourite() {
         initComponents();
+        new Controller.NavigationController(this);
+        Favourite_btn.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.BLACK, 1));
     }
+    
+    public void addHomeListener(ActionListener listener) {
+        Home_btn.addActionListener(listener);
+    }
+
+    public void addMyRequestsListener(ActionListener listener) {
+        MyRequests_btn.addActionListener(listener);
+    }
+
+    public void addLogoutListener(ActionListener listener) {
+        Logout_btn.addActionListener(listener);
+    }
+    
+    public void addShelterListener(ActionListener listener) {
+        Shelters_btn.addActionListener(listener);
+    }
+    
+    public void addFavouriteListener(ActionListener listener) {
+        Favourite_btn.addActionListener(listener);
+    }
+    
+    public void addProfileListener(ActionListener listener) {
+        profile_btn.addActionListener(listener);
+    }
+    
+    public JPanel getPetfavScrollPanel() { return petfavScrollPanel; }
+    public JLabel getPetFavCount() { return PetFavCount; }
 
     /**
      * This method is called from within the constructor to initialize the form.

@@ -15,6 +15,9 @@ public class SheltViewPetCard extends javax.swing.JPanel {
      */
     public SheltViewPetCard() {
         initComponents();
+        PetImg_Set.setPreferredSize(new java.awt.Dimension(75, 75));
+        PetImg_Set.setMinimumSize(new java.awt.Dimension(75, 75));
+        PetImg_Set.setMaximumSize(new java.awt.Dimension(75, 75));
     }
     
     public javax.swing.JLabel getPetNameLabel() {
@@ -42,11 +45,11 @@ public class SheltViewPetCard extends javax.swing.JPanel {
     }
     
     public void addFavouritePetListener(java.awt.event.ActionListener listener) {
-        fav_shleterview.addActionListener(listener);
+        favPet.addActionListener(listener);
     }
     
     public javax.swing.JButton getFavButton() {
-        return fav_shleterview;
+        return favPet;
     }
     
     public javax.swing.JButton getViewMoreButton() {
@@ -72,7 +75,7 @@ public class SheltViewPetCard extends javax.swing.JPanel {
         PetGender_Set = new javax.swing.JLabel();
         PetAge_Set = new javax.swing.JLabel();
         viewmore_shelterView = new javax.swing.JButton();
-        fav_shleterview = new javax.swing.JButton();
+        favPet = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
@@ -97,7 +100,8 @@ public class SheltViewPetCard extends javax.swing.JPanel {
         viewmore_shelterView.setBackground(new java.awt.Color(255, 204, 102));
         viewmore_shelterView.setText("view more");
 
-        fav_shleterview.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/petFavBtnIcon.png"))); // NOI18N
+        favPet.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/petFavBtnIcon.png"))); // NOI18N
+        favPet.setBorder(null);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -128,7 +132,7 @@ public class SheltViewPetCard extends javax.swing.JPanel {
                     .addComponent(viewmore_shelterView)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addComponent(fav_shleterview, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(favPet, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(32, 32, 32))
         );
         layout.setVerticalGroup(
@@ -142,7 +146,7 @@ public class SheltViewPetCard extends javax.swing.JPanel {
                         .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(fav_shleterview, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(favPet, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(28, 28, 28)
                                 .addComponent(viewmore_shelterView))
                             .addGroup(layout.createSequentialGroup()
@@ -170,7 +174,7 @@ public class SheltViewPetCard extends javax.swing.JPanel {
     private javax.swing.JLabel PetImg_Set;
     private javax.swing.JLabel PetName_Set;
     private javax.swing.JLabel PetType_Set;
-    private javax.swing.JButton fav_shleterview;
+    private javax.swing.JButton favPet;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

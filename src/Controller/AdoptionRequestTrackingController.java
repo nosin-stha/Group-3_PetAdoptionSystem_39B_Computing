@@ -126,7 +126,7 @@ public class AdoptionRequestTrackingController {
         try {
             javax.swing.ImageIcon icon = new javax.swing.ImageIcon(path);
             java.awt.Image img = icon.getImage().getScaledInstance(
-                120, 120, java.awt.Image.SCALE_SMOOTH);
+                75, 75, java.awt.Image.SCALE_SMOOTH);
             imgLabel.setIcon(new javax.swing.ImageIcon(img));
         } catch (Exception e) {
             System.out.println("Image load error: " + e.getMessage());
