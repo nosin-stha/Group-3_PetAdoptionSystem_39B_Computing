@@ -28,15 +28,17 @@ public class ForgotPasswordController {
     private final ForgotPasswordDAO forgotDAO = new ForgotPasswordDAO();
 
     public ForgotPasswordController(OTPWindow otpView) {
-        this.otpView = otpView;
-        otpView.setLocationRelativeTo(null);
+    this.otpView = otpView;
+    otpView.setLocationRelativeTo(null);
 
-        otpView.getTxtEmail().setEditable(true);
-        otpView.getTxtEmail().setText("");
+    otpView.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
 
-        otpView.addSendOtpListener(new SendOtpListener());
-        otpView.addVerifyOtpListener(new VerifyOtpListener());
-    }
+    otpView.getTxtEmail().setEditable(true);
+    otpView.getTxtEmail().setText("");
+
+    otpView.addSendOtpListener(new SendOtpListener());
+    otpView.addVerifyOtpListener(new VerifyOtpListener());
+}
 
     public void open() {
         otpView.setLocationRelativeTo(null);
