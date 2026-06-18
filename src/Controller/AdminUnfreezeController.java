@@ -208,40 +208,57 @@ public class AdminUnfreezeController {
         }
 
         private void handle(String status) {
+    int row = view.getPetRequestsTable().getEditingRow();
+    if (row == -1) row = view.getPetRequestsTable().getSelectedRow();
+    if (row == -1) { fireEditingStopped(); return; }
 
-            int row = view.getPetRequestsTable().getEditingRow();
-            if (row == -1) row = view.getPetRequestsTable().getSelectedRow();
-            if (row == -1) {
-                fireEditingStopped();
-                return;
-            }
+    TableModel model   = view.getPetRequestsTable().getModel();
+    int recoverID  = 0;
+    int providerID = 0;
 
-            TableModel model = view.getPetRequestsTable().getModel();
+    try {
+        recoverID  = Integer.parseInt(model.getValueAt(row, 0).toString());
+        providerID = Integer.parseInt(model.getValueAt(row, 1).toString());
+    } catch (Exception ex) {
+        fireEditingStopped();
+        return;
+    }
 
-            int recoverID = 0;
-            int providerID = 0;
+    if (!dao.updateStatus(recoverID, status)) {
+        JOptionPane.showMessageDialog(view, "Update failed");
+        fireEditingStopped();
+        return;
+    }
 
-            try {
-                recoverID = Integer.parseInt(model.getValueAt(row, 0).toString());
-                providerID = Integer.parseInt(model.getValueAt(row, 1).toString());
-            } catch (Exception ex) {
-                fireEditingStopped();
-                return;
-            }
+   
+    String providerEmail = model.getValueAt(row, 3).toString(); // Email column
+    String providerName  = model.getValueAt(row, 2).toString(); // Provider Name column
 
-            if (!dao.updateStatus(recoverID, status)) {
-                JOptionPane.showMessageDialog(view, "Update failed");
-                fireEditingStopped();
-                return;
-            }
+    providerName = providerName.replaceAll("<[^>]*>", "").trim();
 
-            if (ACCEPTED.equals(status)) {
-                dao.activateProvider(providerID);
-            }
+    if (ACCEPTED.equals(status)) {
+        dao.activateProvider(providerID);
 
-            fireEditingStopped();
-            loadRequests();
-        }
+        // ── EMAIL: notify provider unfreeze accepted ──
+        final String email = providerEmail;
+        final String name  = providerName;
+        new Thread(() ->
+            utils.EmailService.sendUnfreezeAccepted(email, name)
+        ).start();
+
+    } else if (DENIED.equals(status)) {
+
+        // ── EMAIL: notify provider unfreeze denied ──
+        final String email = providerEmail;
+        final String name  = providerName;
+        new Thread(() ->
+            utils.EmailService.sendUnfreezeDenied(email, name)
+        ).start();
+    }
+
+    fireEditingStopped();
+    loadRequests();
+}
 
         @Override
         public Component getTableCellEditorComponent(

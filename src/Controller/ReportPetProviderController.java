@@ -122,27 +122,38 @@ public class ReportPetProviderController {
     }
 
     private void handleSubmit() {
-        String reason = getSelectedReason();
+    String reason = getSelectedReason();
 
-        if (reason == null) {
-            JOptionPane.showMessageDialog(view,
-                "Please select a reason before submitting.");
-            return;
-        }
-
-        int adopterID = SessionData.userID;
-
-        ReportDAO dao = new ReportDAO();
-        boolean success = dao.insertReport(adopterID, providerID, reason);
-
-        if (success) {
-            JOptionPane.showMessageDialog(view,
-                "Report submitted successfully.");
-            clearRadioSelection();
-            view.dispose();
-        } else {
-            JOptionPane.showMessageDialog(view,
-                "Error submitting report. Please try again.");
-        }
+    if (reason == null) {
+        JOptionPane.showMessageDialog(view, "Please select a reason before submitting.");
+        return;
     }
+
+    int adopterID = SessionData.userID;
+
+    ReportDAO dao = new ReportDAO();
+    boolean success = dao.insertReport(adopterID, providerID, reason);
+
+    if (success) {
+        JOptionPane.showMessageDialog(view, "Report submitted successfully.");
+        clearRadioSelection();
+
+        // ── EMAIL: notify provider they have been reported ──
+        ProviderDetailsDAO pDao = new ProviderDetailsDAO();
+        ProviderData provider   = pDao.getProviderById(providerID);
+        if (provider != null) {
+            new Thread(() ->
+                utils.EmailService.sendProviderReported(
+                    provider.getEmail(),
+                    provider.getShelterName(),
+                    reason
+                )
+            ).start();
+        }
+
+        view.dispose();
+    } else {
+        JOptionPane.showMessageDialog(view, "Error submitting report. Please try again.");
+    }
+}
 }

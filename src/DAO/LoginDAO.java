@@ -51,6 +51,7 @@ public class LoginDAO {
                     SessionData.email     = rs.getString("proEmail");
                     SessionData.role      = "Provider";
                     SessionData.imagePath = rs.getString("proPfp");
+                    SessionData.shelterName = rs.getString("shelterName");
                     return "success";
                 }
 

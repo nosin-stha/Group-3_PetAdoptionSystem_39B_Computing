@@ -9,7 +9,6 @@ package DAO;
  * @author Dell
  */
 
-
 import database.MySqlConnector;
 import model.AdoptionRequestData;
 import model.PetsData;
@@ -20,7 +19,6 @@ public class AdoptionRequestsBoardDAO {
 
     private final MySqlConnector connector = new MySqlConnector();
 
-    
     public ArrayList<PetsData> getPetsByProvider(int providerID) {
         ArrayList<PetsData> pets = new ArrayList<>();
         Connection con = null;
@@ -62,7 +60,6 @@ public class AdoptionRequestsBoardDAO {
         return pets;
     }
 
-    
     public ArrayList<AdoptionRequestData> getRequestsByPet(int petID) {
         ArrayList<AdoptionRequestData> requests = new ArrayList<>();
         Connection con = null;
@@ -114,13 +111,13 @@ public class AdoptionRequestsBoardDAO {
             con = connector.openConnection();
             con.setAutoCommit(false);
 
-            String updateRequest  = "UPDATE AdoptionRequests SET adoptionStatus = 'Accepted' "
-                                  + "WHERE adoptionID = " + adoptionID;
-            String updatePet      = "UPDATE Pets SET petAdoptionStatus = 'Adopted' "
-                                  + "WHERE petID = " + petID;
-            String declineOthers  = "UPDATE AdoptionRequests SET adoptionStatus = 'Declined' "
-                                  + "WHERE petID = " + petID
-                                  + " AND adoptionID != " + adoptionID;
+            String updateRequest = "UPDATE AdoptionRequests SET adoptionStatus = 'Accepted' "
+                                 + "WHERE adoptionID = " + adoptionID;
+            String updatePet     = "UPDATE Pets SET petAdoptionStatus = 'Adopted' "
+                                 + "WHERE petID = " + petID;
+            String declineOthers = "UPDATE AdoptionRequests SET adoptionStatus = 'Declined' "
+                                 + "WHERE petID = " + petID
+                                 + " AND adoptionID != " + adoptionID;
 
             int r1 = connector.executeUpdate(con, updateRequest);
             int r2 = connector.executeUpdate(con, updatePet);
@@ -143,7 +140,6 @@ public class AdoptionRequestsBoardDAO {
         }
     }
 
-    
     public boolean declineRequest(int adoptionID) {
         Connection con = null;
         try {
@@ -159,5 +155,56 @@ public class AdoptionRequestsBoardDAO {
         } finally {
             connector.closeConnection(con);
         }
+    }
+
+    public AdoptionRequestData getRequestByID(int adoptionID) {
+        Connection con = null;
+        AdoptionRequestData data = null;
+
+        String sql = "SELECT ar.adoptionID, ar.adopterID, ar.petID, "
+                   + "ar.reqFullName, ar.reqEmail, ar.reqPhoneNo, "
+                   + "ar.reqAddress, ar.reqReason, ar.adoptionStatus, "
+                   + "p.petName, p.petType, p.petGender, p.petAge, p.imagePath "
+                   + "FROM AdoptionRequests ar "
+                   + "JOIN Pets p ON ar.petID = p.petID "
+                   + "WHERE ar.adoptionID = " + adoptionID;
+
+        try {
+            con = connector.openConnection();
+            ResultSet rs = connector.runQuery(con, sql);
+
+            // Read all data out of ResultSet while connection is still open
+            if (rs != null && rs.next()) {
+                data = new AdoptionRequestData(
+                    rs.getInt("adoptionID"),
+                    rs.getInt("adopterID"),
+                    rs.getInt("petID"),
+                    rs.getString("reqFullName"),
+                    rs.getString("reqEmail"),
+                    rs.getString("reqPhoneNo"),
+                    rs.getString("reqAddress"),
+                    rs.getString("reqReason"),
+                    rs.getString("adoptionStatus"),
+                    rs.getString("petName"),
+                    rs.getString("petType"),
+                    rs.getString("petGender"),
+                    rs.getString("petAge"),
+                    rs.getString("imagePath")
+                );
+                System.out.println("getRequestByID found: adoptionID=" + adoptionID
+                    + " email=" + data.getReqEmail()
+                    + " petName=" + data.getPetName());
+            } else {
+                System.out.println("getRequestByID: NO ROW found for adoptionID=" + adoptionID);
+            }
+
+        } catch (SQLException e) {
+            System.out.println("getRequestByID error: " + e.getMessage());
+        } finally {
+            
+            connector.closeConnection(con);
+        }
+
+        return data;
     }
 }

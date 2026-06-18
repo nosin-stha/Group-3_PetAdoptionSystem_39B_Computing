@@ -16,7 +16,7 @@ public class AdoptionRequestData {
 
     // PET DETAILS
     private String petName;
-    private String petBreed;
+    private String petType;
     private String petGender;
     private String petAge;
     private String imagePath;
@@ -32,7 +32,7 @@ public class AdoptionRequestData {
             String reqReason,
             String adoptionStatus,
             String petName,
-            String petBreed,
+            String petType,
             String petGender,
             String petAge,
             String imagePath
@@ -51,7 +51,7 @@ public class AdoptionRequestData {
         this.adoptionStatus = adoptionStatus;
 
         this.petName = petName;
-        this.petBreed = petBreed;
+        this.petType = petType;
         this.petGender = petGender;
         this.petAge = petAge;
         this.imagePath = imagePath;
@@ -97,8 +97,8 @@ public class AdoptionRequestData {
         return petName;
     }
 
-    public String getPetBreed() {
-        return petBreed;
+    public String getPetType() {
+        return petType;
     }
 
     public String getPetGender() {

@@ -306,28 +306,43 @@ public class AdminReportedAccountController {
     }
 
     private void handleDismiss(JTable table, int row) {
-        int reportID   = Integer.parseInt(table.getValueAt(row, 0).toString());
-        int providerID = Integer.parseInt(table.getValueAt(row, 1).toString());
-        int confirm = JOptionPane.showConfirmDialog(view,
-                "Disable provider? This will block their login and resolve all other reports.",
-                "Confirm Disable", JOptionPane.YES_NO_OPTION);
-        if (confirm == JOptionPane.YES_OPTION) {
-            if (dao.dismissReport(reportID, providerID)) {
-                table.setValueAt("Disabled", row, 5);
-                table.setValueAt("done",     row, 6);
-                dao.resolveAllOtherReports(providerID, reportID);
-                DefaultTableModel model = (DefaultTableModel) table.getModel();
-                for (int i = 0; i < model.getRowCount(); i++) {
-                    if (i == row) continue;
-                    if ("Pending".equalsIgnoreCase(model.getValueAt(i, 5).toString())) {
-                        model.setValueAt("Resolved", i, 5);
-                        model.setValueAt("done",     i, 6);
-                    }
+    int reportID   = Integer.parseInt(table.getValueAt(row, 0).toString());
+    int providerID = Integer.parseInt(table.getValueAt(row, 1).toString());
+
+    int confirm = JOptionPane.showConfirmDialog(view,
+            "Disable provider? This will block their login and resolve all other reports.",
+            "Confirm Disable", JOptionPane.YES_NO_OPTION);
+
+    if (confirm == JOptionPane.YES_OPTION) {
+        if (dao.dismissReport(reportID, providerID)) {
+            table.setValueAt("Disabled", row, 5);
+            table.setValueAt("done",     row, 6);
+            dao.resolveAllOtherReports(providerID, reportID);
+
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
+            for (int i = 0; i < model.getRowCount(); i++) {
+                if (i == row) continue;
+                if ("Pending".equalsIgnoreCase(model.getValueAt(i, 5).toString())) {
+                    model.setValueAt("Resolved", i, 5);
+                    model.setValueAt("done",     i, 6);
                 }
-                table.repaint();
+            }
+
+            table.repaint();
+
+            // ── EMAIL: notify provider their account is disabled ──
+            ProviderData pd = dao.getProviderByID(providerID);
+            if (pd != null) {
+                new Thread(() ->
+                    utils.EmailService.sendAccountDisabled(
+                        pd.getEmail(),
+                        pd.getShelterName()
+                    )
+                ).start();
             }
         }
     }
+}
 
     private JButton makeBtn(String text, Color bg) {
         JButton btn = new JButton(text);

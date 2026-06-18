@@ -62,7 +62,7 @@ public class AdoptionRequestTrackingController {
 
             // set data
             card.getLblRequestCardPetName().setText(req.getPetName());
-            card.getLblRequestCardPetBreed().setText(req.getPetBreed());
+            card.getLblRequestCardPetBreed().setText(req.getPetType());
             card.getLblRequestCardPetAge().setText(req.getPetAge());
             card.getLblRequestCardPetGender().setText(req.getPetGender());
             card.getLblRequestStatus().setText(req.getAdoptionStatus());

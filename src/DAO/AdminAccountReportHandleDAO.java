@@ -147,4 +147,34 @@ public class AdminAccountReportHandleDAO {
             return false;
         }
     }
+    
+    public model.ProviderData getProviderByID(int providerID) {
+    String sql = """
+        SELECT providerID, shelterName, proEmail, proPhoneNo, proPfp,
+               proAddress, proMissionStatement, proAdoptionPolicy
+        FROM Providers
+        WHERE providerID = ?
+    """;
+    try (PreparedStatement ps = connection.prepareStatement(sql)) {
+        ps.setInt(1, providerID);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            model.ProviderData pd = new model.ProviderData();
+            pd.setProviderID(rs.getInt("providerID"));
+            pd.setShelterName(rs.getString("shelterName"));
+            pd.setEmail(rs.getString("proEmail"));
+            pd.setPhoneNumber(rs.getString("proPhoneNo"));
+            pd.setPfp(rs.getString("proPfp"));
+            pd.setAddress(rs.getString("proAddress"));
+            pd.setMissionStatement(rs.getString("proMissionStatement"));
+            pd.setAdoptionPolicy(rs.getString("proAdoptionPolicy"));
+            return pd;
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return null;
+}
+    
+    
 }

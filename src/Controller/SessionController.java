@@ -18,6 +18,7 @@ public class SessionController {
         SessionData.email = null;
         SessionData.password = null;
         SessionData.imagePath = null;
+        SessionData.shelterName = null;
 
         // close current window
         if (currentFrame != null) {

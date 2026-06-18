@@ -58,7 +58,7 @@ public class ProviderAdoptionHistoryController {
 
             card.setPreferredSize(new java.awt.Dimension(280, 320));
             card.getlbl_PetName().setText(data.getPetName());
-            card.getlbl_PetBreed_fill().setText(data.getPetBreed());
+            card.getlbl_PetBreed_fill().setText(data.getPetType());
             card.getlbl_PetGender_fill().setText(data.getPetGender());
             card.getlbl_PetAge_fill().setText(data.getPetAge());
             card.getlbl_AdopterName_fill().setText(data.getReqFullName());

@@ -16,4 +16,5 @@ public class SessionData {
     public static String email;
     public static String role;
     public static String imagePath;
+    public static String shelterName; 
 }
