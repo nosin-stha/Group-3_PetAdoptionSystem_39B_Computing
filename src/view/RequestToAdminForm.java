@@ -4,6 +4,7 @@
  */
 package view;
 
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
@@ -22,6 +23,7 @@ public class RequestToAdminForm extends javax.swing.JFrame {
      */
     public RequestToAdminForm() {
         initComponents();
+        addShowPasswordListener();
     }
     
     public void addSubmitListener(ActionListener listener) {
@@ -52,7 +54,19 @@ public class RequestToAdminForm extends javax.swing.JFrame {
         return pwField;
     }
     
-
+    public void addShowPasswordListener() {
+        jCheckBox1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (jCheckBox1.isSelected()) {
+                    pwField.setEchoChar((char) 0);
+                } else {
+                    pwField.setEchoChar('\u2022');
+                }
+            }
+        });
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
