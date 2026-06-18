@@ -121,7 +121,7 @@ public javax.swing.JScrollPane getProviderPetsScrollPane() {
         Gender_combobox.setBackground(new java.awt.Color(255, 153, 51));
         Gender_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gender", "Male", "Female" }));
         Main_panal.add(Gender_combobox);
-        Gender_combobox.setBounds(380, 180, 115, 22);
+        Gender_combobox.setBounds(370, 180, 115, 22);
 
         PetType_combobox.setBackground(new java.awt.Color(255, 153, 51));
         PetType_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pet Type", "Dog", "Cat", "Bird", "Marine", "Others", " " }));
@@ -129,19 +129,19 @@ public javax.swing.JScrollPane getProviderPetsScrollPane() {
         PetType_combobox.setBounds(250, 180, 115, 22);
 
         Searchbar.setForeground(new java.awt.Color(204, 204, 204));
-        Searchbar.setText("parrot, husky, home-trained, kathmandu etc...");
+        Searchbar.setText("pet name, house-trained, kathmandu etc ");
         Searchbar.addActionListener(this::SearchbarActionPerformed);
         Main_panal.add(Searchbar);
-        Searchbar.setBounds(300, 140, 300, 22);
+        Searchbar.setBounds(250, 140, 420, 20);
 
         SearchLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
         Main_panal.add(SearchLogo);
-        SearchLogo.setBounds(610, 140, 40, 22);
+        SearchLogo.setBounds(680, 140, 40, 22);
 
         Age_combobox.setBackground(new java.awt.Color(255, 153, 51));
         Age_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Age", "2", "4", "6", "Other..", " " }));
         Main_panal.add(Age_combobox);
-        Age_combobox.setBounds(510, 180, 130, 22);
+        Age_combobox.setBounds(490, 180, 130, 22);
 
         totalpet.setText("Total Pet:");
         Main_panal.add(totalpet);

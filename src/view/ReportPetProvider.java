@@ -160,7 +160,7 @@ public class ReportPetProvider extends javax.swing.JFrame {
         lblShelterName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblShelterName.setText("Shelter Name");
         jPanel1.add(lblShelterName);
-        lblShelterName.setBounds(120, 140, 160, 20);
+        lblShelterName.setBounds(120, 140, 350, 20);
 
         lblContacts.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblContacts.setText("Contacts:");

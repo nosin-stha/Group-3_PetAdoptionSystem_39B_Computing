@@ -38,8 +38,34 @@ public class AdminAllAccountStatus extends javax.swing.JFrame {
         UnfreezeRequests_btn.addActionListener(listener);
     }
     
+    public void addSearchListener(java.awt.event.ActionListener listener) {
+        Search_Btn.addActionListener(listener);
+    }
+
+    public void addStatusFilterListener(java.awt.event.ActionListener listener) {
+        status_adminAllAccounts.addActionListener(listener);
+    }
+
+    public String getSearchText() {
+        String text = Search_AdminAllAccount.getText().trim();
+        return text.equals("Username, Email") ? "" : text;
+    }
+
+    public String getSelectedStatus() {
+        Object selected = status_adminAllAccounts.getSelectedItem();
+        return selected != null ? selected.toString().trim() : "";
+    }
     
-    
+    public void addResetListener(java.awt.event.ActionListener listener) {
+        Reset_Btn.addActionListener(listener);
+    }
+
+    // reset all filter controls to default state
+    public void resetFilters() {
+        Search_AdminAllAccount.setText("Username, Email ");
+        Search_AdminAllAccount.setForeground(new java.awt.Color(102, 102, 102));
+        status_adminAllAccounts.setSelectedIndex(0); // "Status" (index 0)
+    }
 
     public DefaultTableModel getTableModel() {
         return (DefaultTableModel) AdminAllAccountsStatusTable.getModel();
@@ -47,6 +73,28 @@ public class AdminAllAccountStatus extends javax.swing.JFrame {
     
     public javax.swing.JTable getTable() {
         return AdminAllAccountsStatusTable;
+    }
+    
+    
+    
+    public void initSearchPlaceholder() {
+        Search_AdminAllAccount.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent e) {
+                if (Search_AdminAllAccount.getText().equals("Username, Email ")) {
+                    Search_AdminAllAccount.setText("");
+                    Search_AdminAllAccount.setForeground(java.awt.Color.BLACK);
+                }
+            }
+
+            @Override
+            public void focusLost(java.awt.event.FocusEvent e) {
+                if (Search_AdminAllAccount.getText().trim().isEmpty()) {
+                    Search_AdminAllAccount.setText("Username, Email ");
+                    Search_AdminAllAccount.setForeground(new java.awt.Color(102, 102, 102));
+                }
+            }
+        });
     }
 
     /**
@@ -68,9 +116,10 @@ public class AdminAllAccountStatus extends javax.swing.JFrame {
         PanelWithAllAccountsTable = new javax.swing.JPanel();
         AllAccountsScrollPane = new javax.swing.JScrollPane();
         AdminAllAccountsStatusTable = new javax.swing.JTable();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        Search_UserAccount = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        status_adminAllAccounts = new javax.swing.JComboBox<>();
+        Search_AdminAllAccount = new javax.swing.JTextField();
+        Search_Btn = new javax.swing.JButton();
+        Reset_Btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -154,14 +203,17 @@ public class AdminAllAccountStatus extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        jComboBox2.setBackground(new java.awt.Color(255, 204, 51));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Status", "Active", "Reported", "Disabled", " " }));
+        status_adminAllAccounts.setBackground(new java.awt.Color(255, 153, 0));
+        status_adminAllAccounts.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Status", "Active", "Reported", "Disabled", " " }));
 
-        Search_UserAccount.setForeground(new java.awt.Color(102, 102, 102));
-        Search_UserAccount.setText("Provider Name, Email etc");
-        Search_UserAccount.addActionListener(this::Search_UserAccountActionPerformed);
+        Search_AdminAllAccount.setForeground(new java.awt.Color(102, 102, 102));
+        Search_AdminAllAccount.setText("Username, Email ");
+        Search_AdminAllAccount.addActionListener(this::Search_AdminAllAccountActionPerformed);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
+        Search_Btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
+
+        Reset_Btn.setBackground(new java.awt.Color(255, 153, 51));
+        Reset_Btn.setText("Reset");
 
         javax.swing.GroupLayout Admin_AllAccountsPanelLayout = new javax.swing.GroupLayout(Admin_AllAccountsPanel);
         Admin_AllAccountsPanel.setLayout(Admin_AllAccountsPanelLayout);
@@ -171,31 +223,40 @@ public class AdminAllAccountStatus extends javax.swing.JFrame {
             .addGroup(Admin_AllAccountsPanelLayout.createSequentialGroup()
                 .addGroup(Admin_AllAccountsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Admin_AllAccountsPanelLayout.createSequentialGroup()
-                        .addGap(431, 431, 431)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Admin_AllAccountsPanelLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(PanelWithAllAccountsTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(Admin_AllAccountsPanelLayout.createSequentialGroup()
-                        .addGap(297, 297, 297)
-                        .addComponent(Search_UserAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(Admin_AllAccountsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Admin_AllAccountsPanelLayout.createSequentialGroup()
+                                .addGap(297, 297, 297)
+                                .addComponent(Search_AdminAllAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Search_Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(Admin_AllAccountsPanelLayout.createSequentialGroup()
+                                .addGap(394, 394, 394)
+                                .addComponent(status_adminAllAccounts, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(80, 80, 80)
+                        .addComponent(Reset_Btn)))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         Admin_AllAccountsPanelLayout.setVerticalGroup(
             Admin_AllAccountsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Admin_AllAccountsPanelLayout.createSequentialGroup()
                 .addComponent(toppanel_viewpet_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addGroup(Admin_AllAccountsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Search_UserAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(Admin_AllAccountsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Admin_AllAccountsPanelLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addGroup(Admin_AllAccountsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(Search_Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Search_AdminAllAccount))
+                        .addGap(18, 18, 18)
+                        .addComponent(status_adminAllAccounts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Admin_AllAccountsPanelLayout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addComponent(Reset_Btn)))
                 .addGap(55, 55, 55)
                 .addComponent(PanelWithAllAccountsTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -212,9 +273,9 @@ public class AdminAllAccountStatus extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Search_UserAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_UserAccountActionPerformed
+    private void Search_AdminAllAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_AdminAllAccountActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Search_UserAccountActionPerformed
+    }//GEN-LAST:event_Search_AdminAllAccountActionPerformed
 
     private void UnfreezeRequests_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UnfreezeRequests_btnActionPerformed
         // TODO add your handling code here:
@@ -254,10 +315,11 @@ public class AdminAllAccountStatus extends javax.swing.JFrame {
     private javax.swing.JButton Logout_btn;
     private javax.swing.JPanel PanelWithAllAccountsTable;
     private javax.swing.JButton Reports_btn;
-    private javax.swing.JTextField Search_UserAccount;
+    private javax.swing.JButton Reset_Btn;
+    private javax.swing.JTextField Search_AdminAllAccount;
+    private javax.swing.JButton Search_Btn;
     private javax.swing.JButton UnfreezeRequests_btn;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> status_adminAllAccounts;
     private javax.swing.JPanel toppanel_viewpet_adopter;
     // End of variables declaration//GEN-END:variables
 }

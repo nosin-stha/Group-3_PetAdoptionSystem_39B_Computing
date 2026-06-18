@@ -91,16 +91,16 @@ public class AdopterHomePage extends javax.swing.JFrame {
         Favourite_text = new javax.swing.JLabel();
         profile_btn = new javax.swing.JButton();
         Profile_text = new javax.swing.JLabel();
-        Searchbar = new javax.swing.JTextField();
-        SearchLogo = new javax.swing.JButton();
-        Age_combobox = new javax.swing.JComboBox<>();
-        Gender_combobox = new javax.swing.JComboBox<>();
-        Pet_combobox = new javax.swing.JComboBox<>();
-        PetClear_btn = new javax.swing.JButton();
         Total_pet = new javax.swing.JLabel();
         AdopterSideTotalPetCount = new javax.swing.JLabel();
         AdopterAllPetScrollPane = new javax.swing.JScrollPane();
         petContainerPanel = new javax.swing.JPanel();
+        Searchbar_AdopterAdoptionRequests = new javax.swing.JTextField();
+        Search_Btn = new javax.swing.JButton();
+        PetAge_Filter = new javax.swing.JComboBox<>();
+        Gender_Filter = new javax.swing.JComboBox<>();
+        PetType_Filter = new javax.swing.JComboBox<>();
+        Clear_Filter = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -189,24 +189,6 @@ public class AdopterHomePage extends javax.swing.JFrame {
                 .addGap(17, 17, 17))
         );
 
-        Searchbar.setForeground(new java.awt.Color(204, 204, 204));
-        Searchbar.setText("parrot, husky, home-trained, kathmandu etc...");
-        Searchbar.addActionListener(this::SearchbarActionPerformed);
-
-        SearchLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
-
-        Age_combobox.setBackground(new java.awt.Color(255, 153, 51));
-        Age_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Age", "2", "4", "6", "Other..", " " }));
-
-        Gender_combobox.setBackground(new java.awt.Color(255, 153, 51));
-        Gender_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gender", "Male", "Female" }));
-
-        Pet_combobox.setBackground(new java.awt.Color(255, 153, 51));
-        Pet_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pet Type", "Dog", "Cat", "Bird", "Marine", "Others", " " }));
-
-        PetClear_btn.setBackground(new java.awt.Color(255, 153, 51));
-        PetClear_btn.setText("Clear");
-
         Total_pet.setText("Total pet:");
 
         AdopterSideTotalPetCount.setText("Pet Count");
@@ -215,58 +197,68 @@ public class AdopterHomePage extends javax.swing.JFrame {
         petContainerPanel.setLayout(new java.awt.GridLayout(0, 3, 20, 20));
         AdopterAllPetScrollPane.setViewportView(petContainerPanel);
 
+        Searchbar_AdopterAdoptionRequests.setForeground(new java.awt.Color(204, 204, 204));
+        Searchbar_AdopterAdoptionRequests.setText("pet name, house-trained, kathmandu etc ");
+        Searchbar_AdopterAdoptionRequests.addActionListener(this::Searchbar_AdopterAdoptionRequestsActionPerformed);
+
+        Search_Btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
+
+        PetAge_Filter.setBackground(new java.awt.Color(255, 153, 51));
+        PetAge_Filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Age", "2", "4", "6", "Other..", " " }));
+
+        Gender_Filter.setBackground(new java.awt.Color(255, 153, 51));
+        Gender_Filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gender", "Male", "Female" }));
+
+        PetType_Filter.setBackground(new java.awt.Color(255, 153, 51));
+        PetType_Filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pet Type", "Dog", "Cat", "Bird", "Marine", "Others", " " }));
+
+        Clear_Filter.setBackground(new java.awt.Color(255, 153, 51));
+        Clear_Filter.setText("Clear");
+
         javax.swing.GroupLayout mainpanalLayout = new javax.swing.GroupLayout(mainpanal);
         mainpanal.setLayout(mainpanalLayout);
         mainpanalLayout.setHorizontalGroup(
             mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainpanalLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
                 .addGroup(mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainpanalLayout.createSequentialGroup()
-                        .addGap(198, 198, 198)
-                        .addGroup(mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(mainpanalLayout.createSequentialGroup()
-                                .addGap(4, 4, 4)
-                                .addComponent(Pet_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Gender_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Age_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(mainpanalLayout.createSequentialGroup()
-                                .addComponent(Searchbar, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(SearchLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(59, 59, 59)
-                        .addComponent(PetClear_btn))
-                    .addGroup(mainpanalLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(mainpanalLayout.createSequentialGroup()
-                                .addComponent(Total_pet, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(AdopterSideTotalPetCount, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(AdopterAllPetScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 925, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(Total_pet, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(AdopterSideTotalPetCount, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AdopterAllPetScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 925, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addComponent(toppanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(mainpanalLayout.createSequentialGroup()
+                .addGap(259, 259, 259)
+                .addGroup(mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(mainpanalLayout.createSequentialGroup()
+                        .addComponent(PetType_Filter, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Gender_Filter, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(PetAge_Filter, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Clear_Filter))
+                    .addGroup(mainpanalLayout.createSequentialGroup()
+                        .addComponent(Searchbar_AdopterAdoptionRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Search_Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         mainpanalLayout.setVerticalGroup(
             mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainpanalLayout.createSequentialGroup()
-                .addGroup(mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainpanalLayout.createSequentialGroup()
-                        .addComponent(toppanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Searchbar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SearchLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Age_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Gender_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Pet_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(mainpanalLayout.createSequentialGroup()
-                        .addGap(146, 146, 146)
-                        .addComponent(PetClear_btn)))
-                .addGap(25, 25, 25)
+                .addComponent(toppanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Searchbar_AdopterAdoptionRequests, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Search_Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PetAge_Filter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Gender_Filter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PetType_Filter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Clear_Filter))
+                .addGap(30, 30, 30)
                 .addGroup(mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AdopterSideTotalPetCount)
                     .addComponent(Total_pet, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -290,10 +282,6 @@ public class AdopterHomePage extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SearchbarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchbarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SearchbarActionPerformed
-
     private void Logout_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Logout_btnActionPerformed
 
     }//GEN-LAST:event_Logout_btnActionPerformed
@@ -305,6 +293,10 @@ public class AdopterHomePage extends javax.swing.JFrame {
     private void profile_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profile_btnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_profile_btnActionPerformed
+
+    private void Searchbar_AdopterAdoptionRequestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Searchbar_AdopterAdoptionRequestsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Searchbar_AdopterAdoptionRequestsActionPerformed
     
      
     /**
@@ -335,19 +327,19 @@ public class AdopterHomePage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane AdopterAllPetScrollPane;
     private javax.swing.JLabel AdopterSideTotalPetCount;
-    private javax.swing.JComboBox<String> Age_combobox;
+    private javax.swing.JButton Clear_Filter;
     private javax.swing.JButton Favourite_btn;
     private javax.swing.JLabel Favourite_text;
-    private javax.swing.JComboBox<String> Gender_combobox;
+    private javax.swing.JComboBox<String> Gender_Filter;
     private javax.swing.JButton Home_btn;
     private javax.swing.JLabel Logo;
     private javax.swing.JButton Logout_btn;
     private javax.swing.JButton MyRequests_btn;
-    private javax.swing.JButton PetClear_btn;
-    private javax.swing.JComboBox<String> Pet_combobox;
+    private javax.swing.JComboBox<String> PetAge_Filter;
+    private javax.swing.JComboBox<String> PetType_Filter;
     private javax.swing.JLabel Profile_text;
-    private javax.swing.JButton SearchLogo;
-    private javax.swing.JTextField Searchbar;
+    private javax.swing.JButton Search_Btn;
+    private javax.swing.JTextField Searchbar_AdopterAdoptionRequests;
     private javax.swing.JButton Shelters_btn;
     private javax.swing.JLabel Total_pet;
     private javax.swing.JPanel mainpanal;

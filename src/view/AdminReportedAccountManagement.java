@@ -42,6 +42,42 @@ public class AdminReportedAccountManagement extends javax.swing.JFrame {
         return ReportsTableScrollPanel;
     }
     
+    public void addSearchListener(java.awt.event.ActionListener listener) {
+        btnSearch.addActionListener(listener);
+    }
+
+    public void addClearFilterListener(java.awt.event.ActionListener listener) {
+        Reset_Btn.addActionListener(listener);
+    }
+
+    public String getSearchText() {
+        String text = SearchbarReport.getText().trim();
+        return text.equals("Provider Name, Email") ? "" : text;
+    }
+
+    public void initSearchPlaceholder() {
+        SearchbarReport.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent e) {
+                if (SearchbarReport.getText().trim().equals("Provider Name, Email")) {
+                    SearchbarReport.setText("");
+                    SearchbarReport.setForeground(java.awt.Color.BLACK);
+                }
+            }
+            @Override
+            public void focusLost(java.awt.event.FocusEvent e) {
+                if (SearchbarReport.getText().trim().isEmpty()) {
+                    SearchbarReport.setText("Provider Name, Email");
+                    SearchbarReport.setForeground(new java.awt.Color(102, 102, 102));
+                }
+            }
+        });
+    }
+
+    public void resetSearch() {
+        SearchbarReport.setText("Provider Name, Email");
+        SearchbarReport.setForeground(new java.awt.Color(102, 102, 102));
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -63,6 +99,7 @@ public class AdminReportedAccountManagement extends javax.swing.JFrame {
         SearchbarReport = new javax.swing.JTextField();
         ReportsTableScrollPane = new javax.swing.JScrollPane();
         ReportsTableScrollPanel = new javax.swing.JPanel();
+        Reset_Btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -121,7 +158,7 @@ public class AdminReportedAccountManagement extends javax.swing.JFrame {
         btnSearch.addActionListener(this::btnSearchActionPerformed);
 
         SearchbarReport.setForeground(new java.awt.Color(102, 102, 102));
-        SearchbarReport.setText("Adopter Name, Email etc");
+        SearchbarReport.setText("Provider Name, Email ");
         SearchbarReport.addActionListener(this::SearchbarReportActionPerformed);
 
         ReportsTableScrollPane.setBackground(new java.awt.Color(255, 255, 255));
@@ -141,6 +178,9 @@ public class AdminReportedAccountManagement extends javax.swing.JFrame {
 
         ReportsTableScrollPane.setViewportView(ReportsTableScrollPanel);
 
+        Reset_Btn.setBackground(new java.awt.Color(255, 153, 51));
+        Reset_Btn.setText("Reset");
+
         javax.swing.GroupLayout ColorPanel1Layout = new javax.swing.GroupLayout(ColorPanel1);
         ColorPanel1.setLayout(ColorPanel1Layout);
         ColorPanel1Layout.setHorizontalGroup(
@@ -151,8 +191,10 @@ public class AdminReportedAccountManagement extends javax.swing.JFrame {
                     .addGroup(ColorPanel1Layout.createSequentialGroup()
                         .addGap(309, 309, 309)
                         .addComponent(SearchbarReport, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(80, 80, 80)
+                        .addComponent(Reset_Btn)))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(ColorPanel1Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
@@ -165,8 +207,10 @@ public class AdminReportedAccountManagement extends javax.swing.JFrame {
                 .addComponent(toppanel_viewpet_adopter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
                 .addGroup(ColorPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(SearchbarReport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ColorPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(SearchbarReport))
+                    .addComponent(Reset_Btn))
                 .addGap(47, 47, 47)
                 .addComponent(ReportsTableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(19, Short.MAX_VALUE))
@@ -231,6 +275,7 @@ public class AdminReportedAccountManagement extends javax.swing.JFrame {
     private javax.swing.JScrollPane ReportsTableScrollPane;
     private javax.swing.JPanel ReportsTableScrollPanel;
     private javax.swing.JButton Reports_btn;
+    private javax.swing.JButton Reset_Btn;
     private javax.swing.JTextField SearchbarReport;
     private javax.swing.JButton UnfreezeRequests_btn;
     private javax.swing.JButton btnSearch;

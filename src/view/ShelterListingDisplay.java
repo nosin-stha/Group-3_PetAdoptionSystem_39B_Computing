@@ -165,7 +165,7 @@ public class ShelterListingDisplay extends javax.swing.JFrame {
         );
 
         Searchbar.setForeground(new java.awt.Color(204, 204, 204));
-        Searchbar.setText("shelter name, shelter location etc...");
+        Searchbar.setText("shelter name, shelter location etc");
         Searchbar.addActionListener(this::SearchbarActionPerformed);
 
         SheltersDisplayPanel.setBackground(new java.awt.Color(255, 255, 255));

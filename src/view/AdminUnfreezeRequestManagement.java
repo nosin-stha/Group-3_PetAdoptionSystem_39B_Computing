@@ -19,9 +19,8 @@ public class AdminUnfreezeRequestManagement extends javax.swing.JFrame {
      * Creates new form Admin_unfreez_account_request
      */
     public AdminUnfreezeRequestManagement() {
-    initComponents();
-    
-}
+        initComponents();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -47,6 +46,7 @@ public class AdminUnfreezeRequestManagement extends javax.swing.JFrame {
         PetRequestsTable_ScrollPane = new javax.swing.JScrollPane();
         PetRequests_Table = new javax.swing.JTable();
         total_number_of_pets = new javax.swing.JLabel();
+        Reset_Btn = new javax.swing.JButton();
 
         jTextField1.setText("jTextField1");
 
@@ -104,13 +104,13 @@ public class AdminUnfreezeRequestManagement extends javax.swing.JFrame {
         );
 
         Searchbar.setForeground(new java.awt.Color(204, 204, 204));
-        Searchbar.setText("provider name, email");
+        Searchbar.setText("Provider Name, Email");
         Searchbar.addActionListener(this::SearchbarActionPerformed);
 
         SearchLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
 
-        Status.setBackground(new java.awt.Color(255, 190, 86));
-        Status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Status", "pending", " " }));
+        Status.setBackground(new java.awt.Color(255, 153, 0));
+        Status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Status", "Pending", "Accepted", "Denied" }));
 
         jLabel1.setText("Total Unfreeze Requests:");
 
@@ -134,6 +134,9 @@ public class AdminUnfreezeRequestManagement extends javax.swing.JFrame {
 
         total_number_of_pets.setText("jLabel2");
 
+        Reset_Btn.setBackground(new java.awt.Color(255, 153, 51));
+        Reset_Btn.setText("Reset");
+
         javax.swing.GroupLayout mainpanalLayout = new javax.swing.GroupLayout(mainpanal);
         mainpanal.setLayout(mainpanalLayout);
         mainpanalLayout.setHorizontalGroup(
@@ -155,7 +158,9 @@ public class AdminUnfreezeRequestManagement extends javax.swing.JFrame {
                             .addGroup(mainpanalLayout.createSequentialGroup()
                                 .addComponent(Searchbar, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(SearchLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(SearchLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(95, 95, 95)
+                                .addComponent(Reset_Btn))
                             .addGroup(mainpanalLayout.createSequentialGroup()
                                 .addGap(126, 126, 126)
                                 .addComponent(Status, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -164,12 +169,17 @@ public class AdminUnfreezeRequestManagement extends javax.swing.JFrame {
         mainpanalLayout.setVerticalGroup(
             mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainpanalLayout.createSequentialGroup()
-                .addComponent(toppanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addGroup(mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Searchbar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SearchLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainpanalLayout.createSequentialGroup()
+                        .addComponent(toppanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addGroup(mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Searchbar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SearchLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainpanalLayout.createSequentialGroup()
+                        .addComponent(Reset_Btn)
+                        .addGap(18, 18, 18)))
                 .addComponent(Status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,6 +224,7 @@ public class AdminUnfreezeRequestManagement extends javax.swing.JFrame {
     private javax.swing.JScrollPane PetRequestsTable_ScrollPane;
     private javax.swing.JTable PetRequests_Table;
     private javax.swing.JButton Reports_btn;
+    private javax.swing.JButton Reset_Btn;
     private javax.swing.JButton SearchLogo;
     private javax.swing.JTextField Searchbar;
     private javax.swing.JComboBox<String> Status;
@@ -226,7 +237,7 @@ public class AdminUnfreezeRequestManagement extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
 
-public javax.swing.JTable getPetRequestsTable() {
+    public javax.swing.JTable getPetRequestsTable() {
     return PetRequests_Table;
 }
 
@@ -234,23 +245,77 @@ public void setTotalProviders(String count) {
     total_number_of_pets.setText(count);
 }
 
- 
+public void addAllAccountsListener(java.awt.event.ActionListener listener) {
+    AllAccounts_btn.addActionListener(listener);
+}
 
-public void addAllAccountsListener(ActionListener listener) {
-        AllAccounts_btn.addActionListener(listener);
-    }
+public void addReportsListener(java.awt.event.ActionListener listener) {
+    Reports_btn.addActionListener(listener);
+}
 
-    public void addReportsListener(ActionListener listener) {
-        Reports_btn.addActionListener(listener);
-    }
+public void addLogoutListener(java.awt.event.ActionListener listener) {
+    Logout_btn.addActionListener(listener);
+}
 
-    public void addLogoutListener(ActionListener listener) {
-        Logout_btn.addActionListener(listener);
-    }
-    
-    public void addUnfreezeRequestsListener(ActionListener listener) {
-        UnfreezeRequests_btn.addActionListener(listener);
-    }
+public void addUnfreezeRequestsListener(java.awt.event.ActionListener listener) {
+    UnfreezeRequests_btn.addActionListener(listener);
+}
 
+
+public void addSearchListener(java.awt.event.ActionListener listener) {
+    SearchLogo.addActionListener(listener);
+}
+
+
+public void addSearchTextListener(javax.swing.event.DocumentListener listener) {
+    Searchbar.getDocument().addDocumentListener(listener);
+}
+
+public void addStatusFilterListener(java.awt.event.ActionListener listener) {
+    Status.addActionListener(listener);
+}
+
+public void addResetListener(java.awt.event.ActionListener listener) {
+    Reset_Btn.addActionListener(listener);
+}
+
+public String getSearchText() {
+    String text = Searchbar.getText().trim();
+    return text.equals("Provider Name, Email") ? "" : text;
+}
+
+public String getSelectedStatus() {
+    Object selected = Status.getSelectedItem();
+    return selected != null ? selected.toString().trim() : "";
+}
+
+public javax.swing.table.DefaultTableModel getTableModel() {
+    return (javax.swing.table.DefaultTableModel) PetRequests_Table.getModel();
+}
+
+public void initSearchPlaceholder() {
+    Searchbar.addFocusListener(new java.awt.event.FocusAdapter() {
+        @Override
+        public void focusGained(java.awt.event.FocusEvent e) {
+            if (Searchbar.getText().trim().equals("Provider Name, Email")) {
+                Searchbar.setText("");
+                Searchbar.setForeground(java.awt.Color.BLACK);
+            }
+        }
+        @Override
+        public void focusLost(java.awt.event.FocusEvent e) {
+            if (Searchbar.getText().trim().isEmpty()) {
+                Searchbar.setText("Provider Name, Email");
+                Searchbar.setForeground(new java.awt.Color(204, 204, 204));
+            }
+        }
+    });
+}
+
+public void resetFilters() {
+    Searchbar.setText("Provider Name, Email");
+    Searchbar.setForeground(new java.awt.Color(204, 204, 204));
+    Status.setSelectedIndex(0);
+}
    
 }

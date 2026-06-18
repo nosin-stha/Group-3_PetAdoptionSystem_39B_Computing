@@ -9,7 +9,6 @@ package Controller;
  * @author Dell
  */
 
-
 import DAO.AdminAllAccountsDAO;
 import java.awt.Color;
 import java.awt.Component;
@@ -27,12 +26,58 @@ public class AdminAllAccountsController {
 
     private AdminAllAccountStatus view;
     private AdminAllAccountsDAO dao;
+    private ArrayList<Object[]> allAccounts; 
 
     public AdminAllAccountsController(AdminAllAccountStatus view, Connection connection) {
         this.view = view;
         this.dao  = new AdminAllAccountsDAO(connection);
+        view.initSearchPlaceholder();  
         configureTable();
         loadAllAccounts();
+        attachListeners();  
+    }
+
+    
+    private void attachListeners() {
+        view.addSearchListener(e -> applyFilters());
+        view.addStatusFilterListener(e -> applyFilters());
+        view.addResetListener(e -> resetFilters());  
+    }
+
+    private void resetFilters() {
+        view.resetFilters();       
+    
+        DefaultTableModel model = view.getTableModel();
+        model.setRowCount(0);
+        for (Object[] row : allAccounts) 
+            model.addRow(row);
+    }
+
+    // ── Apply both search text and status filter together ────────────────────
+    private void applyFilters() {
+        String keyword     = view.getSearchText().trim().toLowerCase();
+        String statusFilter = view.getSelectedStatus().trim().toLowerCase();
+
+        DefaultTableModel model = view.getTableModel();
+        model.setRowCount(0);
+
+        for (Object[] row : allAccounts) {
+            String username = row[1] != null ? row[1].toString().toLowerCase() : "";
+            String email    = row[2] != null ? row[2].toString().toLowerCase() : "";
+            String status   = row[4] != null ? row[4].toString().toLowerCase() : "";
+
+            boolean matchesSearch = keyword.isEmpty()
+                    || username.contains(keyword)
+                    || email.contains(keyword);
+
+            boolean matchesStatus = statusFilter.isEmpty()
+                    || statusFilter.equals("status")  // default "Status" option = show all
+                    || status.equals(statusFilter);
+
+            if (matchesSearch && matchesStatus) {
+                model.addRow(row);
+            }
+        }
     }
 
     private void configureTable() {
@@ -48,39 +93,32 @@ public class AdminAllAccountsController {
         table.setShowGrid(true);
         table.setRowHeight(40);
 
-
         table.getColumnModel().getColumn(1).setCellRenderer(new WrappedTextRenderer());
-
         table.getColumnModel().getColumn(4).setCellRenderer(new StatusCellRenderer());
-        
-        for (int i = 0; i < table.getColumnCount(); i++) {
+
+        for (int i = 0; i < table.getColumnCount(); i++)
             table.getColumnModel().getColumn(i).setResizable(false);
-        }
     }
 
     private void loadAllAccounts() {
-        ArrayList<Object[]> accounts = dao.getAllAccounts();
+        allAccounts = dao.getAllAccounts(); // store master list
         DefaultTableModel model = view.getTableModel();
         model.setRowCount(0);
-        if (accounts.isEmpty())
+        if (allAccounts.isEmpty())
             System.err.println("WARNING: No accounts returned from DAO.");
-        for (Object[] row : accounts)
+        for (Object[] row : allAccounts)
             model.addRow(row);
-        System.out.println("Accounts loaded into table: " + accounts.size());
+        System.out.println("Accounts loaded into table: " + allAccounts.size());
     }
 
     private static class WrappedTextRenderer extends DefaultTableCellRenderer {
         @Override
-        public Component getTableCellRendererComponent(
-                JTable table, Object value,
-                boolean isSelected, boolean hasFocus,
-                int row, int column) {
-
+        public Component getTableCellRendererComponent(JTable table, Object value,
+                boolean isSelected, boolean hasFocus, int row, int column) {
             int colWidth = table.getColumnModel().getColumn(column).getWidth();
             String text  = value == null ? "" : value.toString();
             String html  = "<html><body style='width:" + Math.max(colWidth - 10, 60)
-                           + "px; padding:2px;'>" + text + "</body></html>";
-
+                         + "px; padding:2px;'>" + text + "</body></html>";
             JLabel label = (JLabel) super.getTableCellRendererComponent(
                     table, html, isSelected, hasFocus, row, column);
             label.setOpaque(true);
@@ -91,31 +129,22 @@ public class AdminAllAccountsController {
         }
     }
 
-
     private static class StatusCellRenderer extends DefaultTableCellRenderer {
         @Override
-        public Component getTableCellRendererComponent(
-                JTable table, Object value,
-                boolean isSelected, boolean hasFocus,
-                int row, int column) {
-
+        public Component getTableCellRendererComponent(JTable table, Object value,
+                boolean isSelected, boolean hasFocus, int row, int column) {
             super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
             setHorizontalAlignment(SwingConstants.CENTER);
             setOpaque(true);
             setFont(new Font("Segoe UI", Font.BOLD, 13));
-
-            String status = value != null ? value.toString().trim().toLowerCase() : "";
-
-        
             setBackground(Color.WHITE);
-
+            String status = value != null ? value.toString().trim().toLowerCase() : "";
             switch (status) {
-                case "active" -> setForeground(new Color(0, 130, 0));
+                case "active"   -> setForeground(new Color(0, 130, 0));
                 case "reported" -> setForeground(new Color(200, 120, 0));
                 case "disabled" -> setForeground(new Color(198, 40, 40));
-                default -> setForeground(Color.BLACK);
+                default         -> setForeground(Color.BLACK);
             }
-
             return this;
         }
     }

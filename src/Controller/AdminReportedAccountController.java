@@ -16,17 +16,49 @@ public class AdminReportedAccountController {
 
     private final AdminReportedAccountManagement view;
     private final AdminAccountReportHandleDAO dao;
+    private ArrayList<Object[]> allProviders; // master list
 
     public AdminReportedAccountController(AdminReportedAccountManagement view,
                                           java.sql.Connection connection) {
         this.view = view;
         this.dao  = new AdminAccountReportHandleDAO(connection);
+        view.initSearchPlaceholder();
+        view.addSearchListener(e -> applySearch());
+        view.addClearFilterListener(e -> clearSearch());
         loadAllReportedProviders();
     }
 
     public void loadAllReportedProviders() {
-        ArrayList<Object[]> providers = dao.getReportedProviders();
+        allProviders = dao.getReportedProviders();
+        renderProviders(allProviders);
+    }
 
+    private void applySearch() {
+        String keyword = view.getSearchText().toLowerCase();
+
+        if (keyword.isEmpty()) {
+            renderProviders(allProviders);
+            return;
+        }
+
+        ArrayList<Object[]> filtered = new ArrayList<>();
+        for (Object[] p : allProviders) {
+            String name  = p[1] != null ? p[1].toString().toLowerCase() : "";
+            String email = p[2] != null ? p[2].toString().toLowerCase() : "";
+            if (name.contains(keyword) || email.contains(keyword)) {
+                filtered.add(p);
+            }
+        }
+
+        renderProviders(filtered);
+    }
+
+    private void clearSearch() {
+        view.resetSearch();
+        renderProviders(allProviders);
+    }
+
+    private void renderProviders(ArrayList<Object[]> providers) {
         JPanel container = view.getScrollPanel();
         container.removeAll();
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
@@ -56,8 +88,6 @@ public class AdminReportedAccountController {
                 board.setShelterLogo(new ImageIcon(img));
             }
 
-            // Build ProviderData from what the DAO already returned —
-            // no extra DB call needed, providerID matches the card's board
             ProviderData providerData = new ProviderData();
             providerData.setProviderID(providerID);
             providerData.setShelterName(name);
@@ -68,9 +98,7 @@ public class AdminReportedAccountController {
             providerData.setMissionStatement(mission);
             providerData.setAdoptionPolicy(policy);
 
-            // Attach view shelter button — providerID belongs to THIS board's card
             board.addViewShelterListener(e -> openShelterDetail(providerData));
-
             loadReports(board, providerID);
 
             container.add(board);
@@ -81,7 +109,6 @@ public class AdminReportedAccountController {
         container.repaint();
     }
 
-    // Opens Admin_ViewShelterDetail on top; main window stays open and visible
     private void openShelterDetail(ProviderData providerData) {
         Admin_ViewShelterDetail shelterView = new Admin_ViewShelterDetail();
         shelterView.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -306,43 +333,42 @@ public class AdminReportedAccountController {
     }
 
     private void handleDismiss(JTable table, int row) {
-    int reportID   = Integer.parseInt(table.getValueAt(row, 0).toString());
-    int providerID = Integer.parseInt(table.getValueAt(row, 1).toString());
+        int reportID   = Integer.parseInt(table.getValueAt(row, 0).toString());
+        int providerID = Integer.parseInt(table.getValueAt(row, 1).toString());
 
-    int confirm = JOptionPane.showConfirmDialog(view,
-            "Disable provider? This will block their login and resolve all other reports.",
-            "Confirm Disable", JOptionPane.YES_NO_OPTION);
+        int confirm = JOptionPane.showConfirmDialog(view,
+                "Disable provider? This will block their login and resolve all other reports.",
+                "Confirm Disable", JOptionPane.YES_NO_OPTION);
 
-    if (confirm == JOptionPane.YES_OPTION) {
-        if (dao.dismissReport(reportID, providerID)) {
-            table.setValueAt("Disabled", row, 5);
-            table.setValueAt("done",     row, 6);
-            dao.resolveAllOtherReports(providerID, reportID);
+        if (confirm == JOptionPane.YES_OPTION) {
+            if (dao.dismissReport(reportID, providerID)) {
+                table.setValueAt("Disabled", row, 5);
+                table.setValueAt("done",     row, 6);
+                dao.resolveAllOtherReports(providerID, reportID);
 
-            DefaultTableModel model = (DefaultTableModel) table.getModel();
-            for (int i = 0; i < model.getRowCount(); i++) {
-                if (i == row) continue;
-                if ("Pending".equalsIgnoreCase(model.getValueAt(i, 5).toString())) {
-                    model.setValueAt("Resolved", i, 5);
-                    model.setValueAt("done",     i, 6);
+                DefaultTableModel model = (DefaultTableModel) table.getModel();
+                for (int i = 0; i < model.getRowCount(); i++) {
+                    if (i == row) continue;
+                    if ("Pending".equalsIgnoreCase(model.getValueAt(i, 5).toString())) {
+                        model.setValueAt("Resolved", i, 5);
+                        model.setValueAt("done",     i, 6);
+                    }
                 }
-            }
 
-            table.repaint();
+                table.repaint();
 
-            // ── EMAIL: notify provider their account is disabled ──
-            ProviderData pd = dao.getProviderByID(providerID);
-            if (pd != null) {
-                new Thread(() ->
-                    utils.EmailService.sendAccountDisabled(
-                        pd.getEmail(),
-                        pd.getShelterName()
-                    )
-                ).start();
+                ProviderData pd = dao.getProviderByID(providerID);
+                if (pd != null) {
+                    new Thread(() ->
+                        utils.EmailService.sendAccountDisabled(
+                            pd.getEmail(),
+                            pd.getShelterName()
+                        )
+                    ).start();
+                }
             }
         }
     }
-}
 
     private JButton makeBtn(String text, Color bg) {
         JButton btn = new JButton(text);
