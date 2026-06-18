@@ -14,6 +14,7 @@ import view.ProviderHomePage;
 import view.SignupWindow;
 import java.sql.Connection;
 import database.MySqlConnector;
+import view.OTPWindow;
 import view.RequestToAdminForm;
 
 public class LoginController {
@@ -27,6 +28,16 @@ public class LoginController {
         this.loginView.getBtnLogin().addActionListener(new LoginListener());
         this.loginView.getBtnCreateAccount().addActionListener(new CreateAccountListener());
         this.loginView.addRequestToAdminListener(new RequestToAdminListener());
+        
+        this.loginView.addForgotPasswordListener(new java.awt.event.ActionListener() {
+        @Override
+        public void actionPerformed(java.awt.event.ActionEvent e) {
+            OTPWindow otpWindow = new OTPWindow();
+            new ForgotPasswordController(otpWindow);
+            otpWindow.setLocationRelativeTo(null);
+            otpWindow.setVisible(true);
+        }
+    });
     }
 
     private void openWindow(JFrame frame) {
