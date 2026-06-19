@@ -30,7 +30,16 @@ public class AdopterHomePage extends javax.swing.JFrame {
        setLocationRelativeTo(null);
        new NavigationController(this);
        new PetController(this);  // all setup moved to controller
+       
     }
+    
+    
+    public javax.swing.JButton getSearchButton() { return Search_Btn; }
+
+    public void addSearchButtonListener(java.awt.event.ActionListener listener) {
+        Search_Btn.addActionListener(listener);
+    }
+    
 
     // Getters
     public javax.swing.JScrollPane getAdopterAllPetScrollPane() { 
@@ -71,6 +80,18 @@ public class AdopterHomePage extends javax.swing.JFrame {
     }
     
     
+    public javax.swing.JTextField getSearchbar() { return PetSearchBar_AdopterHome; }
+    public javax.swing.JComboBox<String> getPetTypeFilter() { return PetType_Filter; }
+    public javax.swing.JComboBox<String> getGenderFilter() { return Gender_Filter; }
+    public javax.swing.JComboBox<String> getPetAgeFilter() { return PetAge_Filter; }
+    public javax.swing.JButton getClearFilter() { return Reset_Btn; }
+    
+    
+    public javax.swing.JComboBox<String> getPetTypeCombobox() { return PetType_Filter; }
+    public javax.swing.JComboBox<String> getGenderCombobox()  { return Gender_Filter; }
+    public javax.swing.JComboBox<String> getAgeCombobox()     { return PetAge_Filter; }
+    public javax.swing.JButton           getResetButton()     { return Reset_Btn; }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -95,12 +116,12 @@ public class AdopterHomePage extends javax.swing.JFrame {
         AdopterSideTotalPetCount = new javax.swing.JLabel();
         AdopterAllPetScrollPane = new javax.swing.JScrollPane();
         petContainerPanel = new javax.swing.JPanel();
-        Searchbar_AdopterAdoptionRequests = new javax.swing.JTextField();
+        PetSearchBar_AdopterHome = new javax.swing.JTextField();
         Search_Btn = new javax.swing.JButton();
         PetAge_Filter = new javax.swing.JComboBox<>();
         Gender_Filter = new javax.swing.JComboBox<>();
         PetType_Filter = new javax.swing.JComboBox<>();
-        Clear_Filter = new javax.swing.JButton();
+        Reset_Btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -197,9 +218,9 @@ public class AdopterHomePage extends javax.swing.JFrame {
         petContainerPanel.setLayout(new java.awt.GridLayout(0, 3, 20, 20));
         AdopterAllPetScrollPane.setViewportView(petContainerPanel);
 
-        Searchbar_AdopterAdoptionRequests.setForeground(new java.awt.Color(204, 204, 204));
-        Searchbar_AdopterAdoptionRequests.setText("pet name, house-trained, kathmandu etc ");
-        Searchbar_AdopterAdoptionRequests.addActionListener(this::Searchbar_AdopterAdoptionRequestsActionPerformed);
+        PetSearchBar_AdopterHome.setForeground(new java.awt.Color(204, 204, 204));
+        PetSearchBar_AdopterHome.setText("pet name, house-trained, kathmandu etc ");
+        PetSearchBar_AdopterHome.addActionListener(this::PetSearchBar_AdopterHomeActionPerformed);
 
         Search_Btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
 
@@ -212,8 +233,8 @@ public class AdopterHomePage extends javax.swing.JFrame {
         PetType_Filter.setBackground(new java.awt.Color(255, 153, 51));
         PetType_Filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pet Type", "Dog", "Cat", "Bird", "Marine", "Others", " " }));
 
-        Clear_Filter.setBackground(new java.awt.Color(255, 153, 51));
-        Clear_Filter.setText("Clear");
+        Reset_Btn.setBackground(new java.awt.Color(255, 153, 51));
+        Reset_Btn.setText("Clear");
 
         javax.swing.GroupLayout mainpanalLayout = new javax.swing.GroupLayout(mainpanal);
         mainpanal.setLayout(mainpanalLayout);
@@ -238,9 +259,9 @@ public class AdopterHomePage extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(PetAge_Filter, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Clear_Filter))
+                        .addComponent(Reset_Btn))
                     .addGroup(mainpanalLayout.createSequentialGroup()
-                        .addComponent(Searchbar_AdopterAdoptionRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(PetSearchBar_AdopterHome, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Search_Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
@@ -251,13 +272,13 @@ public class AdopterHomePage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Search_Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Searchbar_AdopterAdoptionRequests, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PetSearchBar_AdopterHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PetAge_Filter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Gender_Filter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PetType_Filter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Clear_Filter))
+                    .addComponent(Reset_Btn))
                 .addGap(30, 30, 30)
                 .addGroup(mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AdopterSideTotalPetCount)
@@ -294,9 +315,9 @@ public class AdopterHomePage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_profile_btnActionPerformed
 
-    private void Searchbar_AdopterAdoptionRequestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Searchbar_AdopterAdoptionRequestsActionPerformed
+    private void PetSearchBar_AdopterHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PetSearchBar_AdopterHomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Searchbar_AdopterAdoptionRequestsActionPerformed
+    }//GEN-LAST:event_PetSearchBar_AdopterHomeActionPerformed
     
      
     /**
@@ -327,7 +348,6 @@ public class AdopterHomePage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane AdopterAllPetScrollPane;
     private javax.swing.JLabel AdopterSideTotalPetCount;
-    private javax.swing.JButton Clear_Filter;
     private javax.swing.JButton Favourite_btn;
     private javax.swing.JLabel Favourite_text;
     private javax.swing.JComboBox<String> Gender_Filter;
@@ -336,10 +356,11 @@ public class AdopterHomePage extends javax.swing.JFrame {
     private javax.swing.JButton Logout_btn;
     private javax.swing.JButton MyRequests_btn;
     private javax.swing.JComboBox<String> PetAge_Filter;
+    private javax.swing.JTextField PetSearchBar_AdopterHome;
     private javax.swing.JComboBox<String> PetType_Filter;
     private javax.swing.JLabel Profile_text;
+    private javax.swing.JButton Reset_Btn;
     private javax.swing.JButton Search_Btn;
-    private javax.swing.JTextField Searchbar_AdopterAdoptionRequests;
     private javax.swing.JButton Shelters_btn;
     private javax.swing.JLabel Total_pet;
     private javax.swing.JPanel mainpanal;

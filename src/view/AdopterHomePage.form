@@ -68,10 +68,10 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="PetAge_Filter" min="-2" pref="132" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="Clear_Filter" min="-2" max="-2" attributes="0"/>
+                          <Component id="Reset_Btn" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="Searchbar_AdopterAdoptionRequests" min="-2" pref="425" max="-2" attributes="0"/>
+                          <Component id="PetSearchBar_AdopterHome" min="-2" pref="425" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="Search_Btn" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
@@ -86,14 +86,14 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="Search_Btn" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="Searchbar_AdopterAdoptionRequests" min="-2" max="-2" attributes="0"/>
+                      <Component id="PetSearchBar_AdopterHome" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="PetAge_Filter" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="Gender_Filter" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="PetType_Filter" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Clear_Filter" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Reset_Btn" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -292,7 +292,7 @@
             </Container>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JTextField" name="Searchbar_AdopterAdoptionRequests">
+        <Component class="javax.swing.JTextField" name="PetSearchBar_AdopterHome">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -300,7 +300,7 @@
             <Property name="text" type="java.lang.String" value="pet name, house-trained, kathmandu etc "/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Searchbar_AdopterAdoptionRequestsActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PetSearchBar_AdopterHomeActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="Search_Btn">
@@ -368,7 +368,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="Clear_Filter">
+        <Component class="javax.swing.JButton" name="Reset_Btn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="99" red="ff" type="rgb"/>
