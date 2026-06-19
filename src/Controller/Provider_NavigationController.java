@@ -13,7 +13,7 @@ package Controller;
 import view.AdoptionRequestManagement_ProviderPage;
 import view.ProviderAdoptionHistory;
 import view.ProviderHomePage;
-//import view.ProviderProfile;
+import view.ProviderProfile;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
@@ -35,26 +35,28 @@ public class Provider_NavigationController {
             providerPage.addAdoptionRequestsListener(new AdoptionRequestsListener());
             providerPage.addAdoptionHistoryListener(new AdoptionHistoryListener());
             providerPage.addLogoutListener(new LogoutListener());
+            providerPage.addProfileListener(new ProfileListener());
 
         } else if (currentFrame instanceof ProviderHomePage home) {
             home.addHomeListener(new HomeListener());
             home.addAdoptionRequestsListener(new AdoptionRequestsListener());
             home.addAdoptionHistoryListener(new AdoptionHistoryListener());
             home.addLogoutListener(new LogoutListener());
+            home.addProfileListener(new ProfileListener());
 
         } else if (currentFrame instanceof ProviderAdoptionHistory history) {
             history.addHomeListener(new HomeListener());
             history.addAdoptionRequestsListener(new AdoptionRequestsListener());
             history.addAdoptionHistoryListener(new AdoptionHistoryListener());
             history.addLogoutListener(new LogoutListener());
+            history.addProfileListener(new ProfileListener());
             
-        //} else if (currentFrame instanceof ProviderProfile proProfile) {
-        //    proProfile.addHomeListener(new HomeListener());
-        //    proProfile.addMyRequestsListener(new MyRequestsListener());
-        //    proProfile.addLogoutListener(new LogoutListener());
-        //    proProfile.addShelterListener(new ShelterListener());
-        //    proProfile.addFavouriteListener(new FavouriteListener());
-        //    proProfile.addProfileListener(new ProfileListener());
+        } else if (currentFrame instanceof ProviderProfile proProfile) {
+            proProfile.addHomeListener(new HomeListener());
+            proProfile.addAdoptionRequestsListener(new AdoptionRequestsListener());
+            proProfile.addAdoptionHistoryListener(new AdoptionHistoryListener());
+            proProfile.addLogoutListener(new LogoutListener());
+            proProfile.addProfileListener(new ProfileListener());
         }  
     }
 
@@ -111,15 +113,16 @@ public class Provider_NavigationController {
         }
     }
     
-    //public class ProfileListener implements ActionListener {
-    //   @Override
-    //    public void actionPerformed(ActionEvent e) {
-    //        if (currentFrame instanceof ProviderProfile) return;
-    //        ProviderProfile proProfile = new ProviderProfile;
-    //        new ProviderProfileController(adpProfile);
-    //        proProfile.setLocationRelativeTo(null);
-    //        proProfile.setVisible(true);
-    //        currentFrame.dispose();
-    //    }
-    //}
+    public class ProfileListener implements ActionListener {
+       @Override
+        public void actionPerformed(ActionEvent e) {
+            if (currentFrame instanceof ProviderProfile) return;
+            ProviderProfile proProfile = new ProviderProfile();
+            new ProviderProfileController(proProfile);
+            new Provider_NavigationController(proProfile, providerID);
+            proProfile.setLocationRelativeTo(null);
+            proProfile.setVisible(true);
+            currentFrame.dispose();
+        }
+    }
 }

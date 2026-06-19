@@ -84,9 +84,9 @@
               <Group type="102" alignment="0" attributes="0">
                   <Component id="toppanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="Searchbar_AdopterAdoptionRequests" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="Search_Btn" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="Searchbar_AdopterAdoptionRequests" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">

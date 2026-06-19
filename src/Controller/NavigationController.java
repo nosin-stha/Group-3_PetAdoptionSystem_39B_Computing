@@ -5,7 +5,7 @@ import view.AdopterHomePage;
 import view.AdoptionRequestTrackingPage;
 import view.AdopterViewPetDetails;
 import view.ShelterListingDisplay;
-//import view.AdopterProfile;
+import view.AdopterProfile;
 import view.AdopterPetFavourite;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,7 +28,7 @@ public class NavigationController {
             home.addLogoutListener(new LogoutListener());
             home.addShelterListener(new ShelterListener());
             home.addFavouriteListener(new FavouriteListener());
-            //home.addProfileListener(new ProfileListener());
+            home.addProfileListener(new ProfileListener());
 
         } else if (currentFrame instanceof AdoptionRequestTrackingPage requests) {
             requests.addHomeListener(new HomeListener());
@@ -36,7 +36,7 @@ public class NavigationController {
             requests.addLogoutListener(new LogoutListener());
             requests.addShelterListener(new ShelterListener());
             requests.addFavouriteListener(new FavouriteListener());
-            //requests.addProfileListener(new ProfileListener());
+            requests.addProfileListener(new ProfileListener());
 
         } else if (currentFrame instanceof AdopterViewPetDetails petDetails) {
             petDetails.addHomeListener(new HomeListener());
@@ -44,7 +44,7 @@ public class NavigationController {
             petDetails.addLogoutListener(new LogoutListener());
             petDetails.addShelterListener(new ShelterListener());
             petDetails.addFavouriteListener(new FavouriteListener());
-            //petDetails.addProfileListener(new ProfileListener());
+            petDetails.addProfileListener(new ProfileListener());
 
         } else if (currentFrame instanceof ShelterListingDisplay shelter) {
             shelter.addHomeListener(new HomeListener());
@@ -52,7 +52,7 @@ public class NavigationController {
             shelter.addLogoutListener(new LogoutListener());
             shelter.addShelterListener(new ShelterListener());
             shelter.addFavouriteListener(new FavouriteListener());
-            //shelter.addProfileListener(new ProfileListener());
+            shelter.addProfileListener(new ProfileListener());
             
         } else if (currentFrame instanceof AdopterView_Shelter_Detail shelterview) {
             shelterview.addHomeListener(new HomeListener());
@@ -60,7 +60,7 @@ public class NavigationController {
             shelterview.addLogoutListener(new LogoutListener());
             shelterview.addShelterListener(new ShelterListener());
             shelterview.addFavouriteListener(new FavouriteListener());
-            //shelterview.addProfileListener(new ProfileListener());
+            shelterview.addProfileListener(new ProfileListener());
             
         } else if (currentFrame instanceof AdopterPetFavourite petFavourite) {
             petFavourite.addHomeListener(new HomeListener());
@@ -68,15 +68,15 @@ public class NavigationController {
             petFavourite.addLogoutListener(new LogoutListener());
             petFavourite.addShelterListener(new ShelterListener());
             petFavourite.addFavouriteListener(new FavouriteListener());
-            //petFavourite.addProfileListener(new ProfileListener());
+            petFavourite.addProfileListener(new ProfileListener());
             
-        //} else if (currentFrame instanceof AdopterProfile adpProfile) {
-        //    adpProfile.addHomeListener(new HomeListener());
-        //    adpProfile.addMyRequestsListener(new MyRequestsListener());
-        //    adpProfile.addLogoutListener(new LogoutListener());
-        //    adpProfile.addShelterListener(new ShelterListener());
-            //adpProfile.addFavouriteListener(new FavouriteListener());
-            //adpProfile.addProfileListener(new ProfileListener());
+        } else if (currentFrame instanceof AdopterProfile adpProfile) {
+            adpProfile.addHomeListener(new HomeListener());
+            adpProfile.addMyRequestsListener(new MyRequestsListener());
+            adpProfile.addLogoutListener(new LogoutListener());
+            adpProfile.addShelterListener(new ShelterListener());
+            adpProfile.addFavouriteListener(new FavouriteListener());
+            adpProfile.addProfileListener(new ProfileListener());
         }   
     }
 
@@ -139,15 +139,16 @@ public class NavigationController {
     }
     
     
-    //public class ProfileListener implements ActionListener {
-    //   @Override
-    //    public void actionPerformed(ActionEvent e) {
-    //        if (currentFrame instanceof AdopterProfile) return;
-    //        AdopterProfile adpProfile = new AdopterProfile;
-    //        new AdopterProfileController(adpProfile);
-    //        adpProfile.setLocationRelativeTo(null);
-    //        adpProfile.setVisible(true);
-    //        currentFrame.dispose();
-    //    }
-    //}
+    public class ProfileListener implements ActionListener {
+       @Override
+        public void actionPerformed(ActionEvent e) {
+            if (currentFrame instanceof AdopterProfile) return;
+            AdopterProfile adpProfile = new AdopterProfile();
+            new AdopterProfileController(adpProfile);
+            new NavigationController(adpProfile);
+            adpProfile.setLocationRelativeTo(null);
+            adpProfile.setVisible(true);
+            currentFrame.dispose();
+        }
+    }
 }
