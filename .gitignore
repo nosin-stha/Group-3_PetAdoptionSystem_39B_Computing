@@ -28,6 +28,3 @@
 # OS Specific
 .DS_Store
 Thumbs.db
-
-#database ignore
-src/database
