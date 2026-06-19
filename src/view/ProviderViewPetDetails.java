@@ -180,11 +180,11 @@ public class ProviderViewPetDetails extends javax.swing.JFrame {
 
         PetType_name_petview_provider.setText("Pet Type");
         Main_panal_Viewpet_provider.add(PetType_name_petview_provider);
-        PetType_name_petview_provider.setBounds(550, 280, 110, 16);
+        PetType_name_petview_provider.setBounds(550, 280, 140, 16);
 
         Gender_Info_petview_provider.setText("Pet Gender");
         Main_panal_Viewpet_provider.add(Gender_Info_petview_provider);
-        Gender_Info_petview_provider.setBounds(550, 300, 130, 16);
+        Gender_Info_petview_provider.setBounds(550, 300, 140, 16);
 
         Age_Info_petview_provider.setText("Pet Age");
         Main_panal_Viewpet_provider.add(Age_Info_petview_provider);
@@ -196,7 +196,7 @@ public class ProviderViewPetDetails extends javax.swing.JFrame {
 
         HouseTrained_Info_petview_provider.setText("jLabel2");
         Main_panal_Viewpet_provider.add(HouseTrained_Info_petview_provider);
-        HouseTrained_Info_petview_provider.setBounds(610, 360, 100, 16);
+        HouseTrained_Info_petview_provider.setBounds(610, 360, 160, 16);
 
         Spayed_Neutered_petview_provider.setText("Spayed/ Neutered: ");
         Main_panal_Viewpet_provider.add(Spayed_Neutered_petview_provider);
@@ -204,7 +204,7 @@ public class ProviderViewPetDetails extends javax.swing.JFrame {
 
         Spayed_Neutered_Info_petview_provider.setText("jLabel2");
         Main_panal_Viewpet_provider.add(Spayed_Neutered_Info_petview_provider);
-        Spayed_Neutered_Info_petview_provider.setBounds(610, 380, 130, 16);
+        Spayed_Neutered_Info_petview_provider.setBounds(610, 380, 160, 16);
 
         Vaccinated_petview_provider.setText("Vaccinated:");
         Main_panal_Viewpet_provider.add(Vaccinated_petview_provider);
@@ -220,7 +220,7 @@ public class ProviderViewPetDetails extends javax.swing.JFrame {
 
         SpecialNeeds_Info_petview_provider.setText("jLabel3");
         Main_panal_Viewpet_provider.add(SpecialNeeds_Info_petview_provider);
-        SpecialNeeds_Info_petview_provider.setBounds(610, 420, 90, 16);
+        SpecialNeeds_Info_petview_provider.setBounds(610, 420, 150, 16);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

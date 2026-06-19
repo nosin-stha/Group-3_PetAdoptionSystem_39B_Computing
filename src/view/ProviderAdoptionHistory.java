@@ -24,6 +24,12 @@ public class ProviderAdoptionHistory extends javax.swing.JFrame {
         new ProviderAdoptionHistoryController(this);
     }
     
+     public javax.swing.JButton getSearchButton() { return Search_Btn; }
+
+    public void addSearchButtonListener(java.awt.event.ActionListener listener) {
+        Search_Btn.addActionListener(listener);
+    }
+    
     public javax.swing.JScrollPane getHistoryScrollPane() {
         return jScrollPane1;
     }
@@ -57,6 +63,11 @@ public class ProviderAdoptionHistory extends javax.swing.JFrame {
         return lblPetCount;
     }
     
+    public javax.swing.JTextField getSearchbar() { return Searchbar_AdopterAdoptionRequests; }
+    public javax.swing.JComboBox<String> getPetTypeFilter() { return PetType_Filter; }
+    public javax.swing.JComboBox<String> getGenderFilter() { return Gender_Filter; }
+    public javax.swing.JComboBox<String> getPetAgeFilter() { return PetAge_Filter; }
+    public javax.swing.JButton getClearFilter() { return Reset_Btn; }
     
     
     /**
@@ -87,7 +98,7 @@ public class ProviderAdoptionHistory extends javax.swing.JFrame {
         PetAge_Filter = new javax.swing.JComboBox<>();
         Gender_Filter = new javax.swing.JComboBox<>();
         PetType_Filter = new javax.swing.JComboBox<>();
-        Clear_Filter = new javax.swing.JButton();
+        Reset_Btn = new javax.swing.JButton();
 
         jRadioButtonMenuItem1.setSelected(true);
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
@@ -196,8 +207,8 @@ public class ProviderAdoptionHistory extends javax.swing.JFrame {
         PetType_Filter.setBackground(new java.awt.Color(255, 153, 51));
         PetType_Filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pet Type", "Dog", "Cat", "Bird", "Marine", "Others", " " }));
 
-        Clear_Filter.setBackground(new java.awt.Color(255, 153, 51));
-        Clear_Filter.setText("Clear");
+        Reset_Btn.setBackground(new java.awt.Color(255, 153, 51));
+        Reset_Btn.setText("Reset");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -224,7 +235,7 @@ public class ProviderAdoptionHistory extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(PetAge_Filter, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Clear_Filter))
+                                .addComponent(Reset_Btn))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(Searchbar_AdopterAdoptionRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -236,15 +247,15 @@ public class ProviderAdoptionHistory extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(pnlTopBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Searchbar_AdopterAdoptionRequests, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Search_Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Search_Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Searchbar_AdopterAdoptionRequests, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PetAge_Filter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Gender_Filter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PetType_Filter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Clear_Filter))
+                    .addComponent(Reset_Btn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTotalAdoptedPets)
@@ -313,7 +324,6 @@ public class ProviderAdoptionHistory extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Adoption_Historybtn;
     private javax.swing.JButton Adoption_requestbtn;
-    private javax.swing.JButton Clear_Filter;
     private javax.swing.JComboBox<String> Gender_Filter;
     private javax.swing.JButton Home_btn;
     private javax.swing.JLabel Logo;
@@ -321,6 +331,7 @@ public class ProviderAdoptionHistory extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> PetAge_Filter;
     private javax.swing.JComboBox<String> PetType_Filter;
     private javax.swing.JLabel Profile_text;
+    private javax.swing.JButton Reset_Btn;
     private javax.swing.JButton Search_Btn;
     private javax.swing.JTextField Searchbar_AdopterAdoptionRequests;
     private javax.swing.JPanel jPanel3;

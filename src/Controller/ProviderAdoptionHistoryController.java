@@ -19,6 +19,7 @@ public class ProviderAdoptionHistoryController {
             javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         loadAdoptionHistory();
         loadTotalRequestCount();
+        new AdoptionHistorySearchFilter(view); 
     }
 
     private void loadAdoptionHistory() {
@@ -88,7 +89,7 @@ public class ProviderAdoptionHistoryController {
             gbc.gridx = col;
             gbc.gridy = row;
 
-            // Push everything to the top-left on the last card
+            
             if (i == list.size() - 1) {
                 gbc.weightx = 1.0;
                 gbc.weighty = 1.0;

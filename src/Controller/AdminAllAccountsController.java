@@ -8,7 +8,6 @@ package Controller;
  *
  * @author Dell
  */
-
 import DAO.AdminAllAccountsDAO;
 import java.awt.Color;
 import java.awt.Component;
@@ -26,40 +25,42 @@ public class AdminAllAccountsController {
 
     private AdminAllAccountStatus view;
     private AdminAllAccountsDAO dao;
-    private ArrayList<Object[]> allAccounts; 
+    private ArrayList<Object[]> allAccounts;
+
+    private DefaultTableModel dataModel;   
+    private boolean showingEmptyState = false;
 
     public AdminAllAccountsController(AdminAllAccountStatus view, Connection connection) {
         this.view = view;
         this.dao  = new AdminAllAccountsDAO(connection);
-        view.initSearchPlaceholder();  
+        view.initSearchPlaceholder();
         configureTable();
         loadAllAccounts();
-        attachListeners();  
+        attachListeners();
     }
 
-    
     private void attachListeners() {
         view.addSearchListener(e -> applyFilters());
         view.addStatusFilterListener(e -> applyFilters());
-        view.addResetListener(e -> resetFilters());  
+        view.addResetListener(e -> resetFilters());
     }
 
     private void resetFilters() {
-        view.resetFilters();       
-    
-        DefaultTableModel model = view.getTableModel();
-        model.setRowCount(0);
-        for (Object[] row : allAccounts) 
-            model.addRow(row);
+        view.resetFilters();
+
+        dataModel.setRowCount(0);
+        for (Object[] row : allAccounts)
+            dataModel.addRow(row);
+
+        updateEmptyState(allAccounts.isEmpty());
     }
 
-    // ── Apply both search text and status filter together ────────────────────
+    
     private void applyFilters() {
-        String keyword     = view.getSearchText().trim().toLowerCase();
+        String keyword      = view.getSearchText().trim().toLowerCase();
         String statusFilter = view.getSelectedStatus().trim().toLowerCase();
 
-        DefaultTableModel model = view.getTableModel();
-        model.setRowCount(0);
+        ArrayList<Object[]> filtered = new ArrayList<>();
 
         for (Object[] row : allAccounts) {
             String username = row[1] != null ? row[1].toString().toLowerCase() : "";
@@ -71,18 +72,39 @@ public class AdminAllAccountsController {
                     || email.contains(keyword);
 
             boolean matchesStatus = statusFilter.isEmpty()
-                    || statusFilter.equals("status")  // default "Status" option = show all
+                    || statusFilter.equals("status")  
                     || status.equals(statusFilter);
 
             if (matchesSearch && matchesStatus) {
-                model.addRow(row);
+                filtered.add(row);
             }
         }
+
+        if (filtered.isEmpty()) {
+            updateEmptyState(true);
+            return;
+        }
+
+        updateEmptyState(false);
+        dataModel.setRowCount(0);
+        for (Object[] row : filtered)
+            dataModel.addRow(row);
     }
 
     private void configureTable() {
         JTable table = view.getTable();
+        dataModel = view.getTableModel();
 
+        styleTableAppearance(table);
+
+        table.getColumnModel().getColumn(1).setCellRenderer(new WrappedTextRenderer());
+        table.getColumnModel().getColumn(4).setCellRenderer(new StatusCellRenderer());
+
+        for (int i = 0; i < table.getColumnCount(); i++)
+            table.getColumnModel().getColumn(i).setResizable(false);
+    }
+
+    private void styleTableAppearance(JTable table) {
         table.setBackground(Color.WHITE);
         table.setFillsViewportHeight(true);
         table.getTableHeader().setBackground(new Color(255, 153, 51));
@@ -92,23 +114,71 @@ public class AdminAllAccountsController {
         table.setGridColor(new Color(230, 230, 230));
         table.setShowGrid(true);
         table.setRowHeight(40);
-
-        table.getColumnModel().getColumn(1).setCellRenderer(new WrappedTextRenderer());
-        table.getColumnModel().getColumn(4).setCellRenderer(new StatusCellRenderer());
-
-        for (int i = 0; i < table.getColumnCount(); i++)
-            table.getColumnModel().getColumn(i).setResizable(false);
     }
 
     private void loadAllAccounts() {
-        allAccounts = dao.getAllAccounts(); // store master list
-        DefaultTableModel model = view.getTableModel();
-        model.setRowCount(0);
+        allAccounts = dao.getAllAccounts(); 
+        if (allAccounts == null) allAccounts = new ArrayList<>();
+
         if (allAccounts.isEmpty())
             System.err.println("WARNING: No accounts returned from DAO.");
+
+        dataModel.setRowCount(0);
         for (Object[] row : allAccounts)
-            model.addRow(row);
+            dataModel.addRow(row);
+
+        updateEmptyState(allAccounts.isEmpty());
+
         System.out.println("Accounts loaded into table: " + allAccounts.size());
+    }
+
+    
+    private void updateEmptyState(boolean empty) {
+        JTable table = view.getTable();
+
+        if (empty && !showingEmptyState) {
+            DefaultTableModel emptyModel = new DefaultTableModel(
+                new String[]{"Message"}, 0) {
+                @Override public boolean isCellEditable(int r, int c) { return false; }
+            };
+            emptyModel.addRow(new Object[]{"No accounts found"});
+
+            table.setModel(emptyModel);
+            table.getTableHeader().setVisible(false);
+            table.setRowHeight(0, 200);
+
+            table.getColumnModel().getColumn(0).setCellRenderer(new EmptyMessageRenderer());
+
+            showingEmptyState = true;
+
+        } else if (!empty && showingEmptyState) {
+            table.setModel(dataModel);
+            table.getTableHeader().setVisible(true);
+
+            styleTableAppearance(table);
+            table.getColumnModel().getColumn(1).setCellRenderer(new WrappedTextRenderer());
+            table.getColumnModel().getColumn(4).setCellRenderer(new StatusCellRenderer());
+            for (int i = 0; i < table.getColumnCount(); i++)
+                table.getColumnModel().getColumn(i).setResizable(false);
+
+            showingEmptyState = false;
+        }
+    }
+
+    private static class EmptyMessageRenderer extends DefaultTableCellRenderer {
+        @Override
+        public Component getTableCellRendererComponent(JTable table, Object value,
+                boolean isSelected, boolean hasFocus, int row, int column) {
+            JLabel label = (JLabel) super.getTableCellRendererComponent(
+                    table, value, isSelected, hasFocus, row, column);
+            label.setHorizontalAlignment(SwingConstants.CENTER);
+            label.setVerticalAlignment(SwingConstants.CENTER);
+            label.setFont(new Font("Segoe UI", Font.BOLD, 16));
+            label.setForeground(new Color(180, 180, 180));
+            label.setBackground(Color.WHITE);
+            label.setOpaque(true);
+            return label;
+        }
     }
 
     private static class WrappedTextRenderer extends DefaultTableCellRenderer {

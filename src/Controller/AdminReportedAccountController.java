@@ -16,7 +16,7 @@ public class AdminReportedAccountController {
 
     private final AdminReportedAccountManagement view;
     private final AdminAccountReportHandleDAO dao;
-    private ArrayList<Object[]> allProviders; // master list
+    private ArrayList<Object[]> allProviders; 
 
     public AdminReportedAccountController(AdminReportedAccountManagement view,
                                           java.sql.Connection connection) {
@@ -30,6 +30,7 @@ public class AdminReportedAccountController {
 
     public void loadAllReportedProviders() {
         allProviders = dao.getReportedProviders();
+        if (allProviders == null) allProviders = new ArrayList<>();
         renderProviders(allProviders);
     }
 
@@ -61,6 +62,18 @@ public class AdminReportedAccountController {
     private void renderProviders(ArrayList<Object[]> providers) {
         JPanel container = view.getScrollPanel();
         container.removeAll();
+
+        if (providers.isEmpty()) {
+            container.setLayout(new BorderLayout());
+            JLabel noData = new JLabel("No Records Found", SwingConstants.CENTER);
+            noData.setFont(new Font("Segoe UI", Font.BOLD, 18));
+            noData.setForeground(new Color(180, 180, 180));
+            container.add(noData, BorderLayout.CENTER);
+            container.revalidate();
+            container.repaint();
+            return;
+        }
+
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
 
         for (Object[] p : providers) {

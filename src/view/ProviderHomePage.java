@@ -28,7 +28,14 @@ public final class ProviderHomePage extends javax.swing.JFrame {
     initComponents();
     setLocationRelativeTo(null);
     new PetController(this);  
-}
+    
+    }
+    
+    public javax.swing.JButton getSearchButton() { return Search_Btn; }
+
+    public void addSearchButtonListener(java.awt.event.ActionListener listener) {
+        Search_Btn.addActionListener(listener);
+    }
 
     
     
@@ -71,6 +78,12 @@ public javax.swing.JScrollPane getProviderPetsScrollPane() {
         profile_btn.addActionListener(listener);
     }
     
+    public javax.swing.JTextField getSearchbar() { return PetSearchBar_ProviderHome; }
+    public javax.swing.JComboBox<String> getPetTypeFilter() { return PetType_Filter; }
+    public javax.swing.JComboBox<String> getGenderFilter() { return Gender_Filter; }
+    public javax.swing.JComboBox<String> getPetAgeFilter() { return PetAge_Filter; }
+    public javax.swing.JButton getClearFilter() { return Reset_Btn; }
+    
    
     
     /**
@@ -84,12 +97,12 @@ public javax.swing.JScrollPane getProviderPetsScrollPane() {
 
         jCheckBox1 = new javax.swing.JCheckBox();
         Main_panal = new javax.swing.JPanel();
-        PetFilterClear = new javax.swing.JButton();
-        Gender_combobox = new javax.swing.JComboBox<>();
-        PetType_combobox = new javax.swing.JComboBox<>();
-        Searchbar = new javax.swing.JTextField();
-        SearchLogo = new javax.swing.JButton();
-        Age_combobox = new javax.swing.JComboBox<>();
+        Reset_Btn = new javax.swing.JButton();
+        Gender_Filter = new javax.swing.JComboBox<>();
+        PetType_Filter = new javax.swing.JComboBox<>();
+        PetSearchBar_ProviderHome = new javax.swing.JTextField();
+        Search_Btn = new javax.swing.JButton();
+        PetAge_Filter = new javax.swing.JComboBox<>();
         totalpet = new javax.swing.JLabel();
         TotalPetCount = new javax.swing.JLabel();
         ProviderPetsScrollPane = new javax.swing.JScrollPane();
@@ -112,36 +125,36 @@ public javax.swing.JScrollPane getProviderPetsScrollPane() {
         Main_panal.setBackground(new java.awt.Color(255, 255, 255));
         Main_panal.setLayout(null);
 
-        PetFilterClear.setBackground(new java.awt.Color(255, 153, 51));
-        PetFilterClear.setText("Clear");
-        PetFilterClear.addActionListener(this::PetFilterClearActionPerformed);
-        Main_panal.add(PetFilterClear);
-        PetFilterClear.setBounds(650, 180, 70, 23);
+        Reset_Btn.setBackground(new java.awt.Color(255, 153, 51));
+        Reset_Btn.setText("Reset");
+        Reset_Btn.addActionListener(this::Reset_BtnActionPerformed);
+        Main_panal.add(Reset_Btn);
+        Reset_Btn.setBounds(650, 180, 70, 23);
 
-        Gender_combobox.setBackground(new java.awt.Color(255, 153, 51));
-        Gender_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gender", "Male", "Female" }));
-        Main_panal.add(Gender_combobox);
-        Gender_combobox.setBounds(370, 180, 115, 22);
+        Gender_Filter.setBackground(new java.awt.Color(255, 153, 51));
+        Gender_Filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gender", "Male", "Female" }));
+        Main_panal.add(Gender_Filter);
+        Gender_Filter.setBounds(370, 180, 115, 22);
 
-        PetType_combobox.setBackground(new java.awt.Color(255, 153, 51));
-        PetType_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pet Type", "Dog", "Cat", "Bird", "Marine", "Others", " " }));
-        Main_panal.add(PetType_combobox);
-        PetType_combobox.setBounds(250, 180, 115, 22);
+        PetType_Filter.setBackground(new java.awt.Color(255, 153, 51));
+        PetType_Filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pet Type", "Dog", "Cat", "Bird", "Marine", "Others", " " }));
+        Main_panal.add(PetType_Filter);
+        PetType_Filter.setBounds(250, 180, 115, 22);
 
-        Searchbar.setForeground(new java.awt.Color(204, 204, 204));
-        Searchbar.setText("pet name, house-trained, kathmandu etc ");
-        Searchbar.addActionListener(this::SearchbarActionPerformed);
-        Main_panal.add(Searchbar);
-        Searchbar.setBounds(250, 140, 420, 20);
+        PetSearchBar_ProviderHome.setForeground(new java.awt.Color(204, 204, 204));
+        PetSearchBar_ProviderHome.setText("pet name, house-trained, kathmandu etc ");
+        PetSearchBar_ProviderHome.addActionListener(this::PetSearchBar_ProviderHomeActionPerformed);
+        Main_panal.add(PetSearchBar_ProviderHome);
+        PetSearchBar_ProviderHome.setBounds(250, 140, 420, 20);
 
-        SearchLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
-        Main_panal.add(SearchLogo);
-        SearchLogo.setBounds(680, 140, 40, 22);
+        Search_Btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
+        Main_panal.add(Search_Btn);
+        Search_Btn.setBounds(680, 140, 40, 22);
 
-        Age_combobox.setBackground(new java.awt.Color(255, 153, 51));
-        Age_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Age", "2", "4", "6", "Other..", " " }));
-        Main_panal.add(Age_combobox);
-        Age_combobox.setBounds(490, 180, 130, 22);
+        PetAge_Filter.setBackground(new java.awt.Color(255, 153, 51));
+        PetAge_Filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Age", "2", "4", "6", "Other..", " " }));
+        Main_panal.add(PetAge_Filter);
+        PetAge_Filter.setBounds(490, 180, 130, 22);
 
         totalpet.setText("Total Pet:");
         Main_panal.add(totalpet);
@@ -259,13 +272,13 @@ public javax.swing.JScrollPane getProviderPetsScrollPane() {
         // TODO add your handling code here:
     }//GEN-LAST:event_profile_btnActionPerformed
 
-    private void SearchbarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchbarActionPerformed
+    private void PetSearchBar_ProviderHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PetSearchBar_ProviderHomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_SearchbarActionPerformed
+    }//GEN-LAST:event_PetSearchBar_ProviderHomeActionPerformed
 
-    private void PetFilterClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PetFilterClearActionPerformed
+    private void Reset_BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reset_BtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PetFilterClearActionPerformed
+    }//GEN-LAST:event_Reset_BtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -296,18 +309,18 @@ public javax.swing.JScrollPane getProviderPetsScrollPane() {
     private javax.swing.JButton Add_pet_provider;
     private javax.swing.JButton Adoption_Historybtn;
     private javax.swing.JButton Adoption_requestbtn;
-    private javax.swing.JComboBox<String> Age_combobox;
-    private javax.swing.JComboBox<String> Gender_combobox;
+    private javax.swing.JComboBox<String> Gender_Filter;
     private javax.swing.JButton Home_btn;
     private javax.swing.JLabel Logo;
     private javax.swing.JButton Logout_btn;
     private javax.swing.JPanel Main_panal;
-    private javax.swing.JButton PetFilterClear;
-    private javax.swing.JComboBox<String> PetType_combobox;
+    private javax.swing.JComboBox<String> PetAge_Filter;
+    private javax.swing.JTextField PetSearchBar_ProviderHome;
+    private javax.swing.JComboBox<String> PetType_Filter;
     private javax.swing.JLabel Profile_text;
     private javax.swing.JScrollPane ProviderPetsScrollPane;
-    private javax.swing.JButton SearchLogo;
-    private javax.swing.JTextField Searchbar;
+    private javax.swing.JButton Reset_Btn;
+    private javax.swing.JButton Search_Btn;
     private javax.swing.JPanel Top_panal;
     private javax.swing.JLabel TotalPetCount;
     private javax.swing.JCheckBox jCheckBox1;
