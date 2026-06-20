@@ -28,7 +28,7 @@ public class LoginController {
         this.loginView.getBtnLogin().addActionListener(new LoginListener());
         this.loginView.getBtnCreateAccount().addActionListener(new CreateAccountListener());
         this.loginView.addRequestToAdminListener(new RequestToAdminListener());
-        
+
         this.loginView.addForgotPasswordListener(new java.awt.event.ActionListener() {
         @Override
         public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -66,9 +66,19 @@ public class LoginController {
 
             switch (result) {
                 case "disabled" -> {
+                    String message = "Your account has been disabled.\nPlease contact support.";
+
+                    if ("Provider".equalsIgnoreCase(role)) {
+                        String banReason = dao.getProviderBanReason(username);
+                        if (banReason != null && !banReason.isBlank()) {
+                            message = "Your account has been banned for the following reason:\n\""
+                                + banReason + "\"\n\nPlease contact support.";
+                        }
+                    }
+
                     JOptionPane.showMessageDialog(
                         loginView,
-                        "Your account has been disabled.\nPlease contact support.",
+                        message,
                         "Account Disabled",
                         JOptionPane.ERROR_MESSAGE
                     );
@@ -119,17 +129,17 @@ public class LoginController {
             loginView.dispose();
         }
     }
-    
+
     class RequestToAdminListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             RequestToAdminForm form = new RequestToAdminForm();
-            form.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
-            
+            form.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
             RequestToAdminDAO dao = new RequestToAdminDAO();
             new RequestToAdminController(form, dao);
-            
-            form.setLocationRelativeTo(null); 
+
+            form.setLocationRelativeTo(null);
             form.setVisible(true);
         }
     }

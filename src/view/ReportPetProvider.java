@@ -169,11 +169,11 @@ public class ReportPetProvider extends javax.swing.JFrame {
 
         lblPhoneNo_fill.setText("Phone No_fill");
         jPanel1.add(lblPhoneNo_fill);
-        lblPhoneNo_fill.setBounds(120, 230, 140, 16);
+        lblPhoneNo_fill.setBounds(120, 230, 170, 16);
 
         lblEmail_fill.setText("Email_fill");
         jPanel1.add(lblEmail_fill);
-        lblEmail_fill.setBounds(120, 260, 140, 16);
+        lblEmail_fill.setBounds(120, 260, 290, 16);
 
         lblLocation.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblLocation.setText("Location:");
@@ -182,7 +182,7 @@ public class ReportPetProvider extends javax.swing.JFrame {
 
         lblAddress_fill.setText("Address_fill");
         jPanel1.add(lblAddress_fill);
-        lblAddress_fill.setBounds(120, 370, 170, 16);
+        lblAddress_fill.setBounds(120, 370, 230, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

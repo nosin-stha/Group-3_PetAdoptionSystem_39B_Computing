@@ -43,7 +43,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="pnlTopBar" alignment="0" max="32767" attributes="0"/>
+              <Component id="pnlTopBar" alignment="0" pref="1000" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="398" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -125,7 +125,7 @@
                               <Component id="Shelters_btn" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="Logout_btn" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="368" max="32767" attributes="0"/>
+                              <EmptySpace pref="290" max="32767" attributes="0"/>
                               <Component id="Favourite_btn" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                           </Group>

@@ -5,6 +5,7 @@ import model.ProviderData;
 import model.SessionData;
 import view.ProviderProfile;
 import view.ProviderProfileUpdate;
+import view.NewPassword;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
@@ -68,6 +69,15 @@ public class ProviderProfileController {
 
     private void attachListeners(){
         view.addEditListener(e -> openEditPage());
+        view.addChangePasswordListener(e -> openChangePasswordPage());
+    }
+
+    private void openChangePasswordPage(){
+        NewPassword pwView = new NewPassword();
+        pwView.setLocationRelativeTo(null);
+        pwView.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        new ChangePasswordController(pwView, ChangePasswordController.PROVIDER, SessionData.userID);
+        pwView.setVisible(true);
     }
 
     private void openEditPage(){

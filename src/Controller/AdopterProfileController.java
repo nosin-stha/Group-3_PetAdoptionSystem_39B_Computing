@@ -4,6 +4,7 @@ import DAO.AdopterProfileDAO;
 import model.SessionData;
 import view.AdopterProfile;
 import view.AdopterProfileUpdate;
+import view.NewPassword;
 import javax.swing.ImageIcon;
 import java.awt.Image;
 import java.io.File;
@@ -58,6 +59,15 @@ public class AdopterProfileController {
 
     private void attachListeners() {
         view.addEditListener(e -> openEditPage());
+        view.addChangePasswordListener(e -> openChangePasswordPage());
+    }
+
+    private void openChangePasswordPage() {
+        NewPassword pwView = new NewPassword();
+        pwView.setLocationRelativeTo(null);
+        pwView.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        new ChangePasswordController(pwView, ChangePasswordController.ADOPTER, SessionData.userID);
+        pwView.setVisible(true);
     }
 
     private void openEditPage() {
