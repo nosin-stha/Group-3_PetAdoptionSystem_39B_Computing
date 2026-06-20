@@ -33,9 +33,13 @@ public class AdoptionRequestTrackingController {
         requestPanel.setBorder(
             javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
+        // Filter dropdown listener
+        view.getCbAdoptionRequestsStatus().addActionListener(e -> filterRequests());
+
+        // Reset button listener
+        view.getResetBtn().addActionListener(e -> resetFilter());
+
         loadAdopterRequests();
-        view.getAdopterTotalRequestsCount().setText(
-            String.valueOf(getTotalRequests()));
 
         requestPanel.revalidate();
         requestPanel.repaint();
@@ -46,10 +50,34 @@ public class AdoptionRequestTrackingController {
     }
 
     public void loadAdopterRequests() {
-        requestPanel.removeAll();
-
         ArrayList<AdoptionRequestData> requests =
             dao.getRequestsByAdopter(SessionData.userID);
+        renderRequests(requests);
+    }
+
+    private void filterRequests() {
+        String selected = (String) view.getCbAdoptionRequestsStatus().getSelectedItem();
+
+        // "Status" is the placeholder item -> treat as "show all"
+        if (selected == null || selected.equalsIgnoreCase("Status")) {
+            loadAdopterRequests();
+            return;
+        }
+
+        ArrayList<AdoptionRequestData> requests =
+            dao.getRequestsByAdopterAndStatus(SessionData.userID, selected);
+        renderRequests(requests);
+    }
+
+    private void resetFilter() {
+        if (view != null) {
+            view.getCbAdoptionRequestsStatus().setSelectedIndex(0); // back to "Status"
+        }
+        loadAdopterRequests();
+    }
+
+    private void renderRequests(ArrayList<AdoptionRequestData> requests) {
+        requestPanel.removeAll();
 
         for (int i = 0; i < requests.size(); i++) {
             AdoptionRequestData req = requests.get(i);
@@ -101,8 +129,8 @@ public class AdoptionRequestTrackingController {
         requestPanel.repaint();
 
         if (view != null) {
-            view.getAdopterTotalRequestsCount().setText(
-                String.valueOf(getTotalRequests()));
+            // count reflects whatever is currently shown (filtered or full)
+            view.getAdopterTotalRequestsCount().setText(String.valueOf(requests.size()));
         }
     }
 
@@ -157,7 +185,8 @@ public class AdoptionRequestTrackingController {
                 boolean success = dao.deleteRequest(adoptionID);
                 if (success) {
                     JOptionPane.showMessageDialog(null, "Request removed.");
-                    loadAdopterRequests();
+                    
+                    filterRequests();
                 } else {
                     JOptionPane.showMessageDialog(null, "Failed to remove request.");
                 }

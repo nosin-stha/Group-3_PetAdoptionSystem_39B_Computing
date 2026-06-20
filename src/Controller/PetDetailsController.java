@@ -112,7 +112,6 @@ public class PetDetailsController implements ActionListener {
 
         if (hideAdopt || model.SessionData.role.equals("Admin")) {
             view.hideAdoptButton();
-            view.hideFavButton(); 
         }
         
         view.addAdoptListener(new ActionListener() {

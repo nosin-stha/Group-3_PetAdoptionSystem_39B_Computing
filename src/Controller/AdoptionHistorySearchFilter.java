@@ -23,7 +23,7 @@ public class AdoptionHistorySearchFilter extends SearchFilterController {
               view.getGenderFilter(), view.getPetAgeFilter(),
               view.getClearFilter());
         this.view = view;
-        this.dao  = new ProviderAdoptionHistoryDAO();
+        this.dao = new ProviderAdoptionHistoryDAO();
 
         setupPlaceholder(); 
         init();     
@@ -63,8 +63,8 @@ public class AdoptionHistorySearchFilter extends SearchFilterController {
         searchbar.setForeground(PLACEHOLDER_COLOR);
 
         petTypeFilter.setSelectedIndex(0);
-        genderFilter .setSelectedIndex(0);
-        ageFilter    .setSelectedIndex(0);
+        genderFilter.setSelectedIndex(0);
+        ageFilter.setSelectedIndex(0);
 
         applyFilters();
     }
@@ -79,19 +79,19 @@ public class AdoptionHistorySearchFilter extends SearchFilterController {
     @Override
     protected void applyFilters() {
         String query  = cleanQuery(); 
-        String type   = petTypeFilter.getSelectedItem().toString();
-        String gender = genderFilter .getSelectedItem().toString();
-        String age    = ageFilter    .getSelectedItem().toString();
+        String type = petTypeFilter.getSelectedItem().toString();
+        String gender = genderFilter.getSelectedItem().toString();
+        String age = ageFilter.getSelectedItem().toString();
 
         ArrayList<AdoptionRequestData> results = new ArrayList<>();
 
         for (AdoptionRequestData r : fetchData()) {
-            if (!type  .equals("Pet Type") && !r.getPetType()  .equals(type))   continue;
-            if (!gender.equals("Gender")   && !r.getPetGender().equals(gender)) continue;
-            if (!age   .equals("Age")      && !r.getPetAge()   .equals(age))    continue;
+            if (!type  .equals("Pet Type") && !r.getPetType().equals(type))   continue;
+            if (!gender.equals("Gender") && !r.getPetGender().equals(gender)) continue;
+            if (!age   .equals("Age") && !r.getPetAge().equals(age))    continue;
 
             boolean textMatch = query.isBlank()
-                || matchesText(r.getPetName(),    query)
+                || matchesText(r.getPetName(), query)
                 || matchesText(r.getReqFullName(), query);
 
             if (textMatch) results.add(r);
@@ -117,7 +117,7 @@ public class AdoptionHistorySearchFilter extends SearchFilterController {
             return;
         }
 
-        // ── Cards layout (left-aligned), matching the controller's style ──
+       
         panel.setLayout(new GridBagLayout());
 
         GridBagConstraints gbc = new GridBagConstraints();
@@ -156,7 +156,7 @@ public class AdoptionHistorySearchFilter extends SearchFilterController {
         panel.repaint();
     }
 
-    // ── helper: build a card the same way the controller does ─────────────
+   
     private AdoptionHistoryCard buildCard(AdoptionRequestData data) {
         AdoptionHistoryCard card = new AdoptionHistoryCard();
 

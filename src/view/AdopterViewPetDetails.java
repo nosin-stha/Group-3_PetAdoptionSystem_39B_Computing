@@ -86,7 +86,6 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
         ShelterMail_shelterinfopanal_petview_adopter = new javax.swing.JLabel();
         phoneicon_shelterinfopanal_petview_adopter = new javax.swing.JLabel();
         Mailicon_shelterinfopanal_petview_adopter = new javax.swing.JLabel();
-        Favouritethepet_btn_petview_adopter = new javax.swing.JButton();
         Adopt_btn_petview_adopter = new javax.swing.JButton();
         Exit_btn_petview_adopter = new javax.swing.JButton();
         Petname_petview_adopter = new javax.swing.JLabel();
@@ -286,13 +285,6 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
         Main_panal_Viewpet_adopter.add(Shelterinfopanal_petview_adopter);
         Shelterinfopanal_petview_adopter.setBounds(50, 500, 890, 150);
 
-        Favouritethepet_btn_petview_adopter.setForeground(new java.awt.Color(255, 153, 51));
-        Favouritethepet_btn_petview_adopter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/petFavBtnIcon.png"))); // NOI18N
-        Favouritethepet_btn_petview_adopter.setBorder(null);
-        Favouritethepet_btn_petview_adopter.addActionListener(this::Favouritethepet_btn_petview_adopterActionPerformed);
-        Main_panal_Viewpet_adopter.add(Favouritethepet_btn_petview_adopter);
-        Favouritethepet_btn_petview_adopter.setBounds(780, 150, 25, 25);
-
         Adopt_btn_petview_adopter.setBackground(new java.awt.Color(255, 153, 51));
         Adopt_btn_petview_adopter.setText("Adopt");
         Main_panal_Viewpet_adopter.add(Adopt_btn_petview_adopter);
@@ -383,10 +375,6 @@ public class AdopterViewPetDetails extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void Favouritethepet_btn_petview_adopterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Favouritethepet_btn_petview_adopterActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Favouritethepet_btn_petview_adopterActionPerformed
 
     private void Logout_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Logout_btnActionPerformed
 
@@ -503,9 +491,6 @@ public void hideAdoptButton() {
     Adopt_btn_petview_adopter.setVisible(false);
 }
 
-public void hideFavButton() {
-    Favouritethepet_btn_petview_adopter.setVisible(false);
-}
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Adopt_btn_petview_adopter;
@@ -516,7 +501,6 @@ public void hideFavButton() {
     private javax.swing.JButton Exit_btn_petview_adopter;
     private javax.swing.JButton Favourite_btn;
     private javax.swing.JLabel Favourite_text;
-    private javax.swing.JButton Favouritethepet_btn_petview_adopter;
     private javax.swing.JLabel Gender_Info_petview_adopter;
     private javax.swing.JLabel Gender_petview_adopter;
     private javax.swing.JButton Home_btn;

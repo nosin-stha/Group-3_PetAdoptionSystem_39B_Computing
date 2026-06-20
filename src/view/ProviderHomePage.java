@@ -152,7 +152,7 @@ public javax.swing.JScrollPane getProviderPetsScrollPane() {
         Search_Btn.setBounds(680, 140, 40, 22);
 
         PetAge_Filter.setBackground(new java.awt.Color(255, 153, 51));
-        PetAge_Filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Age", "2", "4", "6", "Other..", " " }));
+        PetAge_Filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Age", "New Born (<1 Year)", "Young (1-3 Years)", "Adult (3-8 Years)", "Senior (>8 Year)" }));
         Main_panal.add(PetAge_Filter);
         PetAge_Filter.setBounds(490, 180, 130, 22);
 

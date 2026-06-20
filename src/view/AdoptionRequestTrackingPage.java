@@ -68,6 +68,14 @@ public class AdoptionRequestTrackingPage extends javax.swing.JFrame {
         profile_btn.addActionListener(listener);
     }
     
+    public javax.swing.JComboBox<String> getCbAdoptionRequestsStatus() {
+        return cb_AdoptionRequestsStatus;
+    }
+
+    public javax.swing.JButton getResetBtn() {
+        return Reset_Btn;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -94,6 +102,7 @@ public class AdoptionRequestTrackingPage extends javax.swing.JFrame {
         lbl_yourRequests = new javax.swing.JLabel();
         lbl_CountRequests = new javax.swing.JLabel();
         AdopterTotalRequestsCount = new javax.swing.JLabel();
+        Reset_Btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -207,6 +216,9 @@ public class AdoptionRequestTrackingPage extends javax.swing.JFrame {
 
         AdopterTotalRequestsCount.setText("3");
 
+        Reset_Btn.setBackground(new java.awt.Color(255, 153, 51));
+        Reset_Btn.setText("Clear");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -222,9 +234,12 @@ public class AdoptionRequestTrackingPage extends javax.swing.JFrame {
                         .addComponent(lbl_CountRequests)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(AdopterTotalRequestsCount, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(cb_AdoptionRequestsStatus, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbl_yourRequests, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(cb_AdoptionRequestsStatus, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbl_yourRequests, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(Reset_Btn)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -234,11 +249,13 @@ public class AdoptionRequestTrackingPage extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(lbl_yourRequests)
                 .addGap(18, 18, 18)
-                .addComponent(cb_AdoptionRequestsStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cb_AdoptionRequestsStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Reset_Btn))
+                .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_CountRequests)
                     .addComponent(AdopterTotalRequestsCount))
@@ -313,6 +330,7 @@ public class AdoptionRequestTrackingPage extends javax.swing.JFrame {
     private javax.swing.JButton Logout_btn;
     private javax.swing.JButton MyRequests_btn;
     private javax.swing.JLabel Profile_text;
+    private javax.swing.JButton Reset_Btn;
     private javax.swing.JButton Shelters_btn;
     private javax.swing.JComboBox<String> cb_AdoptionRequestsStatus;
     private javax.swing.JPanel jPanel1;

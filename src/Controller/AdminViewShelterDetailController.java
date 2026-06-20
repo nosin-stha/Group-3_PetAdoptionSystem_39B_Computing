@@ -52,7 +52,6 @@ public class AdminViewShelterDetailController {
         loadAbout();
     }
 
-    // ── set jPanel1 (the root panel) to white ──
     private void setMainPanelBackground() {
         view.getMainPanel().setBackground(Color.WHITE);
     }
@@ -79,9 +78,18 @@ public class AdminViewShelterDetailController {
     }
 
     private void initListeners() {
-        view.getAboutButton().addActionListener(e -> { setActiveTab("ABOUT");     loadAbout(); });
-        view.getAvailableButton().addActionListener(e -> { setActiveTab("AVAILABLE"); loadPets("available"); });
-        view.getAdoptedButton().addActionListener(e -> { setActiveTab("ADOPTED");   loadPets("adopted"); });
+        view.getAboutButton().addActionListener(e -> { 
+            setActiveTab("ABOUT");
+            loadAbout(); 
+        });
+        view.getAvailableButton().addActionListener(e -> { 
+            setActiveTab("AVAILABLE");
+            loadPets("available"); 
+        });
+        view.getAdoptedButton().addActionListener(e -> { 
+            setActiveTab("ADOPTED");   
+            loadPets("adopted"); 
+        });
 
         view.getExitButton().addActionListener(e -> {
             view.dispose();
@@ -96,9 +104,9 @@ public class AdminViewShelterDetailController {
         view.getAboutButton().setBackground(DEFAULT_TAB);
         view.getAvailableButton().setBackground(DEFAULT_TAB);
         view.getAdoptedButton().setBackground(DEFAULT_TAB);
-        if ("ABOUT".equals(tab))     view.getAboutButton().setBackground(ACTIVE_TAB);
-        if ("AVAILABLE".equals(tab)) view.getAvailableButton().setBackground(ACTIVE_TAB);
-        if ("ADOPTED".equals(tab))   view.getAdoptedButton().setBackground(ACTIVE_TAB);
+        if ("ABOUT".equals(tab))view.getAboutButton().setBackground(ACTIVE_TAB);
+        if ("AVAILABLE".equals(tab))view.getAvailableButton().setBackground(ACTIVE_TAB);
+        if ("ADOPTED".equals(tab))view.getAdoptedButton().setBackground(ACTIVE_TAB);
     }
 
     private void loadAbout() {
@@ -175,12 +183,11 @@ public class AdminViewShelterDetailController {
             row++;
         }
 
-        // filler to push cards to top
         GridBagConstraints filler = new GridBagConstraints();
-        filler.gridx   = 0;
-        filler.gridy   = row;
+        filler.gridx = 0;
+        filler.gridy = row;
         filler.weighty = 1.0;
-        filler.fill    = GridBagConstraints.VERTICAL;
+        filler.fill = GridBagConstraints.VERTICAL;
         JPanel spacer = new JPanel();
         spacer.setOpaque(false);
         panel.add(spacer, filler);
@@ -195,7 +202,7 @@ public class AdminViewShelterDetailController {
     card.getGenderLabel().setText(safe(pet.getPetGender()));
     card.getAgeLabel().setText(safe(pet.getPetAge()));
 
-    // Always disable fav button for all pets
+   
     card.getFavButton().setEnabled(false);
     card.getFavButton().setVisible(false);
     card.getViewMoreButton().setEnabled(false);

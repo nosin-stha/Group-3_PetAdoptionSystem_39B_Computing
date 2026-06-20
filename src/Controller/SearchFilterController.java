@@ -25,17 +25,14 @@ public abstract class SearchFilterController {
         this.resetButton   = resetButton;
     }
  
-    /**
-     * Must be called as the LAST line of every subclass constructor.
-     * Attaches listeners, sets ready=true, then fires the first load.
-     */
+    
     protected void init() {
         attachListeners();
         ready = true;
         applyFilters();
     }
  
-    // ── private: only called once from init() ─────────────────────────────────
+   
     private void attachListeners() {
         searchbar    .addActionListener(e -> { if (ready) applyFilters(); });
         petTypeFilter.addActionListener(e -> { if (ready) applyFilters(); });

@@ -17,8 +17,29 @@ public class ShelterListingDisplay extends javax.swing.JFrame {
     /**
      * Creates new form ShelterListingDisplay
      */
+    
+    private static final String SEARCH_PLACEHOLDER = "shelter name, shelter location etc";
+
     public ShelterListingDisplay() {
         initComponents();
+        
+         Searchbar.addFocusListener(new java.awt.event.FocusAdapter() {
+        @Override
+        public void focusGained(java.awt.event.FocusEvent evt) {
+            if (Searchbar.getText().equals(SEARCH_PLACEHOLDER)) {
+                Searchbar.setText("");
+                Searchbar.setForeground(java.awt.Color.BLACK);
+            }
+        }
+
+        @Override
+        public void focusLost(java.awt.event.FocusEvent evt) {
+            if (Searchbar.getText().trim().isEmpty()) {
+                Searchbar.setText(SEARCH_PLACEHOLDER);
+                Searchbar.setForeground(new java.awt.Color(204, 204, 204));
+            }
+        }
+    });
     }
     
     
@@ -52,6 +73,26 @@ public class ShelterListingDisplay extends javax.swing.JFrame {
         profile_btn.addActionListener(listener);
     }
     
+    
+    public String getSearchText() {
+        String text = Searchbar.getText().trim();
+        return text.equals(SEARCH_PLACEHOLDER) ? "" : text;
+    }
+
+    public void addSearchListener(java.awt.event.ActionListener listener) {
+        Searchbar.addActionListener(listener);
+        SearchLogo.addActionListener(listener);
+    }
+    
+    
+    public void addResetListener(java.awt.event.ActionListener listener) {
+        Reset_Btn.addActionListener(listener);
+    }
+
+    public void resetSearchBar() {
+        Searchbar.setText(SEARCH_PLACEHOLDER);
+        Searchbar.setForeground(new java.awt.Color(204, 204, 204));
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -77,6 +118,7 @@ public class ShelterListingDisplay extends javax.swing.JFrame {
         SheltersDisplayPane = new javax.swing.JScrollPane();
         SheltersDisplayPanel = new javax.swing.JPanel();
         SearchLogo = new javax.swing.JButton();
+        Reset_Btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -178,13 +220,16 @@ public class ShelterListingDisplay extends javax.swing.JFrame {
         );
         SheltersDisplayPanelLayout.setVerticalGroup(
             SheltersDisplayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 358, Short.MAX_VALUE)
+            .addGap(0, 438, Short.MAX_VALUE)
         );
 
         SheltersDisplayPane.setViewportView(SheltersDisplayPanel);
 
         SearchLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
         SearchLogo.setBorder(null);
+
+        Reset_Btn.setBackground(new java.awt.Color(255, 153, 51));
+        Reset_Btn.setText("Clear");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -195,25 +240,32 @@ public class ShelterListingDisplay extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(256, 256, 256)
-                        .addComponent(Searchbar, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(SearchLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(Searchbar, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(SearchLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(190, 190, 190)
+                                .addComponent(Reset_Btn))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(SheltersDisplayPane, javax.swing.GroupLayout.PREFERRED_SIZE, 937, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(SearchLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Searchbar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
-                .addComponent(SheltersDisplayPane, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
+                .addGap(29, 29, 29)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Searchbar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SearchLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Reset_Btn)
+                .addGap(18, 18, 18)
+                .addComponent(SheltersDisplayPane, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -279,6 +331,7 @@ public class ShelterListingDisplay extends javax.swing.JFrame {
     private javax.swing.JButton Logout_btn;
     private javax.swing.JButton MyRequests_btn;
     private javax.swing.JLabel Profile_text;
+    private javax.swing.JButton Reset_Btn;
     private javax.swing.JButton SearchLogo;
     private javax.swing.JTextField Searchbar;
     private javax.swing.JScrollPane SheltersDisplayPane;

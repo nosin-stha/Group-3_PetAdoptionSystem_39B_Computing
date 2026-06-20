@@ -81,6 +81,27 @@ public class ProviderDetailsDAO {
         }
         return list;
     }
+    
+    public ArrayList<ProviderData> searchProviders(String keyword) {
+    String sql = "SELECT * FROM Providers WHERE shelterName LIKE ? OR proAddress LIKE ?";
+    ArrayList<ProviderData> list = new ArrayList<>();
+    Connection conn = mysql.openConnection();
+    if (conn == null) return list;
+    try (PreparedStatement pst = conn.prepareStatement(sql)) {
+        String likeTerm = "%" + keyword + "%";
+        pst.setString(1, likeTerm);
+        pst.setString(2, likeTerm);
+        ResultSet rs = pst.executeQuery();
+        while (rs.next()) {
+            list.add(mapRow(rs));
+        }
+    } catch (Exception e) {
+        System.out.println("Search Providers Error: " + e.getMessage());
+    } finally {
+        mysql.closeConnection(conn);
+    }
+    return list;
+}
 
     private ProviderData mapRow(ResultSet rs) throws Exception {
         ProviderData provider = new ProviderData();

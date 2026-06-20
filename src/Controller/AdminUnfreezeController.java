@@ -24,7 +24,7 @@ public class AdminUnfreezeController {
     private static final String MSG_NO_RECORDS = "No unfreeze requests found";
     private static final String MSG_NO_MATCH   = "No records match your search or filter";
  
-    // Scroll pane and empty-state label — resolved once in setupTable()
+    
     private JScrollPane tableScrollPane;
     private JLabel      emptyLabel;
  
@@ -135,7 +135,7 @@ public class AdminUnfreezeController {
         table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         table.setRowHeight(70);
  
-        // Find the JScrollPane that wraps the table
+        
         Component parent = table.getParent();
         while (parent != null && !(parent instanceof JScrollPane)) {
             parent = parent.getParent();
@@ -144,7 +144,7 @@ public class AdminUnfreezeController {
             tableScrollPane = (JScrollPane) parent;
         }
  
-        // Build the empty-state label
+        
         emptyLabel = new JLabel("", SwingConstants.CENTER);
         emptyLabel.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         emptyLabel.setForeground(new Color(160, 160, 160));

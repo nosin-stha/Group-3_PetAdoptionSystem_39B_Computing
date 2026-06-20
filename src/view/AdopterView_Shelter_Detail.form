@@ -61,11 +61,11 @@
                               </Group>
                               <Component id="Address_adopterView_shelter_details" min="-2" pref="269" max="-2" attributes="0"/>
                               <Component id="Contactstext" min="-2" pref="63" max="-2" attributes="0"/>
-                              <Component id="Shelter_name_adopterView_shelter_details" alignment="0" min="-2" pref="312" max="-2" attributes="0"/>
+                              <Component id="Shelter_name_adopterView_shelter_details" alignment="0" min="-2" pref="306" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="22" max="32767" attributes="0"/>
+                  <EmptySpace pref="28" max="32767" attributes="0"/>
                   <Component id="RightContentPanel" min="-2" pref="530" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -81,7 +81,7 @@
                           <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="Shelter_logo_adopterView_shelter_details" alignment="3" min="-2" pref="75" max="-2" attributes="0"/>
-                              <Component id="Shelter_name_adopterView_shelter_details" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="Shelter_name_adopterView_shelter_details" alignment="3" min="-2" pref="64" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="Contactstext" min="-2" max="-2" attributes="0"/>
@@ -91,16 +91,16 @@
                           <Component id="Email_adopterView_shelter_details" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                           <Component id="Locationtext" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="Address_adopterView_shelter_details" min="-2" pref="62" max="-2" attributes="0"/>
-                          <EmptySpace pref="134" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="Address_adopterView_shelter_details" min="-2" pref="37" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="Exit_adopterView_shelter_details" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="RightContentPanel" min="-2" pref="530" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="20" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -277,6 +277,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="Contactstext">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Contacts:"/>
           </Properties>
         </Component>
@@ -292,6 +295,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="Locationtext">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Location:"/>
           </Properties>
         </Component>

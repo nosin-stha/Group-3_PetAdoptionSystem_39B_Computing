@@ -63,6 +63,10 @@ public class AdopterProfile extends javax.swing.JFrame {
     public void addProfileListener(ActionListener listener) {
         profile_btn.addActionListener(listener);
     }
+    
+    public void setProfileIcon(javax.swing.ImageIcon icon) {
+        lblProfile.setIcon(icon);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

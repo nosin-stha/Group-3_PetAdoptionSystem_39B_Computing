@@ -16,18 +16,18 @@ public class AdopterHomeSearchFilter extends SearchFilterController {
     private static final Color  PLACEHOLDER_COLOR = new Color(204, 204, 204);
     private static final Color  TEXT_COLOR = Color.BLACK;
 
-    private final AdopterHomePage    view;
+    private final AdopterHomePage view;
     private final AdopterHomePageDao dao;
     private final ProviderDetailsDAO providerDao;
-    private final PetController      petController;
+    private final PetController petController;
 
     public AdopterHomeSearchFilter(AdopterHomePage view, PetController petController) {
         super(view.getSearchbar(), view.getPetTypeFilter(),
               view.getGenderFilter(), view.getPetAgeFilter(),
               view.getClearFilter());
-        this.view          = view;
-        this.dao           = new AdopterHomePageDao();
-        this.providerDao   = new ProviderDetailsDAO();
+        this.view = view;
+        this.dao = new AdopterHomePageDao();
+        this.providerDao = new ProviderDetailsDAO();
         this.petController = petController;
 
         setupPlaceholder();
@@ -128,7 +128,7 @@ protected void renderResults(ArrayList<?> data) {
         return;
     }
 
-    // Ensure layout is set (defensive – also set in PetController constructor)
+   
     if (!(container.getLayout() instanceof java.awt.GridLayout)) {
         container.setLayout(new java.awt.GridLayout(0, 3, 5, 5));
     }

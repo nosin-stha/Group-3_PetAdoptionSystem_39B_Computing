@@ -32,9 +32,11 @@ public class AdopterView_Shelter_Detail extends javax.swing.JFrame {
         new Controller.ShelterDetailController(this, provider, parentFrame);
         new Controller.NavigationController(this);
     }
-
+    
     public void setShelterName(String name) {
-        Shelter_name_adopterView_shelter_details.setText(name);
+        Shelter_name_adopterView_shelter_details.setText(
+            "<html><body style='width:306px'>" + name + "</body></html>"
+        );
     }
 
     public void setPhone(String phone) {
@@ -254,12 +256,14 @@ public class AdopterView_Shelter_Detail extends javax.swing.JFrame {
         Shelter_name_adopterView_shelter_details.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Shelter_name_adopterView_shelter_details.setText("jLabel1");
 
+        Contactstext.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Contactstext.setText("Contacts:");
 
         Phone_number_adopterView_shelter_details.setText("jLabel1");
 
         Email_adopterView_shelter_details.setText("jLabel1");
 
+        Locationtext.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Locationtext.setText("Location:");
 
         Address_adopterView_shelter_details.setText("jLabel3");
@@ -329,8 +333,8 @@ public class AdopterView_Shelter_Detail extends javax.swing.JFrame {
                                 .addComponent(Phone_number_adopterView_shelter_details, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(Address_adopterView_shelter_details, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Contactstext, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Shelter_name_adopterView_shelter_details, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                            .addComponent(Shelter_name_adopterView_shelter_details, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(RightContentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addComponent(toppanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -344,7 +348,7 @@ public class AdopterView_Shelter_Detail extends javax.swing.JFrame {
                         .addGap(87, 87, 87)
                         .addGroup(mainpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Shelter_logo_adopterView_shelter_details, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Shelter_name_adopterView_shelter_details))
+                            .addComponent(Shelter_name_adopterView_shelter_details, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Contactstext)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -353,15 +357,15 @@ public class AdopterView_Shelter_Detail extends javax.swing.JFrame {
                         .addComponent(Email_adopterView_shelter_details)
                         .addGap(45, 45, 45)
                         .addComponent(Locationtext)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Address_adopterView_shelter_details, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Address_adopterView_shelter_details, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Exit_adopterView_shelter_details)
                         .addGap(36, 36, 36))
                     .addGroup(mainpanalLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(RightContentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(20, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

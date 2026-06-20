@@ -60,7 +60,7 @@ public class ShelterDetailController {
         if (path == null || path.trim().isEmpty()) return;
         if (!new File(path).exists()) return;
         Image scaled = new ImageIcon(path).getImage()
-                           .getScaledInstance(110, 100, Image.SCALE_SMOOTH);
+                           .getScaledInstance(75, 75, Image.SCALE_SMOOTH);
         view.setShelterImage(new ImageIcon(scaled));
     }
  

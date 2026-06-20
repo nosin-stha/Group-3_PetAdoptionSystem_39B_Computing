@@ -183,7 +183,7 @@ public class AdoptionRequestManagement_ProviderPage extends javax.swing.JFrame {
         AllPetsRequests_ScrollPane.setViewportView(AllPetsRequests_ScrollPanel);
 
         PetAge_Filter.setBackground(new java.awt.Color(255, 153, 51));
-        PetAge_Filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Age", "2", "4", "6", "Other..", " " }));
+        PetAge_Filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Age", "New Born (<1 Year)", "Young (1-3 Years)", "Adult (3-8 Years)", "Senior (>8 Year)", " " }));
 
         Gender_Filter.setBackground(new java.awt.Color(255, 153, 51));
         Gender_Filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gender", "Male", "Female" }));

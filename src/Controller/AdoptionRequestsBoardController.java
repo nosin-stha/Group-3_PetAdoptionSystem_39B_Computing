@@ -188,8 +188,8 @@ void populateScrollPanel(ArrayList<PetsData> pets,
     // ── accept / decline ─────────────────────────────────────────────────────
  
     private void handleAccept(JTable table, int row) {
-        int    adoptionID   = (int) table.getModel().getValueAt(row, 0);
-        int    petID        = (int) table.getModel().getValueAt(row, 1);
+        int adoptionID = (int) table.getModel().getValueAt(row, 0);
+        int petID = (int) table.getModel().getValueAt(row, 1);
         String adopterEmail = table.getModel().getValueAt(row, 3).toString();
         String adopterName  = table.getModel().getValueAt(row, 2).toString();
  
@@ -216,10 +216,10 @@ void populateScrollPanel(ArrayList<PetsData> pets,
             }
             table.repaint();
  
-            String petName   = req != null ? req.getPetName()   : "";
-            String petType   = req != null ? req.getPetType()   : "";
+            String petName   = req != null ? req.getPetName() : "";
+            String petType   = req != null ? req.getPetType() : "";
             String petGender = req != null ? req.getPetGender() : "";
-            String petAge    = req != null ? req.getPetAge()    : "";
+            String petAge    = req != null ? req.getPetAge() : "";
  
             new Thread(() -> {
                 try {

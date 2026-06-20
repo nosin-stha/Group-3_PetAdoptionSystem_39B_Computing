@@ -20,8 +20,42 @@ public class ProviderProfile extends javax.swing.JFrame {
      */
     public ProviderProfile() {
         initComponents();
+        
+         lblMissionStatement_fill.setPreferredSize(new java.awt.Dimension(390, 90));
+        lblAdoptionPolicy_fill.setPreferredSize(new java.awt.Dimension(390, 90));
+
+   
+        lblMissionStatement_fill.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lblAdoptionPolicy_fill.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+  
+        java.net.URL profileIconUrl = getClass().getResource("/Images/profileButtonIcon.png");
+        if (profileIconUrl != null) {
+            javax.swing.ImageIcon rawIcon = new javax.swing.ImageIcon(profileIconUrl);
+            java.awt.Image scaled = rawIcon.getImage().getScaledInstance(25, 25, java.awt.Image.SCALE_SMOOTH);
+            profile_btn.setIcon(new javax.swing.ImageIcon(scaled));
+        } else {
+            logger.warning("profileButtonIcon.png not found on classpath at /Images/profileButtonIcon.png");
+        }
     }
     
+    
+    private String escapeHtml(String s) {
+        if (s == null) return "";
+        return s.replace("&", "&amp;")
+            .replace("<", "&lt;")
+            .replace(">", "&gt;")
+            .replace("\n", "<br>");
+    }
+
+    public void setlblMissionStatement_fill(String mission) {
+        lblMissionStatement_fill.setText("<html><body style='width:390px'>" + escapeHtml(mission) + "</body></html>");
+    }
+
+    public void setlblAdoptionPolicy_fill(String policy) {
+        lblAdoptionPolicy_fill.setText("<html><body style='width:390px'>" + escapeHtml(policy) + "</body></html>");
+    }
+
     public void addEditListener(ActionListener listener) {
         btnEdit.addActionListener(listener);
     }
@@ -68,14 +102,6 @@ public class ProviderProfile extends javax.swing.JFrame {
         EndDay_Profilelbl.setText(endDay);
     }
     
-    
-
-    public void setlblMissionStatement_fill(String mission) {
-        lblMissionStatement_fill.setText(mission);
-    }
-    public void setlblAdoptionPolicy_fill(String policy) {
-        lblAdoptionPolicy_fill.setText(policy);
-    }
     
 
     public javax.swing.JLabel getlblPhoneNumber_fill(){
@@ -206,7 +232,7 @@ public class ProviderProfile extends javax.swing.JFrame {
                 .addComponent(Adoption_Historybtn)
                 .addGap(24, 24, 24)
                 .addComponent(Logout_btn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 302, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnlTopBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Profile_text, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(profile_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -315,12 +341,12 @@ public class ProviderProfile extends javax.swing.JFrame {
                         .addGap(9, 9, 9)
                         .addComponent(EndDay_Profilelbl, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblAdoptionHistory)
                     .addComponent(lblMissionStatement)
-                    .addComponent(lblMissionStatement_fill, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
-                    .addComponent(lblAdoptionPolicy_fill, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(80, 80, 80))
+                    .addComponent(lblMissionStatement_fill, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAdoptionPolicy_fill, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(192, 192, 192))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -337,20 +363,32 @@ public class ProviderProfile extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(pnlTopBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(lblMissionStatement)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblMissionStatement_fill, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(lblShelterName_fill)
                                 .addGap(33, 33, 33)
                                 .addComponent(lblContacts)
                                 .addGap(18, 18, 18)
                                 .addComponent(lblPhoneNumber_fill)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblEmail_fill)
-                                .addGap(45, 45, 45)
+                                .addComponent(lblEmail_fill)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(73, 73, 73)
+                                .addComponent(lblAdoptionHistory)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblAdoptionPolicy_fill, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(41, 41, 41)
                                 .addComponent(lblLocation)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblLocation_fill)
@@ -367,19 +405,8 @@ public class ProviderProfile extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(StartDay_ProfileLbl)
                                     .addComponent(jLabel7)
-                                    .addComponent(EndDay_Profilelbl)))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addComponent(lblMissionStatement_fill, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblMissionStatement))
-                        .addGap(26, 26, 26)
-                        .addComponent(lblAdoptionHistory)
-                        .addGap(8, 8, 8)
-                        .addComponent(lblAdoptionPolicy_fill, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                                    .addComponent(EndDay_Profilelbl))))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnChangePassword)
                     .addComponent(btnEdit))
@@ -387,7 +414,7 @@ public class ProviderProfile extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(-4, -5, 1010, 690);
+        jPanel1.setBounds(-4, -5, 1010, 720);
 
         setBounds(0, 0, 1016, 720);
     }// </editor-fold>//GEN-END:initComponents
